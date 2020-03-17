@@ -1,0 +1,16 @@
+{
+  "name": "borrow-ui",
+  "repository": "git@github.com:borrow-ui/borrow-ui.git",
+  "author": "Vittorio Zamboni <vittorio.zamboni@gmail.com>",
+  "description": "A simple design system for React",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces"
+  }
+}
