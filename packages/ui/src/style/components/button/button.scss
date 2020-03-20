@@ -1,0 +1,10 @@
+@import '../../vars/colors';
+
+.borrow-ui__button {
+    color: $ui-color-on-neutral;
+    background-color: $ui-color-neutral;
+}
+.borrow-ui__button--positive {
+    color: $ui-color-on-positive;
+    background-color: $ui-color-positive;
+}
