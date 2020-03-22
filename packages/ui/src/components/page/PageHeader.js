@@ -31,7 +31,7 @@ export function PageHeader({ children, controls, scrollRef, titleComponent }) {
     const shadowClass = showShadow ? PAGE_HEADER_CONTAINER_WITH_SHADOW_CLASS : '';
     const headerClass = `${PAGE_HEADER_CONTAINER_CLASS} ${shadowClass}`;
 
-    const TitleComponent = titleComponent || 'h2';
+    const TitleComponent = titleComponent || (typeof children === 'string' ? 'h2' : 'div');
 
     return (
         <div className={headerClass}>

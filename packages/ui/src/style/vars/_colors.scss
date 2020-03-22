@@ -7,8 +7,11 @@ $ui-color-on-accent: black;
 $ui-color-secondary: #e8eddf;
 $ui-color-on-secondary: black;
 
-$ui-color-neutral: #bfd7ea;
-$ui-color-on-neutral: black;
+$ui-color-neutral: #718096;
+$ui-color-on-neutral: white;
+
+$ui-color-neutral-light: #edf2f7;
+$ui-color-on-neutral-light: $ui-color-neutral;
 
 $ui-color-positive: #36a53c;
 $ui-color-on-positive: white;

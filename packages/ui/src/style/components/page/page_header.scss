@@ -11,6 +11,7 @@ $ui-page-header-margin-bottom: 4px !default;
     align-items: center;
     justify-content: space-between;
     margin-bottom: $ui-page-header-margin-bottom;
+    width: 100%;
 }
 .borrow-ui__page__header--with-shadow {
     box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.15);
@@ -22,9 +23,9 @@ $ui-page-header-margin-bottom: 4px !default;
     color: $ui-color-primary;
 }
 
-/*
-.borrow-ui__page__header__header-container {}
-*/
+.borrow-ui__page__header__header-container {
+    width: 100%;
+}
 
 .borrow-ui__page__header__controls-container {
     display: flex;
