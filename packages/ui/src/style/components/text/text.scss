@@ -1,0 +1,18 @@
+@import '../../vars/main';
+
+.borrow-ui__text {
+    margin: 1em 0;
+}
+
+.borrow-ui__text--big {
+    font-size: $ui-font-size-big;
+    font-weight: 300;
+}
+
+.borrow-ui__text--small {
+    font-size: $ui-font-size-small;
+}
+
+.borrow-ui__text__subtitle {
+    color: $ui-color-accent;
+}
