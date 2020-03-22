@@ -1,0 +1,7 @@
+@import './vars/main';
+
+$ui-content-padding: $ui-page-padding !default;
+
+.borrow-ui__content {
+    padding: $ui-content-padding;
+}

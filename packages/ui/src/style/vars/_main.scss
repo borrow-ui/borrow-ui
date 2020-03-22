@@ -1,0 +1,38 @@
+@import './colors';
+
+/* Global */
+$ui-background-color: white;
+
+/* Font */
+$ui-font: 'Lato', -apple-system, 'Segoe UI', 'Ubuntu', sans-serif !default;
+$ui-font-code: source-code-pro, Monaco, Consolas, 'Courier New', monospace !default;
+$ui-font-color: #3c3b3e;
+$ui-font-size: 14px;
+
+/* Page */
+$ui-page-padding: 15px;
+$ui-page-header-height: 68px;
+$ui-page-header-margin-bottom: 4px;
+
+/* Content */
+$ui-content-padding: $ui-page-padding !default;
+
+/* Navbar */
+$ui-navbar-height: 46px;
+$ui-navbar-padding: 15px;
+$ui-navbar-padding-small: 7px;
+$ui-navbar-header-bg-color: #f5f7fa;
+$ui-navbar-header-bg-color-light: darken($ui-navbar-header-bg-color, 2);
+$ui-navbar-header-color: #9aa5b1;
+$ui-navbar-header-color-light: darken($ui-navbar-header-color, 2);
+$ui-navbar-header-border-color: darken($ui-navbar-header-bg-color, 3);
+$ui-navbar-body-header-bg-color: #ececec;
+$ui-navbar-body-border-color: #fcfcfc;
+$ui-navbar-body-bg-color: #fcfcfc;
+$ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color;
+$ui-navbar-body-query-color: #898989;
+$ui-navbar-body-query-focus-border-color: $ui-color-accent;
+
+/* Dashboard - Generic */
+$ui-dashboard-header-height: $ui-navbar-height;
+$ui-dashboard-footer-height: $ui-navbar-height;

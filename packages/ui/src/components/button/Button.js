@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from 'config';
 
-import 'style/components/button/button.scss';
+// import 'style/components/button/button.scss';
 
 const BUTTON_CLASS = `${UI_PREFIX}__button`;
 const BUTTON_CLASS_POSITIVE = `${BUTTON_CLASS}--positive`;
