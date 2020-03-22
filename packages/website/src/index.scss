@@ -1,0 +1,29 @@
+@import '@borrow-ui/ui/src/style/ui.full.scss';
+
+body {
+    font-family: $ui-font;
+    font-weight: 400;
+    font-size: $ui-font-size;
+    background-color: $ui-background-color;
+    color: $ui-font-color;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 20px;
+}
+h3 {
+    font-size: 16px;
+}
+h4 {
+    font-size: 14px;
+}
+h5 {
+    font-size: 12px;
+}

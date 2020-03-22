@@ -1,0 +1,25 @@
+@import '@borrow-ui/ui/src/style/vars/_colors.scss';
+
+.borrow-ui__home__container {
+    padding: 35px 0;
+    border-bottom: 1px solid $ui-color-neutral-light;
+    width: 100%;
+}
+.borrow-ui__home__title__container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.borrow-ui__home__logo {
+    width: 48px;
+    height: 48px;
+    margin-right: 15px;
+}
+
+.borrow-ui__home__title {
+    font-size: 46px;
+    display: inline-block;
+    margin: 0;
+    color: $ui-color-primary;
+}
