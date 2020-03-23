@@ -6,6 +6,7 @@ import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
 import { Subtitle } from './components/text/Subtitle';
 import { Text } from './components/text/Text';
+import { TextContainer } from './components/text/TextContainer';
 
 /*
 EXPORTS
@@ -22,5 +23,5 @@ export {
     PageBody,
     PageHeader,
     Text,
-    Subtitle,
+    TextContainer,
 };
