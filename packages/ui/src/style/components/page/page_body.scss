@@ -1,23 +1,9 @@
 @import '../../vars/main';
 
 $ui-page-padding: 15px !default;
-$ui-dashboard-header-height: 46px !default;
-$ui-dashboard-footer-height: 46px !default;
-$ui-page-header-height: 68px !default;
-$ui-page-header-margin-bottom: 4px !default;
 
 .borrow-ui__page__body {
     padding: $ui-page-padding;
     overflow: auto;
     box-sizing: border-box;
-}
-
-.borrow-ui__page {
-    height: calc(100vh - #{($ui-dashboard-header-height + $ui-dashboard-footer-height)});
-}
-.borrow-ui__page--with-page-header {
-    padding-top: $ui-page-padding - 4;
-    height: calc(
-        100vh - #{($ui-dashboard-header-height + $ui-dashboard-footer-height + $ui-page-header-height + $ui-page-header-margin-bottom)}
-    );
 }

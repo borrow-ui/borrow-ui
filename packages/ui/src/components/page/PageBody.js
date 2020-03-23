@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { UI_PREFIX } from 'config';
+import { propTypesChildren } from 'utils/types';
 
 // import 'style/components/page/page_body.scss';
 
@@ -21,5 +23,5 @@ PageBody.propTypes = {
     withPageHeader: PropTypes.bool,
     className: PropTypes.string,
     pageBodyRef: PropTypes.object,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    children: propTypesChildren,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from 'config';
+import { propTypesChildren } from 'utils/types';
 
 // import 'style/components/button/button.scss';
 
@@ -24,5 +25,5 @@ export function Button({ className, mean, children, ...rest }) {
 Button.propTypes = {
     className: PropTypes.string,
     mean: PropTypes.oneOf(['positive']),
-    children: PropTypes.node,
+    children: propTypesChildren,
 };

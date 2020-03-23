@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from 'config';
+import { propTypesChildren } from 'utils/types';
 
 // import 'style/components/page/page_header.scss';
 
@@ -46,6 +47,6 @@ export function PageHeader({ children, controls, scrollRef, titleComponent }) {
 PageHeader.propTypes = {
     controls: PropTypes.node,
     scrollRef: PropTypes.object,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+    children: propTypesChildren.isRequired,
     titleComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.number]),
 };
