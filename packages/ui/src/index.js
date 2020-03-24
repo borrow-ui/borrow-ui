@@ -1,4 +1,5 @@
 import { Button } from './components/button/Button';
+import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
 import { IconControl } from './components/icon/IconControl';
 import { Lorem } from './components/lorem/Lorem';
@@ -19,6 +20,7 @@ Exported components are divided in categories.
 export {
     // Components
     Button,
+    Col,
     Icon,
     IconControl,
     Lorem,
@@ -26,6 +28,7 @@ export {
     Page,
     PageBody,
     PageHeader,
+    Row,
     Subtitle,
     Text,
     TextContainer,
