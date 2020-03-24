@@ -2,10 +2,14 @@
 
 @import './components/button/button';
 
+@import './components/icon/icon.scss';
+@import './components/icon/icon_control.scss';
+
 @import './components/navbar/navbar';
 
 @import './components/page/page';
 @import './components/page/page_header';
 @import './components/page/page_body';
+
 @import './components/text/text.scss';
 @import './components/text/text_container.scss';

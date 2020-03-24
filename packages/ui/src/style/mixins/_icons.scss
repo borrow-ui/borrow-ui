@@ -1,0 +1,16 @@
+@import '../vars/colors';
+
+@mixin icon-control {
+    margin: 3px 0 3px 3px;
+    cursor: pointer;
+    color: $ui-color-neutral;
+    padding: 8px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+
+    &:hover {
+        color: lighten($ui-color-neutral, 1);
+        background-color: lighten($ui-color-neutral, 3);
+        border: 1px solid lighten($ui-color-neutral, 3);
+    }
+}

@@ -1,0 +1,7 @@
+@import '../../mixins/icons';
+
+.borrow-ui__icon-control {
+    @include icon-control;
+    padding: 4px;
+    margin: 0;
+}

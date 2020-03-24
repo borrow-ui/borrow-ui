@@ -1,4 +1,6 @@
 import { Button } from './components/button/Button';
+import { Icon } from './components/icon/Icon';
+import { IconControl } from './components/icon/IconControl';
 import { Lorem } from './components/lorem/Lorem';
 import { Navbar } from './components/navbar/Navbar';
 import { Page } from './components/page/Page';
@@ -17,11 +19,14 @@ Exported components are divided in categories.
 export {
     // Components
     Button,
+    Icon,
+    IconControl,
     Lorem,
     Navbar,
     Page,
     PageBody,
     PageHeader,
+    Subtitle,
     Text,
     TextContainer,
 };
