@@ -1,23 +1,31 @@
 $ui-color-primary: #247ea3;
+$ui-color-primary-over: lighten($ui-color-primary, 12);
 $ui-color-on-primary: white;
 
 $ui-color-accent: #00d0b7;
+$ui-color-accent-over: lighten($ui-color-accent, 12);
 $ui-color-on-accent: black;
 
 $ui-color-secondary: #e8eddf;
+$ui-color-secondary-over: lighten($ui-color-secondary, 12);
 $ui-color-on-secondary: black;
 
 $ui-color-neutral: #718096;
+$ui-color-neutral-over: lighten($ui-color-neutral, 12);
 $ui-color-on-neutral: white;
 
 $ui-color-neutral-light: #edf2f7;
+$ui-color-neutral-light-over: lighten($ui-color-neutral-light, 12);
 $ui-color-on-neutral-light: $ui-color-neutral;
 
 $ui-color-positive: #36a53c;
+$ui-color-positive-over: lighten($ui-color-positive, 12);
 $ui-color-on-positive: white;
 
 $ui-color-negative: #ff5a5f;
+$ui-color-negative-over: lighten($ui-color-negative, 12);
 $ui-color-on-negative: white;
 
 $ui-color-warning: #ffd166;
+$ui-color-warning-over: lighten($ui-color-warning, 12);
 $ui-color-on-warning: black;

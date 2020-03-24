@@ -3,8 +3,40 @@
 .borrow-ui__button {
     color: $ui-color-on-neutral;
     background-color: $ui-color-neutral;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid $ui-color-neutral;
+    border-radius: 0.25rem;
+    cursor: pointer;
 }
+
+.borrow-ui__button:hover {
+    background-color: $ui-color-neutral-over;
+    border-color: $ui-color-neutral-over;
+}
+
+.borrow-ui__button--primary {
+    color: $ui-color-on-primary;
+    background-color: $ui-color-primary;
+}
+.borrow-ui__button--primary:hover {
+    background-color: $ui-color-primary-over;
+}
+
 .borrow-ui__button--positive {
     color: $ui-color-on-positive;
     background-color: $ui-color-positive;
+}
+
+.borrow-ui__button--big {
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+}
+
+.borrow-ui__button--disabled {
+    cursor: not-allowed;
+}
+
+.borrow-ui__button--shadowed {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }

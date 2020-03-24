@@ -1,0 +1,105 @@
+@import 'vars/colors';
+
+.color-primary {
+    color: $ui-color-primary;
+}
+.color-primary-bg {
+    background-color: $ui-color-primary;
+}
+.color-on-primary {
+    color: $ui-color-on-primary;
+}
+.color-on-primary-bg {
+    background-color: $ui-color-on-primary;
+}
+
+.color-accent {
+    color: $ui-color-accent;
+}
+.color-accent-bg {
+    background-color: $ui-color-accent;
+}
+.color-on-accent {
+    color: $ui-color-on-accent;
+}
+.color-on-accent-bg {
+    background-color: $ui-color-on-accent;
+}
+
+.color-secondary {
+    color: $ui-color-secondary;
+}
+.color-secondary-bg {
+    background-color: $ui-color-secondary;
+}
+.color-on-secondary {
+    color: $ui-color-on-secondary;
+}
+.color-on-secondary-bg {
+    background-color: $ui-color-on-secondary;
+}
+
+.color-neutral {
+    color: $ui-color-neutral;
+}
+.color-neutral-bg {
+    background-color: $ui-color-neutral;
+}
+.color-on-neutral {
+    color: $ui-color-on-neutral;
+}
+.color-on-neutral-bg {
+    background-color: $ui-color-on-neutral;
+}
+
+.color-neutral-light {
+    color: $ui-color-neutral-light;
+}
+.color-neutral-light-bg {
+    background-color: $ui-color-neutral-light;
+}
+.color-on-neutral-light {
+    color: $ui-color-on-neutral-light;
+}
+.color-on-neutral-light-bg {
+    background-color: $ui-color-on-neutral-light;
+}
+
+.color-positive {
+    color: $ui-color-positive;
+}
+.color-positive-bg {
+    background-color: $ui-color-positive;
+}
+.color-on-positive {
+    color: $ui-color-on-positive;
+}
+.color-on-positive-bg {
+    background-color: $ui-color-on-positive;
+}
+
+.color-negative {
+    color: $ui-color-negative;
+}
+.color-negative-bg {
+    background-color: $ui-color-negative;
+}
+.color-on-negative {
+    color: $ui-color-on-negative;
+}
+.color-on-negative-bg {
+    background-color: $ui-color-on-negative;
+}
+
+.color-warning {
+    color: $ui-color-warning;
+}
+.color-warning-bg {
+    background-color: $ui-color-warning;
+}
+.color-on-warning {
+    color: $ui-color-on-warning;
+}
+.color-on-warning-bg {
+    background-color: $ui-color-on-warning;
+}
