@@ -11,6 +11,9 @@ import { Navbar } from './components/navbar/Navbar';
 import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
+import { Sidebar, SidebarContext } from './components/sidebar/Sidebar';
+import { SidebarEntry } from './components/sidebar/SidebarEntry';
+import { SidebarIcon } from './components/sidebar/SidebarIcon';
 import { Subtitle } from './components/text/Subtitle';
 import { Text } from './components/text/Text';
 import { TextContainer } from './components/text/TextContainer';
@@ -36,6 +39,10 @@ export {
     PageBody,
     PageHeader,
     Row,
+    Sidebar,
+    SidebarContext,
+    SidebarEntry,
+    SidebarIcon,
     Subtitle,
     Text,
     TextContainer,
