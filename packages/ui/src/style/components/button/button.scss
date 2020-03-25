@@ -36,6 +36,11 @@
 .borrow-ui__button--disabled {
     cursor: not-allowed;
 }
+.borrow-ui__button--primary:disabled,
+.borrow-ui__button--primary:disabled:hover {
+    background-color: $ui-color-primary-disabled;
+    border: 1px solid $ui-color-primary-disabled;
+}
 
 .borrow-ui__button--shadowed {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
