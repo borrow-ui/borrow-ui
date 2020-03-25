@@ -14,16 +14,32 @@ module.exports = {
                 use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }],
             },
             {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
                 test: /\.(png|gif|jpg|svg)$/,
                 use: {
                     loader: 'url-loader',
                     options: { limit: 50000 },
                 },
             },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/',
+                        },
+                    },
+                ],
+            },
         ],
     },
     resolve: {
-        extensions: ['.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg'],
+        extensions: ['.css', '.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg'],
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     output: {

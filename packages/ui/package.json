@@ -11,6 +11,8 @@
         "watch": "webpack --watch --progress --mode=development"
     },
     "peerDependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.0",
+        "material-design-icons-iconfont": "^5.0.1",
         "react": "16.13.0",
         "react-dom": "16.13.0"
     },
@@ -20,6 +22,7 @@
         "@babel/preset-react": "^7.8.3",
         "babel-loader": "^8.0.6",
         "css-loader": "^3.4.2",
+        "file-loader": "^6.0.0",
         "node-sass": "^4.13.1",
         "prettier-eslint": "^9.0.1",
         "sass-loader": "^8.0.2",
