@@ -13,6 +13,19 @@
     background-color: $ui-color-on-primary;
 }
 
+.color-primary-light {
+    color: $ui-color-primary-light;
+}
+.color-primary-light-bg {
+    background-color: $ui-color-primary-light;
+}
+.color-on-primary-light {
+    color: $ui-color-on-primary-light;
+}
+.color-on-primary-light-bg {
+    background-color: $ui-color-on-primary-light;
+}
+
 .color-accent {
     color: $ui-color-accent;
 }
@@ -63,6 +76,19 @@
 }
 .color-on-neutral-light-bg {
     background-color: $ui-color-on-neutral-light;
+}
+
+.color-neutral-dark {
+    color: $ui-color-neutral-dark;
+}
+.color-neutral-dark-bg {
+    background-color: $ui-color-neutral-dark;
+}
+.color-on-neutral-dark {
+    color: $ui-color-on-neutral-dark;
+}
+.color-on-neutral-dark-bg {
+    background-color: $ui-color-on-neutral-dark;
 }
 
 .color-positive {
