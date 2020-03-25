@@ -8,6 +8,7 @@ import { NavbarGroup } from './NavbarGroup';
 import { NavbarBody } from './NavbarBody';
 
 const NAVBAR_CLASS = `${UI_PREFIX}__navbar`;
+const NAVBAR_STICKY_CLASS = `${UI_PREFIX}__navbar--sticky`;
 const NAVBAR_HEADER_CLASS = `${UI_PREFIX}__navbar__header`;
 
 const getInitialState = () => ({
@@ -16,7 +17,7 @@ const getInitialState = () => ({
     query: '',
 });
 
-export function Navbar({ left, center, right }) {
+export function Navbar({ sticky = true, left, center, right }) {
     const [state, setState] = useState(getInitialState());
 
     const resetState = () => setState(getInitialState());
@@ -44,14 +45,27 @@ export function Navbar({ left, center, right }) {
 
     const { bodyOpen, selectedItem, query } = state;
 
-    const SelectedItemBody = selectedItem && selectedItem.hasOwnProperty('bodyItem') ? selectedItem.bodyItem : null;
+    const SelectedItemBody =
+        selectedItem && selectedItem.hasOwnProperty('bodyItem') ? selectedItem.bodyItem : null;
+
+    const navbarClass = `${NAVBAR_CLASS} ${sticky ? NAVBAR_STICKY_CLASS : ''}`;
 
     return (
-        <header className={NAVBAR_CLASS}>
+        <header className={navbarClass}>
             <div className={NAVBAR_HEADER_CLASS}>
-                {left && <NavbarGroup toggleSetItem={toggleSetItem} position="left" elements={left} />}
-                {center && <NavbarGroup toggleSetItem={toggleSetItem} position="center" elements={center} />}
-                {right && <NavbarGroup toggleSetItem={toggleSetItem} position="right" elements={right} />}
+                {left && (
+                    <NavbarGroup toggleSetItem={toggleSetItem} position="left" elements={left} />
+                )}
+                {center && (
+                    <NavbarGroup
+                        toggleSetItem={toggleSetItem}
+                        position="center"
+                        elements={center}
+                    />
+                )}
+                {right && (
+                    <NavbarGroup toggleSetItem={toggleSetItem} position="right" elements={right} />
+                )}
             </div>
             {bodyOpen && (
                 <NavbarBody
@@ -75,6 +89,7 @@ const elementsPropType = PropTypes.oneOfType([
 ]);
 
 Navbar.propTypes = {
+    sticky: PropTypes.bool,
     left: elementsPropType,
     center: elementsPropType,
     right: elementsPropType,

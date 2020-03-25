@@ -52,6 +52,17 @@ This is the element that contains the entire menu, both header and body
 */
 .borrow-ui__navbar {
     height: $ui-navbar-height;
+    z-index: 1;
+}
+
+.borrow-ui__navbar--sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.borrow-ui__navbar--stycky-margin {
+    margin-top: $ui-navbar-height;
 }
 
 /* DashboardMenu header, the always visible part */
@@ -120,7 +131,7 @@ This is the element that contains the entire menu, both header and body
     position: absolute;
     z-index: 10;
     top: $ui-navbar-height;
-    width: calc(100% - 2px); /* 2px of border */
+    width: 100%;
     border: 1px solid $ui-navbar-body-border-color;
     background-color: $ui-navbar-body-bg-color;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
