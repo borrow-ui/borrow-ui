@@ -1,3 +1,7 @@
+// Configuration
+import { setConfig, getConfig } from './config';
+
+// Components
 import { Button } from './components/button/Button';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
@@ -18,6 +22,9 @@ Exported components are divided in categories.
 */
 
 export {
+    // Config
+    getConfig,
+    setConfig,
     // Components
     Button,
     Col,
