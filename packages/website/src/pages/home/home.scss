@@ -5,10 +5,36 @@
     border-bottom: 1px solid $ui-color-neutral-light;
     width: 100%;
 }
+
+.borrow-ui__home__links-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    flex-direction: column;
+}
+.borrow-ui__home__icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .borrow-ui__icon {
+        margin: 0 20px;
+    }
+}
+
+.borrow-ui__home__buttons-container {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .borrow-ui__home__title__container {
     display: flex;
     align-items: center;
     margin-bottom: 35px;
+    height: 100%;
 }
 
 .borrow-ui__home__logo {

@@ -1,15 +1,22 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import { useLocation, Link, BrowserRouter } from 'react-router-dom';
+
+import { setConfig } from '@borrow-ui/ui/lib';
+
 import './App.css';
 
-import { Header } from './scaffold/header/Header';
-import { Home } from './pages/home/Home';
+import { Website } from './Website';
+
+setConfig('getLocation', useLocation);
+setConfig('getLinkComponent', () => Link);
 
 function App() {
     return (
-        <Fragment>
-            <Header />
-            <Home />
-        </Fragment>
+        <BrowserRouter>
+            <Website />
+        </BrowserRouter>
     );
 }
 

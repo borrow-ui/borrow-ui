@@ -1,0 +1,7 @@
+.website__sidebar--home {
+    background-color: $ui-background-color;
+
+    .borrow-ui__sidebar__entry:not(:hover) {
+        color: $ui-color-primary-light;
+    }
+}
