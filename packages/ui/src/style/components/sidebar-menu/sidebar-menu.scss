@@ -23,10 +23,10 @@ $ui-page-padding: 15px !default;
     padding: 7px;
     display: block;
     text-decoration: none;
-    color: $ui-color-on-neutral-light;
+    color: $ui-color-on-neutral-white;
 }
 .borrow-ui__sidebar-menu__entry:hover {
-    background-color: $ui-color-neutral-light-over;
+    background-color: $ui-color-neutral-white-over;
     font-weight: bold;
 }
 .borrow-ui__sidebar-menu__entry--active {

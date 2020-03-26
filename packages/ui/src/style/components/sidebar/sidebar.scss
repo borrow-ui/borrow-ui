@@ -7,7 +7,7 @@ $ui-sidebar-closed-width: 46px !default;
 $ui-sidebar-open-width: 350px !default;
 $ui-sidebar-trigger-height: $ui-sidebar-closed-width;
 
-$ui-sidebar-color: $ui-color-neutral-light;
+$ui-sidebar-color: $ui-color-neutral-white;
 
 .borrow-ui__sidebar__container {
     flex: none;
@@ -48,7 +48,7 @@ $ui-sidebar-color: $ui-color-neutral-light;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $ui-color-on-neutral-light;
+    color: $ui-color-on-neutral-white;
     cursor: pointer;
 }
 
@@ -95,7 +95,7 @@ $ui-sidebar-color: $ui-color-neutral-light;
     min-width: $ui-sidebar-closed-width;
     display: flex;
     margin-bottom: $ui-sidebar-closed-width / 5;
-    color: lighten($ui-color-on-neutral-light, 12);
+    color: lighten($ui-color-on-neutral-white, 12);
     cursor: pointer;
     text-decoration: none;
 }

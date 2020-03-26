@@ -1,4 +1,5 @@
 @import '../../vars/colors';
+@import '../../vars/main';
 
 .borrow-ui__button {
     color: $ui-color-on-neutral;
@@ -10,6 +11,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    font-family: $ui-font;
 }
 .borrow-ui__button:hover {
     background-color: $ui-color-neutral-over;
@@ -80,6 +82,18 @@
 .borrow-ui__button--accent:disabled,
 .borrow-ui__button--accent:disabled:hover {
     background-color: $ui-color-accent-disabled;
+}
+
+.borrow-ui__button--neutral-light {
+    color: $ui-color-on-neutral-light;
+    background-color: $ui-color-neutral-light;
+}
+.borrow-ui__button--neutral-light:hover {
+    background-color: $ui-color-neutral-light-over;
+}
+.borrow-ui__button--neutral-light:disabled,
+.borrow-ui__button--neutral-light:disabled:hover {
+    background-color: $ui-color-neutral-light-disabled;
 }
 
 .borrow-ui__button--positive {
