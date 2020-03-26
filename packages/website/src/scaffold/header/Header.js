@@ -9,9 +9,13 @@ export function Header() {
     const location = useLocation();
     const sidebarWidth = 46;
 
-    const colors = location.pathname !== '/' ? 'color-primary-bg color-on-primary' : '';
+    const colors = location.pathname !== '/' ? '' : '';
     const sidebarTriggerClass = `borrow-ui__navbar__group__item borrow-ui__sidebar-trigger ${colors} p-0`;
-    const sidebarTriggerStyle = { width: sidebarWidth, justifyContent: 'center' };
+    const sidebarTriggerStyle = {
+        width: sidebarWidth,
+        justifyContent: 'center',
+        cursor: 'pointer',
+    };
     const SidebarTrigger = (
         <span
             style={sidebarTriggerStyle}
