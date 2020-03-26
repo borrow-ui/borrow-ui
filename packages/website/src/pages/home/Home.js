@@ -12,7 +12,7 @@ import {
     Button,
 } from '@borrow-ui/ui/lib';
 
-import logo from './borrow-ui-color-192.png';
+import logo from 'static/borrow-ui-color-192.png';
 import './home.scss';
 
 export function Home() {
