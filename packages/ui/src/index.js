@@ -2,6 +2,7 @@
 import { setConfig, getConfig } from './config';
 
 // Components
+import { Badge } from './components/badge/Badge';
 import { Button } from './components/button/Button';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
@@ -30,6 +31,7 @@ export {
     getConfig,
     setConfig,
     // Components
+    Badge,
     Button,
     Col,
     Icon,

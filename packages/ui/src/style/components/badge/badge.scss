@@ -1,0 +1,26 @@
+@import '../../vars/colors';
+
+.borrow-ui__badge {
+    font-size: 12px;
+    margin: 0 5px;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.borrow-ui__badge--rounded {
+    border-radius: 10px;
+}
+
+.borrow-ui__badge--circular {
+    border-radius: 50%;
+    margin: 0;
+    padding: 2px;
+    width: 28px;
+    height: 28px;
+}
+
+.borrow-ui__badge--clickable {
+    cursor: pointer;
+}
