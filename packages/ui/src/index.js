@@ -14,6 +14,7 @@ import { PageHeader } from './components/page/PageHeader';
 import { Sidebar, SidebarContext } from './components/sidebar/Sidebar';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
+import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
 import { Subtitle } from './components/text/Subtitle';
 import { Text } from './components/text/Text';
 import { TextContainer } from './components/text/TextContainer';
@@ -43,6 +44,7 @@ export {
     SidebarContext,
     SidebarEntry,
     SidebarIcon,
+    SidebarMenu,
     Subtitle,
     Text,
     TextContainer,

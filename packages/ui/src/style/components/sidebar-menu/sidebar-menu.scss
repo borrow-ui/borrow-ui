@@ -1,0 +1,46 @@
+@import '../../vars/main';
+
+$ui-page-padding: 15px !default;
+
+.borrow-ui__sidebar-menu {
+    width: 100%;
+    box-sizing: border-box;
+}
+.borrow-ui__sidebar-menu--padded {
+    padding: $ui-page-padding;
+}
+
+.borrow-ui__sidebar-menu__title {
+    padding: 5px;
+    padding-left: 0;
+    text-transform: uppercase;
+    color: $ui-color-primary;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.borrow-ui__sidebar-menu__entry {
+    padding: 7px;
+    display: block;
+    text-decoration: none;
+    color: $ui-color-on-neutral-light;
+}
+.borrow-ui__sidebar-menu__entry:hover {
+    background-color: $ui-color-neutral-light-over;
+    font-weight: bold;
+}
+.borrow-ui__sidebar-menu__entry--active {
+    color: $ui-color-accent;
+    font-weight: bold;
+}
+.borrow-ui__sidebar-menu__entry--clickable {
+    cursor: pointer;
+}
+
+.borrow-ui__sidebar-menu__separator {
+    border-bottom: 1px solid $ui-color-primary-light;
+    height: 1px;
+    display: block;
+    margin: 7px 0;
+    width: calc(100% - 50px);
+}
