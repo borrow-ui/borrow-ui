@@ -4,8 +4,8 @@ import { Button } from '@borrow-ui/ui/lib';
 
 export function Buttons() {
     return (
-        <div>
-            <h2>Buttons</h2>
+        <div className="m-b-20">
+            <h1>Buttons</h1>
             <div style={{ display: 'flex' }} className="m-b-20">
                 <Button onClick={() => window.alert('test')} className="m-r-20">
                     Regular

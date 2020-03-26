@@ -1,0 +1,19 @@
+.singlepage__colors {
+    display: flex;
+}
+
+.singlepage__colors__color {
+    display: inline-flex;
+    width: 160px;
+    padding: 45px 15px 15px 15px;
+    text-transform: capitalize;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.singlepage__colors__color__code {
+    margin-top: 8px;
+    font-family: monospace;
+    font-size: 12px;
+}
