@@ -12,6 +12,7 @@ export function Colors() {
                     <Color color="primary" />
                     <Color color="accent" />
                     <Color color="neutral" />
+                    <Color color="neutral-light" />
                     <Color color="positive" />
                     <Color color="warning" />
                     <Color color="negative" />
