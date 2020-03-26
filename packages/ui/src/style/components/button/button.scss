@@ -4,14 +4,58 @@
     color: $ui-color-on-neutral;
     background-color: $ui-color-neutral;
     padding: 0.5rem 0.75rem;
-    border: 1px solid $ui-color-neutral;
+    border: none;
     border-radius: 0.25rem;
     cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .borrow-ui__button:hover {
     background-color: $ui-color-neutral-over;
     border-color: $ui-color-neutral-over;
+}
+
+.borrow-ui__button--disabled {
+    cursor: not-allowed;
+}
+.borrow-ui__button:disabled,
+.borrow-ui__button:disabled:hover {
+    background-color: $ui-color-neutral-disabled;
+}
+
+.borrow-ui__button--shadowed {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.borrow-ui__button--icon {
+    padding: 0.41rem 0.75rem;
+}
+
+.borrow-ui__button--smaller {
+    padding: 0.34rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.3rem;
+}
+.borrow-ui__button--small {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    border-radius: 0.3rem;
+}
+.borrow-ui__button--big {
+    padding: 0.75rem 1rem;
+    font-size: 1.09rem;
+    border-radius: 0.4rem;
+}
+.borrow-ui__button--bigger {
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+}
+.borrow-ui__button--huge {
+    padding: 1.3rem 1.7rem;
+    font-size: 1.5rem;
+    border-radius: 0.55rem;
 }
 
 .borrow-ui__button--primary {
@@ -21,27 +65,55 @@
 .borrow-ui__button--primary:hover {
     background-color: $ui-color-primary-over;
 }
+.borrow-ui__button--primary:disabled,
+.borrow-ui__button--primary:disabled:hover {
+    background-color: $ui-color-primary-disabled;
+}
+
+.borrow-ui__button--accent {
+    color: $ui-color-on-accent;
+    background-color: $ui-color-accent;
+}
+.borrow-ui__button--accent:hover {
+    background-color: $ui-color-accent-over;
+}
+.borrow-ui__button--accent:disabled,
+.borrow-ui__button--accent:disabled:hover {
+    background-color: $ui-color-accent-disabled;
+}
 
 .borrow-ui__button--positive {
     color: $ui-color-on-positive;
     background-color: $ui-color-positive;
 }
-
-.borrow-ui__button--big {
-    padding: 1rem 1.25rem;
-    font-size: 1.125rem;
-    border-radius: 0.5rem;
+.borrow-ui__button--positive:hover {
+    background-color: $ui-color-positive-over;
+}
+.borrow-ui__button--positive:disabled,
+.borrow-ui__button--positive:disabled:hover {
+    background-color: $ui-color-positive-disabled;
 }
 
-.borrow-ui__button--disabled {
-    cursor: not-allowed;
+.borrow-ui__button--negative {
+    color: $ui-color-on-negative;
+    background-color: $ui-color-negative;
 }
-.borrow-ui__button--primary:disabled,
-.borrow-ui__button--primary:disabled:hover {
-    background-color: $ui-color-primary-disabled;
-    border: 1px solid $ui-color-primary-disabled;
+.borrow-ui__button--negative:hover {
+    background-color: $ui-color-negative-over;
+}
+.borrow-ui__button--negative:disabled,
+.borrow-ui__button--negative:disabled:hover {
+    background-color: $ui-color-negative-disabled;
 }
 
-.borrow-ui__button--shadowed {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+.borrow-ui__button--warning {
+    color: $ui-color-on-warning;
+    background-color: $ui-color-warning;
+}
+.borrow-ui__button--warning:hover {
+    background-color: $ui-color-warning-over;
+}
+.borrow-ui__button--warning:disabled,
+.borrow-ui__button--warning:disabled:hover {
+    background-color: $ui-color-warning-disabled;
 }

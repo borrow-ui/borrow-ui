@@ -7,15 +7,17 @@ $ui-color-primary-light: rgba(36, 125, 163, 0.5); /* primary 0.5 */
 $ui-color-primary-light-over: lighten($ui-color-primary-light, 12);
 $ui-color-on-primary-light: #565656;
 
-$ui-color-accent: #00d0b7;
+$ui-color-accent: #00af9f;
+$ui-color-accent-disabled: #01e6cb;
 $ui-color-accent-over: lighten($ui-color-accent, 12);
-$ui-color-on-accent: black;
+$ui-color-on-accent: white;
 
 $ui-color-secondary: #e8eddf;
 $ui-color-secondary-over: lighten($ui-color-secondary, 12);
 $ui-color-on-secondary: black;
 
 $ui-color-neutral: #718096;
+$ui-color-neutral-disabled: #aabad2;
 $ui-color-neutral-over: lighten($ui-color-neutral, 12);
 $ui-color-on-neutral: white;
 
@@ -28,13 +30,16 @@ $ui-color-neutral-dark-over: lighten($ui-color-neutral-dark, 12);
 $ui-color-on-neutral-dark: $ui-color-neutral-light;
 
 $ui-color-positive: #36a53c;
+$ui-color-positive-disabled: #6bc770;
 $ui-color-positive-over: lighten($ui-color-positive, 12);
 $ui-color-on-positive: white;
 
 $ui-color-negative: #ff5a5f;
+$ui-color-negative-disabled: #ffa0a3;
 $ui-color-negative-over: lighten($ui-color-negative, 12);
 $ui-color-on-negative: white;
 
-$ui-color-warning: #ffd166;
+$ui-color-warning: #f9b827;
+$ui-color-warning-disabled: #ffd473;
 $ui-color-warning-over: lighten($ui-color-warning, 12);
-$ui-color-on-warning: black;
+$ui-color-on-warning: white;
