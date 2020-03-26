@@ -32,13 +32,13 @@ export function Navbar({ sticky = true, left, center, right }) {
         const { selectedItem, bodyOpen } = state;
         if (selectedItem === item) {
             if (!bodyOpen) {
-                setState({ ...state, bodyOpen: openBody });
+                if (selectedItem.bodyItem) setState({ ...state, bodyOpen: openBody });
             } else {
                 setState({ ...state, selectedItem: null, bodyOpen: false });
             }
         } else {
             const newState = { selectedItem: item };
-            if (openBody !== undefined) newState.bodyOpen = openBody;
+            if (openBody !== undefined && item.bodyItem) newState.bodyOpen = openBody;
             setState({ ...state, ...newState });
         }
     };
