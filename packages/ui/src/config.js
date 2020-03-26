@@ -1,5 +1,7 @@
 export const UI_PREFIX = 'borrow-ui';
 
+export const SIZES = ['smaller', 'small', 'normal', 'big', 'bigger', 'huge'];
+
 export const config = {
     getLocation: () => {},
     getLinkComponent: () => 'a',
