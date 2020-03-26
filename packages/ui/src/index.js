@@ -3,6 +3,7 @@ import { setConfig, getConfig } from './config';
 
 // Components
 import { Badge } from './components/badge/Badge';
+import { Breadcrumbs } from './components/breadcrumbs/Breadcrumbs';
 import { Button } from './components/button/Button';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
@@ -32,6 +33,7 @@ export {
     setConfig,
     // Components
     Badge,
+    Breadcrumbs,
     Button,
     Col,
     Icon,
