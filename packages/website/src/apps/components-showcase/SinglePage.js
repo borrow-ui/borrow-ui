@@ -8,6 +8,7 @@ import { Buttons } from './single-page/Buttons';
 import { Colors } from './single-page/Colors';
 import { Sidebars } from './single-page/Sidebars';
 import { Cards } from './single-page/Cards';
+import { TabsComponent } from './single-page/TabsComponent';
 
 export function SinglePage() {
     return (
@@ -23,6 +24,9 @@ export function SinglePage() {
             </Block>
             <Block className="color-white-bg" outstanding={true}>
                 <Cards />
+            </Block>
+            <Block className="color-white-bg" outstanding={true}>
+                <TabsComponent />
             </Block>
         </Page>
     );
