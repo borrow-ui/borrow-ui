@@ -5,6 +5,7 @@ import { setConfig, getConfig } from './config';
 import { Badge } from './components/badge/Badge';
 import { Breadcrumbs } from './components/breadcrumbs/Breadcrumbs';
 import { Button } from './components/button/Button';
+import { Card } from './components/card/Card';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
 import { IconControl } from './components/icon/IconControl';
@@ -35,6 +36,7 @@ export {
     Badge,
     Breadcrumbs,
     Button,
+    Card,
     Col,
     Icon,
     IconControl,
