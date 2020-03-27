@@ -12,21 +12,29 @@ import { PageBody } from './PageBody';
 const PAGE_CLASS = `${UI_PREFIX}__page`;
 const PAGE_INFINITE_CLASS = `${UI_PREFIX}__page--infinite`;
 
-export function Page({ className = '', infinite, title, usePageBody = true, pageHeaderProps, pageBodyProps, children, ...rest }) {
+export function Page({
+    className = '',
+    infinite,
+    title,
+    usePageBody = true,
+    pageHeaderProps,
+    pageBodyProps,
+    children,
+    ...rest
+}) {
     const bodyRef = useRef(null);
 
     const pageClass = `${PAGE_CLASS} ${infinite ? PAGE_INFINITE_CLASS : ''} ${className}`;
 
-    const headerProps = { ...(pageHeaderProps || {}) };
     const bodyProps = {
-        withPageHeader: pageHeaderProps !== undefined,
+        withPageHeader: pageHeaderProps !== undefined || title,
         ...pageBodyProps,
     };
 
     return (
         <div className={pageClass} {...rest}>
             {title && (
-                <PageHeader scrollRef={bodyRef} {...headerProps}>
+                <PageHeader scrollRef={bodyRef} {...pageHeaderProps}>
                     {title}
                 </PageHeader>
             )}
