@@ -1,0 +1,28 @@
+.borrow-ui__block {
+    overflow: auto;
+}
+
+.borrow-ui__block--outstanding {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.borrow-ui__block--separated {
+    margin-bottom: 1.5rem;
+}
+
+.borrow-ui__block--padded {
+    padding: 1rem;
+}
+
+.borrow-ui__block--rounded {
+    border-radius: 0.5rem;
+}
+
+.borrow-ui__block--content-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+}

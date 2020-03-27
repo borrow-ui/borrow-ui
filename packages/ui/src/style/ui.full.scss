@@ -1,6 +1,8 @@
-@import './ui.scss';
+@import './ui';
 
 @import './components/badge/badge';
+
+@import './components/block/block';
 
 @import './components/breadcrumbs/breadcrumbs';
 
@@ -8,8 +10,8 @@
 
 @import './components/card/card';
 
-@import './components/icon/icon.scss';
-@import './components/icon/icon_control.scss';
+@import './components/icon/icon';
+@import './components/icon/icon_control';
 
 @import './components/navbar/navbar';
 
@@ -17,8 +19,8 @@
 @import './components/page/page_header';
 @import './components/page/page_body';
 
-@import './components/text/text.scss';
-@import './components/text/text_container.scss';
+@import './components/text/text';
+@import './components/text/text_container';
 
-@import './components/sidebar/sidebar.scss';
-@import './components/sidebar-menu/sidebar-menu.scss';
+@import './components/sidebar/sidebar';
+@import './components/sidebar-menu/sidebar-menu';
