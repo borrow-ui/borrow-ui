@@ -1,0 +1,32 @@
+@import '../../vars/main';
+
+.borrow-ui__popover__outer-container {
+    display: inline-block;
+}
+
+.borrow-ui__popover {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    box-shadow: $ui-shadow-regular;
+    padding: 0;
+    z-index: 1;
+    transition: visibility 0.1s 0s, opacity 0.1s 0s linear;
+}
+
+.borrow-ui__popover--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Used to trigger the popover with CSS only */
+.borrow-ui__popover__trigger--manual {
+    position: relative;
+}
+.borrow-ui__popover__trigger--manual .borrow-ui__popover__container {
+    position: absolute;
+}
+.borrow-ui__popover__trigger--manual:hover .borrow-ui__popover__container {
+    visibility: visible;
+    opacity: 1;
+}
