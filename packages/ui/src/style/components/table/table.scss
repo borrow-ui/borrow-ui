@@ -1,0 +1,35 @@
+@import '../../vars/main';
+
+$ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
+
+.borrow-ui__table {
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid $ui-table-border-color;
+}
+
+.borrow-ui__table__cell {
+    padding: 7px;
+}
+
+.borrow-ui__table__cell__content {
+    display: flex;
+}
+
+.borrow-ui__table__head__row {
+    background-color: $ui-color-neutral-white;
+    color: $ui-color-neutral;
+}
+
+.borrow-ui__table__head__cell {
+    font-weight: 400;
+    border-bottom: 1px solid $ui-table-border-color;
+}
+
+.borrow-ui__table__body__row:hover {
+    background-color: $ui-color-neutral-white;
+}
+
+.borrow-ui__table__body__cell {
+    border-bottom: 1px solid $ui-table-border-color;
+}

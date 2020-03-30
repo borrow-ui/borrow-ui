@@ -24,6 +24,7 @@ import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
 import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
 import { Subtitle } from './components/text/Subtitle';
+import { Table } from './components/table/Table';
 import { Tabs } from './components/tabs/Tabs';
 import { Text } from './components/text/Text';
 import { TextContainer } from './components/text/TextContainer';
@@ -63,6 +64,7 @@ export {
     SidebarIcon,
     SidebarMenu,
     Subtitle,
+    Table,
     Tabs,
     Text,
     TextContainer,
