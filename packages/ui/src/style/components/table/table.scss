@@ -2,6 +2,8 @@
 
 $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 
+@import './table_pagination.scss';
+
 .borrow-ui__table {
     width: 100%;
     border-spacing: 0;
@@ -32,4 +34,10 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 
 .borrow-ui__table__body__cell {
     border-bottom: 1px solid $ui-table-border-color;
+}
+
+.borrow-ui__table__status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

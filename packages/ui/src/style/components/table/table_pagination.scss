@@ -1,0 +1,30 @@
+.borrow-ui__table__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.borrow-ui__table__pagination__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    border: 1px solid $ui-table-border-color;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+}
+
+.borrow-ui__table__pagination__page:not(:first-of-type) {
+    margin-left: 5px;
+}
+
+.borrow-ui__table__pagination__page:hover {
+    background-color: $ui-color-primary;
+    color: $ui-color-on-primary;
+}
+
+.borrow-ui__table__pagination__page--active {
+    background-color: $ui-color-accent;
+    color: $ui-color-on-accent;
+}
