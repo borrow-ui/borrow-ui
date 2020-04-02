@@ -31,7 +31,7 @@ $ui-color-neutral-dark-over: lighten($ui-color-neutral-dark, 12);
 $ui-color-on-neutral-dark: white;
 
 $ui-color-neutral-white: #fafafb;
-$ui-color-neutral-white-over: darken($ui-color-neutral-white, 12);
+$ui-color-neutral-white-over: #faf9fa;
 $ui-color-on-neutral-white: $ui-color-neutral;
 
 $ui-color-neutral-white-dark: #f7f7fa;
@@ -47,7 +47,7 @@ $ui-color-positive-disabled: #6bc770;
 $ui-color-positive-over: lighten($ui-color-positive, 12);
 $ui-color-on-positive: white;
 
-$ui-color-negative: #ff5a5f;
+$ui-color-negative: #fd585d;
 $ui-color-negative-disabled: #ffa0a3;
 $ui-color-negative-over: lighten($ui-color-negative, 12);
 $ui-color-on-negative: white;
