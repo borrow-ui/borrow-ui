@@ -17,6 +17,10 @@ $ui-page-padding: 15px;
 $ui-page-header-height: 68px;
 $ui-page-header-margin-bottom: 4px;
 
+/* Card */
+$ui-card-border-radius: 10px;
+$ui-card-side-width: 128px;
+
 /* Content */
 $ui-content-padding: $ui-page-padding !default;
 
@@ -38,4 +42,4 @@ $ui-navbar-body-query-focus-border-color: $ui-color-accent;
 
 /* Dashboard - Generic */
 $ui-dashboard-header-height: $ui-navbar-height;
-$ui-dashboard-footer-height: $ui-navbar-height;
+$ui-dashboard-footer-height: 0;

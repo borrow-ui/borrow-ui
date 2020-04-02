@@ -78,6 +78,19 @@
     background-color: $ui-color-on-neutral-light;
 }
 
+.color-neutral-dark {
+    color: $ui-color-neutral-dark;
+}
+.color-neutral-dark-bg {
+    background-color: $ui-color-neutral-dark;
+}
+.color-on-neutral-dark {
+    color: $ui-color-on-neutral-dark;
+}
+.color-on-neutral-dark-bg {
+    background-color: $ui-color-on-neutral-dark;
+}
+
 .color-neutral-white {
     color: $ui-color-neutral-white;
 }
@@ -91,17 +104,17 @@
     background-color: $ui-color-on-neutral-white;
 }
 
-.color-neutral-dark {
-    color: $ui-color-neutral-dark;
+.color-grey-light {
+    color: $ui-color-grey-light;
 }
-.color-neutral-dark-bg {
-    background-color: $ui-color-neutral-dark;
+.color-grey-light-bg {
+    background-color: $ui-color-grey-light;
 }
-.color-on-neutral-dark {
-    color: $ui-color-on-neutral-dark;
+.color-on-grey-light {
+    color: $ui-color-on-grey-light;
 }
-.color-on-neutral-dark-bg {
-    background-color: $ui-color-on-neutral-dark;
+.color-on-grey-light-bg {
+    background-color: $ui-color-on-grey-light;
 }
 
 .color-positive {

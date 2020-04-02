@@ -29,7 +29,11 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .borrow-ui__table__body__row:hover {
-    background-color: $ui-color-neutral-white;
+    background-color: $ui-color-neutral-white-dark-over;
+}
+
+.borrow-ui__table__body__row--odd {
+    background-color: $ui-color-neutral-white-dark;
 }
 
 .borrow-ui__table__body__cell {

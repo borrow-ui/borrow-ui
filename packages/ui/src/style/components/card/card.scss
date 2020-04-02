@@ -1,5 +1,5 @@
 $ui-card-border-radius: 10px !default;
-$ui-card-side-width: 128px;
+$ui-card-side-width: 128px !default;
 
 .borrow-ui__card {
     display: inline-flex;
@@ -25,7 +25,7 @@ $ui-card-side-width: 128px;
     overflow: hidden;
     border-top-left-radius: $ui-card-border-radius;
     border-bottom-left-radius: $ui-card-border-radius;
-    border: 1px solid $ui-color-neutral-white;
+    border: 1px solid $ui-color-grey-light;
     border-right: 0;
 }
 
@@ -44,7 +44,7 @@ $ui-card-side-width: 128px;
     display: inline-flex;
     border-top-right-radius: $ui-card-border-radius;
     border-bottom-right-radius: $ui-card-border-radius;
-    border: 1px solid $ui-color-neutral-white;
+    border: 1px solid $ui-color-grey-light;
     border-left: 0;
     width: calc(100% - #{$ui-card-side-width});
     justify-content: space-between;

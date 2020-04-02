@@ -26,13 +26,21 @@ $ui-color-neutral-light-over: lighten($ui-color-neutral-light, 12);
 $ui-color-neutral-light-disabled: lighten($ui-color-neutral-light, 22);
 $ui-color-on-neutral-light: white;
 
-$ui-color-neutral-white: #edf2f7;
-$ui-color-neutral-white-over: lighten($ui-color-neutral-white, 12);
-$ui-color-on-neutral-white: $ui-color-neutral;
-
 $ui-color-neutral-dark: #5a6168;
 $ui-color-neutral-dark-over: lighten($ui-color-neutral-dark, 12);
-$ui-color-on-neutral-dark: $ui-color-neutral-white;
+$ui-color-on-neutral-dark: white;
+
+$ui-color-neutral-white: #fafafb;
+$ui-color-neutral-white-over: darken($ui-color-neutral-white, 12);
+$ui-color-on-neutral-white: $ui-color-neutral;
+
+$ui-color-neutral-white-dark: #f7f7fa;
+$ui-color-neutral-white-dark-over: #ececef;
+$ui-color-on-neutral-white: $ui-color-neutral;
+
+$ui-color-grey-light: #ececef;
+$ui-color-grey-light-over: darken($ui-color-grey-light, 12);
+$ui-color-on-grey-light: $ui-color-neutral;
 
 $ui-color-positive: #36a53c;
 $ui-color-positive-disabled: #6bc770;
