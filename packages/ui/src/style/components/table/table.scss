@@ -11,15 +11,34 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .borrow-ui__table__cell {
-    padding: 7px;
+}
+
+.borrow-ui__table__cell--vertical-align-top {
+    vertical-align: top;
+}
+.borrow-ui__table__cell--vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+.borrow-ui__table__cell--border-row {
+    border-bottom: 1px solid $ui-table-border-color;
+}
+.borrow-ui__table__cell--border-cell {
+    border-bottom: 1px solid $ui-table-border-color;
+    border-right: 1px solid $ui-table-border-color;
+}
+.borrow-ui__table__cell--border-cell:last-of-type {
+    border-right: none;
 }
 
 .borrow-ui__table__cell__content {
     display: flex;
+    padding: 7px;
+    width: 100%;
 }
 
 .borrow-ui__table__head__row {
-    background-color: $ui-color-neutral-white;
+    background-color: $ui-color-grey-light;
     color: $ui-color-neutral;
 }
 
@@ -29,7 +48,7 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .borrow-ui__table__body__row:hover {
-    background-color: $ui-color-neutral-white-dark-over;
+    background-color: $ui-color-neutral-white-over;
 }
 
 .borrow-ui__table__body__row--odd {
@@ -37,7 +56,6 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .borrow-ui__table__body__cell {
-    border-bottom: 1px solid $ui-table-border-color;
 }
 
 .borrow-ui__table__status-bar {
