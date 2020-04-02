@@ -27,7 +27,7 @@ export function Page({
     const pageClass = `${PAGE_CLASS} ${infinite ? PAGE_INFINITE_CLASS : ''} ${className}`;
 
     const bodyProps = {
-        withPageHeader: pageHeaderProps !== undefined || title,
+        withPageHeader: Boolean(pageHeaderProps !== undefined || title),
         ...pageBodyProps,
     };
 
