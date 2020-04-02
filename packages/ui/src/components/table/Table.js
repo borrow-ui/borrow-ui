@@ -15,6 +15,7 @@ const TABLE_STATUS_BAR = `${UI_PREFIX}__table__status-bar`;
 const DEFAULT_CONFIG = {
     borderType: 'row',
     verticalAlignment: 'middle',
+    zebra: true,
 };
 
 const DEFAULT_PAGINATION = {
@@ -91,7 +92,9 @@ Table.propTypes = {
         }).isRequired
     ).isRequired,
     entries: PropTypes.array.isRequired,
-    config: PropTypes.shape({}),
+    config: PropTypes.shape({
+        zebra: PropTypes.bool,
+    }),
     pagination: PropTypes.shape({
         pageSize: PropTypes.number,
     }),
