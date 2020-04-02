@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     font-family: $ui-font;
+    border-radius: 4px;
 }
 .borrow-ui__button:hover {
     background-color: $ui-color-neutral-over;
@@ -35,29 +36,39 @@
 }
 
 .borrow-ui__button--smaller {
-    padding: 0.34rem 0.5rem;
+    padding: 0 0.5rem;
     font-size: 0.75rem;
-    border-radius: 0.3rem;
+    line-height: 24px;
+    height: 24px;
 }
 .borrow-ui__button--small {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.9rem;
-    border-radius: 0.3rem;
+    padding: 0 0.6rem;
+    font-size: 0.8rem;
+    line-height: 28px;
+    height: 28px;
+}
+.borrow-ui__button--normal {
+    padding: 0 0.75rem;
+    line-height: 32px;
+    height: 32px;
 }
 .borrow-ui__button--big {
-    padding: 0.75rem 1rem;
+    padding: 0 1rem;
     font-size: 1.09rem;
-    border-radius: 0.4rem;
+    line-height: 40px;
+    height: 40px;
 }
 .borrow-ui__button--bigger {
-    padding: 1rem 1.25rem;
+    padding: 0 1.25rem;
     font-size: 1.125rem;
-    border-radius: 0.5rem;
+    line-height: 50px;
+    height: 50px;
 }
 .borrow-ui__button--huge {
-    padding: 1.3rem 1.7rem;
+    padding: 0 1.7rem;
     font-size: 1.5rem;
-    border-radius: 0.55rem;
+    line-height: 60px;
+    height: 60px;
 }
 
 .borrow-ui__button--primary {
