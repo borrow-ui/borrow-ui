@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+
 import { Navbar, SidebarContext, Icon } from '@borrow-ui/ui/lib';
 import logo from 'static/borrow-ui-color-192.png';
-import { ComponentsMenu } from './Menu';
+// import { ComponentsMenu } from './Menu';
 
 export function Header() {
     const [sidebarState, setSidebarState] = useContext(SidebarContext);
@@ -41,8 +43,8 @@ export function Header() {
         <Navbar
             left={[
                 SidebarTrigger,
-                { headerLabel: Logo, name: 'home' },
-                { headerLabel: 'Components', bodyItem: ComponentsMenu, name: 'components' },
+                { headerLabel: <Link to="/">{Logo}</Link>, name: 'home' },
+                // { headerLabel: 'Components', bodyItem: ComponentsMenu, name: 'components' },
             ]}
             right={['Version 0.0.1']}
         />
