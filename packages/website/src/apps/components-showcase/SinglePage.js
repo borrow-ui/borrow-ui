@@ -10,6 +10,7 @@ import { Sidebars } from './single-page/Sidebars';
 import { Cards } from './single-page/Cards';
 import { TabsComponent } from './single-page/TabsComponent';
 import { Popovers } from './single-page/Popovers';
+import { Tables } from './single-page/Tables';
 
 export function SinglePage() {
     return (
@@ -29,6 +30,9 @@ export function SinglePage() {
             <Block className="color-white-bg" outstanding={true}>
                 <TabsComponent />
                 <Popovers />
+            </Block>
+            <Block className="color-white-bg" outstanding={true}>
+                <Tables />
             </Block>
         </Page>
     );
