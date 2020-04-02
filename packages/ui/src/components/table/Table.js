@@ -14,7 +14,6 @@ const TABLE_STATUS_BAR = `${UI_PREFIX}__table__status-bar`;
 
 const DEFAULT_CONFIG = {
     borderType: 'row',
-    verticalAlignment: 'middle',
     zebra: true,
 };
 
@@ -65,6 +64,7 @@ export function Table({
                 setTableState={setTableState}
                 entries={filteredEntries}
                 tableConfig={tableConfig}
+                elementsProps={elementsProps}
             />
             {tableStatusBar.visible && (
                 <div className={TABLE_STATUS_BAR}>
@@ -93,6 +93,8 @@ Table.propTypes = {
     ).isRequired,
     entries: PropTypes.array.isRequired,
     config: PropTypes.shape({
+        borderType: PropTypes.oneOf(['none', 'row', 'cell']),
+        verticalAlign: PropTypes.oneOf(['top', 'bottom']),
         zebra: PropTypes.bool,
     }),
     pagination: PropTypes.shape({

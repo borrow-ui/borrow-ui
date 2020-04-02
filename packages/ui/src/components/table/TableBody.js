@@ -10,7 +10,14 @@ const TABLE_BODY_ROW_CLASS = `${UI_PREFIX}__table__body__row`;
 const TABLE_BODY_ROW_ODD_CLASS = `${UI_PREFIX}__table__body__row--odd`;
 const TABLE_BODY_CELL_CLASS = `${UI_PREFIX}__table__body__cell`;
 
-export function TableBody({ className, tableConfig, tableState, setTableState, entries }) {
+export function TableBody({
+    className,
+    tableConfig,
+    tableState,
+    setTableState,
+    elementsProps,
+    entries,
+}) {
     const tbodyClassName = `${TABLE_BODY_CLASS} ${className}`;
 
     const columns = tableState.columns;
@@ -29,6 +36,10 @@ export function TableBody({ className, tableConfig, tableState, setTableState, e
                                     className={TABLE_BODY_CELL_CLASS}
                                     key={`table-body-row-${index}-cell-${col.prop}`}
                                     style={{ width: col.width }}
+                                    tableConfig={tableConfig}
+                                    column={col}
+                                    entry={entry}
+                                    elementsProps={elementsProps}
                                 >
                                     {entry[col.prop]}
                                 </TableCell>
@@ -47,4 +58,5 @@ TableBody.propTypes = {
     tableState: PropTypes.object.isRequired,
     setTableState: PropTypes.func.isRequired,
     entries: PropTypes.array.isRequired,
+    elementsProps: PropTypes.object,
 };

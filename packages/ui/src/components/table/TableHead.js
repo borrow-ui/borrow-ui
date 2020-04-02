@@ -9,7 +9,14 @@ const TABLE_HEAD_CLASS = `${UI_PREFIX}__table__head`;
 const TABLE_HEAD_ROW_CLASS = `${UI_PREFIX}__table__head__row`;
 const TABLE_HEAD_CELL_CLASS = `${UI_PREFIX}__table__head__cell`;
 
-export function TableHead({ className, tableConfig, tableState, setTableState, entries }) {
+export function TableHead({
+    className,
+    tableConfig,
+    tableState,
+    setTableState,
+    elementsProps,
+    entries,
+}) {
     const theadClassName = `${TABLE_HEAD_CLASS} ${className}`;
     const theadRowClassName = `${TABLE_HEAD_ROW_CLASS} ${className}`;
 
@@ -25,6 +32,9 @@ export function TableHead({ className, tableConfig, tableState, setTableState, e
                             className={TABLE_HEAD_CELL_CLASS}
                             key={`table-head-cell-${col.prop}`}
                             style={{ width: col.width }}
+                            tableConfig={tableConfig}
+                            column={col}
+                            elementsProps={elementsProps}
                         >
                             {col.title}
                         </TableCell>
@@ -41,4 +51,5 @@ TableHead.propTypes = {
     tableState: PropTypes.object.isRequired,
     setTableState: PropTypes.func.isRequired,
     entries: PropTypes.array.isRequired,
+    elementsProps: PropTypes.object,
 };

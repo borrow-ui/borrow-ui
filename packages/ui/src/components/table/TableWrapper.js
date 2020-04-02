@@ -8,10 +8,17 @@ import { TableBody } from './TableBody';
 
 const TABLE_CLASS = `${UI_PREFIX}__table`;
 
-export function TableWrapper({ className = '', tableConfig, tableState, setTableState, entries }) {
+export function TableWrapper({
+    className = '',
+    tableConfig,
+    tableState,
+    setTableState,
+    entries,
+    elementsProps,
+}) {
     const tableClassName = `${TABLE_CLASS} ${className}`;
 
-    const commonProps = { tableConfig, tableState, setTableState, entries };
+    const commonProps = { tableConfig, tableState, setTableState, entries, elementsProps };
 
     return (
         <table className={tableClassName}>
@@ -27,4 +34,5 @@ TableWrapper.propTypes = {
     tableState: PropTypes.object.isRequired,
     setTableState: PropTypes.func.isRequired,
     entries: PropTypes.array.isRequired,
+    elementsProps: PropTypes.object,
 };
