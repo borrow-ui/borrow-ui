@@ -49,7 +49,7 @@ function SidebarContent({ sidebarState }) {
             <SidebarEntry
                 sidebarState={sidebarState}
                 iconName="palette"
-                link="/components-showcase"
+                link="/components-showcase/single-page"
                 id="sidebar-components-showcase"
             >
                 Style Showcase
