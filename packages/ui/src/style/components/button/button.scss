@@ -6,13 +6,12 @@
     background-color: $ui-color-neutral;
     padding: 0.5rem 0.75rem;
     border: none;
-    border-radius: 0.25rem;
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     font-family: $ui-font;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 .borrow-ui__button:hover {
     background-color: $ui-color-neutral-over;
