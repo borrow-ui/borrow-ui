@@ -11,6 +11,7 @@ import { Cards } from './single-page/Cards';
 import { TabsComponent } from './single-page/TabsComponent';
 import { Popovers } from './single-page/Popovers';
 import { Tables } from './single-page/Tables';
+import { Loaders } from './single-page/Loaders';
 
 export function SinglePage() {
     return (
@@ -33,6 +34,9 @@ export function SinglePage() {
             </Block>
             <Block className="color-white-bg" outstanding={true}>
                 <Tables />
+            </Block>
+            <Block className="color-white-bg" outstanding={true}>
+                <Loaders />
             </Block>
         </Page>
     );
