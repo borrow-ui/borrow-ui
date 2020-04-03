@@ -20,6 +20,7 @@ import { Navbar } from './components/navbar/Navbar';
 import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
+import { Panel } from './components/panel/Panel';
 import { Popover } from './components/popover/Popover';
 import { Sidebar, SidebarContext } from './components/sidebar/Sidebar';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
@@ -61,6 +62,7 @@ export {
     Page,
     PageBody,
     PageHeader,
+    Panel,
     Popover,
     Row,
     Sidebar,
