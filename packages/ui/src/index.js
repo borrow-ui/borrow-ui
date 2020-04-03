@@ -10,6 +10,7 @@ import { Card } from './components/card/Card';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
 import { IconControl } from './components/icon/IconControl';
+import { Loader } from './components/loader/Loader';
 import { Lorem } from './components/lorem/Lorem';
 import { Menu } from './components/menu/Menu';
 import { MenuDivider } from './components/menu/MenuDivider';
@@ -48,6 +49,7 @@ export {
     Col,
     Icon,
     IconControl,
+    Loader,
     Lorem,
     Menu,
     MenuDivider,
