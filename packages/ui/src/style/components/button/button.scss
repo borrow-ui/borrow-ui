@@ -4,14 +4,13 @@
 .borrow-ui__button {
     color: $ui-color-on-neutral;
     background-color: $ui-color-neutral;
-    padding: 0.5rem 0.75rem;
     border: none;
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     font-family: $ui-font;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 .borrow-ui__button:hover {
     background-color: $ui-color-neutral-over;
@@ -47,7 +46,7 @@
     height: 28px;
 }
 .borrow-ui__button--normal {
-    padding: 0 0.75rem;
+    padding: 0 0.9rem;
     line-height: 32px;
     height: 32px;
 }
