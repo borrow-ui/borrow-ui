@@ -13,6 +13,7 @@ import { Popovers } from './single-page/Popovers';
 import { Tables } from './single-page/Tables';
 import { Loaders } from './single-page/Loaders';
 import { Modals } from './single-page/Modals';
+import { Panels } from './single-page/Panels';
 
 export function SinglePage() {
     return (
@@ -41,6 +42,7 @@ export function SinglePage() {
             </Block>
             <Block className="color-white-bg" outstanding={true}>
                 <Modals />
+                <Panels />
             </Block>
         </Page>
     );
