@@ -9,8 +9,7 @@
     border-radius: 18px;
 
     &:hover {
-        color: lighten($ui-color-neutral, 1);
-        background-color: lighten($ui-color-neutral, 3);
-        border: 1px solid lighten($ui-color-neutral, 3);
+        color: $ui-color-on-neutral-light;
+        background-color: $ui-color-neutral-light;
     }
 }

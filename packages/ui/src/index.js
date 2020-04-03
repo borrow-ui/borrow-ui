@@ -15,6 +15,7 @@ import { Lorem } from './components/lorem/Lorem';
 import { Menu } from './components/menu/Menu';
 import { MenuDivider } from './components/menu/MenuDivider';
 import { MenuEntry } from './components/menu/MenuEntry';
+import { Modal, ModalWindow } from './components/modal/Modal';
 import { Navbar } from './components/navbar/Navbar';
 import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
@@ -54,6 +55,8 @@ export {
     Menu,
     MenuDivider,
     MenuEntry,
+    Modal,
+    ModalWindow,
     Navbar,
     Page,
     PageBody,
