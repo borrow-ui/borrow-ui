@@ -3,3 +3,5 @@ export const LAYOUTS = {
     VERTICAL: 'vertical',
     DEFAULT: 'vertical',
 };
+
+export const SPACEBAR_CODE = 32;

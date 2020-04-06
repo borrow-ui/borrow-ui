@@ -1,0 +1,62 @@
+/**
+* CREDITS: https://codepen.io/liamj/pen/QYyBzz
+**/
+
+$ui-form-toggle-padding: 2px;
+$ui-form-toggle-width: 30px;
+$ui-form-toggle-height: 17px;
+
+.borrow-ui__form__field__toggle {
+    cursor: pointer;
+    background: $ui-color-grey-light;
+    padding: $ui-form-toggle-padding;
+    width: $ui-form-toggle-width;
+    height: $ui-form-toggle-height;
+    border-radius: $ui-form-toggle-height / 2 + $ui-form-toggle-padding;
+    display: inline-block;
+}
+
+.borrow-ui__form__field__toggle--checked {
+    background: $ui-color-grey-light;
+    border: 1px solid $ui-color-primary-light;
+}
+.borrow-ui__form__field__toggle--disabled {
+    background: $ui-color-grey-light;
+    border: 1px solid $ui-color-grey-light-over;
+    cursor: not-allowed;
+}
+
+.borrow-ui__form__field__toggle__checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.borrow-ui__form__field__toggle__switch {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr;
+    transition: all 0.5s;
+}
+.borrow-ui__form__field__toggle__switch::after {
+    content: '';
+    border-radius: 50%;
+    background: $ui-color-neutral-light;
+    grid-column: 2;
+    transition: all 0.5s;
+}
+
+.borrow-ui__form__field__toggle__switch--checked {
+    grid-template-columns: 1fr 1fr 0fr;
+}
+.borrow-ui__form__field__toggle__switch--checked::after {
+    background-color: $ui-color-primary;
+}
+.borrow-ui__form__field__toggle__switch--disabled:not(.borrow-ui__form__field__toggle__switch--checked)::after {
+    background: $ui-color-grey-light;
+}
+.borrow-ui__form__field__toggle__switch--disabled.borrow-ui__form__field__toggle__switch--checked::after {
+    border: 1px solid $ui-color-primary-light;
+    background-color: $ui-color-primary-disabled;
+}
