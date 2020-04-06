@@ -7,6 +7,7 @@ import { Block } from './components/block/Block';
 import { Breadcrumbs } from './components/breadcrumbs/Breadcrumbs';
 import { Button } from './components/button/Button';
 import { Card } from './components/card/Card';
+import { Forms } from './components/forms';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
 import { IconControl } from './components/icon/IconControl';
@@ -49,6 +50,7 @@ export {
     Button,
     Card,
     Col,
+    Forms,
     Icon,
     IconControl,
     Loader,

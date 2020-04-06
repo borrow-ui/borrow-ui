@@ -1,0 +1,31 @@
+@import '../../vars/colors';
+
+/* Horizontal, label before input */
+
+.borrow-ui__form__field--horizontal {
+    display: inline-flex;
+    padding: $ui-form-field-padding;
+    align-items: center;
+    width: 100%;
+}
+
+.borrow-ui__form__field-input--horizontal {
+    flex-grow: 1;
+    display: inline-block;
+    position: relative;
+}
+
+.borrow-ui__form__field-input--vertical {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+.borrow-ui__form__field--vertical {
+    padding: $ui-form-field-padding;
+    display: block;
+}
+
+.borrow-ui__form__field--vertical:not(:last-of-type) {
+    margin-right: 0.5rem;
+}

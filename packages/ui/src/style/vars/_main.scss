@@ -5,8 +5,8 @@
 $ui-background-color: white;
 
 /* Font */
-$ui-font: 'Lato', -apple-system, 'Segoe UI', 'Ubuntu', sans-serif !default;
-$ui-font-code: source-code-pro, Monaco, Consolas, 'Courier New', monospace !default;
+$ui-font: 'Lato', -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
+$ui-font-code: source-code-pro, Monaco, Consolas, 'Courier New', monospace;
 $ui-font-color: #3c3b3e;
 $ui-font-size: 14px;
 $ui-font-size-big: 1.25rem;
@@ -22,7 +22,7 @@ $ui-card-border-radius: 10px;
 $ui-card-side-width: 128px;
 
 /* Content */
-$ui-content-padding: $ui-page-padding !default;
+$ui-content-padding: $ui-page-padding;
 
 /* Navbar */
 $ui-navbar-height: 46px;
@@ -39,6 +39,11 @@ $ui-navbar-body-bg-color: #fcfcfc;
 $ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color;
 $ui-navbar-body-query-color: #898989;
 $ui-navbar-body-query-focus-border-color: $ui-color-accent;
+
+/* Form */
+$ui-form-field-padding: 7px 0;
+$ui-form-input-border-color: $ui-color-grey-light;
+$ui-form-label-padding-right: $ui-page-padding;
 
 /* Dashboard - Generic */
 $ui-dashboard-header-height: $ui-navbar-height;

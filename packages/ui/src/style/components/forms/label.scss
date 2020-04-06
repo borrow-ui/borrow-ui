@@ -1,0 +1,23 @@
+@import '../../vars/colors';
+
+.borrow-ui__form__label {
+    color: $ui-color-neutral;
+    font-weight: 500;
+}
+
+.borrow-ui__form__label--required {
+    color: $ui-color-negative;
+    font-size: 12px;
+    margin-top: -6px;
+    display: inline-block;
+}
+
+.borrow-ui__form__label--horizontal {
+    display: inline-block;
+    padding-right: $ui-form-label-padding-right;
+    line-height: 100%;
+}
+
+.borrow-ui__form__label--vertical {
+    margin-bottom: 0.5rem;
+}
