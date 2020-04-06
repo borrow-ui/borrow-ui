@@ -5,6 +5,7 @@ $ui-form-input-border-color: $ui-color-grey-light !default;
 $ui-form-input-border-color-over: $ui-color-accent !default;
 $ui-form-label-padding-right: $ui-page-padding !default;
 $ui-form-input-padding: 5px !default;
+$ui-form-input-disabled-color: $ui-color-grey-light !default;
 
 @import './field';
 @import './input';

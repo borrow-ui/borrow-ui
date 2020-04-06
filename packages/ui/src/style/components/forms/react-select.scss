@@ -5,6 +5,10 @@
         width: 100%;
     }
 
+    .borrow-ui__form__field__react-select--is-disabled {
+        background-color: $ui-form-input-disabled-color;
+    }
+
     .borrow-ui__form__field__react-select--invalid {
         border: 1px solid $ui-color-negative;
     }
@@ -25,7 +29,7 @@
         border-radius: 0;
         background-color: transparent;
 
-        &:hover {
+        &:not(:disabled):hover {
             border-color: $ui-form-input-border-color-over;
         }
     }

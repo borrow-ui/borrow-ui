@@ -6,9 +6,21 @@
     border: 1px solid $ui-form-input-border-color;
     background-color: inherit;
     padding: $ui-form-input-padding;
+
+    &:not(:disabled):hover {
+        border-color: $ui-form-input-border-color-over;
+    }
 }
 
 .borrow-ui__form__field__textarea::placeholder {
     color: $ui-color-neutral-light;
     font-family: $ui-font;
+}
+
+.borrow-ui__form__field__textarea--disabled {
+    background-color: $ui-form-input-disabled-color;
+}
+
+.borrow-ui__form__field__textarea--invalid {
+    border: 1px solid $ui-color-negative;
 }

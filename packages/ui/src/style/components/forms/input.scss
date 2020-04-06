@@ -5,6 +5,10 @@
     background-color: transparent;
     padding: $ui-form-input-padding;
     width: 100%;
+
+    &:not(:disabled):hover {
+        border-color: $ui-form-input-border-color-over;
+    }
 }
 
 .borrow-ui__form__field__input::placeholder {
@@ -13,7 +17,7 @@
 }
 
 .borrow-ui__form__field__input--disabled {
-    background-color: $ui-color-grey-light;
+    background-color: $ui-form-input-disabled-color;
 }
 
 .borrow-ui__form__field__input--invalid {
