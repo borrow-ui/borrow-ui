@@ -3,7 +3,7 @@
 .borrow-ui__form__field__input {
     border: 1px solid $ui-form-input-border-color;
     background-color: transparent;
-    padding: 5px;
+    padding: $ui-form-input-padding;
     width: 100%;
 }
 

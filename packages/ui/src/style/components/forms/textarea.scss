@@ -1,0 +1,14 @@
+.borrow-ui__form__field__textarea {
+    font-family: $ui-font;
+    width: 100%;
+    min-height: 150px;
+    border: none;
+    border: 1px solid $ui-form-input-border-color;
+    background-color: inherit;
+    padding: $ui-form-input-padding;
+}
+
+.borrow-ui__form__field__textarea::placeholder {
+    color: $ui-color-neutral-light;
+    font-family: $ui-font;
+}

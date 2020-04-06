@@ -3,7 +3,9 @@
 $ui-form-field-padding: 7px 0 !default;
 $ui-form-input-border-color: $ui-color-grey-light !default;
 $ui-form-label-padding-right: $ui-page-padding !default;
+$ui-form-input-padding: 5px !default;
 
 @import './field';
 @import './input';
 @import './label';
+@import './textarea';
