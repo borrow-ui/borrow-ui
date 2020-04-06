@@ -1,6 +1,7 @@
 import { LAYOUTS } from './constants';
 
 import { Checkbox } from './Checkbox';
+import { DatePicker } from './DatePicker';
 import { Field, VField, HField } from './Field';
 import { Input } from './Input';
 import { Label } from './Label';
@@ -10,6 +11,7 @@ import { Toggle } from './Toggle';
 
 export const Forms = {
     Checkbox,
+    DatePicker,
     Field,
     HField,
     Input,

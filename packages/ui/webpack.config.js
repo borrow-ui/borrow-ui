@@ -1,3 +1,4 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 module.exports = {
@@ -11,7 +12,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }],
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    { loader: 'sass-loader' },
+                ],
             },
             {
                 test: /\.css$/i,
@@ -49,6 +54,8 @@ module.exports = {
         libraryTarget: 'umd',
     },
     externals: {
+        dayjs: 'dayjs',
+        'prop-types': 'prop-types',
         react: {
             root: 'React',
             commonjs2: 'react',
@@ -63,5 +70,12 @@ module.exports = {
             amd: 'react-dom',
             umd: 'react-dom',
         },
+        'react-day-picker': 'react-day-picker',
+        'react-day-picker/DayPickerInput': 'react-day-picker/DayPickerInput',
+        'react-select': 'react-select',
+        'react-select/creatable': 'react-select/creatable',
     },
+    plugins: [
+        // new BundleAnalyzerPlugin()
+    ],
 };

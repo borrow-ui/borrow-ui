@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from 'config';
 
-const FORM_INPUT_CLASS = `${UI_PREFIX}__form__field__input`;
+export const FORM_INPUT_CLASS = `${UI_PREFIX}__form__field__input`;
 const FORM_INPUT_DISABLED_CLASS = `${UI_PREFIX}__form__field__input--disabled`;
 const FORM_INPUT_INVALID_CLASS = `${UI_PREFIX}__form__field__input--invalid`;
 
