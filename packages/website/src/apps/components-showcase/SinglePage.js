@@ -20,6 +20,7 @@ export function SinglePage() {
     return (
         <Page title="Single Page Components Showcase" className="color-neutral-white-bg">
             <Block className="color-white-bg" outstanding={true}>
+                <FormsComponent />
                 <Colors />
                 <Buttons />
                 <Badges />
