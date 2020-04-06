@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Col, Row, Forms } from '@borrow-ui/ui/lib';
 
-const { Field, HField, Input, Textarea, ReactSelect } = Forms;
+const { Field, HField, Input, Textarea, Toggle, ReactSelect } = Forms;
 
 const AGE_RANGES = [
     { value: 1, label: '1-10' },
@@ -14,6 +14,8 @@ const AGE_RANGES = [
 ];
 
 export function FormsComponent() {
+    const [toggle, setToggle] = useState(true);
+
     return (
         <div className="m-b-20">
             <h1>Forms</h1>
@@ -56,6 +58,9 @@ export function FormsComponent() {
                         <Field label="Age range" labelWidth={120}>
                             <ReactSelect options={AGE_RANGES} />
                         </Field>
+                        <Field label="Accept" labelWidth={120}>
+                            <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
+                        </Field>
                     </Col>
                 </Row>
             </div>
@@ -97,6 +102,9 @@ export function FormsComponent() {
                     <Col size={5}>
                         <HField label="Age range" labelWidth={120}>
                             <ReactSelect options={AGE_RANGES} />
+                        </HField>
+                        <HField label="Accept" labelWidth={120}>
+                            <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
                         </HField>
                     </Col>
                 </Row>
