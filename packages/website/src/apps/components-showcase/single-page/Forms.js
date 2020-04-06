@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Col, Row, Forms } from '@borrow-ui/ui/lib';
 
-const { Field, HField, Input, Textarea, Toggle, ReactSelect } = Forms;
+const { Checkbox, DatePicker, Field, HField, Input, Textarea, Toggle, ReactSelect } = Forms;
 
 const AGE_RANGES = [
     { value: 1, label: '1-10' },
@@ -15,6 +15,7 @@ const AGE_RANGES = [
 
 export function FormsComponent() {
     const [toggle, setToggle] = useState(true);
+    const [checkbox, setCheckbox] = useState(true);
 
     return (
         <div className="m-b-20">
@@ -61,6 +62,12 @@ export function FormsComponent() {
                         <Field label="Accept" labelWidth={120}>
                             <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
                         </Field>
+                        <Field label="Optional" labelWidth={120}>
+                            <Checkbox checked={checkbox} onClick={() => setCheckbox(!checkbox)} />
+                        </Field>
+                        <Field label="Some Date" labelWidth={120}>
+                            <DatePicker value="2020-04-25" />
+                        </Field>
                     </Col>
                 </Row>
             </div>
@@ -106,8 +113,25 @@ export function FormsComponent() {
                         <HField label="Accept" labelWidth={120}>
                             <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
                         </HField>
+                        <HField label="Optional" labelWidth={120}>
+                            <Checkbox checked={checkbox} onClick={() => setCheckbox(!checkbox)} />
+                        </HField>
+                        <HField label="Some Date" labelWidth={120}>
+                            <DatePicker value="2020-04-25" />
+                        </HField>
                     </Col>
                 </Row>
+            </div>
+            <div className="m-b-20">
+                <h2>External libraries</h2>
+                <ul>
+                    <li>
+                        <a href="https://react-select.com/home">react-select</a>
+                    </li>
+                    <li>
+                        <a href="https://react-day-picker.js.org/">react-day-picker</a>
+                    </li>
+                </ul>
             </div>
         </div>
     );
