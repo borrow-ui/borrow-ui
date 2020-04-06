@@ -1,6 +1,10 @@
 @import '../../vars/colors';
 
 .borrow-ui {
+    .borrow-ui__form__field__react-select {
+        width: 100%;
+    }
+
     .borrow-ui__form__field__react-select--invalid {
         border: 1px solid $ui-color-negative;
     }

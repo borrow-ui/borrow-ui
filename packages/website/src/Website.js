@@ -13,7 +13,7 @@ export function Website() {
     const className = location.pathname === '/' ? 'website__sidebar--home' : '';
 
     return (
-        <div className="borrow-ui__navbar--stycky-margin">
+        <div className="borrow-ui borrow-ui__navbar--stycky-margin">
             <Sidebar.Provider>
                 <Header />
                 <div style={{ display: 'flex' }}>

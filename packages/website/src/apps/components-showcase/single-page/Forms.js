@@ -2,7 +2,16 @@ import React from 'react';
 
 import { Col, Row, Forms } from '@borrow-ui/ui/lib';
 
-const { Field, HField, Input, Textarea } = Forms;
+const { Field, HField, Input, Textarea, ReactSelect } = Forms;
+
+const AGE_RANGES = [
+    { value: 1, label: '1-10' },
+    { value: 2, label: '11-17' },
+    { value: 3, label: '18-25' },
+    { value: 4, label: '26-35' },
+    { value: 5, label: '36-50' },
+    { value: 6, label: '50+' },
+];
 
 export function FormsComponent() {
     return (
@@ -43,7 +52,11 @@ export function FormsComponent() {
                         </Field>
                     </Col>
                     <Col size={1}></Col>
-                    <Col size={5}></Col>
+                    <Col size={5}>
+                        <Field label="Age range" labelWidth={120}>
+                            <ReactSelect options={AGE_RANGES} />
+                        </Field>
+                    </Col>
                 </Row>
             </div>
             <h3>Horizontal positioning</h3>
@@ -81,7 +94,11 @@ export function FormsComponent() {
                         </HField>
                     </Col>
                     <Col size={1}></Col>
-                    <Col size={5}></Col>
+                    <Col size={5}>
+                        <HField label="Age range" labelWidth={120}>
+                            <ReactSelect options={AGE_RANGES} />
+                        </HField>
+                    </Col>
                 </Row>
             </div>
         </div>
