@@ -6,7 +6,10 @@ $ui-form-input-border-color-over: $ui-color-accent !default;
 $ui-form-label-padding-right: $ui-page-padding !default;
 $ui-form-input-padding: 5px !default;
 $ui-form-input-disabled-color: $ui-color-grey-light !default;
+$ui-form-checkbox-indicator-height: 16px !default;
+$ui-form-checkbox-indicator-width: 16px !default;
 
+@import './checkbox';
 @import './field';
 @import './input';
 @import './label';

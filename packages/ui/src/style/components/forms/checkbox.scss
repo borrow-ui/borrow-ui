@@ -1,0 +1,134 @@
+/**
+* CREDITS: https://codepen.io/KenanYusuf/pen/PZKEKd/
+**/
+
+.borrow-ui__form__field__checkbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding: 0px 0px 0px $ui-form-checkbox-indicator-width;
+    width: $ui-form-checkbox-indicator-width;
+    height: $ui-form-checkbox-indicator-height;
+}
+.borrow-ui__form__field__checkbox__label {
+    cursor: pointer;
+    display: inline-block;
+}
+.borrow-ui__form__field__checkbox__checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.borrow-ui__form__field__checkbox__indicator {
+    position: absolute;
+    left: 0;
+    height: $ui-form-checkbox-indicator-height;
+    width: $ui-form-checkbox-indicator-width;
+    background: $ui-color-grey-light;
+}
+
+.borrow-ui__form__field__checkbox__indicator::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: ($ui-form-checkbox-indicator-width - $ui-form-checkbox-indicator-width / 5) / 2 - 1;
+    top: 1px;
+    width: $ui-form-checkbox-indicator-width / 5;
+    height: $ui-form-checkbox-indicator-height / 2;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/*
+ * Indicator
+ */
+
+/* Checked */
+%indicator-checked {
+    background: $ui-color-primary;
+}
+%indicator-checked-after {
+    display: block;
+}
+.borrow-ui__form__field__checkbox__indicator--checked {
+    @extend %indicator-checked;
+}
+.borrow-ui__form__field__checkbox__indicator--checked::after {
+    @extend %indicator-checked-after;
+}
+
+/* Disabled */
+%indicator-disabled {
+    background: $ui-color-grey-light;
+    border: 1px solid $ui-color-grey-light;
+    cursor: not-allowed;
+    width: $ui-form-checkbox-indicator-width;
+    height: $ui-form-checkbox-indicator-height;
+}
+%indicator-disabled-after {
+    border-color: $ui-color-primary-disabled;
+    left: ($ui-form-checkbox-indicator-width - $ui-form-checkbox-indicator-width / 5) / 2 - 2;
+}
+.borrow-ui__form__field__checkbox__indicator--disabled {
+    @extend %indicator-disabled;
+}
+.borrow-ui__form__field__checkbox__indicator--disabled::after {
+    @extend %indicator-disabled-after;
+}
+.borrow-ui__form__field__checkbox__indicator--checked.borrow-ui__form__field__checkbox__indicator--disabled {
+    @extend %indicator-disabled;
+}
+/* Hover: NOT disabled */
+%indicator-not-disabled-hover {
+    background: $ui-color-primary-over;
+}
+.borrow-ui__form__field__checkbox__indicator::not(.borrow-ui__form__field__checkbox__indicator--disabled)::hover {
+    @extend %indicator-not-disabled-hover;
+}
+/* Hover: checked NOT disabled */
+%indicator-checked-not-disabled-hover {
+    background: $ui-color-primary-light-over;
+}
+.borrow-ui__form__field__checkbox__indicator--checked::not(.borrow-ui__form__field__checkbox__indicator--disabled)::hover {
+    @extend %indicator-checked-not-disabled-hover;
+}
+
+/**
+NON BEM PROPERTIES
+Use to have the same effects without setting the classes
+**/
+
+/* Checked */
+/*
+.borrow-ui__form__field__checkbox__checkbox:checked ~ .borrow-ui__form__field__checkbox__indicator {
+    @extend %indicator-checked;
+}
+.borrow-ui__form__field__checkbox__checkbox:checked ~ .borrow-ui__form__field__checkbox__indicator:after {
+    @extend %indicator-checked-after;
+}
+*/
+
+/* Disabled */
+/*
+.borrow-ui__form__field__checkbox__checkbox:disabled ~ .borrow-ui__form__field__checkbox__indicator {
+    @extend %indicator-disabled;
+}
+.borrow-ui__form__field__checkbox__checkbox:disabled ~ .borrow-ui__form__field__checkbox__indicator:after {
+    @extend %indicator-disabled-after;
+}
+*/
+
+/* Hover: NOT disabled */
+/*
+.borrow-ui__form__field__checkbox:hover .borrow-ui__form__field__checkbox__checkbox:not([disabled]) ~ .borrow-ui__form__field__checkbox__indicator {
+    @extend %indicator-not-disabled-hover;
+}
+*/
+
+/* Hover: checked NOT disabled */
+/*
+.borrow-ui__form__field__checkbox:hover .borrow-ui__form__field__checkbox__checkbox:not([disabled]):checked ~ .borrow-ui__form__field__checkbox__indicator {
+    @extend %indicator-checked-not-disabled-hover;
+}
+*/
