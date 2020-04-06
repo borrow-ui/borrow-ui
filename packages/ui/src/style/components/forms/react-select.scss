@@ -1,0 +1,46 @@
+@import '../../vars/colors';
+
+.borrow-ui {
+    .borrow-ui__form__field__react-select--invalid {
+        border: 1px solid $ui-color-negative;
+    }
+
+    .borrow-ui__form__field__react-select__placeholder {
+        color: $ui-color-neutral-light;
+        font-family: $ui-font;
+    }
+
+    .borrow-ui__form__field__react-select__value-container {
+        padding: 0;
+    }
+
+    .borrow-ui__form__field__react-select__control {
+        min-height: 20px;
+        border: 0;
+        border: 1px solid $ui-form-input-border-color;
+        border-radius: 0;
+        background-color: transparent;
+
+        &:hover {
+            border-color: $ui-form-input-border-color-over;
+        }
+    }
+
+    .borrow-ui__form__field__react-select__indicators {
+        padding: 0;
+    }
+
+    .borrow-ui__form__field__react-select__indicator-separator {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        background-color: transparent;
+    }
+
+    .borrow-ui__form__field__react-select__clear-indicator {
+        padding: 3px;
+    }
+
+    .borrow-ui__form__field__react-select__dropdown-indicator {
+        padding: 3px;
+    }
+}
