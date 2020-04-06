@@ -14,6 +14,7 @@ import { Tables } from './single-page/Tables';
 import { Loaders } from './single-page/Loaders';
 import { Modals } from './single-page/Modals';
 import { Panels } from './single-page/Panels';
+import { FormsComponent } from './single-page/Forms';
 
 export function SinglePage() {
     return (
@@ -43,6 +44,9 @@ export function SinglePage() {
             <Block className="color-white-bg" outstanding={true}>
                 <Modals />
                 <Panels />
+            </Block>
+            <Block className="color-white-bg" outstanding={true}>
+                <FormsComponent />
             </Block>
         </Page>
     );
