@@ -25,6 +25,11 @@
     height: $ui-form-checkbox-indicator-height;
     width: $ui-form-checkbox-indicator-width;
     background: $ui-color-grey-light;
+    border: 1px solid transparent;
+
+    &:hover {
+        border: 1px solid $ui-color-accent;
+    }
 }
 
 .borrow-ui__form__field__checkbox__indicator::after {
@@ -35,7 +40,7 @@
     top: 1px;
     width: $ui-form-checkbox-indicator-width / 5;
     height: $ui-form-checkbox-indicator-height / 2;
-    border: solid white;
+    border: solid $ui-color-primary;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
@@ -46,7 +51,7 @@
 
 /* Checked */
 %indicator-checked {
-    background: $ui-color-primary;
+    background: $ui-color-grey-light;
 }
 %indicator-checked-after {
     display: block;

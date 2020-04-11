@@ -14,11 +14,16 @@ $ui-form-toggle-height: 17px;
     height: $ui-form-toggle-height;
     border-radius: $ui-form-toggle-height / 2 + $ui-form-toggle-padding;
     display: inline-block;
+    border: 1px solid transparent;
+
+    &:hover {
+        border: 1px solid $ui-color-accent;
+    }
 }
 
 .borrow-ui__form__field__toggle--checked {
     background: $ui-color-grey-light;
-    border: 1px solid $ui-color-primary-light;
+    border: 1px solid transparent;
 }
 .borrow-ui__form__field__toggle--disabled {
     background: $ui-color-grey-light;
