@@ -8,9 +8,11 @@ $ui-form-input-padding: 5px !default;
 $ui-form-input-disabled-color: $ui-color-grey-light !default;
 $ui-form-checkbox-indicator-height: 16px !default;
 $ui-form-checkbox-indicator-width: 16px !default;
+$ui-form-placeholder-color: $ui-color-neutral-light !default;
 
 @import './checkbox';
 @import './date-picker';
+@import './dropzone';
 @import './field';
 @import './input';
 @import './label';
