@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
-import { Col, Row, Forms } from '@borrow-ui/ui/lib';
+import { Col, Row, Icon, Forms } from '@borrow-ui/ui/lib';
 
-const { Checkbox, DatePicker, Field, HField, Input, Textarea, Toggle, ReactSelect } = Forms;
+const {
+    Checkbox,
+    DatePicker,
+    Dropzone,
+    Field,
+    HField,
+    Input,
+    Textarea,
+    Toggle,
+    ReactSelect,
+} = Forms;
 
 const AGE_RANGES = [
     { value: 1, label: '1-10' },
@@ -16,6 +26,20 @@ const AGE_RANGES = [
 export function FormsComponent() {
     const [toggle, setToggle] = useState(true);
     const [checkbox, setCheckbox] = useState(true);
+
+    const dropzoneArea = (
+        <Fragment>
+            <Icon name="save_alt" size="small" className="m-r-5" /> Drop files here or click to
+            select
+        </Fragment>
+    );
+    const dropzoneProps = {
+        dragMessage: dropzoneArea,
+        onFilesChanges: (files, { lastChangeReason }) => {
+            console.log('List of files has been changed: ', files);
+        },
+        initialFiles: [{ name: 'First file.pdf' }, { name: 'My profile picture.jpg' }],
+    };
 
     return (
         <div className="m-b-20">
@@ -52,6 +76,9 @@ export function FormsComponent() {
                     <Col size={5}>
                         <Field label="Self description" labelWidth={120}>
                             <Textarea placeholder="Describe yourself" />
+                        </Field>
+                        <Field label="Upload resume" required={true} labelWidth={120}>
+                            <Dropzone {...dropzoneProps} />
                         </Field>
                     </Col>
                     <Col size={1}></Col>
@@ -104,6 +131,9 @@ export function FormsComponent() {
                         <HField label="Self description" required={true} labelWidth={120}>
                             <Textarea placeholder="Describe yourself" />
                         </HField>
+                        <HField label="Upload resume" required={true} labelWidth={120}>
+                            <Dropzone {...dropzoneProps} />
+                        </HField>
                     </Col>
                     <Col size={1}></Col>
                     <Col size={5}>
@@ -123,13 +153,16 @@ export function FormsComponent() {
                 </Row>
             </div>
             <div className="m-b-20">
-                <h2>External libraries</h2>
+                <h2>External libraries (peer dependencies)</h2>
                 <ul>
                     <li>
                         <a href="https://react-select.com/home">react-select</a>
                     </li>
                     <li>
                         <a href="https://react-day-picker.js.org/">react-day-picker</a>
+                    </li>
+                    <li>
+                        <a href="https://react-dropzone.js.org/">react-dropzone</a>
                     </li>
                 </ul>
             </div>
