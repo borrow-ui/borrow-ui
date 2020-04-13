@@ -4,7 +4,7 @@
     "author": "Vittorio Zamboni <vittorio.zamboni@gmail.com>",
     "version": "0.0.1",
     "description": "Components of @borrow-ui",
-    "main": "index.js",
+    "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
         "build": "webpack --mode=production",
