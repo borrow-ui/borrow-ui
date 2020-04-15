@@ -17,6 +17,15 @@ $ui-page-padding: 15px !default;
     color: $ui-color-primary;
     font-weight: bold;
     font-size: 12px;
+    text-decoration: none;
+}
+.borrow-ui__sidebar-menu__title--clickable {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: $ui-color-accent;
+    }
 }
 
 .borrow-ui__sidebar-menu__entry {
@@ -27,7 +36,6 @@ $ui-page-padding: 15px !default;
 }
 .borrow-ui__sidebar-menu__entry:hover {
     background-color: $ui-color-neutral-white-over;
-    font-weight: bold;
 }
 .borrow-ui__sidebar-menu__entry--active {
     color: $ui-color-accent;
@@ -35,6 +43,10 @@ $ui-page-padding: 15px !default;
 }
 .borrow-ui__sidebar-menu__entry--clickable {
     cursor: pointer;
+
+    &:hover {
+        color: $ui-color-accent;
+    }
 }
 
 .borrow-ui__sidebar-menu__separator {

@@ -20,6 +20,8 @@ $ui-sidebar-color: $ui-color-neutral-white;
 
 .borrow-ui__sidebar__container--open {
     width: $ui-sidebar-open-width;
+}
+.borrow-ui__sidebar__container--open--shadow {
     box-shadow: inset -2px 0 10px -7px rgba(0, 0, 0, 0.3),
         inset -2px 0 10px -7px rgba(0, 0, 0, 0.15);
 }
@@ -30,7 +32,6 @@ $ui-sidebar-color: $ui-color-neutral-white;
 
 .borrow-ui__sidebar__container--sticky {
     position: sticky;
-    top: $ui-navbar-height;
 }
 
 .borrow-ui__sidebar {

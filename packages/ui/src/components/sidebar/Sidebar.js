@@ -8,10 +8,14 @@ import { Icon } from '../icon/Icon';
 const SIDEBAR_CLASS = `${UI_PREFIX}__sidebar`;
 const SIDEBAR_CONTAINER_CLASS = `${UI_PREFIX}__sidebar__container`;
 const SIDEBAR_CONTAINER_STICKY_CLASS = `${UI_PREFIX}__sidebar__container--sticky`;
+const SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS = `${UI_PREFIX}__sidebar__container--open--shadow`;
 const SIDEBAR_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__trigger`;
 const SIDEBAR_ELEMENTS_CONTAINER_CLASS = `${UI_PREFIX}__sidebar__elements-container`;
 const SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__elements-container--with-trigger`;
 const SIDEBAR_TOP_CLASS = `${UI_PREFIX}__sidebar__top-container`;
+// Status class is generated from SIDEBAR_TOP_CLASS:
+// open => `${UI_PREFIX}__sidebar__top-container--open`
+// closed => `${UI_PREFIX}__sidebar__top-container--closed`
 const SIDEBAR_BOTTOM_CLASS = `${UI_PREFIX}__sidebar__bottom-container`;
 
 export const SidebarContext = createContext([{}, () => ({})]);
@@ -38,9 +42,11 @@ export function Sidebar({
     initialStatus,
     disableTrigger,
     height,
-    sticky = false,
+    stickyTop,
+    shadowWhenOpen = true,
     sidebarContext,
     className = '',
+    style = {},
     ...rest
 }) {
     const emptyContext = React.createContext([{}, () => ({})]);
@@ -52,19 +58,22 @@ export function Sidebar({
         : [componentState, setComponentState];
 
     const statusClass = `${SIDEBAR_CONTAINER_CLASS}--${state.status}`;
-    const stickyClass = sticky ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
-    const sidebarContainerClass = `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${className}`;
+    const stickyClass = stickyTop !== undefined ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
+    const openShadowClass =
+        shadowWhenOpen && state.status === 'open' ? `${SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS}` : '';
+    const sidebarContainerClass = `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${openShadowClass} ${className}`;
     const elementsContainerTriggerClass = !disableTrigger
         ? SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS
         : '';
     const elementsContainerClass = `${SIDEBAR_ELEMENTS_CONTAINER_CLASS} ${elementsContainerTriggerClass}`;
     const sidebarTopStatusClass = `${SIDEBAR_TOP_CLASS}--${state.status}`;
+
     const sidebarTopClass = `${SIDEBAR_TOP_CLASS} ${sidebarTopStatusClass}`;
 
-    const style = { height };
+    const sidebarContainerStyle = { height, top: stickyTop, ...style };
 
     return (
-        <div className={sidebarContainerClass} style={style} {...rest}>
+        <div className={sidebarContainerClass} style={sidebarContainerStyle} {...rest}>
             <div className={SIDEBAR_CLASS}>
                 {!disableTrigger && (
                     <div
@@ -93,13 +102,15 @@ export function Sidebar({
 
 Sidebar.propTypes = {
     children: propTypesChildren,
-    sticky: PropTypes.bool,
+    stickyTop: PropTypes.number,
     top: PropTypes.func,
     bottom: PropTypes.func,
     initialStatus: PropTypes.oneOf(['open', 'closed']),
     disableTrigger: PropTypes.bool,
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    shadowWhenOpen: PropTypes.bool,
     className: PropTypes.string,
+    style: PropTypes.object,
     sidebarContext: PropTypes.object,
 };
 
