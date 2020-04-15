@@ -17,6 +17,7 @@ import { Menu } from './components/menu/Menu';
 import { MenuDivider } from './components/menu/MenuDivider';
 import { MenuEntry } from './components/menu/MenuEntry';
 import { Modal, ModalWindow } from './components/modal/Modal';
+import { Monospace } from './components/text/Monospace';
 import { Navbar } from './components/navbar/Navbar';
 import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
@@ -31,6 +32,7 @@ import { Subtitle } from './components/text/Subtitle';
 import { Table } from './components/table/Table';
 import { Tabs } from './components/tabs/Tabs';
 import { Text } from './components/text/Text';
+import { Title } from './components/text/Title';
 import { TextContainer } from './components/text/TextContainer';
 
 /*
@@ -60,6 +62,7 @@ export {
     MenuEntry,
     Modal,
     ModalWindow,
+    Monospace,
     Navbar,
     Page,
     PageBody,
@@ -77,4 +80,5 @@ export {
     Tabs,
     Text,
     TextContainer,
+    Title,
 };
