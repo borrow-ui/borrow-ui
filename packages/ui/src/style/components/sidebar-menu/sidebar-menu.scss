@@ -18,6 +18,7 @@ $ui-page-padding: 15px !default;
     font-weight: bold;
     font-size: 12px;
     text-decoration: none;
+    display: block;
 }
 .borrow-ui__sidebar-menu__title--clickable {
     cursor: pointer;
@@ -45,6 +46,7 @@ $ui-page-padding: 15px !default;
     cursor: pointer;
 
     &:hover {
+        text-decoration: underline;
         color: $ui-color-accent;
     }
 }
@@ -55,4 +57,8 @@ $ui-page-padding: 15px !default;
     display: block;
     margin: 7px 0;
     width: calc(100% - 50px);
+}
+
+.borrow-ui__sidebar-menu__entry + .borrow-ui__sidebar-menu__title {
+    margin-top: 10px;
 }

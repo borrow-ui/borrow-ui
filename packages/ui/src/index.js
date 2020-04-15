@@ -35,6 +35,9 @@ import { Text } from './components/text/Text';
 import { Title } from './components/text/Title';
 import { TextContainer } from './components/text/TextContainer';
 
+// hooks
+import { useAnchor, useRefHash } from './hooks/useAnchor';
+
 /*
 EXPORTS
 
@@ -81,4 +84,7 @@ export {
     Text,
     TextContainer,
     Title,
+    // hooks
+    useAnchor,
+    useRefHash,
 };
