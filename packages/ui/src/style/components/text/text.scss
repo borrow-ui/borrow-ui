@@ -16,3 +16,13 @@
 .borrow-ui__text__subtitle {
     color: $ui-color-neutral;
 }
+
+.borrow-ui__text__monospace {
+    font-family: monospace;
+    margin: 0;
+    font-size: 0.9em;
+    padding: 0.05em 0.2em;
+    display: inline-block;
+    color: $ui-color-primary;
+    background-color: darken($ui-color-neutral-white, 2);
+}
