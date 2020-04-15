@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Lorem, Tabs } from '@borrow-ui/ui/lib';
+import { Block, Lorem, Tabs } from '@borrow-ui/ui/lib';
 
 export function TabsComponent() {
     return (
-        <div className="m-b-20">
-            <h1>Tabs</h1>
+        <Block>
             <Tabs
                 tabs={[
                     { label: 'First', content: <Content l="First" /> },
@@ -16,7 +15,7 @@ export function TabsComponent() {
                 ]}
                 firstOpen={2}
             />
-        </div>
+        </Block>
     );
 }
 

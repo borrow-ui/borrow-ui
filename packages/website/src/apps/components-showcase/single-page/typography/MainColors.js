@@ -1,12 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Block } from '@borrow-ui/ui';
+
 import './colors.scss';
 
-export function Colors() {
+export function MainColors() {
     return (
-        <div className="m-b-20">
-            <h1>Colors</h1>
+        <Block>
             <div className="singlepage__colors">
                 <div className="singlepage__colors__row">
                     <Color color="primary" />
@@ -18,7 +19,7 @@ export function Colors() {
                     <Color color="negative" />
                 </div>
             </div>
-        </div>
+        </Block>
     );
 }
 

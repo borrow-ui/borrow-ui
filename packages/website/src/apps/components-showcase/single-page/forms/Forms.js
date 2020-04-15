@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-import { Col, Row, Icon, Forms } from '@borrow-ui/ui/lib';
+import { Block, Col, Row, Icon, Forms, Title } from '@borrow-ui/ui/lib';
 
 const {
     Checkbox,
@@ -43,9 +43,11 @@ export function FormsComponent() {
 
     return (
         <div className="m-b-20">
-            <h1>Forms</h1>
-            <h3>Vertical positioning</h3>
-            <div className="m-b-20">
+            <Title anchor="forms">Forms</Title>
+            <Title tag="h2" anchor="forms-vertical">
+                Vertical positioning
+            </Title>
+            <Block>
                 <Row>
                     <Col size={5}>
                         <Field label="Name" required={true} labelWidth={120}>
@@ -97,9 +99,12 @@ export function FormsComponent() {
                         </Field>
                     </Col>
                 </Row>
-            </div>
-            <h3>Horizontal positioning</h3>
-            <div className="m-b-20">
+            </Block>
+
+            <Title tag="h2" anchor="forms-horizontal">
+                Horizontal positioning
+            </Title>
+            <Block>
                 <Row>
                     <Col size={5}>
                         <HField label="Name" required={true} labelWidth={120}>
@@ -151,9 +156,8 @@ export function FormsComponent() {
                         </HField>
                     </Col>
                 </Row>
-            </div>
-            <div className="m-b-20">
-                <h2>External libraries (peer dependencies)</h2>
+            </Block>
+            <Block title="External libraries (peer dependencies)">
                 <ul>
                     <li>
                         <a href="https://react-select.com/home">react-select</a>
@@ -165,7 +169,7 @@ export function FormsComponent() {
                         <a href="https://react-dropzone.js.org/">react-dropzone</a>
                     </li>
                 </ul>
-            </div>
+            </Block>
         </div>
     );
 }

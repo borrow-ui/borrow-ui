@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { Badge } from '@borrow-ui/ui/lib';
+import { Block, Badge } from '@borrow-ui/ui/lib';
 
 export function Badges() {
     return (
-        <div className="m-b-20">
-            <h1>Badges</h1>
+        <Block>
             <div className="singlepage__badges">
                 <Badge>Badge</Badge>
                 <Badge color="primary">Badge</Badge>
@@ -19,6 +18,6 @@ export function Badges() {
                     Error (click)
                 </Badge>
             </div>
-        </div>
+        </Block>
     );
 }

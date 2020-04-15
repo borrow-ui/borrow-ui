@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 
-import { Panel, Button, Lorem } from '@borrow-ui/ui/lib';
+import { Block, Panel, Button, Lorem } from '@borrow-ui/ui/lib';
 
 export function Panels() {
     return (
-        <div className="m-b-20">
-            <h1>Panels</h1>
+        <Block>
             <ContentPanel />
             <ContentPanelHook />
-        </div>
+        </Block>
     );
 }
 

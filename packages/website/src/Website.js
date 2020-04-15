@@ -18,7 +18,7 @@ export function Website() {
                 <Header />
                 <div style={{ display: 'flex' }}>
                     <Sidebar
-                        sticky={true}
+                        stickyTop={46}
                         disableTrigger={true}
                         height={'calc(100vh - 46px)'}
                         top={sidebarState => <SidebarContent sidebarState={sidebarState} />}

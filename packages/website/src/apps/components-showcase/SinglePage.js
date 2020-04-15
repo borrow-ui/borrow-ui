@@ -1,53 +1,80 @@
 import React from 'react';
 
-import { Block, Page } from '@borrow-ui/ui/lib';
+import { Block, Page, TextContainer, Sidebar, SidebarMenu, useAnchor } from '@borrow-ui/ui/lib';
 
-import { Badges } from './single-page/Badges';
-import { BreadcrumbsComponent } from './single-page/BreadcrumbsComponent';
-import { Buttons } from './single-page/Buttons';
-import { Colors } from './single-page/Colors';
-import { Sidebars } from './single-page/Sidebars';
-import { Cards } from './single-page/Cards';
-import { TabsComponent } from './single-page/TabsComponent';
-import { Popovers } from './single-page/Popovers';
-import { Tables } from './single-page/Tables';
-import { Loaders } from './single-page/Loaders';
-import { Modals } from './single-page/Modals';
-import { Panels } from './single-page/Panels';
-import { FormsComponent } from './single-page/Forms';
+import { Typography } from './single-page/typography/Typography';
+import { Navigation } from './single-page/navigation/Navigation';
+import { Components } from './single-page/components/Components';
+import { DataVisualization } from './single-page/data-visualization/DataVisualization';
+import { FormsComponent } from './single-page/forms/Forms';
 
 export function SinglePage() {
+    useAnchor();
+
     return (
-        <Page title="Single Page Components Showcase" className="color-neutral-white-bg">
-            <Block className="color-white-bg" outstanding={true}>
-                <Colors />
-                <Buttons />
-                <Badges />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <BreadcrumbsComponent />
-                <Sidebars />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <Cards />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <TabsComponent />
-                <Popovers />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <Tables />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <Loaders />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <Modals />
-                <Panels />
-            </Block>
-            <Block className="color-white-bg" outstanding={true}>
-                <FormsComponent />
-            </Block>
+        <Page
+            title="Single Page Components Showcase"
+            className="color-neutral-white-bg"
+            pageBodyProps={{ style: { display: 'flex' }}}
+        >
+            <Sidebar
+                disableTrigger={true}
+                initialStatus={'open'}
+                top={() => SidebarMenuNavigator()}
+                stickyTop={0}
+                shadowWhenOpen={false}
+                style={{ width: 250 }}
+            />
+            <TextContainer>
+                <Block className="color-white-bg" outstanding={true}>
+                    <Typography />
+                </Block>
+                <Block className="color-white-bg" outstanding={true}>
+                    <Navigation />
+                </Block>
+                <Block className="color-white-bg" outstanding={true}>
+                    <Components />
+                </Block>
+                <Block className="color-white-bg" outstanding={true}>
+                    <DataVisualization />
+                </Block>
+                <Block className="color-white-bg" outstanding={true}>
+                    <FormsComponent />
+                </Block>
+            </TextContainer>
         </Page>
+    );
+}
+
+function SidebarMenuNavigator() {
+    const { Title, Entry } = SidebarMenu;
+    return (
+        <SidebarMenu isPadded={true}>
+            <Title href="#typography">Typography</Title>
+            <Entry href="#typography-titles">Titles</Entry>
+            <Entry href="#typography-text">Text</Entry>
+            <Entry href="#typography-main-colors">Main Colors</Entry>
+
+            <Title href="#navigation">Navigation</Title>
+            <Entry href="#navigation-breadcrumbs">Breadcrumbs</Entry>
+            <Entry href="#navigation-sidebars">Sidebars</Entry>
+            <Entry href="#navigation-tabs">Tabs</Entry>
+
+            <Title href="#components">Components</Title>
+            <Entry href="#components-buttons">Buttons</Entry>
+            <Entry href="#components-badges">Badges</Entry>
+            <Entry href="#components-cards">Cards</Entry>
+            <Entry href="#components-loaders">Loaders</Entry>
+            <Entry href="#components-modals">Modals</Entry>
+            <Entry href="#components-panels">Panels</Entry>
+            <Entry href="#components-popovers">Popovers</Entry>
+
+            <SidebarMenu.Title href="#data-visualization">Data Visualization</SidebarMenu.Title>
+            <SidebarMenu.Entry href="#data-visualization-tables">Tables</SidebarMenu.Entry>
+
+            <SidebarMenu.Title href="#forms">Forms</SidebarMenu.Title>
+            <SidebarMenu.Entry href="#forms-vertical">Vertical</SidebarMenu.Entry>
+            <SidebarMenu.Entry href="#forms-horizontal">Horizontal</SidebarMenu.Entry>
+        </SidebarMenu>
     );
 }

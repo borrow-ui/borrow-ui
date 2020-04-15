@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Lorem, Sidebar, SidebarEntry, SidebarMenu } from '@borrow-ui/ui/lib';
+import { Block, Lorem, Sidebar, SidebarEntry, SidebarMenu } from '@borrow-ui/ui/lib';
 
 import './sidebars.scss';
 
 export function Sidebars() {
     return (
-        <div className="m-b-20">
-            <h1>Sidebars</h1>
+        <Block>
             <div style={{ display: 'flex' }} className="singlepage__sidebars__sidebar-container">
                 <Sidebar
                     disableTrigger={true}
@@ -26,7 +25,7 @@ export function Sidebars() {
                     <Lorem />
                 </div>
             </div>
-        </div>
+        </Block>
     );
 }
 
@@ -45,6 +44,8 @@ function SidebarMenuNavigator() {
 }
 
 function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
+    const entryWithIdId = 'showcase-entry-with-id';
+
     return (
         <SidebarMenu isPadded={false}>
             <SidebarEntry
@@ -54,7 +55,7 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
             >
                 Dashboard
             </SidebarEntry>
-            <SidebarEntry sidebarState={sidebarState} iconName="palette" link="/style-showcase">
+            <SidebarEntry sidebarState={sidebarState} iconName="palette">
                 Style Showcase
             </SidebarEntry>
             <SidebarEntry sidebarState={sidebarState} shortcut="SC">
@@ -63,9 +64,13 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
             <SidebarEntry
                 sidebarState={sidebarState}
                 iconName="menu"
-                id="showcase-entry-with-id"
+                id={entryWithIdId}
                 onClick={() =>
-                    setSidebarState({ ...sidebarState, activeId: 'showcase-entry-with-id' })
+                    setSidebarState({
+                        ...sidebarState,
+                        activeId:
+                            sidebarState.activeId === entryWithIdId ? undefined : entryWithIdId,
+                    })
                 }
                 details={
                     <ul>
@@ -84,10 +89,10 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
             </SidebarEntry>
             <SidebarEntry
                 sidebarState={sidebarState}
-                shortcut={'RS'}
+                shortcut={'CA'}
                 onClick={() => setSidebarState({ ...sidebarState, activeId: undefined })}
             >
-                Reset Active State
+                Close All details
             </SidebarEntry>
         </SidebarMenu>
     );

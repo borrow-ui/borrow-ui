@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Button, Table } from '@borrow-ui/ui/lib';
+import { Block, Button, Table } from '@borrow-ui/ui/lib';
 
 const COLORS = ['primary', 'accent', 'neutral', 'positive', 'warning', 'negative'];
 
 export function Tables() {
     return (
-        <div className="m-b-20">
-            <h1>Tables</h1>
+        <Block>
             <h3>Simple table with zebra rows</h3>
             <div>
                 <Table {...getTable1Props()} />
@@ -16,7 +15,7 @@ export function Tables() {
             <div>
                 <Table {...getTable2Props()} />
             </div>
-        </div>
+        </Block>
     );
 }
 

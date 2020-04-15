@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { Button } from '@borrow-ui/ui/lib';
+import { Block, Button } from '@borrow-ui/ui/lib';
 
 export function Buttons() {
     return (
-        <div className="m-b-20">
-            <h1>Buttons</h1>
+        <Block>
             <div style={{ display: 'flex' }} className="m-b-20">
                 <Button onClick={() => window.alert('test')} className="m-r-20">
                     Regular
@@ -103,6 +102,6 @@ export function Buttons() {
                     Smaller
                 </Button>
             </div>
-        </div>
+        </Block>
     );
 }

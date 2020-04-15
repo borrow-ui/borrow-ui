@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 
-import { Modal, Button, Lorem } from '@borrow-ui/ui/lib';
+import { Block, Modal, Button, Lorem } from '@borrow-ui/ui/lib';
 
 export function Modals() {
     return (
-        <div className="m-b-20">
-            <h1>Modals</h1>
+        <Block>
             <Modal
                 Trigger={({ setViewModalWindow }) => (
                     <Button onClick={() => setViewModalWindow(true)} className="m-r-10">
@@ -67,7 +66,7 @@ export function Modals() {
                     };
                 }}
             />
-        </div>
+        </Block>
     );
 }
 

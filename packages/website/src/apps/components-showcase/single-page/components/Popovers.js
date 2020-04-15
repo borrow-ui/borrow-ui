@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { Button, Popover, Menu, MenuEntry, MenuDivider } from '@borrow-ui/ui/lib';
+import { Block, Button, Popover, Menu, MenuEntry, MenuDivider } from '@borrow-ui/ui/lib';
 
 export function Popovers() {
     return (
-        <div className="m-b-20">
-            <h1>Popovers</h1>
+        <Block>
             <div>
                 <Popover trigger={<Button className="m-r-15">Just content (click)</Button>}>
                     Simple content
@@ -63,6 +62,6 @@ export function Popovers() {
                     </Menu>
                 </Popover>
             </div>
-        </div>
+        </Block>
     );
 }

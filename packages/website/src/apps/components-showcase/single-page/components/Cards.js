@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 
-import { Card, Button, Icon } from '@borrow-ui/ui/lib';
+import { Block, Card, Button, Icon } from '@borrow-ui/ui/lib';
 
 export function Cards() {
     return (
-        <div className="m-b-20">
-            <h1>Cards</h1>
+        <Block>
             <Card
                 standingHover={true}
                 icon={<Icon name="home" className="color-accent" />}
@@ -46,6 +45,6 @@ export function Cards() {
                     </Fragment>
                 }
             />
-        </div>
+        </Block>
     );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Breadcrumbs, PageHeader } from '@borrow-ui/ui/lib';
+import { Block, Breadcrumbs, PageHeader } from '@borrow-ui/ui/lib';
 
 import './breadcrumbs.scss';
 
@@ -11,14 +11,13 @@ export function BreadcrumbsComponent() {
         { link: '/', label: 'Accounts' },
     ];
     return (
-        <div className="m-b-20">
-            <h1>Breadcrumbs</h1>
+        <Block>
             <div className="singlepage__breadcrumbs">
                 <PageHeader>
                     <Breadcrumbs breadcrumbs={ACCOUNTS_BREADCRUMBS} />
                     Add Account
                 </PageHeader>
             </div>
-        </div>
+        </Block>
     );
 }
