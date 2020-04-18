@@ -1,7 +1,7 @@
 $ui-modal-header-height: 55px !default;
 $ui-modal-footer-height: 65px !default;
 
-.borrow-ui__modal__wrapper {
+.#{$ui-prefix}__modal__wrapper {
     background-color: hsla(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
@@ -14,16 +14,16 @@ $ui-modal-footer-height: 65px !default;
     align-items: center;
 }
 
-.borrow-ui__modal__container {
+.#{$ui-prefix}__modal__container {
     background-color: $ui-color-neutral-white;
 }
 
-.borrow-ui__modal__container--maximized {
+.#{$ui-prefix}__modal__container--maximized {
     width: 95%;
     height: 95vh;
 }
 
-.borrow-ui__modal__header {
+.#{$ui-prefix}__modal__header {
     height: $ui-modal-header-height;
     border-bottom: 1px solid $ui-color-neutral-white-dark;
     display: flex;
@@ -31,35 +31,35 @@ $ui-modal-footer-height: 65px !default;
     align-items: center;
 }
 
-.borrow-ui__modal__title {
+.#{$ui-prefix}__modal__title {
     color: $ui-color-neutral;
     padding: $ui-page-padding;
     font-size: $ui-font-size-big;
 }
 
-.borrow-ui__modal__controls {
+.#{$ui-prefix}__modal__controls {
     padding: $ui-page-padding;
 }
 
-.borrow-ui__modal__content {
+.#{$ui-prefix}__modal__content {
     overflow: auto;
     padding: $ui-page-padding;
     box-sizing: border-box;
 }
 
-.borrow-ui__modal__content--header {
+.#{$ui-prefix}__modal__content--header {
     height: calc(100% - #{$ui-modal-header-height + 1});
 }
 
-.borrow-ui__modal__content--header--footer {
+.#{$ui-prefix}__modal__content--header--footer {
     height: calc(100% - #{$ui-modal-header-height + $ui-modal-footer-height + 1});
 }
 
-.borrow-ui__modal__content--footer {
+.#{$ui-prefix}__modal__content--footer {
     height: calc(100% - #{$ui-modal-footer-height + 1});
 }
 
-.borrow-ui__modal__footer {
+.#{$ui-prefix}__modal__footer {
     height: $ui-modal-footer-height;
     display: flex;
     justify-content: space-between;

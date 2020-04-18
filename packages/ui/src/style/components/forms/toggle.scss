@@ -6,7 +6,7 @@ $ui-form-toggle-padding: 2px;
 $ui-form-toggle-width: 30px;
 $ui-form-toggle-height: 17px;
 
-.borrow-ui__form__field__toggle {
+.#{$ui-prefix}__form__field__toggle {
     cursor: pointer;
     background: $ui-color-grey-light;
     padding: $ui-form-toggle-padding;
@@ -21,30 +21,30 @@ $ui-form-toggle-height: 17px;
     }
 }
 
-.borrow-ui__form__field__toggle--checked {
+.#{$ui-prefix}__form__field__toggle--checked {
     background: $ui-color-grey-light;
     border: 1px solid transparent;
 }
-.borrow-ui__form__field__toggle--disabled {
+.#{$ui-prefix}__form__field__toggle--disabled {
     background: $ui-color-grey-light;
     border: 1px solid $ui-color-grey-light-over;
     cursor: not-allowed;
 }
 
-.borrow-ui__form__field__toggle__checkbox {
+.#{$ui-prefix}__form__field__toggle__checkbox {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.borrow-ui__form__field__toggle__switch {
+.#{$ui-prefix}__form__field__toggle__switch {
     height: 100%;
     display: grid;
     grid-template-columns: 0fr 1fr 1fr;
     transition: all 0.5s;
 }
-.borrow-ui__form__field__toggle__switch::after {
+.#{$ui-prefix}__form__field__toggle__switch::after {
     content: '';
     border-radius: 50%;
     background: $ui-color-neutral-light;
@@ -52,16 +52,16 @@ $ui-form-toggle-height: 17px;
     transition: all 0.5s;
 }
 
-.borrow-ui__form__field__toggle__switch--checked {
+.#{$ui-prefix}__form__field__toggle__switch--checked {
     grid-template-columns: 1fr 1fr 0fr;
 }
-.borrow-ui__form__field__toggle__switch--checked::after {
+.#{$ui-prefix}__form__field__toggle__switch--checked::after {
     background-color: $ui-color-primary;
 }
-.borrow-ui__form__field__toggle__switch--disabled:not(.borrow-ui__form__field__toggle__switch--checked)::after {
+.#{$ui-prefix}__form__field__toggle__switch--disabled:not(.#{$ui-prefix}__form__field__toggle__switch--checked)::after {
     background: $ui-color-grey-light;
 }
-.borrow-ui__form__field__toggle__switch--disabled.borrow-ui__form__field__toggle__switch--checked::after {
+.#{$ui-prefix}__form__field__toggle__switch--disabled.#{$ui-prefix}__form__field__toggle__switch--checked::after {
     border: 1px solid $ui-color-primary-light;
     background-color: $ui-color-primary-disabled;
 }

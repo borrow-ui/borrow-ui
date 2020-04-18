@@ -1,10 +1,10 @@
-.borrow-ui__table__pagination {
+.#{$ui-prefix}__table__pagination {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-top: 10px;
 }
-.borrow-ui__table__pagination__page {
+.#{$ui-prefix}__table__pagination__page {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -15,16 +15,16 @@
     cursor: pointer;
 }
 
-.borrow-ui__table__pagination__page:not(:first-of-type) {
+.#{$ui-prefix}__table__pagination__page:not(:first-of-type) {
     margin-left: 5px;
 }
 
-.borrow-ui__table__pagination__page:hover {
+.#{$ui-prefix}__table__pagination__page:hover {
     background-color: $ui-color-primary;
     color: $ui-color-on-primary;
 }
 
-.borrow-ui__table__pagination__page--active {
+.#{$ui-prefix}__table__pagination__page--active {
     background-color: $ui-color-accent;
     color: $ui-color-on-accent;
 }

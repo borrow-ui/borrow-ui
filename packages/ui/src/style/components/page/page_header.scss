@@ -4,7 +4,7 @@
 $ui-page-padding: 15px !default;
 $ui-page-header-margin-bottom: 4px !default;
 
-.borrow-ui__page__header {
+.#{$ui-prefix}__page__header {
     padding-left: $ui-page-padding;
     padding-right: $ui-page-padding;
     display: flex;
@@ -13,21 +13,21 @@ $ui-page-header-margin-bottom: 4px !default;
     margin-bottom: $ui-page-header-margin-bottom;
     width: 100%;
 }
-.borrow-ui__page__header--with-shadow {
+.#{$ui-prefix}__page__header--with-shadow {
     box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-.borrow-ui__page__header__title {
+.#{$ui-prefix}__page__header__title {
     margin-top: 10px;
     margin-bottom: 10px;
     color: $ui-color-primary;
 }
 
-.borrow-ui__page__header__header-container {
+.#{$ui-prefix}__page__header__header-container {
     width: 100%;
 }
 
-.borrow-ui__page__header__controls-container {
+.#{$ui-prefix}__page__header__controls-container {
     display: flex;
     align-items: center;
 }

@@ -3,24 +3,24 @@
 $ui-page-padding: 15px !default;
 
 /*
-.borrow-ui__tabs {}
+.#{$ui-prefix}__tabs {}
 */
 
-.borrow-ui__tabs__header {
+.#{$ui-prefix}__tabs__header {
     display: flex;
 }
 
-.borrow-ui__tabs__header__label {
+.#{$ui-prefix}__tabs__header__label {
     padding: 7px 15px 5px;
     cursor: pointer;
 }
 
-.borrow-ui__tabs__header__label--selected {
+.#{$ui-prefix}__tabs__header__label--selected {
     border-bottom: 2px solid $ui-color-accent;
     color: $ui-color-accent;
 }
 
-.borrow-ui__tabs__header__label:not(.borrow-ui__tabs__header__label--selected) {
+.#{$ui-prefix}__tabs__header__label:not(.#{$ui-prefix}__tabs__header__label--selected) {
     color: $ui-color-neutral-light;
 
     &:hover {
@@ -29,18 +29,18 @@ $ui-page-padding: 15px !default;
 }
 
 /*
-.borrow-ui__tabs__body__container {}
+.#{$ui-prefix}__tabs__body__container {}
 */
 
-.borrow-ui__tabs__body {
+.#{$ui-prefix}__tabs__body {
     display: none;
     padding: $ui-page-padding;
 }
 
-.borrow-ui__tabs__body--selected {
+.#{$ui-prefix}__tabs__body--selected {
     display: block;
 }
 
-.borrow-ui__tabs__body--compact {
+.#{$ui-prefix}__tabs__body--compact {
     padding: 0;
 }

@@ -1,23 +1,23 @@
 @import '../../vars/main';
 
-.borrow-ui__text {
+.#{$ui-prefix}__text {
     margin: 1em 0;
 }
 
-.borrow-ui__text--big {
+.#{$ui-prefix}__text--big {
     font-size: $ui-font-size-big;
     font-weight: 300;
 }
 
-.borrow-ui__text--small {
+.#{$ui-prefix}__text--small {
     font-size: $ui-font-size-small;
 }
 
-.borrow-ui__text__subtitle {
+.#{$ui-prefix}__text__subtitle {
     color: $ui-color-neutral;
 }
 
-.borrow-ui__text__monospace {
+.#{$ui-prefix}__text__monospace {
     font-family: monospace;
     margin: 0 0.2em;
     font-size: 0.9em;

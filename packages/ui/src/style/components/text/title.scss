@@ -1,17 +1,17 @@
 @import '../../vars/main';
 
-.borrow-ui__title {
+.#{$ui-prefix}__title {
     color: $ui-font-color;
     font-weight: 500;
     margin-bottom: 0.8em;
 }
 
-.borrow-ui__title__anchor {
+.#{$ui-prefix}__title__anchor {
     line-height: 1rem;
     text-decoration: none;
     color: $ui-font-color;
 
-    &:visited:not(.borrow-ui__title__anchor--active) {
+    &:visited:not(.#{$ui-prefix}__title__anchor--active) {
         color: $ui-font-color;
     }
 
@@ -23,7 +23,7 @@
     }
 }
 
-.borrow-ui__title__anchor--active {
+.#{$ui-prefix}__title__anchor--active {
     transition: 0.5s;
     color: $ui-color-accent;
 }

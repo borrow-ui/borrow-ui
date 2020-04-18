@@ -1,7 +1,7 @@
 $ui-header-height: 46px !default;
 $ui-side-panel-padding: $ui-page-padding / 2 !default;
 
-.borrow-ui__panel {
+.#{$ui-prefix}__panel {
     z-index: 10;
     position: fixed;
     transition: 0.5s;
@@ -14,39 +14,39 @@ $ui-side-panel-padding: $ui-page-padding / 2 !default;
     overflow-x: hidden;
 }
 
-.borrow-ui__panel--visible {
+.#{$ui-prefix}__panel--visible {
     box-shadow: -10px 0 20px 1px rgba(0, 0, 0, 0.15), -3px 0 6px 1px rgba(0, 0, 0, 0.1);
 }
 
-.borrow-ui__panel__container {
+.#{$ui-prefix}__panel__container {
     box-sizing: border-box;
     height: 100vh;
     flex-direction: column;
     display: flex;
 }
 
-.borrow-ui__panel__header {
+.#{$ui-prefix}__panel__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: $ui-header-height;
 }
 
-.borrow-ui__panel__header__title {
+.#{$ui-prefix}__panel__header__title {
     padding: $ui-side-panel-padding;
 }
 
-.borrow-ui__panel__header__controls {
+.#{$ui-prefix}__panel__header__controls {
     padding: $ui-side-panel-padding;
 }
 
-.borrow-ui__panel__content {
+.#{$ui-prefix}__panel__content {
     flex-grow: 1;
     overflow: auto;
     padding: $ui-side-panel-padding;
 }
 
-.borrow-ui__panel__footer {
+.#{$ui-prefix}__panel__footer {
     display: flex;
     align-items: center;
     justify-content: space-between;

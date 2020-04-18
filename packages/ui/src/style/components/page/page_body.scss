@@ -2,7 +2,7 @@
 
 $ui-page-padding: 15px !default;
 
-.borrow-ui__page__body {
+.#{$ui-prefix}__page__body {
     padding: $ui-page-padding;
     overflow: auto;
     box-sizing: border-box;

@@ -2,15 +2,15 @@
 
 $ui-page-padding: 15px !default;
 
-.borrow-ui__sidebar-menu {
+.#{$ui-prefix}__sidebar-menu {
     width: 100%;
     box-sizing: border-box;
 }
-.borrow-ui__sidebar-menu--padded {
+.#{$ui-prefix}__sidebar-menu--padded {
     padding: $ui-page-padding;
 }
 
-.borrow-ui__sidebar-menu__title {
+.#{$ui-prefix}__sidebar-menu__title {
     padding: 5px;
     padding-left: 0;
     text-transform: uppercase;
@@ -20,7 +20,7 @@ $ui-page-padding: 15px !default;
     text-decoration: none;
     display: block;
 }
-.borrow-ui__sidebar-menu__title--clickable {
+.#{$ui-prefix}__sidebar-menu__title--clickable {
     cursor: pointer;
 
     &:hover {
@@ -29,20 +29,20 @@ $ui-page-padding: 15px !default;
     }
 }
 
-.borrow-ui__sidebar-menu__entry {
+.#{$ui-prefix}__sidebar-menu__entry {
     padding: 7px;
     display: block;
     text-decoration: none;
     color: $ui-color-on-neutral-white;
 }
-.borrow-ui__sidebar-menu__entry:hover {
+.#{$ui-prefix}__sidebar-menu__entry:hover {
     background-color: $ui-color-neutral-white-over;
 }
-.borrow-ui__sidebar-menu__entry--active {
+.#{$ui-prefix}__sidebar-menu__entry--active {
     color: $ui-color-accent;
     font-weight: bold;
 }
-.borrow-ui__sidebar-menu__entry--clickable {
+.#{$ui-prefix}__sidebar-menu__entry--clickable {
     cursor: pointer;
 
     &:hover {
@@ -51,7 +51,7 @@ $ui-page-padding: 15px !default;
     }
 }
 
-.borrow-ui__sidebar-menu__separator {
+.#{$ui-prefix}__sidebar-menu__separator {
     border-bottom: 1px solid $ui-color-primary-light;
     height: 1px;
     display: block;
@@ -59,6 +59,6 @@ $ui-page-padding: 15px !default;
     width: calc(100% - 50px);
 }
 
-.borrow-ui__sidebar-menu__entry + .borrow-ui__sidebar-menu__title {
+.#{$ui-prefix}__sidebar-menu__entry + .#{$ui-prefix}__sidebar-menu__title {
     margin-top: 10px;
 }

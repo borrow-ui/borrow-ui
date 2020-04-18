@@ -1,7 +1,9 @@
+@import '@borrow-ui/ui/src/style/_prefix.scss';
+
 .website__sidebar--home {
     background-color: $ui-background-color;
 
-    .borrow-ui__sidebar__entry:not(:hover) {
+    .#{$ui-prefix}__sidebar__entry:not(:hover) {
         color: $ui-color-primary-light;
     }
 }

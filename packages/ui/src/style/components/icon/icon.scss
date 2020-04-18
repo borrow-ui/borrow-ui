@@ -10,39 +10,39 @@
     }
 }
 
-.borrow-ui__icon {
+.#{$ui-prefix}__icon {
     vertical-align: middle;
 }
 
-.borrow-ui__icon.borrow-ui__icon--smaller {
+.#{$ui-prefix}__icon.#{$ui-prefix}__icon--smaller {
     font-size: 16px;
 }
 
-.borrow-ui__icon.borrow-ui__icon--small {
+.#{$ui-prefix}__icon.#{$ui-prefix}__icon--small {
     font-size: 18px;
 }
 
-.borrow-ui__icon.borrow-ui__icon--normal {
+.#{$ui-prefix}__icon.#{$ui-prefix}__icon--normal {
     font-size: 24px;
 }
 
-.borrow-ui__icon.borrow-ui__icon--big {
+.#{$ui-prefix}__icon.#{$ui-prefix}__icon--big {
     font-size: 36px;
 }
 
-.borrow-ui__icon.borrow-ui__icon--bigger {
+.#{$ui-prefix}__icon.#{$ui-prefix}__icon--bigger {
     font-size: 48px;
 }
 
-.borrow-ui__icon.borrow-ui__icon--huge {
+.#{$ui-prefix}__icon.#{$ui-prefix}__icon--huge {
     font-size: 64px;
 }
 
-.borrow-ui__icon--clickable {
+.#{$ui-prefix}__icon--clickable {
     cursor: pointer;
 }
 
-.borrow-ui__icon--spin {
+.#{$ui-prefix}__icon--spin {
     animation-name: spin;
     animation-duration: 1s;
     animation-timing-function: ease;

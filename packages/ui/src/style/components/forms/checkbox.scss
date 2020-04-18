@@ -2,7 +2,7 @@
 * CREDITS: https://codepen.io/KenanYusuf/pen/PZKEKd/
 **/
 
-.borrow-ui__form__field__checkbox {
+.#{$ui-prefix}__form__field__checkbox {
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -10,16 +10,16 @@
     width: $ui-form-checkbox-indicator-width;
     height: $ui-form-checkbox-indicator-height;
 }
-.borrow-ui__form__field__checkbox__label {
+.#{$ui-prefix}__form__field__checkbox__label {
     cursor: pointer;
     display: inline-block;
 }
-.borrow-ui__form__field__checkbox__checkbox {
+.#{$ui-prefix}__form__field__checkbox__checkbox {
     position: absolute;
     z-index: -1;
     opacity: 0;
 }
-.borrow-ui__form__field__checkbox__indicator {
+.#{$ui-prefix}__form__field__checkbox__indicator {
     position: absolute;
     left: 0;
     height: $ui-form-checkbox-indicator-height;
@@ -32,7 +32,7 @@
     }
 }
 
-.borrow-ui__form__field__checkbox__indicator::after {
+.#{$ui-prefix}__form__field__checkbox__indicator::after {
     content: '';
     position: absolute;
     display: none;
@@ -56,10 +56,10 @@
 %indicator-checked-after {
     display: block;
 }
-.borrow-ui__form__field__checkbox__indicator--checked {
+.#{$ui-prefix}__form__field__checkbox__indicator--checked {
     @extend %indicator-checked;
 }
-.borrow-ui__form__field__checkbox__indicator--checked::after {
+.#{$ui-prefix}__form__field__checkbox__indicator--checked::after {
     @extend %indicator-checked-after;
 }
 
@@ -75,27 +75,27 @@
     border-color: $ui-color-primary-disabled;
     left: ($ui-form-checkbox-indicator-width - $ui-form-checkbox-indicator-width / 5) / 2 - 2;
 }
-.borrow-ui__form__field__checkbox__indicator--disabled {
+.#{$ui-prefix}__form__field__checkbox__indicator--disabled {
     @extend %indicator-disabled;
 }
-.borrow-ui__form__field__checkbox__indicator--disabled::after {
+.#{$ui-prefix}__form__field__checkbox__indicator--disabled::after {
     @extend %indicator-disabled-after;
 }
-.borrow-ui__form__field__checkbox__indicator--checked.borrow-ui__form__field__checkbox__indicator--disabled {
+.#{$ui-prefix}__form__field__checkbox__indicator--checked.#{$ui-prefix}__form__field__checkbox__indicator--disabled {
     @extend %indicator-disabled;
 }
 /* Hover: NOT disabled */
 %indicator-not-disabled-hover {
     background: $ui-color-primary-over;
 }
-.borrow-ui__form__field__checkbox__indicator::not(.borrow-ui__form__field__checkbox__indicator--disabled)::hover {
+.#{$ui-prefix}__form__field__checkbox__indicator::not(.#{$ui-prefix}__form__field__checkbox__indicator--disabled)::hover {
     @extend %indicator-not-disabled-hover;
 }
 /* Hover: checked NOT disabled */
 %indicator-checked-not-disabled-hover {
     background: $ui-color-primary-light-over;
 }
-.borrow-ui__form__field__checkbox__indicator--checked::not(.borrow-ui__form__field__checkbox__indicator--disabled)::hover {
+.#{$ui-prefix}__form__field__checkbox__indicator--checked::not(.#{$ui-prefix}__form__field__checkbox__indicator--disabled)::hover {
     @extend %indicator-checked-not-disabled-hover;
 }
 
@@ -106,34 +106,34 @@ Use to have the same effects without setting the classes
 
 /* Checked */
 /*
-.borrow-ui__form__field__checkbox__checkbox:checked ~ .borrow-ui__form__field__checkbox__indicator {
+.#{$ui-prefix}__form__field__checkbox__checkbox:checked ~ .#{$ui-prefix}__form__field__checkbox__indicator {
     @extend %indicator-checked;
 }
-.borrow-ui__form__field__checkbox__checkbox:checked ~ .borrow-ui__form__field__checkbox__indicator:after {
+.#{$ui-prefix}__form__field__checkbox__checkbox:checked ~ .#{$ui-prefix}__form__field__checkbox__indicator:after {
     @extend %indicator-checked-after;
 }
 */
 
 /* Disabled */
 /*
-.borrow-ui__form__field__checkbox__checkbox:disabled ~ .borrow-ui__form__field__checkbox__indicator {
+.#{$ui-prefix}__form__field__checkbox__checkbox:disabled ~ .#{$ui-prefix}__form__field__checkbox__indicator {
     @extend %indicator-disabled;
 }
-.borrow-ui__form__field__checkbox__checkbox:disabled ~ .borrow-ui__form__field__checkbox__indicator:after {
+.#{$ui-prefix}__form__field__checkbox__checkbox:disabled ~ .#{$ui-prefix}__form__field__checkbox__indicator:after {
     @extend %indicator-disabled-after;
 }
 */
 
 /* Hover: NOT disabled */
 /*
-.borrow-ui__form__field__checkbox:hover .borrow-ui__form__field__checkbox__checkbox:not([disabled]) ~ .borrow-ui__form__field__checkbox__indicator {
+.#{$ui-prefix}__form__field__checkbox:hover .#{$ui-prefix}__form__field__checkbox__checkbox:not([disabled]) ~ .#{$ui-prefix}__form__field__checkbox__indicator {
     @extend %indicator-not-disabled-hover;
 }
 */
 
 /* Hover: checked NOT disabled */
 /*
-.borrow-ui__form__field__checkbox:hover .borrow-ui__form__field__checkbox__checkbox:not([disabled]):checked ~ .borrow-ui__form__field__checkbox__indicator {
+.#{$ui-prefix}__form__field__checkbox:hover .#{$ui-prefix}__form__field__checkbox__checkbox:not([disabled]):checked ~ .#{$ui-prefix}__form__field__checkbox__indicator {
     @extend %indicator-checked-not-disabled-hover;
 }
 */

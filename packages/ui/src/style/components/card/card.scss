@@ -1,23 +1,23 @@
 $ui-card-border-radius: 10px !default;
 $ui-card-side-width: 128px !default;
 
-.borrow-ui__card {
+.#{$ui-prefix}__card {
     display: inline-flex;
     max-width: 500px;
     height: auto;
     border-radius: 10px;
     margin: 0 1rem 1rem 0;
 }
-.borrow-ui__card--shadowed {
+.#{$ui-prefix}__card--shadowed {
     box-shadow: $ui-shadow-small;
 }
 
-.borrow-ui__card--standing-hover:hover {
+.#{$ui-prefix}__card--standing-hover:hover {
     transform: translateY(-3px);
     box-shadow: $ui-shadow-regular;
 }
 
-.borrow-ui__card__side {
+.#{$ui-prefix}__card__side {
     width: 128px;
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ $ui-card-side-width: 128px !default;
     border-right: 0;
 }
 
-.borrow-ui__card__side__icon-container {
+.#{$ui-prefix}__card__side__icon-container {
     border-radius: 32px;
     background-color: white;
     height: 64px;
@@ -39,7 +39,7 @@ $ui-card-side-width: 128px !default;
     justify-content: center;
 }
 
-.borrow-ui__card__main {
+.#{$ui-prefix}__card__main {
     padding: 0.7rem;
     display: inline-flex;
     border-top-right-radius: $ui-card-border-radius;
@@ -51,29 +51,29 @@ $ui-card-side-width: 128px !default;
     flex-direction: column;
 }
 
-.borrow-ui__card__body__title {
+.#{$ui-prefix}__card__body__title {
     font-weight: 600;
     margin-bottom: 0.3rem;
 }
 
-.borrow-ui__card__body__subtitle {
+.#{$ui-prefix}__card__body__subtitle {
     font-size: 0.8rem;
     margin-bottom: 1rem;
     color: $ui-color-neutral-light;
 }
 
-.borrow-ui__card__body__description {
+.#{$ui-prefix}__card__body__description {
     font-size: 0.8rem;
     color: $ui-color-neutral;
     margin-bottom: 1rem;
 }
 
-.borrow-ui__card__controls {
+.#{$ui-prefix}__card__controls {
     justify-content: space-between;
     display: flex;
     align-items: center;
 }
 
-.borrow-ui__card__control {
+.#{$ui-prefix}__card__control {
     font-weight: 600;
 }

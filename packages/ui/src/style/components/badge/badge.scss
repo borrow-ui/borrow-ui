@@ -1,6 +1,6 @@
 @import '../../vars/colors';
 
-.borrow-ui__badge {
+.#{$ui-prefix}__badge {
     font-size: 12px;
     margin: 0 5px;
     padding: 0 5px;
@@ -9,11 +9,11 @@
     justify-content: center;
 }
 
-.borrow-ui__badge--rounded {
+.#{$ui-prefix}__badge--rounded {
     border-radius: 20px;
 }
 
-.borrow-ui__badge--circular {
+.#{$ui-prefix}__badge--circular {
     border-radius: 50%;
     margin: 0;
     padding: 2px;
@@ -21,6 +21,6 @@
     height: 28px;
 }
 
-.borrow-ui__badge--clickable {
+.#{$ui-prefix}__badge--clickable {
     cursor: pointer;
 }

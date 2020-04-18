@@ -1,27 +1,27 @@
 @import '../../vars/colors';
 
-.borrow-ui__breadcrumbs {
+.#{$ui-prefix}__breadcrumbs {
     font-size: 0.7rem;
     color: $ui-color-neutral-light;
     padding: 5px 0;
 }
 
-.borrow-ui__breadcrumbs__breadcrumb {
+.#{$ui-prefix}__breadcrumbs__breadcrumb {
     text-decoration: none;
     display: inline-block;
 }
-.borrow-ui__breadcrumbs__breadcrumb--clickable {
+.#{$ui-prefix}__breadcrumbs__breadcrumb--clickable {
     cursor: pointer;
 }
-.borrow-ui__breadcrumbs__breadcrumb--clickable:hover {
+.#{$ui-prefix}__breadcrumbs__breadcrumb--clickable:hover {
     color: $ui-color-neutral;
     text-decoration: underline;
 }
-.borrow-ui__breadcrumbs__breadcrumb--clickable:visited {
+.#{$ui-prefix}__breadcrumbs__breadcrumb--clickable:visited {
     color: inherit;
 }
 
-.borrow-ui__breadcrumbs__separator {
+.#{$ui-prefix}__breadcrumbs__separator {
     color: $ui-color-neutral;
     display: inline-block;
     margin: 0 5px;

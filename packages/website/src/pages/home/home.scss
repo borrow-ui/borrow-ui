@@ -1,49 +1,50 @@
+@import '@borrow-ui/ui/src/style/_prefix.scss';
 @import '@borrow-ui/ui/src/style/vars/_colors.scss';
 
-.borrow-ui__home__container {
+.#{$ui-prefix}__home__container {
     padding: 35px 0;
     border-bottom: 1px solid $ui-color-neutral-white;
     width: 100%;
 }
 
-.borrow-ui__home__links-container {
+.#{$ui-prefix}__home__links-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
     flex-direction: column;
 }
-.borrow-ui__home__icons-container {
+.#{$ui-prefix}__home__icons-container {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .borrow-ui__icon {
+    .#{$ui-prefix}__icon {
         margin: 0 20px;
     }
 }
 
-.borrow-ui__home__buttons-container {
+.#{$ui-prefix}__home__buttons-container {
     display: flex;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.borrow-ui__home__title__container {
+.#{$ui-prefix}__home__title__container {
     display: flex;
     align-items: center;
     margin-bottom: 35px;
     height: 100%;
 }
 
-.borrow-ui__home__logo {
+.#{$ui-prefix}__home__logo {
     width: 48px;
     height: 48px;
     margin-right: 15px;
 }
 
-.borrow-ui__home__title {
+.#{$ui-prefix}__home__title {
     font-size: 46px;
     display: inline-block;
     margin: 0;

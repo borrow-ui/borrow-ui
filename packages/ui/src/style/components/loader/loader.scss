@@ -1,6 +1,6 @@
 @import '../../vars/colors';
 
-.borrow-ui__loader__container--full-section {
+.#{$ui-prefix}__loader__container--full-section {
     height: 100%;
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
     overflow: hidden;
 }
 
-.borrow-ui__loader--full-section {
+.#{$ui-prefix}__loader--full-section {
     display: block;
     position: relative;
     border-radius: 50%;
@@ -48,13 +48,13 @@
     }
 }
 
-.borrow-ui__loader__container--inline {
+.#{$ui-prefix}__loader__container--inline {
     display: inline-block;
     width: 20px;
     height: 20px;
 }
 
-.borrow-ui__loader--inline {
+.#{$ui-prefix}__loader--inline {
     width: 15px;
     height: 15px;
     margin: 6px 0 0 0;
@@ -83,7 +83,7 @@
     }
 }
 
-.borrow-ui__loader {
+.#{$ui-prefix}__loader {
     @-webkit-keyframes spin {
         0% {
             -webkit-transform: rotate(0deg);

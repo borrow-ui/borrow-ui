@@ -1,4 +1,4 @@
-.borrow-ui__form__field__textarea {
+.#{$ui-prefix}__form__field__textarea {
     font-family: $ui-font;
     width: 100%;
     min-height: 150px;
@@ -12,15 +12,15 @@
     }
 }
 
-.borrow-ui__form__field__textarea::placeholder {
+.#{$ui-prefix}__form__field__textarea::placeholder {
     color: $ui-form-placeholder-color;
     font-family: $ui-font;
 }
 
-.borrow-ui__form__field__textarea--disabled {
+.#{$ui-prefix}__form__field__textarea--disabled {
     background-color: $ui-form-input-disabled-color;
 }
 
-.borrow-ui__form__field__textarea--invalid {
+.#{$ui-prefix}__form__field__textarea--invalid {
     border: 1px solid $ui-color-negative;
 }

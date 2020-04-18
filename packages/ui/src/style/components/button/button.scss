@@ -1,7 +1,7 @@
 @import '../../vars/colors';
 @import '../../vars/main';
 
-.borrow-ui__button {
+.#{$ui-prefix}__button {
     color: $ui-color-on-neutral;
     background-color: $ui-color-neutral;
     border: none;
@@ -12,131 +12,131 @@
     font-family: $ui-font;
     border-radius: 2px;
 }
-.borrow-ui__button:hover {
+.#{$ui-prefix}__button:hover {
     background-color: $ui-color-neutral-over;
     border-color: $ui-color-neutral-over;
 }
 
-.borrow-ui__button--disabled {
+.#{$ui-prefix}__button--disabled {
     cursor: not-allowed;
 }
-.borrow-ui__button:disabled,
-.borrow-ui__button:disabled:hover {
+.#{$ui-prefix}__button:disabled,
+.#{$ui-prefix}__button:disabled:hover {
     background-color: $ui-color-neutral-disabled;
 }
 
-.borrow-ui__button--shadowed {
+.#{$ui-prefix}__button--shadowed {
     box-shadow: $ui-shadow-small;
 }
 
-.borrow-ui__button--icon {
+.#{$ui-prefix}__button--icon {
     padding: 0.41rem 0.75rem;
 }
 
-.borrow-ui__button--smaller {
+.#{$ui-prefix}__button--smaller {
     padding: 0 0.5rem;
     font-size: 0.75rem;
     line-height: 24px;
     height: 24px;
 }
-.borrow-ui__button--small {
+.#{$ui-prefix}__button--small {
     padding: 0 0.6rem;
     font-size: 0.8rem;
     line-height: 28px;
     height: 28px;
 }
-.borrow-ui__button--normal {
+.#{$ui-prefix}__button--normal {
     padding: 0 0.9rem;
     line-height: 32px;
     height: 32px;
 }
-.borrow-ui__button--big {
+.#{$ui-prefix}__button--big {
     padding: 0 1rem;
     font-size: 1.09rem;
     line-height: 40px;
     height: 40px;
 }
-.borrow-ui__button--bigger {
+.#{$ui-prefix}__button--bigger {
     padding: 0 1.25rem;
     font-size: 1.125rem;
     line-height: 50px;
     height: 50px;
 }
-.borrow-ui__button--huge {
+.#{$ui-prefix}__button--huge {
     padding: 0 1.7rem;
     font-size: 1.5rem;
     line-height: 60px;
     height: 60px;
 }
 
-.borrow-ui__button--primary {
+.#{$ui-prefix}__button--primary {
     color: $ui-color-on-primary;
     background-color: $ui-color-primary;
 }
-.borrow-ui__button--primary:hover {
+.#{$ui-prefix}__button--primary:hover {
     background-color: $ui-color-primary-over;
 }
-.borrow-ui__button--primary:disabled,
-.borrow-ui__button--primary:disabled:hover {
+.#{$ui-prefix}__button--primary:disabled,
+.#{$ui-prefix}__button--primary:disabled:hover {
     background-color: $ui-color-primary-disabled;
 }
 
-.borrow-ui__button--accent {
+.#{$ui-prefix}__button--accent {
     color: $ui-color-on-accent;
     background-color: $ui-color-accent;
 }
-.borrow-ui__button--accent:hover {
+.#{$ui-prefix}__button--accent:hover {
     background-color: $ui-color-accent-over;
 }
-.borrow-ui__button--accent:disabled,
-.borrow-ui__button--accent:disabled:hover {
+.#{$ui-prefix}__button--accent:disabled,
+.#{$ui-prefix}__button--accent:disabled:hover {
     background-color: $ui-color-accent-disabled;
 }
 
-.borrow-ui__button--neutral-light {
+.#{$ui-prefix}__button--neutral-light {
     color: $ui-color-on-neutral-light;
     background-color: $ui-color-neutral-light;
 }
-.borrow-ui__button--neutral-light:hover {
+.#{$ui-prefix}__button--neutral-light:hover {
     background-color: $ui-color-neutral-light-over;
 }
-.borrow-ui__button--neutral-light:disabled,
-.borrow-ui__button--neutral-light:disabled:hover {
+.#{$ui-prefix}__button--neutral-light:disabled,
+.#{$ui-prefix}__button--neutral-light:disabled:hover {
     background-color: $ui-color-neutral-light-disabled;
 }
 
-.borrow-ui__button--positive {
+.#{$ui-prefix}__button--positive {
     color: $ui-color-on-positive;
     background-color: $ui-color-positive;
 }
-.borrow-ui__button--positive:hover {
+.#{$ui-prefix}__button--positive:hover {
     background-color: $ui-color-positive-over;
 }
-.borrow-ui__button--positive:disabled,
-.borrow-ui__button--positive:disabled:hover {
+.#{$ui-prefix}__button--positive:disabled,
+.#{$ui-prefix}__button--positive:disabled:hover {
     background-color: $ui-color-positive-disabled;
 }
 
-.borrow-ui__button--negative {
+.#{$ui-prefix}__button--negative {
     color: $ui-color-on-negative;
     background-color: $ui-color-negative;
 }
-.borrow-ui__button--negative:hover {
+.#{$ui-prefix}__button--negative:hover {
     background-color: $ui-color-negative-over;
 }
-.borrow-ui__button--negative:disabled,
-.borrow-ui__button--negative:disabled:hover {
+.#{$ui-prefix}__button--negative:disabled,
+.#{$ui-prefix}__button--negative:disabled:hover {
     background-color: $ui-color-negative-disabled;
 }
 
-.borrow-ui__button--warning {
+.#{$ui-prefix}__button--warning {
     color: $ui-color-on-warning;
     background-color: $ui-color-warning;
 }
-.borrow-ui__button--warning:hover {
+.#{$ui-prefix}__button--warning:hover {
     background-color: $ui-color-warning-over;
 }
-.borrow-ui__button--warning:disabled,
-.borrow-ui__button--warning:disabled:hover {
+.#{$ui-prefix}__button--warning:disabled,
+.#{$ui-prefix}__button--warning:disabled:hover {
     background-color: $ui-color-warning-disabled;
 }

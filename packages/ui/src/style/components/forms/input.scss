@@ -1,6 +1,6 @@
 @import '../../vars/colors';
 
-.borrow-ui__form__field__input {
+.#{$ui-prefix}__form__field__input {
     border: 1px solid $ui-form-input-border-color;
     background-color: transparent;
     padding: $ui-form-input-padding;
@@ -11,15 +11,15 @@
     }
 }
 
-.borrow-ui__form__field__input::placeholder {
+.#{$ui-prefix}__form__field__input::placeholder {
     color: $ui-form-placeholder-color;
     font-family: $ui-font;
 }
 
-.borrow-ui__form__field__input--disabled {
+.#{$ui-prefix}__form__field__input--disabled {
     background-color: $ui-form-input-disabled-color;
 }
 
-.borrow-ui__form__field__input--invalid {
+.#{$ui-prefix}__form__field__input--invalid {
     border: 1px solid $ui-color-negative;
 }

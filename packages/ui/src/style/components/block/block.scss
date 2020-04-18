@@ -1,25 +1,25 @@
-.borrow-ui__block {
+.#{$ui-prefix}__block {
     overflow: auto;
 }
 
-.borrow-ui__block--outstanding {
+.#{$ui-prefix}__block--outstanding {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-.borrow-ui__block--separated {
+.#{$ui-prefix}__block--separated {
     margin-bottom: 1.5rem;
 }
 
-.borrow-ui__block--padded {
+.#{$ui-prefix}__block--padded {
     padding: 1rem;
 }
 
-.borrow-ui__block--rounded {
+.#{$ui-prefix}__block--rounded {
     border-radius: 0.5rem;
 }
 
-.borrow-ui__block--content-centered {
+.#{$ui-prefix}__block--content-centered {
     display: flex;
     justify-content: center;
     align-items: center;
