@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Title } from '@borrow-ui/ui';
 
+import { Accordions } from './Accordions';
 import { Buttons } from './Buttons';
 import { Badges } from './Badges';
 import { Cards } from './Cards';
@@ -15,6 +16,11 @@ export function Components() {
     return (
         <div className="m-b-20">
             <Title anchor="components">Components</Title>
+
+            <Title tag="h2" anchor="components-accordions">
+                Accordions
+            </Title>
+            <Accordions />
 
             <Title tag="h2" anchor="components-buttons">
                 Buttons

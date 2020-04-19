@@ -60,6 +60,7 @@ function SidebarMenuNavigator() {
             <Entry href="#navigation-sidebars">Sidebars</Entry>
 
             <Title href="#components">Components</Title>
+            <Entry href="#components-accordions">Accordions</Entry>
             <Entry href="#components-buttons">Buttons</Entry>
             <Entry href="#components-badges">Badges</Entry>
             <Entry href="#components-cards">Cards</Entry>
