@@ -1,9 +1,7 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 module.exports = {
     entry: './src/index.js',
-    devtool: 'eval-source-map',
     module: {
         rules: [
             {
@@ -57,6 +55,7 @@ module.exports = {
     externals: {
         dayjs: 'dayjs',
         'prop-types': 'prop-types',
+        prismjs: 'prismjs',
         react: {
             root: 'React',
             commonjs2: 'react',
@@ -77,5 +76,4 @@ module.exports = {
         'react-select': 'react-select',
         'react-select/creatable': 'react-select/creatable',
     },
-    plugins: [new BundleAnalyzerPlugin()],
 };

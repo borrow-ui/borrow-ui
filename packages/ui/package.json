@@ -7,8 +7,8 @@
     "main": "lib/index.js",
     "license": "MIT",
     "scripts": {
-        "build": "webpack --mode=production",
-        "watch": "webpack --watch --progress --mode=development",
+        "build": "webpack --config webpack.prod.js",
+        "watch": "webpack --watch --progress --config webpack.dev.js",
         "compile-css": "sass src/style/ui.full.scss lib/ui.full.css",
         "compile-css-min": "sass src/style/ui.full.scss lib/ui.full.min.css --style=compressed"
     },
@@ -36,7 +36,8 @@
         "url-loader": "^3.0.0",
         "webpack": "^4.42.0",
         "webpack-bundle-analyzer": "^3.6.1",
-        "webpack-cli": "^3.3.11"
+        "webpack-cli": "^3.3.11",
+        "webpack-merge": "^4.2.2"
     },
     "dependencies": {
         "flexboxgrid2": "^7.2.1",
