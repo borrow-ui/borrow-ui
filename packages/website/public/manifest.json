@@ -1,6 +1,6 @@
 {
-    "short_name": "Borrow-UI",
-    "name": "Borrow-UI - Library of reusable React components",
+    "short_name": "borrow-ui",
+    "name": "borrow-ui - Library of reusable React components",
     "icons": [
         {
             "src": "favicon.ico",

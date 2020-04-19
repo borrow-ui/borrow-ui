@@ -26,7 +26,7 @@ export function Home() {
                                 <img
                                     src={logo}
                                     className="borrow-ui__home__logo"
-                                    alt="Borrow UI logo"
+                                    alt="borrow-ui logo"
                                 />
                                 <h1 className="borrow-ui__home__title">Borrow UI</h1>
                             </div>
@@ -55,7 +55,7 @@ export function Home() {
                     <Text size="big">
                         A collection of React components built with simplicity in mind.
                     </Text>
-                    <Subtitle>Borrow UI helps to bootstrap your Admin/Dashboard SPAs.</Subtitle>
+                    <Subtitle>borrow-ui helps to bootstrap your Admin/Dashboard SPAs</Subtitle>
                     <Text className="color-accent">
                         View the project on GitHub and fork to start your design system!
                     </Text>

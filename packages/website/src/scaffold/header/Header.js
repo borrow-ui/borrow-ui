@@ -14,7 +14,7 @@ export function Header() {
 
     const Logo =
         location.pathname !== '/' ? (
-            <img src={logo} alt="Borrow UI logo" style={{ width: 25, height: 25 }} />
+            <img src={logo} alt="borrow-ui logo" style={{ width: 25, height: 25 }} />
         ) : (
             undefined
         );
