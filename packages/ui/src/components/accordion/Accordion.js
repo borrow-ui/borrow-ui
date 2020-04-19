@@ -19,6 +19,7 @@ export function Accordion({
     titleProps,
     contentProps,
     initialStatus = 'closed',
+    maxHeight,
     ...rest
 }) {
     const [isOpen, setIsOpen] = useState(initialStatus === 'open');
@@ -29,11 +30,16 @@ export function Accordion({
     const titleStatusClass = isOpen ? ACCORDION_TITLE_OPEN_CLASS : ACCORDION_TITLE_CLOSED_CLASS;
     const titleClassName = `${ACCORDION_TITLE_CLASS} ${titlePropsClassName} ${titleStatusClass}`;
 
-    const { className: contentPropsClassName = '', ...restContentProps } = contentProps || {};
+    const {
+        className: contentPropsClassName = '',
+        style: contentPropsStyle = {},
+        ...restContentProps
+    } = contentProps || {};
     const contentStatusClass = isOpen
         ? ACCORDION_CONTENT_OPEN_CLASS
         : ACCORDION_CONTENT_CLOSED_CLASS;
     const contentClassName = `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`;
+    const contentStyle = { ...contentPropsStyle, maxHeight: isOpen ? maxHeight : undefined };
 
     const onTitleClick = () => {
         titleOnClick && titleOnClick();
@@ -45,7 +51,7 @@ export function Accordion({
             <div className={titleClassName} onClick={onTitleClick} {...restTitleProps}>
                 {title}
             </div>
-            <div className={contentClassName} {...restContentProps}>
+            <div className={contentClassName} style={contentStyle} {...restContentProps}>
                 {children}
             </div>
         </div>
@@ -59,4 +65,5 @@ Accordion.propTypes = {
     titleProps: PropTypes.object,
     contentProps: PropTypes.object,
     initialStatus: PropTypes.oneOf(['open', 'closed']),
+    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
