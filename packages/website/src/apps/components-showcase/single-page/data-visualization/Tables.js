@@ -61,14 +61,14 @@ function getTable2Props() {
                 ...e,
                 name: <div className={getClassName(i)}>{e.name}</div>,
                 controls: (
-                    <span>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <Button mean="primary" size="smaller" className="m-r-5">
                             Link
                         </Button>
                         <Button mean="negative" size="smaller">
                             Delete
                         </Button>
-                    </span>
+                    </div>
                 ),
             };
         }),

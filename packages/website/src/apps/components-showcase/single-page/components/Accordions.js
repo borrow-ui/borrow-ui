@@ -10,7 +10,7 @@ export function Accordions() {
                     <Lorem />
                 </Block>
             </Accordion>
-            <Accordion title="Closed accordion" initialStatus="close">
+            <Accordion title="Closed accordion" initialStatus="closed">
                 <Block className="m-b-0">
                     <Lorem />
                 </Block>

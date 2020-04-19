@@ -8,7 +8,10 @@ export function Cards() {
             <Card
                 standingHover={true}
                 icon={<Icon name="home" className="color-accent" />}
-                elementsProps={{ sideProps: { className: 'color-accent-bg' }}}
+                elementsProps={{
+                    cardProps: { className: 'm-b-20', style: { maxWidth: 500 }},
+                    sideProps: { className: 'color-accent-bg' },
+                }}
                 title="Card sample"
                 subtitle="Example of a card"
                 description="Card can have content, called description, as well as title and subtitle. Check the hover!"
@@ -34,7 +37,10 @@ export function Cards() {
             <Card
                 shadowed={false}
                 icon={<Icon name="check" className="color-positive" />}
-                elementsProps={{ sideProps: { className: 'color-positive-bg' }}}
+                elementsProps={{
+                    cardProps: { className: 'm-b-20', style: { maxWidth: 500 }},
+                    sideProps: { className: 'color-positive-bg' },
+                }}
                 title="Success!"
                 subtitle="The operation was successfull."
                 description="Your pipeline run successfully. A message that you can later remove or keep visible. Flat without hover and shadow."

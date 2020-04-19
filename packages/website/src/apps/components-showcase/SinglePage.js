@@ -1,6 +1,16 @@
 import React from 'react';
 
-import { Block, Page, TextContainer, Sidebar, SidebarMenu, useAnchor } from '@borrow-ui/ui/lib';
+import {
+    Accordion,
+    Block,
+    Icon,
+    Page,
+    Responsive,
+    TextContainer,
+    Sidebar,
+    SidebarMenu,
+    useAnchor,
+} from '@borrow-ui/ui/lib';
 
 import { Typography } from './single-page/typography/Typography';
 import { Navigation } from './single-page/navigation/Navigation';
@@ -8,23 +18,45 @@ import { Components } from './single-page/components/Components';
 import { DataVisualization } from './single-page/data-visualization/DataVisualization';
 import { FormsComponent } from './single-page/forms/Forms';
 
+import './single-page/single-page.scss';
+
 export function SinglePage() {
     useAnchor();
 
     return (
         <Page
             title="Single Page Components Showcase"
-            className="color-neutral-white-bg"
-            pageBodyProps={{ style: { display: 'flex' }}}
+            className="color-neutral-white-bg single-page__page"
         >
-            <Sidebar
-                disableTrigger={true}
-                initialStatus={'open'}
-                top={() => SidebarMenuNavigator()}
-                stickyTop={0}
-                shadowWhenOpen={false}
-                style={{ width: 250 }}
-            />
+            <Responsive queries={{ minSize: '(max-width: 864px)' }}>
+                {matches => {
+                    if (!matches.minSize)
+                        return (
+                            <Sidebar
+                                disableTrigger={true}
+                                initialStatus={'open'}
+                                top={() => SidebarMenuNavigator()}
+                                stickyTop={0}
+                                shadowWhenOpen={false}
+                                style={{ width: 250 }}
+                            />
+                        );
+                    else
+                        return (
+                            <Accordion
+                                title={
+                                    <div className="flex-start-center line-height-font-size">
+                                        <Icon name="menu" className="m-r-5" />
+                                        Browse elements
+                                    </div>
+                                }
+                                maxHeight={2000}
+                            >
+                                {SidebarMenuNavigator()}
+                            </Accordion>
+                        );
+                }}
+            </Responsive>
             <TextContainer>
                 <Block className="color-white-bg" outstanding={true}>
                     <Typography />
