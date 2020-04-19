@@ -9,6 +9,7 @@ import { Loaders } from './Loaders';
 import { Modals } from './Modals';
 import { Panels } from './Panels';
 import { Popovers } from './Popovers';
+import { TabsComponent } from './TabsComponent';
 
 export function Components() {
     return (
@@ -49,6 +50,11 @@ export function Components() {
                 Popovers
             </Title>
             <Popovers />
+
+            <Title tag="h2" anchor="components-tabs" className="m-b-0">
+                Tabs
+            </Title>
+            <TabsComponent />
         </div>
     );
 }

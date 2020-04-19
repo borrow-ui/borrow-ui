@@ -58,7 +58,6 @@ function SidebarMenuNavigator() {
             <Title href="#navigation">Navigation</Title>
             <Entry href="#navigation-breadcrumbs">Breadcrumbs</Entry>
             <Entry href="#navigation-sidebars">Sidebars</Entry>
-            <Entry href="#navigation-tabs">Tabs</Entry>
 
             <Title href="#components">Components</Title>
             <Entry href="#components-buttons">Buttons</Entry>
@@ -68,6 +67,7 @@ function SidebarMenuNavigator() {
             <Entry href="#components-modals">Modals</Entry>
             <Entry href="#components-panels">Panels</Entry>
             <Entry href="#components-popovers">Popovers</Entry>
+            <Entry href="#components-tabs">Tabs</Entry>
 
             <SidebarMenu.Title href="#data-visualization">Data Visualization</SidebarMenu.Title>
             <SidebarMenu.Entry href="#data-visualization-tables">Tables</SidebarMenu.Entry>
