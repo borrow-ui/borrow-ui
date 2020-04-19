@@ -17,9 +17,18 @@ Row.propTypes = {
     className: PropTypes.string,
 };
 
-export function Col({ children, size = 6, colSize = '', className = '', ...rest }) {
+export function Col({
+    children,
+    size = 6,
+    colSize = '',
+    className = '',
+    colClassName: overrideColClassName,
+    ...rest
+}) {
     const colSizeClassName = colSize ? colSize : `col-xs-12 col-sm-${size}`;
-    const colClassName = `${colSizeClassName} ${className}`;
+    const colClassName = overrideColClassName
+        ? `${overrideColClassName} ${className}`
+        : `${colSizeClassName} ${className}`;
 
     return (
         <div className={colClassName} {...rest}>
@@ -33,4 +42,5 @@ Col.propTypes = {
     size: PropTypes.number,
     colSize: PropTypes.string,
     className: PropTypes.string,
+    colClassName: PropTypes.string,
 };
