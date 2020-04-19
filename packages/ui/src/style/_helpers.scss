@@ -1,3 +1,57 @@
+.flex {
+    display: flex;
+}
+.flex--wrap {
+    flex-wrap: wrap;
+}
+.flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-center-top {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+}
+.flex-center-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+}
+.flex-start-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.flex-start-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: top;
+}
+.flex-start-bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: bottom;
+}
+.flex-end-center {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.flex-end-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: top;
+}
+.flex-end-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: bottom;
+}
+.line-height-font-size {
+    line-height: $ui-font-size;
+}
 .w-10pc {
     width: 10% !important;
 }
