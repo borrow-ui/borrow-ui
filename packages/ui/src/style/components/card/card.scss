@@ -3,13 +3,14 @@ $ui-card-side-width: 128px !default;
 
 .#{$ui-prefix}__card {
     display: inline-flex;
-    max-width: 500px;
     height: auto;
     border-radius: 10px;
-    margin: 0 1rem 1rem 0;
 }
 .#{$ui-prefix}__card--shadowed {
     box-shadow: $ui-shadow-small;
+}
+.#{$ui-prefix}__card--margin-between {
+    margin: 0 1rem 1rem 0;
 }
 
 .#{$ui-prefix}__card--standing-hover:hover {

@@ -7,6 +7,7 @@ import { UI_PREFIX } from 'config';
 
 const CARD_CLASS = `${UI_PREFIX}__card`;
 const CARD_SHADOWED_CLASS = `${UI_PREFIX}__card--shadowed`;
+const CARD_MARGIN_BETWEEN_CLASS = `${UI_PREFIX}__card--margin-between`;
 const CARD_STANDING_HOVER_CLASS = `${UI_PREFIX}__card--standing-hover`;
 const CARD_SIDE_CLASS = `${UI_PREFIX}__card__side`;
 const CARD_SIDE_ICON_CONTAINER_CLASS = `${UI_PREFIX}__card__side__icon-container`;
@@ -25,6 +26,7 @@ export function Card({
     controls,
     elementsProps = {},
     shadowed = true,
+    marginBetween = false,
     standingHover = false,
 }) {
     const { className: cardClassName = '', ...cardProps } = elementsProps.cardProps || {};
@@ -41,9 +43,10 @@ export function Card({
     const { className: controlsClassName = '', ...controlsProps } =
         elementsProps.controlsProps || {};
 
-    const cardClass = `${CARD_CLASS} ${shadowed ? CARD_SHADOWED_CLASS : ''} ${
-        standingHover ? CARD_STANDING_HOVER_CLASS : ''
-    }`;
+    const shadowedClass = shadowed ? CARD_SHADOWED_CLASS : '';
+    const marginBetweenClass = marginBetween ? CARD_MARGIN_BETWEEN_CLASS : '';
+    const standingHoverClass = standingHover ? CARD_STANDING_HOVER_CLASS : '';
+    const cardClass = `${CARD_CLASS} ${shadowedClass} ${marginBetweenClass} ${standingHoverClass}`;
 
     return (
         <div className={`${cardClass} ${cardClassName}`} {...cardProps}>
@@ -115,5 +118,6 @@ Card.propTypes = {
         controlsProps: PropTypes.object,
     }),
     shadowed: PropTypes.bool,
+    marginBetween: PropTypes.bool,
     standingHover: PropTypes.bool,
 };
