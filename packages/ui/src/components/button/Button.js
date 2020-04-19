@@ -22,6 +22,7 @@ export function Button({
     icon,
     iconProps = {},
     children,
+    tag: Tag = 'button',
     ...rest
 }) {
     const disabledClass = disabled ? BUTTON_DISABLED_CLASS : '';
@@ -36,7 +37,7 @@ export function Button({
     const { className: iconClassName = '', ...restIconProps } = iconProps;
 
     return (
-        <button className={buttonClassName} disabled={disabled} {...rest}>
+        <Tag className={buttonClassName} disabled={disabled} {...rest}>
             {icon && (
                 <Icon
                     size={iconSize}
@@ -46,7 +47,7 @@ export function Button({
                 />
             )}
             {children}
-        </button>
+        </Tag>
     );
 }
 
@@ -59,5 +60,6 @@ Button.propTypes = {
     modifiers: PropTypes.array,
     icon: PropTypes.string,
     iconProps: PropTypes.object,
+    tag: propTypesChildren,
     children: propTypesChildren,
 };

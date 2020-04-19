@@ -11,6 +11,7 @@
     align-items: center;
     font-family: $ui-font;
     border-radius: 2px;
+    text-decoration: none;
 }
 .#{$ui-prefix}__button:hover {
     background-color: $ui-color-neutral-over;
