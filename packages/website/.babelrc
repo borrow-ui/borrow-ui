@@ -1,3 +1,13 @@
 {
-    "plugins": []
+    "plugins": [
+        [
+            "prismjs",
+            {
+                "languages": ["javascript", "css", "html", "jsx", "bash"],
+                "plugins": ["line-numbers", "show-language"],
+                "theme": "default",
+                "css": true
+            }
+        ]
+    ]
 }
