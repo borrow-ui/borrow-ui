@@ -1,9 +1,15 @@
 .#{$ui-prefix}__table__pagination {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+
     margin-top: 10px;
 }
+@media (min-width: 600px) {
+    .#{$ui-prefix}__table__pagination {
+        justify-content: flex-end;
+    }
+}
+
 .#{$ui-prefix}__table__pagination__page {
     display: inline-flex;
     align-items: center;

@@ -59,7 +59,14 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .#{$ui-prefix}__table__status-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @media (min-width: 600px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    @media (max-width: 600px) {
+        .#{$ui-prefix}__table__status-bar {
+            padding-top: 10px;
+        }
+    }
 }
