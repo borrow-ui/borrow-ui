@@ -7,6 +7,9 @@ import { Icon } from '../icon/Icon';
 
 const SIDEBAR_CLASS = `${UI_PREFIX}__sidebar`;
 const SIDEBAR_CONTAINER_CLASS = `${UI_PREFIX}__sidebar__container`;
+// Status class is generated for SIDEBAR_CONTAINED_CLASS:
+// open => `${UI_PREFIX}__sidebar__container--open`
+// closed => `${UI_PREFIX}__sidebar__container--closed`
 const SIDEBAR_CONTAINER_STICKY_CLASS = `${UI_PREFIX}__sidebar__container--sticky`;
 const SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS = `${UI_PREFIX}__sidebar__container--open--shadow`;
 const SIDEBAR_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__trigger`;
@@ -42,6 +45,7 @@ export function Sidebar({
     initialStatus,
     disableTrigger,
     height,
+    closedWidth,
     stickyTop,
     shadowWhenOpen = true,
     sidebarContext,
@@ -70,7 +74,8 @@ export function Sidebar({
 
     const sidebarTopClass = `${SIDEBAR_TOP_CLASS} ${sidebarTopStatusClass}`;
 
-    const sidebarContainerStyle = { height, top: stickyTop, ...style };
+    const width = closedWidth !== undefined && state.status === 'closed' ? closedWidth : undefined;
+    const sidebarContainerStyle = { height, top: stickyTop, width, ...style };
 
     return (
         <div className={sidebarContainerClass} style={sidebarContainerStyle} {...rest}>
@@ -108,6 +113,7 @@ Sidebar.propTypes = {
     initialStatus: PropTypes.oneOf(['open', 'closed']),
     disableTrigger: PropTypes.bool,
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    closedWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     shadowWhenOpen: PropTypes.bool,
     className: PropTypes.string,
     style: PropTypes.object,
