@@ -1,7 +1,6 @@
 @import '../../vars/main';
 
 .#{$ui-prefix}__title {
-    color: $ui-font-color;
     font-weight: 500;
     margin-bottom: 0.8em;
 }
@@ -9,10 +8,9 @@
 .#{$ui-prefix}__title__anchor {
     line-height: 1rem;
     text-decoration: none;
-    color: $ui-font-color;
 
     &:visited:not(.#{$ui-prefix}__title__anchor--active) {
-        color: $ui-font-color;
+        color: inherit;
     }
 
     &:hover::after {
