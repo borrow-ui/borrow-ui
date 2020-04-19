@@ -1,0 +1,26 @@
+.#{$ui-prefix}__accordion {
+    border: 1px solid $ui-color-grey-light;
+}
+.#{$ui-prefix}__accordion__title {
+    padding: 7px $ui-page-padding;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.#{$ui-prefix}__accordion__title--open {
+    color: $ui-color-on-accent;
+    background-color: $ui-color-accent;
+}
+.#{$ui-prefix}__accordion__title--closed {
+    color: $ui-color-neutral-dark;
+}
+.#{$ui-prefix}__accordion__content {
+    transition: 0.6s;
+    overflow: hidden;
+}
+.#{$ui-prefix}__accordion__content--open {
+    height: auto;
+    max-height: 600px;
+}
+.#{$ui-prefix}__accordion__content--closed {
+    max-height: 0;
+}

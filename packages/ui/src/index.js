@@ -2,6 +2,7 @@
 import { setConfig, getConfig } from './config';
 
 // Components
+import { Accordion } from './components/accordion/Accordion';
 import { Badge } from './components/badge/Badge';
 import { Block } from './components/block/Block';
 import { Breadcrumbs } from './components/breadcrumbs/Breadcrumbs';
@@ -49,6 +50,7 @@ export {
     getConfig,
     setConfig,
     // Components
+    Accordion,
     Badge,
     Block,
     Breadcrumbs,
