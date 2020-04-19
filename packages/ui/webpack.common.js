@@ -73,6 +73,7 @@ module.exports = {
         'react-day-picker': 'react-day-picker',
         'react-day-picker/DayPickerInput': 'react-day-picker/DayPickerInput',
         'react-dropzone': 'react-dropzone',
+        'react-media': 'react-media',
         'react-select': 'react-select',
         'react-select/creatable': 'react-select/creatable',
     },

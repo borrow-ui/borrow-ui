@@ -25,6 +25,7 @@ import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
 import { Panel } from './components/panel/Panel';
 import { Popover } from './components/popover/Popover';
+import { Responsive } from './components/responsive/Responsive';
 import { Sidebar, SidebarContext } from './components/sidebar/Sidebar';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
@@ -74,6 +75,7 @@ export {
     PageHeader,
     Panel,
     Popover,
+    Responsive,
     Row,
     Sidebar,
     SidebarContext,
