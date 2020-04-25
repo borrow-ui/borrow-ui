@@ -12,6 +12,7 @@ import { Forms } from './components/forms';
 import { Row, Col } from './components/grid/Grid';
 import { Icon } from './components/icon/Icon';
 import { IconControl } from './components/icon/IconControl';
+import { Link } from './components/link/Link';
 import { Loader } from './components/loader/Loader';
 import { Lorem } from './components/lorem/Lorem';
 import { Menu } from './components/menu/Menu';
@@ -61,6 +62,7 @@ export {
     Forms,
     Icon,
     IconControl,
+    Link,
     Loader,
     Lorem,
     Menu,
