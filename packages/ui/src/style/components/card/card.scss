@@ -14,7 +14,6 @@ $ui-card-side-width: 128px !default;
 }
 
 .#{$ui-prefix}__card--standing-hover:hover {
-    transform: translateY(-3px);
     box-shadow: $ui-shadow-regular;
 }
 
