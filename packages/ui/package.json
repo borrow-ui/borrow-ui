@@ -12,6 +12,10 @@
         "compile-css": "sass src/style/ui.full.scss lib/ui.full.css",
         "compile-css-min": "sass src/style/ui.full.scss lib/ui.full.min.css --style=compressed"
     },
+    "dependencies": {
+        "flexboxgrid2": "^7.2.1",
+        "typeface-lato": "^0.0.75"
+    },
     "peerDependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
         "material-design-icons-iconfont": "^5.0.1",
@@ -38,9 +42,5 @@
         "webpack-bundle-analyzer": "^3.6.1",
         "webpack-cli": "^3.3.11",
         "webpack-merge": "^4.2.2"
-    },
-    "dependencies": {
-        "flexboxgrid2": "^7.2.1",
-        "typeface-lato": "^0.0.75"
     }
 }

@@ -59,7 +59,7 @@ export function Accordion({
 }
 
 Accordion.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: propTypesChildren.isRequired,
     children: propTypesChildren,
     className: PropTypes.string,
     titleProps: PropTypes.object,
