@@ -49,9 +49,21 @@
     justify-content: flex-end;
     align-items: bottom;
 }
+
+.overflow-auto {
+    overflow: auto;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+.overflow-scroll {
+    overflow: scroll;
+}
+
 .line-height-font-size {
     line-height: $ui-font-size;
 }
+
 .w-10pc {
     width: 10% !important;
 }
