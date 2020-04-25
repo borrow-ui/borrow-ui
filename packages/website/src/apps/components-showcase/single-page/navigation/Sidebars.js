@@ -15,14 +15,18 @@ export function Sidebars() {
                 />
                 <div className="p-20">
                     <h2>Non collapsible Sidebar with SidebarMenu</h2>
-                    <Lorem />
+                    <Block className="overflow-auto h-400">
+                        <Lorem />
+                    </Block>
                 </div>
             </div>
             <div style={{ display: 'flex' }} className="singlepage__sidebars__sidebar-container">
                 <Sidebar initialStatus={'closed'} top={SidebarMenuNavigatorCollapsible} />
                 <div className="p-20">
                     <h2>Collapsible Sidebar with SidebarMenu</h2>
-                    <Lorem />
+                    <Block>
+                        <Lorem />
+                    </Block>
                 </div>
             </div>
         </Block>
