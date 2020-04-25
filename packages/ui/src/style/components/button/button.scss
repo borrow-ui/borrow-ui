@@ -30,6 +30,10 @@
     box-shadow: $ui-shadow-small;
 }
 
+.#{$ui-prefix}__button--separated {
+    margin: 0.4em;
+}
+
 .#{$ui-prefix}__button--icon {
     padding: 0.41rem 0.75rem;
 }
@@ -140,4 +144,116 @@
 .#{$ui-prefix}__button--warning:disabled,
 .#{$ui-prefix}__button--warning:disabled:hover {
     background-color: $ui-color-warning-disabled;
+}
+
+.#{$ui-prefix}__button--regular-reverse {
+    color: $ui-color-neutral;
+    border: 1px solid $ui-color-neutral;
+    background-color: $ui-color-on-neutral;
+}
+.#{$ui-prefix}__button--regular-reverse:hover {
+    color: $ui-color-neutral-over;
+    border-color: $ui-color-neutral-over;
+    background-color: $ui-color-on-neutral;
+}
+.#{$ui-prefix}__button--regular-reverse:disabled,
+.#{$ui-prefix}__button--regular-reverse:disabled:hover {
+    color: $ui-color-neutral-disabled;
+    border-color: $ui-color-neutral-disabled;
+}
+
+.#{$ui-prefix}__button--primary-reverse {
+    color: $ui-color-primary;
+    border: 1px solid $ui-color-primary;
+    background-color: $ui-color-on-primary;
+}
+.#{$ui-prefix}__button--primary-reverse:hover {
+    color: $ui-color-primary-over;
+    border-color: $ui-color-primary-over;
+    background-color: $ui-color-on-primary;
+}
+.#{$ui-prefix}__button--primary-reverse:disabled,
+.#{$ui-prefix}__button--primary-reverse:disabled:hover {
+    color: $ui-color-primary-disabled;
+    border-color: $ui-color-primary-disabled;
+}
+
+.#{$ui-prefix}__button--accent-reverse {
+    color: $ui-color-accent;
+    border: 1px solid $ui-color-accent;
+    background-color: $ui-color-on-accent;
+}
+.#{$ui-prefix}__button--accent-reverse:hover {
+    color: $ui-color-accent-over;
+    border-color: $ui-color-accent-over;
+    background-color: $ui-color-on-accent;
+}
+.#{$ui-prefix}__button--accent-reverse:disabled,
+.#{$ui-prefix}__button--accent-reverse:disabled:hover {
+    color: $ui-color-accent-disabled;
+    border-color: $ui-color-accent-disabled;
+}
+
+.#{$ui-prefix}__button--neutral-light-reverse {
+    color: $ui-color-neutral-light;
+    border: 1px solid $ui-color-neutral-light;
+    background-color: $ui-color-on-neutral-light;
+}
+.#{$ui-prefix}__button--neutral-light-reverse:hover {
+    color: $ui-color-neutral-light-over;
+    border-color: $ui-color-neutral-light-over;
+    background-color: $ui-color-on-neutral-light;
+}
+.#{$ui-prefix}__button--neutral-light-reverse:disabled,
+.#{$ui-prefix}__button--neutral-light-reverse:disabled:hover {
+    color: $ui-color-neutral-light-disabled;
+    border-color: $ui-color-neutral-light-disabled;
+}
+
+.#{$ui-prefix}__button--positive-reverse {
+    color: $ui-color-positive;
+    border: 1px solid $ui-color-positive;
+    background-color: $ui-color-on-positive;
+}
+.#{$ui-prefix}__button--positive-reverse:hover {
+    color: $ui-color-positive-over;
+    border-color: $ui-color-positive-over;
+    background-color: $ui-color-on-positive;
+}
+.#{$ui-prefix}__button--positive-reverse:disabled,
+.#{$ui-prefix}__button--positive-reverse:disabled:hover {
+    color: $ui-color-positive-disabled;
+    border-color: $ui-color-positive-disabled;
+}
+
+.#{$ui-prefix}__button--negative-reverse {
+    color: $ui-color-negative;
+    border: 1px solid $ui-color-negative;
+    background-color: $ui-color-on-negative;
+}
+.#{$ui-prefix}__button--negative-reverse:hover {
+    color: $ui-color-negative-over;
+    border-color: $ui-color-negative-over;
+    background-color: $ui-color-on-negative;
+}
+.#{$ui-prefix}__button--negative-reverse:disabled,
+.#{$ui-prefix}__button--negative-reverse:disabled:hover {
+    color: $ui-color-negative-disabled;
+    border-color: $ui-color-negative-disabled;
+}
+
+.#{$ui-prefix}__button--warning-reverse {
+    color: $ui-color-warning;
+    border: 1px solid $ui-color-warning;
+    background-color: $ui-color-on-warning;
+}
+.#{$ui-prefix}__button--warning-reverse:hover {
+    color: $ui-color-warning-over;
+    border-color: $ui-color-warning-over;
+    background-color: $ui-color-on-warning;
+}
+.#{$ui-prefix}__button--warning-reverse:disabled,
+.#{$ui-prefix}__button--warning-reverse:disabled:hover {
+    color: $ui-color-warning-disabled;
+    border-color: $ui-color-warning-disabled;
 }

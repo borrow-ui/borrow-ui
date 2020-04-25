@@ -9,15 +9,22 @@ import { Icon } from '../icon/Icon';
 // import 'style/components/button/button.scss';
 
 const BUTTON_CLASS = `${UI_PREFIX}__button`;
-// Mean and modifiers classes are calculated: i.e. `${BUTTON_CLASS}--positive`
+// Mean and modifiers classes are calculated:
+// primary => `${BUTTON_CLASS}--primary`
+
 const BUTTON_DISABLED_CLASS = `${BUTTON_CLASS}--disabled`;
+
+const MEANS_REGULAR = ['regular', 'primary', 'positive', 'negative', 'warning', 'accent'];
+export const MEANS = [...MEANS_REGULAR, ...MEANS_REGULAR.map(m => `${m}-reverse`)];
+export const MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES];
 
 export function Button({
     className,
     disabled,
     mean,
     size = 'normal',
-    flat,
+    flat = false,
+    separated = true,
     modifiers = [],
     icon,
     iconProps = {},
@@ -28,7 +35,13 @@ export function Button({
     const disabledClass = disabled ? BUTTON_DISABLED_CLASS : '';
     const meanClass = mean ? `${BUTTON_CLASS}--${mean}` : '';
 
-    const mods = [...modifiers, size && size, !flat && 'shadowed', icon && 'icon'].filter(m => m);
+    const mods = [
+        ...modifiers,
+        size && size,
+        !flat && 'shadowed',
+        separated && 'separated',
+        icon && 'icon',
+    ].filter(m => m);
     const modifiersClass =
         mods.length === 0 ? '' : mods.map(m => `${BUTTON_CLASS}--${m}`).join(' ');
     const buttonClassName = `${BUTTON_CLASS} ${disabledClass} ${meanClass} ${modifiersClass} ${className}`;
@@ -54,10 +67,11 @@ export function Button({
 Button.propTypes = {
     className: PropTypes.string,
     disabled: PropTypes.bool,
-    mean: PropTypes.oneOf(['primary', 'positive', 'negative', 'warning', 'accent']),
+    mean: PropTypes.oneOf(MEANS),
     size: PropTypes.oneOf(SIZES),
     flat: PropTypes.bool,
-    modifiers: PropTypes.array,
+    separated: PropTypes.bool,
+    modifiers: PropTypes.arrayOf(PropTypes.oneOf(MODIFIERS)),
     icon: PropTypes.string,
     iconProps: PropTypes.object,
     tag: propTypesChildren,
