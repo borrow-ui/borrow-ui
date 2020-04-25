@@ -35,6 +35,7 @@ import { Subtitle } from './components/text/Subtitle';
 import { Table } from './components/table/Table';
 import { Tabs } from './components/tabs/Tabs';
 import { Text } from './components/text/Text';
+import { Tile } from './components/tile/Tile';
 import { Title } from './components/text/Title';
 import { TextContainer } from './components/text/TextContainer';
 
@@ -89,6 +90,7 @@ export {
     Tabs,
     Text,
     TextContainer,
+    Tile,
     Title,
     // hooks
     useAnchor,

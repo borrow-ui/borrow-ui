@@ -1,0 +1,28 @@
+@import '../../vars/main';
+
+.#{$ui-prefix}__tile {
+    text-align: center;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    padding: 15px;
+}
+
+.#{$ui-prefix}__tile--clickable {
+    cursor: pointer;
+
+    &:hover {
+        background-color: $ui-color-neutral-white-dark-over;
+        color: $ui-color-primary;
+        i {
+            color: $ui-color-primary;
+        }
+    }
+}
+
+.#{$ui-prefix}__tile--with-background {
+    background-color: $ui-color-neutral-white-dark;
+}
+
+.#{$ui-prefix}__tile__main {
+    padding: 5px 5px 15px 5px;
+}
