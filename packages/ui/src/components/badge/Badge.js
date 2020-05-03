@@ -30,9 +30,13 @@ export function Badge({
 
 Badge.propTypes = {
     className: PropTypes.string,
+    /** Adds a color with `color-on-<COLOR>` class */
     color: PropTypes.string,
+    /** Adds a background color with `color-<COLOR>-bg` class */
     backgroundColor: PropTypes.string,
+    /** Change the badge type */
     type: PropTypes.oneOf(['rounded', 'circular', 'squared']),
+    /** Specify which tag has to be used for the badge */
     tag: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     children: propTypesChildren,
 };
