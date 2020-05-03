@@ -1,0 +1,46 @@
+@import '../../style/vars/main';
+
+$ui-page-padding: 15px !default;
+
+/*
+.#{$ui-prefix}__tabs {}
+*/
+
+.#{$ui-prefix}__tabs__header {
+    display: flex;
+}
+
+.#{$ui-prefix}__tabs__header__label {
+    padding: 7px 15px 5px;
+    cursor: pointer;
+}
+
+.#{$ui-prefix}__tabs__header__label--selected {
+    border-bottom: 2px solid $ui-color-accent;
+    color: $ui-color-accent;
+}
+
+.#{$ui-prefix}__tabs__header__label:not(.#{$ui-prefix}__tabs__header__label--selected) {
+    color: $ui-color-neutral-light;
+
+    &:hover {
+        color: $ui-color-primary-light;
+    }
+}
+
+/*
+.#{$ui-prefix}__tabs__body__container {}
+*/
+
+.#{$ui-prefix}__tabs__body {
+    display: none;
+    padding: $ui-page-padding;
+}
+
+.#{$ui-prefix}__tabs__body--selected {
+    display: block;
+}
+
+.#{$ui-prefix}__tabs__body--compact {
+    padding: 0;
+}

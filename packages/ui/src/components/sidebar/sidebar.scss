@@ -1,0 +1,150 @@
+@import '../../style/vars/main';
+
+$ui-dashboard-header-height: 0 !default;
+
+$ui-sidebar-closed-width: 46px !default;
+$ui-sidebar-open-width: 275px !default;
+$ui-sidebar-trigger-height: $ui-sidebar-closed-width;
+
+$ui-sidebar-color: $ui-color-neutral-white;
+
+.#{$ui-prefix}__sidebar__container {
+    flex: none;
+    display: inline-block;
+    width: $ui-sidebar-closed-width;
+    transition: all 0.4s;
+    background-color: $ui-sidebar-color;
+    box-sizing: border-box;
+}
+
+.#{$ui-prefix}__sidebar__container--open {
+    width: $ui-sidebar-open-width;
+}
+.#{$ui-prefix}__sidebar__container--open--shadow {
+    box-shadow: inset -2px 0 10px -7px rgba(0, 0, 0, 0.3),
+        inset -2px 0 10px -7px rgba(0, 0, 0, 0.15);
+}
+
+.#{$ui-prefix}__sidebar__container--closed {
+    width: $ui-sidebar-closed-width;
+}
+
+.#{$ui-prefix}__sidebar__container--sticky {
+    position: sticky;
+}
+
+.#{$ui-prefix}__sidebar {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: content-box;
+    width: 100%;
+}
+
+.#{$ui-prefix}__sidebar__trigger {
+    height: $ui-sidebar-trigger-height;
+    width: $ui-sidebar-closed-width;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $ui-color-on-neutral-white;
+    cursor: pointer;
+}
+
+%sidebar-icon {
+    min-width: $ui-sidebar-closed-width;
+    height: $ui-sidebar-trigger-height;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.#{$ui-prefix}__sidebar__icon {
+    @extend %sidebar-icon;
+}
+/*
+.#{$ui-prefix}__sidebar__icon__icon--active-open {
+}
+*/
+
+.#{$ui-prefix}__sidebar__elements-container {
+    height: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+.#{$ui-prefix}__sidebar__elements-container--with-trigger {
+    height: calc(100% - #{$ui-sidebar-trigger-height});
+}
+
+.#{$ui-prefix}__sidebar__top-container {
+    flex-grow: 1;
+    transition: all 0.4s;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.#{$ui-prefix}__sidebar__top-container--closed {
+    padding-top: 34px;
+}
+
+.#{$ui-prefix}__sidebar__bottom-container {
+}
+
+.#{$ui-prefix}__sidebar__entry {
+    min-width: $ui-sidebar-closed-width;
+    display: flex;
+    margin-bottom: $ui-sidebar-closed-width / 5;
+    color: lighten($ui-color-on-neutral-white, 12);
+    cursor: pointer;
+    text-decoration: none;
+}
+.#{$ui-prefix}__sidebar__entry:hover {
+    color: $ui-color-accent;
+}
+
+.#{$ui-prefix}__sidebar__entry--active {
+    color: $ui-color-accent;
+    background-color: $ui-color-on-primary;
+}
+.#{$ui-prefix}__sidebar__entry--active-open {
+    width: 100%;
+}
+
+.#{$ui-prefix}__sidebar__entry__label {
+    padding: 5px 15px 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.#{$ui-prefix}__sidebar__entry__label--active {
+    padding-left: 7px;
+}
+
+.#{$ui-prefix}__sidebar__entry__label__shortcut {
+    font-size: 24px;
+    text-transform: uppercase;
+    @extend %sidebar-icon;
+}
+
+.#{$ui-prefix}__sidebar__entry__details {
+    padding-left: 50px;
+    transition: all 0.6s;
+    display: none;
+    overflow: hidden;
+}
+.#{$ui-prefix}__sidebar__entry__details--active {
+    display: block;
+}
+/*
+.#{$ui-prefix}__sidebar__entry__details--open {
+}
+*/
+
+.#{$ui-prefix}__sidebar__entry__details--closed {
+    max-height: 0;
+}

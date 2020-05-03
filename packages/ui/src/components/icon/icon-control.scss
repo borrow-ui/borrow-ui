@@ -1,0 +1,7 @@
+@import '../../style/mixins/icons';
+
+.#{$ui-prefix}__icon-control {
+    @include icon-control;
+    padding: 4px;
+    margin: 0;
+}

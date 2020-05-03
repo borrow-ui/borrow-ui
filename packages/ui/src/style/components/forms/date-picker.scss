@@ -1,8 +1,0 @@
-// import in your application:
-// @import '~react-day-picker/lib/style.css';
-
-@import '../../vars/colors';
-
-.DayPicker-Day:not(.DayPicker-Day--today) {
-    color: $ui-color-neutral-dark;
-}

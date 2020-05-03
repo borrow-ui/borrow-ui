@@ -1,0 +1,28 @@
+@import '../../style/vars/colors';
+
+.#{$ui-prefix}__breadcrumbs {
+    font-size: 0.7rem;
+    color: $ui-color-neutral-light;
+    padding: 5px 0;
+}
+
+.#{$ui-prefix}__breadcrumbs__breadcrumb {
+    text-decoration: none;
+    display: inline-block;
+}
+.#{$ui-prefix}__breadcrumbs__breadcrumb--clickable {
+    cursor: pointer;
+}
+.#{$ui-prefix}__breadcrumbs__breadcrumb--clickable:hover {
+    color: $ui-color-neutral;
+    text-decoration: underline;
+}
+.#{$ui-prefix}__breadcrumbs__breadcrumb--clickable:visited {
+    color: inherit;
+}
+
+.#{$ui-prefix}__breadcrumbs__separator {
+    color: $ui-color-neutral;
+    display: inline-block;
+    margin: 0 5px;
+}
