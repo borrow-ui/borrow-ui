@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 
-// import 'style/components/block/block.scss';
+// import './block.scss';
 
 const BLOCK_CLASS = `${UI_PREFIX}__block`;
 const BLOCK_SEPARATED_CLASS = `${UI_PREFIX}__block--separated`;
@@ -51,13 +51,21 @@ export function Block({
 
 Block.propTypes = {
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    /** Set a title for the block with h2 tag */
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    /** Set props that will be added to the title */
     titleProps: PropTypes.object,
     className: PropTypes.string,
+    /** Adds a margin to the block */
     separated: PropTypes.bool,
+    /** Adds padding to the block */
     padded: PropTypes.bool,
+    /** Makes the border rounded */
     rounded: PropTypes.bool,
+    /** Adds a shadow to make block outstanding */
     outstanding: PropTypes.bool,
+    /** Centers the content */
     contentCentered: PropTypes.bool,
+    /** Set the `ref` prop of the container */
     blockRef: PropTypes.object,
 };
