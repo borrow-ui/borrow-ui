@@ -3,7 +3,7 @@
 .#{$ui-prefix}__badge {
     font-size: 12px;
     margin: 0 5px;
-    padding: 0 5px;
+    padding: 1px 5px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -17,8 +17,8 @@
     border-radius: 50%;
     margin: 0;
     padding: 2px;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
 }
 
 .#{$ui-prefix}__badge--clickable {
