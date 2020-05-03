@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const TABS_HEADER_CLASS = `${UI_PREFIX}__tabs__header`;
 const TABS_HEADER_LABEL_CLASS = `${UI_PREFIX}__tabs__header__label`;

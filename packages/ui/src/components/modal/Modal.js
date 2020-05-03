@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { IconControl } from '../icon/IconControl';
 import { Loader } from '../loader/Loader';
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const MODAL_WRAPPER_CLASS = `${UI_PREFIX}__modal__wrapper`;
 const MODAL_CONTAINER_CLASS = `${UI_PREFIX}__modal__container`;

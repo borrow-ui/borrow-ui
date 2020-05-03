@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const TABLE_STATUS_BAR_CLASS = `${UI_PREFIX}__table__status-bar`;
 

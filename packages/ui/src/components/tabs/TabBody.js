@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const TABS_BODY_CLASS = `${UI_PREFIX}__tabs__body`;
 const TABS_BODY_COMPACT_CLASS = `${UI_PREFIX}__tabs__body--compact`;

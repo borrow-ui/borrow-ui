@@ -1,0 +1,24 @@
+@import '../../style/vars/main';
+
+.#{$ui-prefix}__menu {
+    background-color: lighten($ui-color-neutral-white, 12);
+}
+
+.#{$ui-prefix}__menu__entry {
+    padding: 9px;
+}
+.#{$ui-prefix}__menu__entry:hover {
+    background-color: $ui-color-neutral-white;
+}
+
+.#{$ui-prefix}__menu__entry--clickable {
+    cursor: pointer;
+}
+.#{$ui-prefix}__menu__entry--disabled {
+    cursor: not-allowed;
+    color: $ui-color-neutral-disabled;
+}
+
+.#{$ui-prefix}__menu__divider {
+    border-bottom: 1px solid $ui-color-neutral-white;
+}

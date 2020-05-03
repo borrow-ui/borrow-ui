@@ -2,8 +2,8 @@ import React, { useState, Fragment, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 import { IconControl } from '../icon/IconControl';
 import { Loader } from '../loader/Loader';

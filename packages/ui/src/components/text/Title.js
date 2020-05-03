@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
-import { useRefHash } from 'hooks/useAnchor';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
+import { useRefHash } from '../../hooks/useAnchor';
 
 const TITLE_CLASS = `${UI_PREFIX}__title`;
 const TITLE_ANCHOR_CLASS = `${UI_PREFIX}__title__anchor`;

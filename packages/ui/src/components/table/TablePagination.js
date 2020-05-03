@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
-import { Icon } from 'components/icon/Icon';
-import { propTypesChildren } from 'utils/types';
+import { Icon } from '../icon/Icon';
+import { propTypesChildren } from '../../utils/types';
 
 const TABLE_PAGINATION_CLASS = `${UI_PREFIX}__table__pagination`;
 const TABLE_PAGINATION_PAGE_CLASS = `${UI_PREFIX}__table__pagination__page`;

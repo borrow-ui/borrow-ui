@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX, config } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX, config } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const BREADCRUMBS_CLASS = `${UI_PREFIX}__breadcrumbs`;
 const BREADCRUMBS_BREADCRUMB_CLASS = `${UI_PREFIX}__breadcrumbs__breadcrumb`;

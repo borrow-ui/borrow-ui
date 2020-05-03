@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const LOADER_CLASS = `${UI_PREFIX}__loader`;
 const LOADER_FULL_SECTION_CLASS = `${UI_PREFIX}__loader--full-section`;

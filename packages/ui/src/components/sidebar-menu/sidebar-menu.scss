@@ -1,0 +1,64 @@
+@import '../../style/vars/main';
+
+$ui-page-padding: 15px !default;
+
+.#{$ui-prefix}__sidebar-menu {
+    width: 100%;
+    box-sizing: border-box;
+}
+.#{$ui-prefix}__sidebar-menu--padded {
+    padding: $ui-page-padding;
+}
+
+.#{$ui-prefix}__sidebar-menu__title {
+    padding: 5px;
+    padding-left: 0;
+    text-transform: uppercase;
+    color: $ui-color-primary;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+}
+.#{$ui-prefix}__sidebar-menu__title--clickable {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: $ui-color-accent;
+    }
+}
+
+.#{$ui-prefix}__sidebar-menu__entry {
+    padding: 7px;
+    display: block;
+    text-decoration: none;
+    color: $ui-color-on-neutral-white;
+}
+.#{$ui-prefix}__sidebar-menu__entry:hover {
+    background-color: $ui-color-neutral-white-over;
+}
+.#{$ui-prefix}__sidebar-menu__entry--active {
+    color: $ui-color-accent;
+    font-weight: bold;
+}
+.#{$ui-prefix}__sidebar-menu__entry--clickable {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: $ui-color-accent;
+    }
+}
+
+.#{$ui-prefix}__sidebar-menu__separator {
+    border-bottom: 1px solid $ui-color-primary-light;
+    height: 1px;
+    display: block;
+    margin: 7px 0;
+    width: calc(100% - 50px);
+}
+
+.#{$ui-prefix}__sidebar-menu__entry + .#{$ui-prefix}__sidebar-menu__title {
+    margin-top: 10px;
+}

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Accordion Default 1`] = `
+<div
+  className="borrow-ui__accordion "
+>
+  <div
+    className="borrow-ui__accordion__title  borrow-ui__accordion__title--closed"
+    onClick={[Function]}
+  >
+    Accordion title
+  </div>
+  <div
+    className="borrow-ui__accordion__content  borrow-ui__accordion__content--closed"
+    style={Object {}}
+  >
+    <div
+      style={
+        Object {
+          "padding": 20,
+        }
+      }
+    >
+      <p
+        className="borrow-ui__text  "
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+      </p>
+      <p
+        className="borrow-ui__text  "
+      >
+        Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+      </p>
+    </div>
+  </div>
+</div>
+`;

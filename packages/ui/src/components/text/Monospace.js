@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { propTypesChildren } from 'utils/types';
-import { UI_PREFIX } from 'config';
+import { propTypesChildren } from '../../utils/types';
+import { UI_PREFIX } from '../../config';
 
 const TEXT_MONOSPACE_CLASS = `${UI_PREFIX}__text__monospace`;
 

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // For material-design icons, import this on your App:
 // import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
-import { UI_PREFIX, SIZES } from 'config';
+import { UI_PREFIX, SIZES } from '../../config';
 
 // import 'style/components/icon/icon.scss';
 

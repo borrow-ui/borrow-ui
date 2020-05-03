@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX, SIZES } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX, SIZES } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 import { Icon } from '../icon/Icon';
 

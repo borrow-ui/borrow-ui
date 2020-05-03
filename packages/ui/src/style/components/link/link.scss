@@ -1,9 +1,0 @@
-@import '../../vars/main';
-
-.#{$ui-prefix}__link {
-    color: $ui-color-primary;
-    text-decoration: underline;
-}
-.#{$ui-prefix}__link:hover {
-    color: $ui-color-primary-over;
-}

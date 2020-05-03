@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 import { MenuEntry } from './MenuEntry';
 import { MenuDivider } from './MenuDivider';

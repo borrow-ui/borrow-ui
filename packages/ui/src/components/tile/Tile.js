@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX, SIZES } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX, SIZES } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const TILE_CLASS = `${UI_PREFIX}__tile`;
 const TILE_WITH_BACKGROUND_CLASS = `${UI_PREFIX}__tile--with-background`;

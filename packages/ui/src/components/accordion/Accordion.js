@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const ACCORDION_CLASS = `${UI_PREFIX}__accordion`;
 const ACCORDION_TITLE_CLASS = `${UI_PREFIX}__accordion__title`;
@@ -39,7 +39,10 @@ export function Accordion({
         ? ACCORDION_CONTENT_OPEN_CLASS
         : ACCORDION_CONTENT_CLOSED_CLASS;
     const contentClassName = `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`;
-    const contentStyle = { ...contentPropsStyle, maxHeight: isOpen ? maxHeight : undefined };
+    const contentStyle = {
+        ...contentPropsStyle,
+        ...(maxHeight && { maxHeight: isOpen ? maxHeight : undefined }),
+    };
 
     const onTitleClick = () => {
         titleOnClick && titleOnClick();

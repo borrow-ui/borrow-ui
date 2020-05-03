@@ -1,0 +1,27 @@
+@import '../../style/vars/main';
+
+.#{$ui-prefix}__title {
+    font-weight: 500;
+    margin-bottom: 0.8em;
+}
+
+.#{$ui-prefix}__title__anchor {
+    line-height: 1rem;
+    text-decoration: none;
+
+    &:visited:not(.#{$ui-prefix}__title__anchor--active) {
+        color: inherit;
+    }
+
+    &:hover::after {
+        content: '\1F517';
+        font-size: 0.7em;
+        color: $ui-color-primary;
+        margin-left: 5px;
+    }
+}
+
+.#{$ui-prefix}__title__anchor--active {
+    transition: 0.5s;
+    color: $ui-color-accent;
+}

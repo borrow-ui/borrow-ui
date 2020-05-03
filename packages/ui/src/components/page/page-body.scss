@@ -1,0 +1,9 @@
+@import '../../style/vars/main';
+
+$ui-page-padding: 15px !default;
+
+.#{$ui-prefix}__page__body {
+    padding: $ui-page-padding;
+    overflow: auto;
+    box-sizing: border-box;
+}
