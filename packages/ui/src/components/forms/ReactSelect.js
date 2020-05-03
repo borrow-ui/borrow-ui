@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const FORM_SELECT_CLASS = `${UI_PREFIX}__form__field__react-select`;
 const FORM_SELECT_INVALID_CLASS = `${UI_PREFIX}__form__field__react-select--invalid`;

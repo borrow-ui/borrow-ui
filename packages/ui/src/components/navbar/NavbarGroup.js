@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const NAVBAR_GROUP_CLASS = `${UI_PREFIX}__navbar__group`;
 const NAVBAR_GROUP_ITEM_CLASS = `${UI_PREFIX}__navbar__group__item`;

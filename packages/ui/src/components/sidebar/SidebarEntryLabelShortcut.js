@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const SIDEBAR_ENTRY_LABEL_SHORTCUT_CLASS = `${UI_PREFIX}__sidebar__entry__label__shortcut`;
 

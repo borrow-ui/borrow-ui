@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const MENU_DIVIDER_CLASS = `${UI_PREFIX}__menu__divider`;
 

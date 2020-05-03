@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 import { Icon } from '../icon/Icon';
 
 const SIDEBAR_ICON_CLASS = `${UI_PREFIX}__sidebar__icon`;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../../config';
+import { propTypesChildren } from '../../../utils/types';
 
 const DROPZONE_FILES_CLASS = `${UI_PREFIX}__form__dropzone__files`;
 const DROPZONE_FILES_FILE_CLASS = `${UI_PREFIX}__form__dropzone__files__file`;

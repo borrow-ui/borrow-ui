@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 import { Icon } from '../icon/Icon';
 
 const SIDEBAR_CLASS = `${UI_PREFIX}__sidebar`;

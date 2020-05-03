@@ -1,15 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const POPOVER_CLASS = `${UI_PREFIX}__popover`;
 const POPOVER_VISIBLE_CLASS = `${UI_PREFIX}__popover--visible`;
 const POPOVER_OUTER_CONTAINER_CLASS = `${UI_PREFIX}__popover__outer-container`;
 const POPOVER_TRIGGER_CLASS = `${UI_PREFIX}__popover__trigger`;
-const POPOVER_ENTRY_CLASS = `${UI_PREFIX}__popover__entry`;
-const POPOVER_ENTRY_VISIBLE_CLASS = `${UI_PREFIX}__popover__entry--visible`;
-const POPOVER_DIVIDER_CLASS = `${UI_PREFIX}__popover__divider`;
 
 export const POPOVER_POSITIONS = {
     AUTO: 'auto',

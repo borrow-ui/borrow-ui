@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { propTypesChildren } from 'utils/types';
-import { UI_PREFIX } from 'config';
+import { propTypesChildren } from '../../utils/types';
+import { UI_PREFIX } from '../../config';
 import { LAYOUTS } from './constants';
 
 const LABEL_CLASS = `${UI_PREFIX}__form__label`;

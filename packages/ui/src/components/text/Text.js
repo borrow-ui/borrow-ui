@@ -1,18 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const TEXT_CLASS = `${UI_PREFIX}__text`;
 const TEXT_BIG_CLASS = `${UI_PREFIX}__text--big`;
 const TEXT_SMALL_CLASS = `${UI_PREFIX}__text--small`;
 
-export function Text({ className, size = 'default', textTag, children }) {
+export function Text({ className, size = 'default', textTag, children, ...rest }) {
     const Tag = textTag || 'div';
 
-    const sizeClassName = size ? (size === 'big' ? TEXT_BIG_CLASS : size === 'small' ? TEXT_SMALL_CLASS : '') : '';
+    const sizeClassName = size
+        ? size === 'big'
+            ? TEXT_BIG_CLASS
+            : size === 'small'
+            ? TEXT_SMALL_CLASS
+            : ''
+        : '';
     const textClassName = `${TEXT_CLASS} ${sizeClassName} ${className || ''}`;
 
-    return <Tag className={textClassName}>{children}</Tag>;
+    return (
+        <Tag className={textClassName} {...rest}>
+            {children}
+        </Tag>
+    );
 }
 
 Text.propTypes = {

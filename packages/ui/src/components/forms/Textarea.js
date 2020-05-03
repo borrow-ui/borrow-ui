@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const FORM_TEXTAREA_CLASS = `${UI_PREFIX}__form__field__textarea`;
 const FORM_TEXTAREA_DISABLED_CLASS = `${UI_PREFIX}__form__field__textarea--disabled`;

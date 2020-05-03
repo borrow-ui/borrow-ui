@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 import { NavbarControls } from './NavbarControls';
 
 const NAVBAR_BODY_CLASS = `${UI_PREFIX}__navbar__body`;
 const NAVBAR_BODY_ITEM_CLASS = `${UI_PREFIX}__navbar__body__item`;
 
-export function NavbarBody({ selectedItem, SelectedItemBody, query, toggleBodyOpen, setState, resetState }) {
+export function NavbarBody({
+    selectedItem,
+    SelectedItemBody,
+    query,
+    toggleBodyOpen,
+    setState,
+    resetState,
+}) {
     return (
         <div className={NAVBAR_BODY_CLASS}>
             <NavbarControls

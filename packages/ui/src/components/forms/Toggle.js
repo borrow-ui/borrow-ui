@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { SPACEBAR_CODE } from './constants';
-import { UI_PREFIX } from 'config';
+import { UI_PREFIX } from '../../config';
 
 const FORM_TOGGLE_CLASS = `${UI_PREFIX}__form__field__toggle`;
 const FORM_TOGGLE_CHECKED_CLASS = `${UI_PREFIX}__form__field__toggle--checked`;

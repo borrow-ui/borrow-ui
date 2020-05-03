@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from 'config';
-import { propTypesChildren } from 'utils/types';
+import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const BADGE_CLASS = `${UI_PREFIX}__badge`;
 const BADGE_CLICKABLE_CLASS = `${UI_PREFIX}__badge--clickable`;
