@@ -1,0 +1,53 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Badge } from './Badge';
+
+<Meta title="Components|Badge" component={Badge} />
+
+# Badge
+
+Badges can be used close to text to emphatize labels or numbers.
+It is possible to customize the tag (default is `span`) and it's shape.
+The `color` prop leverages the colors classes.
+
+<Preview>
+    <Story name="Default">
+        <div>
+            A normal text close to a <Badge>Badge</Badge>
+        </div>
+    </Story>
+</Preview>
+
+Badges with different colors:
+
+<Preview>
+    <Story name="Colored badges">
+        <div>
+            <Badge color="primary">Primary</Badge>
+            <Badge color="accent">Accent</Badge>
+            <Badge color="positive">Positive</Badge>
+            <Badge color="warning">Warning</Badge>
+            <Badge color="negative">Negative</Badge>
+        </div>
+    </Story>
+</Preview>
+
+Badges with different shape:
+
+<Preview>
+    <Story name="Different shapes">
+        <div>
+            <Badge color="primary">Badge</Badge>
+            <Badge color="accent" type="squared">
+                Squared
+            </Badge>
+            <Badge color="positive" type="circular">
+                10
+            </Badge>
+        </div>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Badge} />

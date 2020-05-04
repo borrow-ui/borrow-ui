@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Badge Colored badges 1`] = `
+<div>
+  <span
+    className="borrow-ui__badge color-primary-bg color-on-primary borrow-ui__badge--rounded  undefined"
+  >
+    Primary
+  </span>
+  <span
+    className="borrow-ui__badge color-accent-bg color-on-accent borrow-ui__badge--rounded  undefined"
+  >
+    Accent
+  </span>
+  <span
+    className="borrow-ui__badge color-positive-bg color-on-positive borrow-ui__badge--rounded  undefined"
+  >
+    Positive
+  </span>
+  <span
+    className="borrow-ui__badge color-warning-bg color-on-warning borrow-ui__badge--rounded  undefined"
+  >
+    Warning
+  </span>
+  <span
+    className="borrow-ui__badge color-negative-bg color-on-negative borrow-ui__badge--rounded  undefined"
+  >
+    Negative
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components|Badge Default 1`] = `
+<div>
+  A normal text close to a 
+  <span
+    className="borrow-ui__badge color-neutral-bg color-on-neutral borrow-ui__badge--rounded  undefined"
+  >
+    Badge
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components|Badge Different shapes 1`] = `
+<div>
+  <span
+    className="borrow-ui__badge color-primary-bg color-on-primary borrow-ui__badge--rounded  undefined"
+  >
+    Badge
+  </span>
+  <span
+    className="borrow-ui__badge color-accent-bg color-on-accent   undefined"
+  >
+    Squared
+  </span>
+  <span
+    className="borrow-ui__badge color-positive-bg color-on-positive borrow-ui__badge--circular  undefined"
+  >
+    10
+  </span>
+</div>
+`;

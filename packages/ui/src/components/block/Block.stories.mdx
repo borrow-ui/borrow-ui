@@ -1,0 +1,61 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Block } from './Block';
+import { Lorem } from '../lorem/Lorem';
+
+<Meta title="Components|Block" component={Block} />
+
+# Block
+
+A `Block` can be used to wrap text or components.
+
+It has shortcuts for padding and margin, shadow and round borders,
+make the text centered (both vertically and horizontally) and to add a title,
+which can be customized via `titleProps` property.
+
+<Preview>
+    <Story name="Default">
+        <Block title="Block title">
+            <Lorem />
+        </Block>
+    </Story>
+</Preview>
+
+### Container props
+
+The `Block` container can be customized with different properties:
+
+-   `separated` adds a margin;
+-   `padded` adds padding;
+-   `rounded` makes border rounded;
+-   `outstanding` adds a shadow to make the block outstading from the background.
+
+<Preview>
+    <Story name="Container properties">
+        <Block outstanding={true} rounded={false}>
+            With `outstanding` set to `true`.
+            <Lorem paragraphs={1} />
+        </Block>
+    </Story>
+</Preview>
+
+### Content props
+
+A shortcut to make the content centered is also present: `contentCentered` prop.
+
+<Preview>
+    <Story name="Content properties">
+        <Block
+            outstanding={true}
+            contentCentered={true}
+            style={{ height: 200 }}
+        >
+            Height of 200px
+        </Block>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Block} />

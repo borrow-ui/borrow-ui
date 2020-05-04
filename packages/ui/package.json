@@ -47,6 +47,7 @@
         "css-loader": "^3.4.2",
         "file-loader": "^6.0.0",
         "jest": "^25.4.0",
+        "material-design-icons-iconfont": "^5.0.1",
         "node-sass": "^4.13.1",
         "prettier-eslint": "^9.0.1",
         "react-is": "^16.13.1",

@@ -1,0 +1,30 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Breadcrumbs } from './Breadcrumbs';
+
+<Meta title="Components|Breadcrumbs" component={Breadcrumbs} />
+
+# Breadcrumbs
+
+`Breadcrumbs` component is used to display the page path, usually from home.
+
+It expects a list of objects with a mandatory `label` key, and an optional `link`.
+If the link is not present the breadcrumb will be added just as a label
+(usually the last element does not have a link).
+
+<Preview>
+    <Story name="Default">
+        <Breadcrumbs breadcrumbs={[
+            { label: 'Home', link: '/url/to/home' },
+            { label: 'List of Tests', link: '/url/to/list-of-tests' },
+            { label: 'Selected test' },
+        ]}>
+            <h2>Selected test 123</h2>
+        </Breadcrumbs>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Breadcrumbs} />

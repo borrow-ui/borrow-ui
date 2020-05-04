@@ -62,11 +62,16 @@ export function Accordion({
 }
 
 Accordion.propTypes = {
-    title: propTypesChildren.isRequired,
     children: propTypesChildren,
     className: PropTypes.string,
+    /** Title of the accordion */
+    title: propTypesChildren.isRequired,
+    /** Props passed to the title  */
     titleProps: PropTypes.object,
+    /** Props passed to the content container */
     contentProps: PropTypes.object,
+    /** Set the initial status of the accordion */
     initialStatus: PropTypes.oneOf(['open', 'closed']),
+    /** Specify the `maxHeight`. By default CSS adds `600px`. */
     maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
