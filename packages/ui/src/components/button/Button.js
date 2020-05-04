@@ -19,7 +19,7 @@ export const MEANS = [...MEANS_REGULAR, ...MEANS_REGULAR.map(m => `${m}-reverse`
 export const MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES];
 
 export function Button({
-    className,
+    className = '',
     disabled,
     mean,
     size = 'normal',
@@ -59,21 +59,30 @@ export function Button({
                     className={`${iconClassName} m-r-5`}
                 />
             )}
-            {children}
+            <span>{children}</span>
         </Tag>
     );
 }
 
 Button.propTypes = {
     className: PropTypes.string,
+    /** Disable the button. */
     disabled: PropTypes.bool,
+    /** Defines the mean of the button. */
     mean: PropTypes.oneOf(MEANS),
+    /** Controls the size of the button. */
     size: PropTypes.oneOf(SIZES),
+    /** Removes the shadow to make the button looks flat. */
     flat: PropTypes.bool,
+    /** Adds a margin. */
     separated: PropTypes.bool,
+    /** Reserved prop, can override behaviour of the other flags. */
     modifiers: PropTypes.arrayOf(PropTypes.oneOf(MODIFIERS)),
+    /** Icon to be rendered. */
     icon: PropTypes.string,
+    /** Props for the icon Component. */
     iconProps: PropTypes.object,
+    /** Use a different tag from `button`. */
     tag: propTypesChildren,
     children: propTypesChildren,
 };
