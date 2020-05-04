@@ -23,13 +23,17 @@ export function Breadcrumbs({ breadcrumbs, className, children, ...rest }) {
 }
 
 Breadcrumbs.propTypes = {
+    /** A list of objects. Each object must have a `label` and optionally
+     * a link. `className` will be added to the generated one.
+     */
     breadcrumbs: PropTypes.arrayOf(
         PropTypes.shape({
             link: PropTypes.string,
-            label: PropTypes.string.isRequired,
+            label: propTypesChildren.isRequired,
             className: PropTypes.string,
         })
     ),
+    /** The container className. */
     className: PropTypes.string,
     children: propTypesChildren,
 };

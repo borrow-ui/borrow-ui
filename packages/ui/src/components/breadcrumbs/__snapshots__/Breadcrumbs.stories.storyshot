@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Breadcrumbs Default 1`] = `
+<div
+  className="borrow-ui__breadcrumbs undefined"
+>
+  <a
+    className="borrow-ui__breadcrumbs__breadcrumb borrow-ui__breadcrumbs__breadcrumb--clickable  undefined"
+    to="/url/to/home"
+  >
+    Home
+  </a>
+  <div
+    className="borrow-ui__breadcrumbs__separator"
+  >
+    »
+  </div>
+  <a
+    className="borrow-ui__breadcrumbs__breadcrumb borrow-ui__breadcrumbs__breadcrumb--clickable  undefined"
+    to="/url/to/list-of-tests"
+  >
+    List of Tests
+  </a>
+  <div
+    className="borrow-ui__breadcrumbs__separator"
+  >
+    »
+  </div>
+  <div
+    className="borrow-ui__breadcrumbs__breadcrumb   undefined"
+  >
+    Selected test
+  </div>
+  <h2>
+    Selected test 123
+  </h2>
+</div>
+`;
