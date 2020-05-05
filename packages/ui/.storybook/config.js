@@ -29,7 +29,7 @@ const storySort = (a, b) => {
 
     const aName = a[1].parameters.fileName;
     const bName = b[1].parameters.fileName;
-    return aName.localeCompare(bName, undefined, { numeric: true });
+    return aName.toString().localeCompare(bName, undefined, { numeric: true });
 };
 
 addParameters({
