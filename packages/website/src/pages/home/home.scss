@@ -42,3 +42,9 @@
         justify-content: center;
     }
 }
+
+.home__key-points {
+    background: linear-gradient(150deg, $ui-color-primary 0%, $ui-color-accent 100%);
+    color: $ui-color-on-primary;
+    margin-bottom: 40px;
+}

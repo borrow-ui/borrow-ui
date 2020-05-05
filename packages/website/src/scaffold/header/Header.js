@@ -1,23 +1,16 @@
 import React, { useContext } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
-import { Navbar, SidebarContext, Icon } from '@borrow-ui/ui/lib';
+import { Navbar, NavbarLink, SidebarContext, Icon } from '@borrow-ui/ui/lib';
 import logo from 'static/borrow-ui-color-192.png';
 // import { ComponentsMenu } from './Menu';
 
 export function Header() {
     const [sidebarState, setSidebarState] = useContext(SidebarContext);
-    const location = useLocation();
     const sidebarWidth = 46;
 
-    const Logo =
-        location.pathname !== '/' ? (
-            <img src={logo} alt="borrow-ui logo" style={{ width: 25, height: 25 }} />
-        ) : (
-            undefined
-        );
+    const Logo = <img src={logo} alt="borrow-ui logo" style={{ width: 25, height: 25 }} />;
     const sidebarTriggerClass = `borrow-ui__navbar__group__item borrow-ui__sidebar-trigger p-0`;
     const sidebarTriggerStyle = {
         width: sidebarWidth,
@@ -43,7 +36,22 @@ export function Header() {
         <Navbar
             left={[
                 SidebarTrigger,
-                { headerLabel: <Link to="/">{Logo}</Link>, name: 'home' },
+                {
+                    headerLabel: (
+                        <NavbarLink tag={Link} to="/">
+                            {Logo}
+                        </NavbarLink>
+                    ),
+                    name: 'home',
+                },
+                {
+                    headerLabel: (
+                        <NavbarLink tag={Link} to="/docs">
+                            Docs
+                        </NavbarLink>
+                    ),
+                    name: 'docs',
+                },
                 // { headerLabel: 'Components', bodyItem: ComponentsMenu, name: 'components' },
             ]}
             right={['Version 0.0.1']}

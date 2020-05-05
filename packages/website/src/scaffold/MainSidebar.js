@@ -32,6 +32,9 @@ function SidebarContent({ sidebarState }) {
             <SidebarEntry sidebarState={sidebarState} iconName="home" link="/">
                 Home
             </SidebarEntry>
+            <SidebarEntry sidebarState={sidebarState} iconName="menu_book" link="/docs">
+                Docs
+            </SidebarEntry>
             <SidebarEntry sidebarState={sidebarState} iconName="dashboard" link="/dashboard">
                 Dashboard
             </SidebarEntry>
