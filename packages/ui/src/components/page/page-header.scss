@@ -12,6 +12,18 @@ $ui-page-header-margin-bottom: 4px !default;
     margin-bottom: $ui-page-header-margin-bottom;
     width: 100%;
 }
+
+.#{$ui-prefix}__page__header--tracker-is-visible {
+    max-height: 0;
+    opacity: 0;
+}
+.#{$ui-prefix}__page__header--tracker-is-not-visible {
+    max-height: 200px;
+    height: auto;
+    transition: 0.5s;
+    opacity: 1;
+}
+
 .#{$ui-prefix}__page__header--with-shadow {
     box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.15);
 }
@@ -29,4 +41,10 @@ $ui-page-header-margin-bottom: 4px !default;
 .#{$ui-prefix}__page__header__controls-container {
     display: flex;
     align-items: center;
+}
+
+@media (min-width: $ui-readable-content-min-width) {
+    .#{$ui-prefix}__page__header__readable-content {
+        padding: 0 calc((100% - 1300px) / 2 + #{$ui-sidebar-closed-width});
+    }
 }
