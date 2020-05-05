@@ -1,4 +1,7 @@
 const path = require('path');
+const merge = require('webpack-merge');
+
+const maxAssetSize = 1024 * 1024;
 
 module.exports = ({ config }) => {
     config.resolve.modules.push(path.resolve(__dirname, '../src'));
@@ -9,5 +12,18 @@ module.exports = ({ config }) => {
         include: path.resolve(__dirname, '../'),
     });
 
-    return config;
+    const split = {
+        optimization: {
+            splitChunks: {
+                chunks: 'all',
+                minSize: 30 * 1024,
+                maxSize: maxAssetSize,
+            },
+        },
+        performance: {
+            maxAssetSize: maxAssetSize,
+        },
+    };
+
+    return merge(config, split);
 };
