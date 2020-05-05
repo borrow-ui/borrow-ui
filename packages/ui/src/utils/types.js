@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
+const propTypesChild = PropTypes.oneOfType([PropTypes.func, PropTypes.node, PropTypes.object]);
+
 export const propTypesChildren = PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
+    propTypesChild,
+    PropTypes.arrayOf(propTypesChild),
 ]);
