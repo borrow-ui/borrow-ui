@@ -43,7 +43,9 @@ export function FormsComponent() {
 
     return (
         <div className="m-b-20">
-            <Title anchor="forms">Forms</Title>
+            <Title anchor="forms" className="color-primary">
+                Forms
+            </Title>
             <Title tag="h2" anchor="forms-vertical">
                 Vertical positioning
             </Title>

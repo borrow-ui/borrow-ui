@@ -27,6 +27,7 @@ export function SinglePage() {
         <Page
             title="Single Page Components Showcase"
             className="color-neutral-white-bg single-page__page"
+            readableContent={true}
         >
             <Responsive queries={{ minSize: '(max-width: 864px)' }}>
                 {matches => {

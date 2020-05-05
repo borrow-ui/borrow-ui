@@ -17,6 +17,8 @@ export function Page({
     infinite,
     title,
     usePageBody = true,
+    readableContent = false,
+    titleVisibleFollowRef,
     pageHeaderProps,
     pageBodyProps,
     children,
@@ -28,13 +30,19 @@ export function Page({
 
     const bodyProps = {
         withPageHeader: Boolean(pageHeaderProps !== undefined || title),
+        readableContent,
         ...pageBodyProps,
     };
 
     return (
         <div className={pageClass} {...rest}>
             {title && (
-                <PageHeader scrollRef={bodyRef} {...pageHeaderProps}>
+                <PageHeader
+                    scrollRef={bodyRef}
+                    readableContent={readableContent}
+                    titleVisibleFollowRef={titleVisibleFollowRef}
+                    {...pageHeaderProps}
+                >
                     {title}
                 </PageHeader>
             )}
@@ -53,6 +61,7 @@ Page.propTypes = {
     title: PropTypes.node,
     infinite: PropTypes.bool,
     usePageBody: PropTypes.bool,
+    readableContent: PropTypes.bool,
     pageHeaderProps: PropTypes.object,
     pageBodyProps: PropTypes.object,
     children: propTypesChildren,

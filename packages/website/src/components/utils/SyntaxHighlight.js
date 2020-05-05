@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 
 import './syntax-highlight.scss';
@@ -14,7 +15,7 @@ export function SyntaxHighlight({ code, plugins = [], language = 'jsx' }) {
 
     return (
         <div className="borrow-ui__syntax-highlight">
-            <pre>
+            <pre className={!plugins ? '' : plugins.join(' ')}>
                 <code ref={codeRef} className={`language-${language}`}>
                     {code}
                 </code>
@@ -22,3 +23,9 @@ export function SyntaxHighlight({ code, plugins = [], language = 'jsx' }) {
         </div>
     );
 }
+
+SyntaxHighlight.propTypes = {
+    code: PropTypes.string,
+    plugins: PropTypes.array,
+    language: PropTypes.string,
+};

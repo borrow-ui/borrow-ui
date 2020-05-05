@@ -1,9 +1,14 @@
 @import '../../style/vars/main';
 
-$ui-page-padding: 15px !default;
-
 .#{$ui-prefix}__page__body {
     padding: $ui-page-padding;
     overflow: auto;
     box-sizing: border-box;
+}
+
+@media (min-width: $ui-readable-content-min-width) {
+    .#{$ui-prefix}__page__body__readable-content {
+        margin: 0 auto;
+        padding: $ui-page-padding calc((100% - 1300px) / 2 + #{$ui-sidebar-closed-width});
+    }
 }

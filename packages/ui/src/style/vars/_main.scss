@@ -45,6 +45,10 @@ $ui-form-field-padding: 7px 0;
 $ui-form-input-border-color: $ui-color-grey-light;
 $ui-form-label-padding-right: $ui-page-padding;
 
+/* Sidebar */
+$ui-sidebar-closed-width: 46px !default;
+
 /* Dashboard - Generic */
 $ui-dashboard-header-height: $ui-navbar-height;
 $ui-dashboard-footer-height: 0;
+$ui-readable-content-min-width: 1400px;
