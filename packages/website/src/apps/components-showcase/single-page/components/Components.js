@@ -15,7 +15,9 @@ import { TabsComponent } from './TabsComponent';
 export function Components() {
     return (
         <div className="m-b-20">
-            <Title anchor="components">Components</Title>
+            <Title anchor="components" className="color-primary">
+                Components
+            </Title>
 
             <Title tag="h2" anchor="components-accordions">
                 Accordions

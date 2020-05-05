@@ -8,11 +8,9 @@
     }
 
     @media (max-width: 864px) {
-        .single-page__page {
-            .#{$ui-prefix}__page__body {
-                padding-left: 0;
-                padding-right: 0;
-            }
+        .#{$ui-prefix}__page__body {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }
