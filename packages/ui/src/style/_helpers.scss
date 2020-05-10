@@ -14,10 +14,10 @@
     justify-content: center;
     align-items: top;
 }
-.flex-center-bottom {
+.flex-center-baseline {
     display: flex;
     justify-content: center;
-    align-items: bottom;
+    align-items: baseline;
 }
 .flex-start-center {
     display: flex;
@@ -29,10 +29,10 @@
     justify-content: flex-start;
     align-items: top;
 }
-.flex-start-bottom {
+.flex-start-baseline {
     display: flex;
     justify-content: flex-start;
-    align-items: bottom;
+    align-items: baseline;
 }
 .flex-end-center {
     display: flex;
@@ -44,10 +44,10 @@
     justify-content: flex-end;
     align-items: top;
 }
-.flex-end-bottom {
+.flex-end-baseline {
     display: flex;
     justify-content: flex-end;
-    align-items: bottom;
+    align-items: baseline;
 }
 
 .overflow-auto {
