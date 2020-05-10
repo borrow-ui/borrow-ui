@@ -97,6 +97,7 @@ function SidebarMenuNavigator() {
             <Entry href="#components-buttons">Buttons</Entry>
             <Entry href="#components-badges">Badges</Entry>
             <Entry href="#components-cards">Cards</Entry>
+            <Entry href="#components-links">Links</Entry>
             <Entry href="#components-loaders">Loaders</Entry>
             <Entry href="#components-modals">Modals</Entry>
             <Entry href="#components-panels">Panels</Entry>

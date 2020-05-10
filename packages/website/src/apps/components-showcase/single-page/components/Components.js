@@ -6,6 +6,7 @@ import { Accordions } from './Accordions';
 import { Buttons } from './Buttons';
 import { Badges } from './Badges';
 import { Cards } from './Cards';
+import { Links } from './Links';
 import { Loaders } from './Loaders';
 import { Modals } from './Modals';
 import { Panels } from './Panels';
@@ -38,6 +39,11 @@ export function Components() {
                 Cards
             </Title>
             <Cards />
+
+            <Title tag="h2" anchor="components-links">
+                Links
+            </Title>
+            <Links />
 
             <Title tag="h2" anchor="components-loaders">
                 Loaders
