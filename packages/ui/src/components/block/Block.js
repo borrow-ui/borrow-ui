@@ -43,7 +43,7 @@ export function Block({
                     {title}
                 </h2>
             )}
-            {title && typeof title !== 'string' && { title }}
+            {title && typeof title !== 'string' && title}
             {children}
         </div>
     );

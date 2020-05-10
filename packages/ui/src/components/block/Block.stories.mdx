@@ -40,6 +40,18 @@ The `Block` container can be customized with different properties:
     </Story>
 </Preview>
 
+Can also receive a `title` that is a component (not a string):
+
+<Preview>
+    <Story name="Container title component">
+        <Block outstanding={true} rounded={false} title={<h2 style={{ color: 'red'}}>Red title</h2>}>
+            Is the title in red?
+            <Lorem paragraphs={1} />
+        </Block>
+    </Story>
+</Preview>
+
+
 ### Content props
 
 A shortcut to make the content centered is also present: `contentCentered` prop.
