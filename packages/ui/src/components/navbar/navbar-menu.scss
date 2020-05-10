@@ -1,0 +1,32 @@
+@import '../../style/vars/main';
+
+.#{$ui-prefix}__navbar-menu__title {
+    margin: 0 0 10px 0;
+    color: $ui-color-neutral-dark;
+    text-decoration: none;
+}
+
+.#{$ui-prefix}__navbar-menu__item {
+    color: $ui-color-neutral-dark;
+    text-decoration: none;
+    display: block;
+    padding: 7px;
+
+    &:hover {
+        background-color: $ui-color-neutral-white-dark;
+    }
+}
+
+.#{$ui-prefix}__navbar-menu__item__label {
+    color: $ui-color-neutral-dark;
+    text-decoration: none;
+    display: block;
+}
+
+.#{$ui-prefix}__navbar-menu__item__description {
+    color: $ui-color-neutral;
+    font-size: 0.8em;
+    margin-top: 3px;
+    text-decoration: none;
+    display: block;
+}

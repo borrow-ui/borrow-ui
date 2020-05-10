@@ -36,7 +36,7 @@ export function TableCell({
     const { className: cellPropsClassName = '', ...cellOtherProps } = cellElementProps || {};
     const cellClassName = `${TABLE_CELL_CLASS} ${className} ${borderClassName} ${verticalAlignClassName} ${cellPropsClassName}`;
 
-    const cellContentElementProps = !elementsProps.cellProps
+    const cellContentElementProps = !elementsProps.cellContentProps
         ? {}
         : elementsProps.cellContentProps.getProps
         ? elementsProps.cellContentProps.getProps(column, entry)

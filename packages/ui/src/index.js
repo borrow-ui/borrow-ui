@@ -22,6 +22,8 @@ import { Modal, ModalWindow } from './components/modal/Modal';
 import { Monospace } from './components/text/Monospace';
 import { Navbar } from './components/navbar/Navbar';
 import { NavbarLink } from './components/navbar/NavbarLink';
+import { NavbarMenuItem } from './components/navbar/NavbarMenuItem';
+import { NavbarMenuTitle } from './components/navbar/NavbarMenuTitle';
 import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
@@ -75,6 +77,8 @@ export {
     Monospace,
     Navbar,
     NavbarLink,
+    NavbarMenuItem,
+    NavbarMenuTitle,
     Page,
     PageBody,
     PageHeader,
