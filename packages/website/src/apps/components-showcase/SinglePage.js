@@ -10,7 +10,7 @@ import {
     Sidebar,
     SidebarMenu,
     useAnchor,
-} from '@borrow-ui/ui/lib';
+} from '@borrow-ui/ui';
 
 import { Typography } from './single-page/typography/Typography';
 import { Navigation } from './single-page/navigation/Navigation';
