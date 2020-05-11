@@ -25,7 +25,6 @@ $ui-card-side-width: 128px !default;
     overflow: hidden;
     border-top-left-radius: $ui-card-border-radius;
     border-bottom-left-radius: $ui-card-border-radius;
-    border: 1px solid $ui-color-grey-light;
     border-right: 0;
 }
 
@@ -42,33 +41,45 @@ $ui-card-side-width: 128px !default;
 .#{$ui-prefix}__card__main {
     padding: 0.7rem;
     display: inline-flex;
-    border-top-right-radius: $ui-card-border-radius;
-    border-bottom-right-radius: $ui-card-border-radius;
     border: 1px solid $ui-color-grey-light;
-    border-left: 0;
-    width: calc(100% - #{$ui-card-side-width});
     justify-content: space-between;
     flex-direction: column;
 }
 
-.#{$ui-prefix}__card__body__title {
+.#{$ui-prefix}__card__main--with-side {
+    width: calc(100% - #{$ui-card-side-width});
+    border-top-right-radius: $ui-card-border-radius;
+    border-bottom-right-radius: $ui-card-border-radius;
+    border-left: 0;
+}
+
+.#{$ui-prefix}__card__main--without-side {
+    border-radius: $ui-card-border-radius;
+}
+
+.#{$ui-prefix}__card__title {
     font-weight: 600;
     margin-bottom: 0.3rem;
 }
 
-.#{$ui-prefix}__card__body__subtitle {
+.#{$ui-prefix}__card__subtitle {
     font-size: 0.8rem;
     margin-bottom: 1rem;
     color: $ui-color-neutral-light;
 }
 
-.#{$ui-prefix}__card__body__description {
+.#{$ui-prefix}__card__description {
     font-size: 0.8rem;
     color: $ui-color-neutral;
+}
+
+.#{$ui-prefix}__card__description--with-controls {
     margin-bottom: 1rem;
 }
 
 .#{$ui-prefix}__card__controls {
+    font-size: 0.8rem;
+    color: $ui-color-neutral-light;
     justify-content: space-between;
     display: flex;
     align-items: center;
