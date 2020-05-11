@@ -24,3 +24,7 @@
     height: 100%;
     box-sizing: border-box;
 }
+
+.#{$ui-prefix}__block__title {
+    margin-top: 0;
+}

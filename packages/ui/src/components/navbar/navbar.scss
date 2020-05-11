@@ -134,10 +134,13 @@ This is the element that contains the entire menu, both header and body
     border: 1px solid $ui-navbar-body-border-color;
     background-color: $ui-navbar-body-bg-color;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .#{$ui-prefix}__navbar__body__item {
     padding-bottom: 15px;
+    flex-grow: 1;
 }
 
 .#{$ui-prefix}__navbar__body__header {

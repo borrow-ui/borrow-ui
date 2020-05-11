@@ -1,58 +1,58 @@
-$ui-color-primary: #247ea3;
-$ui-color-primary-over: lighten($ui-color-primary, 12);
-$ui-color-primary-disabled: #7bb9c1;
-$ui-color-on-primary: white;
+$ui-color-primary: #247ea3 !default;
+$ui-color-primary-over: lighten($ui-color-primary, 12) !default;
+$ui-color-primary-disabled: #7bb9c1 !default;
+$ui-color-on-primary: white !default;
 
-$ui-color-primary-light: rgba(36, 125, 163, 0.5); /* primary 0.5 */
-$ui-color-primary-light-over: lighten($ui-color-primary-light, 12);
-$ui-color-on-primary-light: #565656;
+$ui-color-primary-light: rgba(36, 125, 163, 0.5) !default; /* primary 0.5 */
+$ui-color-primary-light-over: lighten($ui-color-primary-light, 12) !default;
+$ui-color-on-primary-light: #565656 !default;
 
-$ui-color-accent: #57ccd8;
-$ui-color-accent-disabled: #8fd7de;
-$ui-color-accent-over: lighten($ui-color-accent, 12);
-$ui-color-on-accent: white;
+$ui-color-accent: #57ccd8 !default;
+$ui-color-accent-disabled: #8fd7de !default;
+$ui-color-accent-over: lighten($ui-color-accent, 12) !default;
+$ui-color-on-accent: white !default;
 
-$ui-color-secondary: #e8eddf;
-$ui-color-secondary-over: lighten($ui-color-secondary, 12);
-$ui-color-on-secondary: black;
+$ui-color-secondary: #e8eddf !default;
+$ui-color-secondary-over: lighten($ui-color-secondary, 12) !default;
+$ui-color-on-secondary: black !default;
 
-$ui-color-neutral: #718096;
-$ui-color-neutral-disabled: #aabad2;
-$ui-color-neutral-over: lighten($ui-color-neutral, 12);
-$ui-color-on-neutral: white;
+$ui-color-neutral: #718096 !default;
+$ui-color-neutral-disabled: #aabad2 !default;
+$ui-color-neutral-over: lighten($ui-color-neutral, 12) !default;
+$ui-color-on-neutral: white !default;
 
-$ui-color-neutral-light: #9aa5b1;
-$ui-color-neutral-light-over: lighten($ui-color-neutral-light, 12);
-$ui-color-neutral-light-disabled: lighten($ui-color-neutral-light, 22);
-$ui-color-on-neutral-light: white;
+$ui-color-neutral-light: #9aa5b1 !default;
+$ui-color-neutral-light-over: lighten($ui-color-neutral-light, 12) !default;
+$ui-color-neutral-light-disabled: lighten($ui-color-neutral-light, 22) !default;
+$ui-color-on-neutral-light: white !default;
 
-$ui-color-neutral-dark: #5a6168;
-$ui-color-neutral-dark-over: lighten($ui-color-neutral-dark, 12);
-$ui-color-on-neutral-dark: white;
+$ui-color-neutral-dark: #5a6168 !default;
+$ui-color-neutral-dark-over: lighten($ui-color-neutral-dark, 12) !default;
+$ui-color-on-neutral-dark: white !default;
 
-$ui-color-neutral-white: #fafafb;
-$ui-color-neutral-white-over: #faf9fa;
-$ui-color-on-neutral-white: $ui-color-neutral;
+$ui-color-neutral-white: #fafafb !default;
+$ui-color-neutral-white-over: #faf9fa !default;
+$ui-color-on-neutral-white: $ui-color-neutral !default;
 
-$ui-color-neutral-white-dark: #f7f7fa;
-$ui-color-neutral-white-dark-over: #ececef;
-$ui-color-on-neutral-white-dark: $ui-color-neutral;
+$ui-color-neutral-white-dark: #f7f7fa !default;
+$ui-color-neutral-white-dark-over: #ececef !default;
+$ui-color-on-neutral-white-dark: $ui-color-neutral !default;
 
-$ui-color-grey-light: #ececef;
-$ui-color-grey-light-over: darken($ui-color-grey-light, 12);
-$ui-color-on-grey-light: $ui-color-neutral;
+$ui-color-grey-light: #ececef !default;
+$ui-color-grey-light-over: darken($ui-color-grey-light, 12) !default;
+$ui-color-on-grey-light: $ui-color-neutral !default;
 
-$ui-color-positive: #36a53c;
-$ui-color-positive-disabled: #6bc770;
-$ui-color-positive-over: lighten($ui-color-positive, 12);
-$ui-color-on-positive: white;
+$ui-color-positive: #36a53c !default;
+$ui-color-positive-disabled: #6bc770 !default;
+$ui-color-positive-over: lighten($ui-color-positive, 12) !default;
+$ui-color-on-positive: white !default;
 
-$ui-color-negative: #fd585d;
-$ui-color-negative-disabled: #ffa0a3;
-$ui-color-negative-over: lighten($ui-color-negative, 12);
-$ui-color-on-negative: white;
+$ui-color-negative: #fd585d !default;
+$ui-color-negative-disabled: #ffa0a3 !default;
+$ui-color-negative-over: lighten($ui-color-negative, 12) !default;
+$ui-color-on-negative: white !default;
 
-$ui-color-warning: #f9b827;
-$ui-color-warning-disabled: #ffd473;
-$ui-color-warning-over: lighten($ui-color-warning, 12);
-$ui-color-on-warning: white;
+$ui-color-warning: #f9b827 !default;
+$ui-color-warning-disabled: #ffd473 !default;
+$ui-color-warning-over: lighten($ui-color-warning, 12) !default;
+$ui-color-on-warning: white !default;

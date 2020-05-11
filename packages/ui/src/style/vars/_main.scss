@@ -2,53 +2,53 @@
 @import './shadows';
 
 /* Global */
-$ui-background-color: white;
+$ui-background-color: white !default;
 
 /* Font */
-$ui-font: 'Lato', -apple-system, 'Segoe UI', 'Ubuntu', sans-serif;
-$ui-font-code: source-code-pro, Monaco, Consolas, 'Courier New', monospace;
-$ui-font-color: #3c3b3e;
-$ui-font-size: 14px;
-$ui-font-size-big: 1.25rem;
-$ui-font-size-small: 0.75rem;
+$ui-font: 'Lato', -apple-system, 'Segoe UI', 'Ubuntu', sans-serif !default;
+$ui-font-code: source-code-pro, Monaco, Consolas, 'Courier New', monospace !default;
+$ui-font-color: #3c3b3e !default;
+$ui-font-size: 14px !default;
+$ui-font-size-big: 1.25rem !default;
+$ui-font-size-small: 0.75rem !default;
 
 /* Page */
-$ui-page-padding: 15px;
-$ui-page-header-height: 68px;
-$ui-page-header-margin-bottom: 4px;
+$ui-page-padding: 15px !default;
+$ui-page-header-height: 68px !default;
+$ui-page-header-margin-bottom: 4px !default;
 
 /* Card */
-$ui-card-border-radius: 10px;
-$ui-card-side-width: 128px;
+$ui-card-border-radius: 10px !default;
+$ui-card-side-width: 128px !default;
 
 /* Content */
-$ui-content-padding: $ui-page-padding;
+$ui-content-padding: $ui-page-padding !default;
 
 /* Navbar */
-$ui-navbar-height: 46px;
-$ui-navbar-padding: 15px;
-$ui-navbar-padding-small: 7px;
-$ui-navbar-header-bg-color: #f5f7fa;
-$ui-navbar-header-bg-color-light: darken($ui-navbar-header-bg-color, 2);
-$ui-navbar-header-color: #9aa5b1;
-$ui-navbar-header-color-light: darken($ui-navbar-header-color, 2);
-$ui-navbar-header-border-color: darken($ui-navbar-header-bg-color, 3);
-$ui-navbar-body-header-bg-color: #ececec;
-$ui-navbar-body-border-color: #fcfcfc;
-$ui-navbar-body-bg-color: #fcfcfc;
-$ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color;
-$ui-navbar-body-query-color: #898989;
-$ui-navbar-body-query-focus-border-color: $ui-color-accent;
+$ui-navbar-height: 46px !default;
+$ui-navbar-padding: 15px !default;
+$ui-navbar-padding-small: 7px !default;
+$ui-navbar-header-bg-color: #f5f7fa !default;
+$ui-navbar-header-bg-color-light: darken($ui-navbar-header-bg-color, 2) !default;
+$ui-navbar-header-color: #9aa5b1 !default;
+$ui-navbar-header-color-light: darken($ui-navbar-header-color, 2) !default;
+$ui-navbar-header-border-color: darken($ui-navbar-header-bg-color, 3) !default;
+$ui-navbar-body-header-bg-color: #ececec !default;
+$ui-navbar-body-border-color: #fcfcfc !default;
+$ui-navbar-body-bg-color: #fcfcfc !default;
+$ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color !default;
+$ui-navbar-body-query-color: #898989 !default;
+$ui-navbar-body-query-focus-border-color: $ui-color-accent !default;
 
 /* Form */
-$ui-form-field-padding: 7px 0;
-$ui-form-input-border-color: $ui-color-grey-light;
-$ui-form-label-padding-right: $ui-page-padding;
+$ui-form-field-padding: 7px 0 !default;
+$ui-form-input-border-color: $ui-color-grey-light !default;
+$ui-form-label-padding-right: $ui-page-padding !default;
 
 /* Sidebar */
 $ui-sidebar-closed-width: 46px !default;
 
 /* Dashboard - Generic */
-$ui-dashboard-header-height: $ui-navbar-height;
-$ui-dashboard-footer-height: 0;
-$ui-readable-content-min-width: 1400px;
+$ui-dashboard-header-height: $ui-navbar-height !default;
+$ui-dashboard-footer-height: 0 !default;
+$ui-readable-content-min-width: 1400px !default;

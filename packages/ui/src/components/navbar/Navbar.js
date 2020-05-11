@@ -18,7 +18,7 @@ const getInitialState = () => ({
 });
 
 export function Navbar({ sticky = true, left, center, right }) {
-    const [state, setState] = useState(getInitialState());
+    const [state, setState] = useState({ ...getInitialState() });
 
     const resetState = () => setState(getInitialState());
 

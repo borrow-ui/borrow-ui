@@ -10,7 +10,7 @@ import { TableStatusBar } from './TableStatusBar';
 // import 'style/component/table/table.scss';
 
 const TABLE_CONTAINER_CLASS = `${UI_PREFIX}__table__container`;
-const TABLE_STATUS_BAR = `${UI_PREFIX}__table__status-bar`;
+const TABLE_STATUS_BAR_CONTAINER = `${UI_PREFIX}__table__status-bar__container`;
 
 const DEFAULT_CONFIG = {
     borderType: 'row',
@@ -67,7 +67,7 @@ export function Table({
                 elementsProps={elementsProps}
             />
             {tableStatusBar.visible && (
-                <div className={TABLE_STATUS_BAR}>
+                <div className={TABLE_STATUS_BAR_CONTAINER}>
                     <TableStatusBar tableState={tableState} totEntries={totEntries} />
                     {tablePagination.pageSize !== 0 && (
                         <TablePagination

@@ -10,7 +10,7 @@ import {
     Sidebar,
     SidebarMenu,
     useAnchor,
-} from '@borrow-ui/ui/lib';
+} from '@borrow-ui/ui';
 
 import { Typography } from './single-page/typography/Typography';
 import { Navigation } from './single-page/navigation/Navigation';
@@ -97,6 +97,7 @@ function SidebarMenuNavigator() {
             <Entry href="#components-buttons">Buttons</Entry>
             <Entry href="#components-badges">Badges</Entry>
             <Entry href="#components-cards">Cards</Entry>
+            <Entry href="#components-links">Links</Entry>
             <Entry href="#components-loaders">Loaders</Entry>
             <Entry href="#components-modals">Modals</Entry>
             <Entry href="#components-panels">Panels</Entry>

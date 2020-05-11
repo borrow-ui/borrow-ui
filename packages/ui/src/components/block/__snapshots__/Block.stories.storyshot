@@ -15,6 +15,28 @@ exports[`Storyshots Components|Block Container properties 1`] = `
 </div>
 `;
 
+exports[`Storyshots Components|Block Container title component 1`] = `
+<div
+  className="borrow-ui__block  borrow-ui__block--separated borrow-ui__block--padded  borrow-ui__block--outstanding "
+>
+  <h2
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    Red title
+  </h2>
+  Is the title in red?
+  <p
+    className="borrow-ui__text  "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </p>
+</div>
+`;
+
 exports[`Storyshots Components|Block Content properties 1`] = `
 <div
   className="borrow-ui__block  borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded borrow-ui__block--outstanding borrow-ui__block--content-centered"
