@@ -21,7 +21,7 @@ exports[`Storyshots Components|Card Default 1`] = `
     </div>
   </div>
   <div
-    className="borrow-ui__card__main "
+    className="borrow-ui__card__main borrow-ui__card__main--with-side "
   >
     <div
       className="borrow-ui__card__body "
@@ -34,10 +34,10 @@ exports[`Storyshots Components|Card Default 1`] = `
       <div
         className="borrow-ui__card__subtitle "
       >
-        Example of a card
+        Subtitle goes here
       </div>
       <div
-        className="borrow-ui__card__description "
+        className="borrow-ui__card__description borrow-ui__card__description--with-controls "
       >
         Card can have content, called description, as well as title and subtitle. Check the hover!
       </div>
@@ -75,17 +75,12 @@ exports[`Storyshots Components|Card Witohut icon and controls 1`] = `
   className="borrow-ui__card borrow-ui__card--shadowed  borrow-ui__card--standing-hover m-b-20"
   style={
     Object {
-      "maxWidth": 500,
+      "width": 300,
     }
   }
 >
   <div
-    className="borrow-ui__card__side "
-  >
-    
-  </div>
-  <div
-    className="borrow-ui__card__main "
+    className="borrow-ui__card__main borrow-ui__card__main--without-side "
   >
     <div
       className="borrow-ui__card__body "
@@ -101,9 +96,9 @@ exports[`Storyshots Components|Card Witohut icon and controls 1`] = `
         Example of a card
       </div>
       <div
-        className="borrow-ui__card__description "
+        className="borrow-ui__card__description  "
       >
-        Card can have content, called description, as well as title and subtitle. Check the hover!
+        This card has only the main elements: title, subtitle and description. It also has fixed width.
       </div>
     </div>
   </div>
