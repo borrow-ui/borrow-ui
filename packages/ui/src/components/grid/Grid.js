@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import 'flexboxgrid2/flexboxgrid2.css';
+
+import { propTypesChildren } from '../../utils/types';
 
 export function Row({ children, className = '', ...rest }) {
     const rowClassName = `row ${className}`;
@@ -13,22 +16,19 @@ export function Row({ children, className = '', ...rest }) {
 }
 
 Row.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    children: propTypesChildren,
     className: PropTypes.string,
 };
 
 export function Col({
     children,
     size = 6,
-    colSize = '',
     className = '',
     colClassName: overrideColClassName,
     ...rest
 }) {
-    const colSizeClassName = colSize ? colSize : `col-xs-12 col-sm-${size}`;
-    const colClassName = overrideColClassName
-        ? `${overrideColClassName} ${className}`
-        : `${colSizeClassName} ${className}`;
+    const colSizeClassName = `col-xs-12 col-sm-${size}`;
+    const colClassName = `${className} ${overrideColClassName || colSizeClassName}`;
 
     return (
         <div className={colClassName} {...rest}>
@@ -38,9 +38,10 @@ export function Col({
 }
 
 Col.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    children: propTypesChildren,
+    /** Set the size for the sm column. This is a shortcut to configure `col-xs-12 col-sm-*`. */
     size: PropTypes.number,
-    colSize: PropTypes.string,
-    className: PropTypes.string,
+    /** Overrides the default `col-xs-12 col-sm-<size>` value. */
     colClassName: PropTypes.string,
+    className: PropTypes.string,
 };
