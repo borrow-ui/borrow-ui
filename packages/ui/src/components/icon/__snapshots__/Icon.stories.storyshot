@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Icon Default 1`] = `
+<div>
+  <i
+    className="borrow-ui__icon material-icons content_copy  borrow-ui__icon--normal color-primary"
+  />
+  <i
+    className="borrow-ui__icon fas fa-camera  borrow-ui__icon--normal color-primary m-l-20"
+  />
+</div>
+`;
+
+exports[`Storyshots Components|Icon IconComponent 1`] = `
+<div>
+  <span
+    className="p-20 display-inline-block"
+  >
+    <i
+      className="borrow-ui__icon material-icons add borrow-ui__icon--clickable borrow-ui__icon--smaller  borrow-ui__icon-control"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex="0"
+    />
+  </span>
+  <span
+    className="p-20 display-inline-block"
+  >
+    <i
+      className="borrow-ui__icon material-icons remove borrow-ui__icon--clickable borrow-ui__icon--smaller  borrow-ui__icon-control"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex="0"
+    />
+  </span>
+  <span
+    className="p-20 display-inline-block"
+  >
+    <i
+      className="borrow-ui__icon material-icons fullscreen borrow-ui__icon--clickable borrow-ui__icon--smaller  borrow-ui__icon-control"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex="0"
+    />
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components|Icon Modifiers 1`] = `
+<div>
+  <span
+    className="p-20 display-inline-block"
+  >
+    <i
+      className="borrow-ui__icon material-icons weekend borrow-ui__icon--clickable borrow-ui__icon--big "
+      onClick={[Function]}
+    />
+  </span>
+  <span
+    className="p-20 display-inline-block"
+  >
+    <i
+      className="borrow-ui__icon material-icons work borrow-ui__icon--clickable borrow-ui__icon--big "
+    />
+  </span>
+  <span
+    className="p-20 display-inline-block"
+  >
+    <i
+      className="borrow-ui__icon material-icons videocam borrow-ui__icon--spin borrow-ui__icon--big "
+    />
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components|Icon Sizes 1`] = `
+<div>
+  <i
+    className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--huge color-primary"
+  />
+  <i
+    className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--bigger color-accent"
+  />
+  <i
+    className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--big color-primary"
+  />
+  <i
+    className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--normal color-accent"
+  />
+  <i
+    className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--small color-primary"
+  />
+  <i
+    className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--smaller color-accent"
+  />
+</div>
+`;
