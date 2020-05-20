@@ -10,7 +10,7 @@ const LOADER_CONTAINER_CLASS = `${UI_PREFIX}__loader__container`;
 const LOADER_CONTAINER_FULL_SECTION_CLASS = `${UI_PREFIX}__loader__container--full-section`;
 const LOADER_CONTAINER_INLINE_CLASS = `${UI_PREFIX}__loader__container--inline`;
 
-export function Loader({ type = 'full-section', className = '' }) {
+export function Loader({ type = 'full-section', className = '', ...rest }) {
     const typeClassName = type === 'inline' ? LOADER_INLINE_CLASS : LOADER_FULL_SECTION_CLASS;
     const loaderClassName = `${LOADER_CLASS} ${typeClassName}`;
 
@@ -19,7 +19,7 @@ export function Loader({ type = 'full-section', className = '' }) {
     const loaderContainerClassName = `${LOADER_CONTAINER_CLASS} ${typeContainerClassName} ${className}`;
 
     return (
-        <div className={loaderContainerClassName}>
+        <div className={loaderContainerClassName} {...rest}>
             <div className={loaderClassName} />
         </div>
     );
