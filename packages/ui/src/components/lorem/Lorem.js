@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Text } from '../text/Text';
 
-export function Lorem({ paragraphs }) {
+export function Lorem({ paragraphs = 2 }) {
     return (
         <Fragment>
             {paragraphs >= 1 && (
@@ -43,8 +43,4 @@ export function Lorem({ paragraphs }) {
 
 Lorem.propTypes = {
     paragraphs: PropTypes.number,
-};
-
-Lorem.defaultProps = {
-    paragraphs: 2,
 };
