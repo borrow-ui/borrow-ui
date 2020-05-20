@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Menu Customized content 1`] = `
+<div>
+  <div
+    className="borrow-ui__menu "
+  >
+    <div
+      className="borrow-ui__menu__entry  "
+    >
+      Entry 1
+    </div>
+    <div
+      className="borrow-ui__menu__entry  "
+      style={
+        Object {
+          "color": "red",
+        }
+      }
+    >
+      Red entry
+    </div>
+    <div
+      className="borrow-ui__menu__divider"
+    />
+    <div
+      className="borrow-ui__menu__entry  "
+    >
+      <div
+        className="borrow-ui__loader__container borrow-ui__loader__container--inline "
+      >
+        <div
+          className="borrow-ui__loader borrow-ui__loader--inline"
+        />
+      </div>
+       Inline loader
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Menu Default 1`] = `
+<div>
+  <div
+    className="borrow-ui__menu "
+  >
+    <div
+      className="borrow-ui__menu__entry  "
+    >
+      Entry 1
+    </div>
+    <div
+      className="borrow-ui__menu__entry  borrow-ui__menu__entry--disabled"
+    >
+      Disabled Entry
+    </div>
+    <div
+      className="borrow-ui__menu__entry  "
+      style={
+        Object {
+          "color": "red",
+        }
+      }
+    >
+      Red entry
+    </div>
+    <div
+      className="borrow-ui__menu__entry borrow-ui__menu__entry--clickable "
+      onClick={[Function]}
+    >
+      <span>
+        <span
+          className="borrow-ui__text__monospace "
+        >
+          onClick
+        </span>
+         specified
+      </span>
+    </div>
+    <div
+      className="borrow-ui__menu__divider"
+    />
+    <div
+      className="borrow-ui__menu__entry  "
+    >
+      <span>
+        <i
+          className="borrow-ui__icon material-icons home  borrow-ui__icon--smaller "
+        />
+         Home
+      </span>
+    </div>
+  </div>
+</div>
+`;

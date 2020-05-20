@@ -8,13 +8,13 @@ const MENU_ENTRY_CLASS = `${UI_PREFIX}__menu__entry`;
 const MENU_ENTRY_CLICKABLE_CLASS = `${UI_PREFIX}__menu__entry--clickable`;
 const MENU_ENTRY_DISABLED_CLASS = `${UI_PREFIX}__menu__entry--disabled`;
 
-export function MenuEntry({ children, onClick, disabled = false }) {
+export function MenuEntry({ children, onClick, disabled = false, ...rest }) {
     const clickableClass = onClick !== undefined && !disabled ? MENU_ENTRY_CLICKABLE_CLASS : '';
     const disabledClass = disabled ? MENU_ENTRY_DISABLED_CLASS : '';
     const menuEntryClass = `${MENU_ENTRY_CLASS} ${clickableClass} ${disabledClass}`;
 
     return (
-        <div className={menuEntryClass} onClick={onClick}>
+        <div className={menuEntryClass} onClick={onClick} {...rest}>
             {children}
         </div>
     );
