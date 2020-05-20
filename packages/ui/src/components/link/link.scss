@@ -1,8 +1,13 @@
+@import '../../style/vars/main';
+
+$ui-link-color: $ui-color-primary !default;
+$ui-link-color-over: $ui-color-primary-over !default;
+
 .#{$ui-prefix}__link {
-    color: $ui-color-primary;
+    color: $ui-link-color;
 }
 .#{$ui-prefix}__link:hover {
-    color: $ui-color-primary-over;
+    color: $ui-link-color-over;
 }
 
 .#{$ui-prefix}__link--underline {
