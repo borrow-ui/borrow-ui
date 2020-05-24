@@ -24,7 +24,9 @@ export function NavbarMenu({ title, entries, className = '', titleProps = {}, ..
 
 NavbarMenu.propTypes = {
     title: propTypesChildren,
+    /** A list of entries whose props are valid `NavbarMenuItem` props. */
     entries: PropTypes.arrayOf(NavbarMenuItem),
     className: PropTypes.string,
+    /** Properties passed to `NavbarMenuTitle` component. */
     titleProps: PropTypes.object,
 };
