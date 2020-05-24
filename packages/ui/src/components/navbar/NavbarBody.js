@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { NavbarControls } from './NavbarControls';
+import { NavbarBodyHeader } from './NavbarBodyHeader';
 
 const NAVBAR_BODY_CLASS = `${UI_PREFIX}__navbar__body`;
+const NAVBAR_BODY_FLOATING_CONTROLS_CLASS = `${UI_PREFIX}__navbar__body--floating-controls`;
 const NAVBAR_BODY_ITEM_CLASS = `${UI_PREFIX}__navbar__body__item`;
 
 export function NavbarBody({
@@ -15,11 +16,18 @@ export function NavbarBody({
     setState,
     resetState,
 }) {
+    const floatingControlsClass = selectedItem.floatingControls
+        ? NAVBAR_BODY_FLOATING_CONTROLS_CLASS
+        : '';
+    const navbarBodyClassName = `${NAVBAR_BODY_CLASS} ${floatingControlsClass}`;
+
     return (
-        <div className={NAVBAR_BODY_CLASS}>
-            <NavbarControls
+        <div className={navbarBodyClassName}>
+            <NavbarBodyHeader
                 query={query}
-                handleChangeQuery={e => setState(state => ({ ...state, query: e.target.value }))}
+                handleChangeQuery={queryValue => {
+                    setState(state => ({ ...state, query: queryValue }));
+                }}
                 toggleBodyOpen={toggleBodyOpen}
                 showQueryInput={selectedItem.showQueryInput}
                 floatingControls={selectedItem.floatingControls}

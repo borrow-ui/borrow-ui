@@ -1,5 +1,8 @@
 @import '../../style/vars/main';
 
+.#{$ui-prefix}__navbar-menu {
+}
+
 .#{$ui-prefix}__navbar-menu__title {
     margin: 0 0 10px 0;
     color: $ui-color-neutral-dark;

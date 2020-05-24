@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { NavbarControls } from './NavbarControls';
+import { NavbarBodyHeaderControls } from './NavbarBodyHeaderControls';
 
 const NAVBAR_BODY_HEADER_CLASS = `${UI_PREFIX}__navbar__body__header`;
 const NAVBAR_BODY_QUERY_CLASS = `${UI_PREFIX}__navbar__body__query`;
@@ -12,7 +12,7 @@ export function NavbarBodyHeader({
     query,
     handleChangeQuery,
     toggleBodyOpen,
-    showQueryInput = true,
+    showQueryInput = false,
     floatingControls = false,
 }) {
     const queryInputRef = useRef();
@@ -33,11 +33,12 @@ export function NavbarBodyHeader({
                         value={query}
                         placeholder="Type your query here..."
                         className={NAVBAR_BODY_QUERY_INPUT_CLASS}
-                        onChange={handleChangeQuery}
+                        onChange={e => handleChangeQuery(e.target.value)}
                     />
                 </div>
             )}
-            <NavbarControls toggleBodyOpen={toggleBodyOpen} floating={floatingControls} />
+            {!showQueryInput && <span />}
+            <NavbarBodyHeaderControls toggleBodyOpen={toggleBodyOpen} floating={floatingControls} />
         </div>
     );
 }

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Navbar Default 1`] = `
+<div
+  style={
+    Object {
+      "fontSize": "14px",
+      "height": 400,
+    }
+  }
+>
+  <header
+    className="borrow-ui__navbar borrow-ui__navbar--sticky"
+  >
+    <div
+      className="borrow-ui__navbar__header"
+    >
+      <div
+        className="borrow-ui__navbar__group borrow-ui__navbar__group--left"
+      >
+        <span
+          className="borrow-ui__navbar__group__item"
+        >
+          String item
+        </span>
+        <span
+          className="flex-center-center"
+          style={
+            Object {
+              "color": "green",
+            }
+          }
+        >
+          Node item
+        </span>
+      </div>
+      <div
+        className="borrow-ui__navbar__group borrow-ui__navbar__group--center"
+      >
+        <span
+          className="borrow-ui__navbar__group__item borrow-ui__navbar__group__item--clickable"
+          onClick={[Function]}
+        >
+          Item with menu
+        </span>
+        <span
+          className="borrow-ui__navbar__group__item borrow-ui__navbar__group__item--clickable"
+          onClick={[Function]}
+        >
+          Item with query
+        </span>
+      </div>
+      <div
+        className="borrow-ui__navbar__group borrow-ui__navbar__group--right"
+      >
+        <span
+          className="borrow-ui__navbar__group__item"
+        >
+          v 0.0.1
+        </span>
+      </div>
+    </div>
+  </header>
+</div>
+`;

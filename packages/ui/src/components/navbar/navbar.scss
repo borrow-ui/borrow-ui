@@ -134,6 +134,9 @@ This is the element that contains the entire menu, both header and body
     border: 1px solid $ui-navbar-body-border-color;
     background-color: $ui-navbar-body-bg-color;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.#{$ui-prefix}__navbar__body--floating-controls {
     display: flex;
     flex-direction: row-reverse;
 }
@@ -167,6 +170,7 @@ This is the element that contains the entire menu, both header and body
     margin-bottom: 1px;
     margin-right: 10px;
     order: 2;
+    background-color: inherit;
 
     &:focus {
         outline: none;
@@ -184,6 +188,7 @@ This is the element that contains the entire menu, both header and body
     /* width: $dashboard-menu-body-controls-width; */
     text-align: right;
     padding-right: $ui-navbar-padding-small;
+    padding-top: 7px;
 }
 
 .#{$ui-prefix}__navbar__controls--floating {
