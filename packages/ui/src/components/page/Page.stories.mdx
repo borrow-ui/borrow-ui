@@ -1,0 +1,139 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Block } from '../block/Block';
+import { Button } from '../button/Button';
+import { Row, Col } from '../grid/Grid';
+import { Icon } from '../icon/Icon';
+import { Lorem } from '../lorem/Lorem';
+import { Text } from '../text/Text';
+import { Monospace } from '../text/Monospace';
+
+
+import { Page } from './Page';
+import { PageHeader } from './PageHeader';
+import { PageBody } from './PageBody';
+
+<Meta title="Components|Page" component={Page} />
+
+# Page
+
+The `Page` component allows to create pages in a consistent way.
+It offers few helpers to have an header always visible (with a shadow if the body is scrolled)
+and a container for the body.
+
+The default behaviour can be customized with the following props:
+- `continuousScroll`: makes the header part of the page and allows to scroll the entire page (not only the body);
+- `readableContent`: limits the widths to 1300 pixels, so big screens will not generate a page too wide;
+- `headerVisibleFollowRef`: makes the header title visible only if the React Reference passed is not visible.
+
+<Preview>
+    <Story name="Default">
+        <div style={{ height: 400, fontSize: '14px', overflow: 'hidden' }}>
+            <Page title="Page Title" style={{ height: '100%' }}>
+                <Text>
+                    This content will be rendered inside the body of the page,
+                    via <Monospace>PageBody</Monospace> component.
+                </Text>
+                <Lorem paragraphs={3} />
+                <Lorem paragraphs={3} />
+            </Page>
+        </div>
+    </Story>
+</Preview>
+
+### continuousScroll property
+
+If you want to make the title scrolling away when the pages scroll, use the `continuousScroll` property:
+
+<Preview>
+    <Story name="continuousScroll">
+        <div style={{ height: 400, fontSize: '14px' }}>
+            <Page title="Page Title" continuousScroll={true}>
+                <Text>
+                    This content will be rendered inside the body of the page,
+                    via <Monospace>PageBody</Monospace> component.
+                </Text>
+                <Lorem paragraphs={3} />
+                <Lorem paragraphs={3} />
+                <Lorem paragraphs={3} />
+            </Page>
+        </div>
+    </Story>
+</Preview>
+
+### headerVisibleFollowRef property
+
+If you want to make the title visible only when an element is not visible, you can pass
+it's ref to the page with the `headerVisibleFollowRef` prop:
+
+```jsx
+import React, { useRef } from 'react';
+
+import { Lorem } from '../lorem/Lorem';
+
+import { Page } from './Page';
+
+export function PageStoryheaderVisibleFollowRef() {
+    const textRef = useRef(null);
+
+    return (
+        <Page
+            title="This should be visible only if element is not"
+            headerVisibleFollowRef={textRef}
+            pageHeaderProps={{
+                className: 'color-neutral-white-bg',
+                headerVisibleFollowOffset: 100,
+            }}
+        >
+            <div style={{ height: 100 }} className="color-accent-bg flex-center-center">
+                <h2 className="color-on-accent" size="big" ref={textRef}>
+                    While this element is visible, title should be hidden.
+                </h2>
+            </div>
+            <Lorem />
+            <Lorem />
+        </Page>
+    );
+}
+```
+
+The title will be visible on top of the page. An offset can be specified via `headerVisibleFollowOffset` prop (see `PageHeader` component).
+You can see a demo in the [borrow-ui homepage](https://www.borrow-ui.dev).
+
+# PageHeader controls
+
+Sometimes it is useful to show buttons or icons in the top right of the page, aligned with page title inside the header.
+The `controls` prop accepts valid children and will be rendered inside `PageHeader`.
+
+<Preview>
+    <Story name="PageHeader controls">
+        <div style={{ height: 400, fontSize: '14px', overflow: 'hidden' }}>
+            <Page
+                title="Page Title"
+                style={{ height: '100%' }}
+                pageHeaderProps={{
+                    controls: <Fragment>
+                        <Button onClick={() => window.alert('clicked')} mean="primary">Add item</Button>
+                        <Icon name="settings" className="m-l-5 color-neutral" onClick={() => window.alert('settings')} />
+                    </Fragment>
+                }}
+            >
+                <Lorem paragraphs={3} />
+                <Lorem paragraphs={3} />
+            </Page>
+        </div>
+    </Story>
+</Preview>
+
+## Page Props
+
+<Props of={Page} />
+
+## PageHeader Props
+
+<Props of={PageHeader} />
+
+## PageBody Props
+
+<Props of={PageBody} />

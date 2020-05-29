@@ -6,27 +6,39 @@ import './sidebars.scss';
 
 export function Sidebars() {
     return (
-        <Block>
-            <div style={{ display: 'flex' }} className="singlepage__sidebars__sidebar-container">
-                <Sidebar
-                    disableTrigger={true}
-                    initialStatus={'open'}
-                    top={() => SidebarMenuNavigator()}
-                />
-                <div className="p-20">
-                    <h2>Non collapsible Sidebar with SidebarMenu</h2>
-                    <Block className="overflow-auto h-400">
-                        <Lorem />
-                    </Block>
+        <Block
+            style={{
+                overflow: 'scroll',
+            }}
+        >
+            <div style={{ display: 'grid' }}>
+                <div
+                    style={{ display: 'flex', overflow: 'scroll', width: '100%' }}
+                    className="singlepage__sidebars__sidebar-container"
+                >
+                    <Sidebar
+                        disableTrigger={true}
+                        initialStatus={'open'}
+                        top={() => SidebarMenuNavigator()}
+                    />
+                    <div className="p-20">
+                        <h2>Non collapsible Sidebar with SidebarMenu</h2>
+                        <Block className="overflow-auto h-400">
+                            <Lorem />
+                        </Block>
+                    </div>
                 </div>
-            </div>
-            <div style={{ display: 'flex' }} className="singlepage__sidebars__sidebar-container">
-                <Sidebar initialStatus={'closed'} top={SidebarMenuNavigatorCollapsible} />
-                <div className="p-20">
-                    <h2>Collapsible Sidebar with SidebarMenu</h2>
-                    <Block>
-                        <Lorem />
-                    </Block>
+                <div
+                    style={{ display: 'flex' }}
+                    className="singlepage__sidebars__sidebar-container"
+                >
+                    <Sidebar initialStatus={'closed'} top={SidebarMenuNavigatorCollapsible} />
+                    <div className="p-20">
+                        <h2>Collapsible Sidebar with SidebarMenu</h2>
+                        <Block>
+                            <Lorem />
+                        </Block>
+                    </div>
                 </div>
             </div>
         </Block>

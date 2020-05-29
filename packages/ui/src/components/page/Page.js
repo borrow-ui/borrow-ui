@@ -2,23 +2,22 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { propTypesChildren } from '../../utils/types';
+import { propTypesChildren, propTypesRefElement } from '../../utils/types';
 
 import { PageHeader } from './PageHeader';
 import { PageBody } from './PageBody';
 
-// import 'style/components/page/page.scss';
-
 const PAGE_CLASS = `${UI_PREFIX}__page`;
-const PAGE_INFINITE_CLASS = `${UI_PREFIX}__page--infinite`;
+const PAGE_CONTINUOUS_SCROLL_CLASS = `${UI_PREFIX}__page--continuousScroll`;
 
 export function Page({
     className = '',
-    infinite,
+    continuousScroll = false,
     title,
+    headerVisibleFollowRef,
+    headerVisibleFollowOffset,
     usePageBody = true,
     readableContent = false,
-    titleVisibleFollowRef,
     pageHeaderProps,
     pageBodyProps,
     children,
@@ -26,7 +25,9 @@ export function Page({
 }) {
     const bodyRef = useRef(null);
 
-    const pageClass = `${PAGE_CLASS} ${infinite ? PAGE_INFINITE_CLASS : ''} ${className}`;
+    const pageClass = `${PAGE_CLASS} ${
+        continuousScroll ? PAGE_CONTINUOUS_SCROLL_CLASS : ''
+    } ${className}`;
 
     const bodyProps = {
         withPageHeader: Boolean(pageHeaderProps !== undefined || title),
@@ -40,7 +41,8 @@ export function Page({
                 <PageHeader
                     scrollRef={bodyRef}
                     readableContent={readableContent}
-                    titleVisibleFollowRef={titleVisibleFollowRef}
+                    headerVisibleFollowRef={headerVisibleFollowRef}
+                    headerVisibleFollowOffset={headerVisibleFollowOffset}
                     {...pageHeaderProps}
                 >
                     {title}
@@ -57,12 +59,23 @@ export function Page({
 }
 
 Page.propTypes = {
-    className: PropTypes.string,
-    title: PropTypes.node,
-    infinite: PropTypes.bool,
+    /** Title passed to `PageHeader` as children */
+    title: propTypesChildren,
+    /** Makes the title part of the body scroll (so it will not stick on the top when the page body is scrolled) */
+    continuousScroll: PropTypes.bool,
+    /** Use `PageBody` component. If `false`, will append children after `PageHeader` (if title is passed) */
     usePageBody: PropTypes.bool,
+    /** Makes the content centered in big screens (> 1300px) */
     readableContent: PropTypes.bool,
+    /** Class name passed to the container */
+    className: PropTypes.string,
+    /** Additional props passed to `PageHeader` */
     pageHeaderProps: PropTypes.object,
+    /** Additional props passed to `PageBody` */
     pageBodyProps: PropTypes.object,
+    /** See `PageHeader` props */
+    headerVisibleFollowRef: propTypesRefElement,
+    /** See `PageHeader` props */
+    headerVisibleFollowOffset: PropTypes.number,
     children: propTypesChildren,
 };

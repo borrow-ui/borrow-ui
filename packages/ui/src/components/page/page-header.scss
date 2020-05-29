@@ -22,6 +22,9 @@ $ui-page-header-margin-bottom: 4px !default;
     height: auto;
     transition: 0.5s;
     opacity: 1;
+    top: $ui-dashboard-header-height;
+    position: fixed;
+    z-index: 1;
 }
 
 .#{$ui-prefix}__page__header--with-shadow {

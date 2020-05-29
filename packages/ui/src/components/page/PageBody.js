@@ -30,9 +30,12 @@ export function PageBody({
 }
 
 PageBody.propTypes = {
+    /** Props passed to indicate if the component is rendered after a `PageHeader` (to determine offsets) */
     withPageHeader: PropTypes.bool,
-    className: PropTypes.string,
-    pageBodyRef: PropTypes.object,
+    /** Center the content if the window is greater than 1300px. */
     readableContent: PropTypes.bool,
+    /** React ref assigned to `PageBody` container (to be used as `scrollRef` prop of `PageHeader`) */
+    pageBodyRef: PropTypes.object,
+    className: PropTypes.string,
     children: propTypesChildren,
 };

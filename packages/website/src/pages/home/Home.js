@@ -27,8 +27,8 @@ export function Home() {
             <Page
                 readableContent={true}
                 title="borrow-ui"
-                pageHeaderProps={{ controls: titleControls }}
-                titleVisibleFollowRef={titleRef}
+                pageHeaderProps={{ className: 'color-neutral-white-bg', controls: titleControls }}
+                headerVisibleFollowRef={titleRef}
             >
                 <Responsive>
                     {matches => (
