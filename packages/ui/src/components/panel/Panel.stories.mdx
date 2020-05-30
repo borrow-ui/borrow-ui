@@ -1,0 +1,118 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Button } from '../button/Button';
+import { Lorem } from '../lorem/Lorem';
+import { Panel, PanelContentWrapper } from './Panel';
+import { PanelContentPropsOnOpen } from './PanelStories';
+
+<Meta title="Components|Panel" component={Panel} />
+
+# Panel
+
+Panels are content containers that slides from the right.
+
+The `Panel` component expects two props, both functions (similarly to `Modal` component):
+- `Trigger`: a function that returns an element used to trigger the panel;
+- `getPanelContentProps`: a function that returns an object with valid `PanelContent` props.
+
+Both functions have one argument: an object with a `setVisible` property.
+This is a function that takes a boolean as argument and can make the modal visible or not.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <Panel
+                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="primary">Open Panel</Button>}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                })}
+            />
+        </div>
+    </Story>
+</Preview>
+
+## PanelContent props examples
+
+### Title and foooter
+
+Both title and footer can be passed/customized. The title isset via `title` prop;
+the header also accepts a `controls` (like `PageHeader`) and the footer can be set
+via `footer` prop.
+
+<Preview>
+    <Story name="Title and footer">
+        <div className="storybook-container">
+            <Panel
+                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="accent">Open Panel</Button>}
+                getPanelContentProps={({ setVisible }) => ({
+                    title: <h3 className="color-accent">Custom title</h3>,
+                    controls: <Button onClick={() => window.alert('clicked')} size="small">Test</Button>,
+                    content: <Lorem paragraphs={3} />,
+                    footer: <Fragment>
+                        <Button onClick={() => setVisible(false)} mean="negative">Close</Button>
+                        <Button onClick={() => setVisible(false)} mean="positive">Save</Button>
+                    </Fragment>
+                })}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### Width
+
+The `Panel` width can be set via `width` prop, and the content width via `innerContainerWidth`.
+
+<Preview>
+    <Story name="Widths">
+        <div className="storybook-container">
+            <Panel
+                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="regular">Open Panel (400px - 300px)</Button>}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                    width: 400,
+                    innerContainerWidth: 300
+                })}
+            />
+            <Panel
+                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="regular-reverse">Open Panel (75% - 300px)</Button>}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                    width: '75%',
+                    innerContainerWidth: 300
+                })}
+            />
+            <Panel
+                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="regular">Open Panel (75% - auto)</Button>}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                    width: '75%'
+                })}
+            />
+        </div>
+    </Story>
+</Preview>
+
+### onOpen hook
+
+It is possible to specify a callback called when the component is open via `onOpen` callback.
+
+<Preview>
+    <Story name="onOpen hook">
+        <div className="storybook-container">
+            <PanelContentPropsOnOpen />
+        </div>
+    </Story>
+</Preview>
+
+## Panel Props
+
+<Props of={Panel} />
+
+## PanelContent Props
+
+<Props of={PanelContentWrapper} />

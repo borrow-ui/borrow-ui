@@ -1,3 +1,7 @@
 @import '~typeface-lato/index.css';
 @import '~material-design-icons-iconfont/dist/material-design-icons.css';
 @import '../src/style/ui.full.scss';
+
+.storybook-container {
+    font-size: 14px;
+}

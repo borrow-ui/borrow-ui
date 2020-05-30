@@ -10,6 +10,8 @@ import { Loader } from '../loader/Loader';
 
 const PANEL_CLASS = `${UI_PREFIX}__panel`;
 const PANEL_VISIBLE_CLASS = `${UI_PREFIX}__panel--visible`;
+const PANEL_WRAPPER_CLASS = `${UI_PREFIX}__panel__wrapper`;
+const PANEL_WRAPPER_VISIBLE_CLASS = `${UI_PREFIX}__panel__wrapper--visible`;
 const PANEL_CONTAINER_CLASS = `${UI_PREFIX}__panel__container`;
 const PANEL_HEADER_CLASS = `${UI_PREFIX}__panel__header`;
 const PANEL_HEADER_TITLE_CLASS = `${UI_PREFIX}__panel__header__title`;
@@ -19,7 +21,8 @@ const PANEL_FOOTER_CLASS = `${UI_PREFIX}__panel__footer`;
 
 const ICON_CLOSE = 'close';
 
-const PANEL_ROOT_ID = 'panel-root';
+const PANEL_ROOT_ID = `${UI_PREFIX}-panel-root`;
+const PANEL_WRAPPER_ID = `${UI_PREFIX}-panel-wrapper`;
 
 export const DEFAULT_PANEL_WIDTH = 500;
 
@@ -56,6 +59,36 @@ Panel.propTypes = {
     getPanelContentProps: PropTypes.func.isRequired,
 };
 
+// Used only to get Storybook generate props
+export function PanelContentWrapper(props) {
+    return <PanelContent {...props} />;
+}
+
+PanelContentWrapper.propTypes = {
+    /** Main content to be shown in the panel */
+    content: propTypesChildren,
+    /** Title of the panel */
+    title: propTypesChildren,
+    /** Items to be shown in the header (like in `PageHeader` component) */
+    controls: propTypesChildren,
+    /** Footer of the panel. A `flex` display is used with `space-between`,
+     * so if you need to add elements only on the right you need to pass also
+     * an empty item for the left. */
+    footer: propTypesChildren,
+    /** Set the panel visible */
+    visible: PropTypes.bool,
+    /** hooks called when the panel:
+     * - open: `onOpen`, this must be a promise.
+     */
+    hooks: PropTypes.object,
+    /** Width of the panel. */
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /** Width of the content. If you specify `width` as percentage, you need to specify  */
+    innerContainerWidth: PropTypes.number,
+    /** setVisible callback, passed by `Panel` component */
+    setVisible: PropTypes.func.isRequired,
+};
+
 function PanelContent({
     content,
     title = null,
@@ -66,11 +99,13 @@ function PanelContent({
     setVisible,
     width = DEFAULT_PANEL_WIDTH,
     innerContainerWidth,
+    showWrapper = true,
 }) {
     const [panelState, setPanelState] = useState({
         isLoading: hooks.onOpen ? true : false,
     });
     const panelRoot = getPanelRoot();
+    const panelWrapper = getPanelWrapper();
 
     lastSetVisible = setVisible;
     const styleWidth = typeof width === 'number' ? `${width}px` : width;
@@ -85,9 +120,15 @@ function PanelContent({
             setPanelState({ ...panelState, isLoading: false });
         });
 
+        const closePanel = () => setVisible(false);
+
+        panelWrapper.addEventListener('click', closePanel);
+
         return function cleanup() {
             panelRoot.classList.remove(PANEL_VISIBLE_CLASS);
             panelRoot.style.width = 0;
+            showWrapper && panelWrapper.classList.remove(PANEL_WRAPPER_VISIBLE_CLASS);
+            panelWrapper.removeEventListener('click', closePanel);
         };
     }, []); // eslint-disable-line
 
@@ -95,8 +136,9 @@ function PanelContent({
         if (visible) {
             panelRoot.classList.add(PANEL_VISIBLE_CLASS);
             panelRoot.style.width = styleWidth;
+            showWrapper && panelWrapper.classList.add(PANEL_WRAPPER_VISIBLE_CLASS);
         }
-    }, [visible, panelRoot, styleWidth]);
+    }, [visible, panelRoot, panelWrapper, styleWidth, showWrapper]);
 
     return createPortal(
         <div className={PANEL_CONTAINER_CLASS} style={{ width: innerContainerStyleWidth }}>
@@ -117,18 +159,6 @@ function PanelContent({
     );
 }
 
-PanelContent.propTypes = {
-    content: propTypesChildren,
-    title: propTypesChildren,
-    controls: propTypesChildren,
-    footer: propTypesChildren,
-    visible: PropTypes.bool,
-    hooks: PropTypes.object,
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    contentWidth: PropTypes.number,
-    setVisible: PropTypes.func.isRequired,
-};
-
 function getPanelRoot() {
     let panelRoot = document.getElementById(PANEL_ROOT_ID);
     if (panelRoot === null) {
@@ -140,3 +170,15 @@ function getPanelRoot() {
     }
     return panelRoot;
 }
+function getPanelWrapper() {
+    let panelWrapper = document.getElementById(PANEL_WRAPPER_ID);
+    if (panelWrapper === null) {
+        panelWrapper = document.createElement('div');
+        panelWrapper.setAttribute('id', PANEL_WRAPPER_ID);
+        panelWrapper.classList.add(PANEL_WRAPPER_CLASS);
+        document.body.appendChild(panelWrapper);
+    }
+    return panelWrapper;
+}
+
+PanelContent.propTypes = PanelContentWrapper.propTypes;
