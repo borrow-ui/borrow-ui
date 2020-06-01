@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Table Default 1`] = `
+<div
+  className="storybook-container p-b-20"
+>
+  <div
+    className="borrow-ui__table__container "
+  >
+    <table
+      className="borrow-ui__table "
+    >
+      <thead
+        className="borrow-ui__table__head undefined"
+      >
+        <tr
+          className="borrow-ui__table__head__row undefined"
+        >
+          <th
+            className="borrow-ui__table__cell borrow-ui__table__head__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              ID
+            </div>
+          </th>
+          <th
+            className="borrow-ui__table__cell borrow-ui__table__head__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              Description
+            </div>
+          </th>
+          <th
+            className="borrow-ui__table__cell borrow-ui__table__head__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="borrow-ui__table__body undefined"
+      >
+        <tr
+          className="borrow-ui__table__body__row "
+        >
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              1
+            </div>
+          </td>
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              This is a description of the entry
+            </div>
+          </td>
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              <div
+                mean="primary"
+                size="small"
+              >
+                Test
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr
+          className="borrow-ui__table__body__row borrow-ui__table__body__row--odd"
+        >
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              2
+            </div>
+          </td>
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              This is a description of the entry
+            </div>
+          </td>
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              <div
+                mean="primary"
+                size="small"
+              >
+                Test
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr
+          className="borrow-ui__table__body__row "
+        >
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": "100px",
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              3
+            </div>
+          </td>
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              This is a description of the entry
+            </div>
+          </td>
+          <td
+            className="borrow-ui__table__cell borrow-ui__table__body__cell borrow-ui__table__cell--border-row  "
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            <div
+              className="borrow-ui__table__cell__content "
+            >
+              <div
+                mean="primary"
+                size="small"
+              >
+                Test
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div
+      className="borrow-ui__table__status-bar__container"
+    >
+      <div
+        className="borrow-ui__table__status-bar"
+      >
+        Showing items 
+        1
+        -
+        3
+         out of 
+        3
+      </div>
+      <div
+        className="borrow-ui__table__pagination"
+      >
+        <div
+          className="borrow-ui__table__pagination__page "
+          onClick={[Function]}
+        >
+          <i
+            className="borrow-ui__icon material-icons first_page  borrow-ui__icon--small "
+          />
+        </div>
+        <div
+          className="borrow-ui__table__pagination__page borrow-ui__table__pagination__page--active"
+          onClick={[Function]}
+        >
+          1
+        </div>
+        <div
+          className="borrow-ui__table__pagination__page "
+          onClick={[Function]}
+        >
+          <i
+            className="borrow-ui__icon material-icons last_page  borrow-ui__icon--small "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
