@@ -31,7 +31,11 @@ import { PageHeader } from './components/page/PageHeader';
 import { Panel } from './components/panel/Panel';
 import { Popover } from './components/popover/Popover';
 import { Responsive } from './components/responsive/Responsive';
-import { Sidebar, SidebarContext } from './components/sidebar/Sidebar';
+import {
+    Sidebar,
+    SidebarContext,
+    generateSidebarContextProvider,
+} from './components/sidebar/Sidebar';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
 import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
@@ -90,6 +94,7 @@ export {
     Row,
     Sidebar,
     SidebarContext,
+    generateSidebarContextProvider,
     SidebarEntry,
     SidebarIcon,
     SidebarMenu,

@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Sidebar Default 1`] = `
+<div
+  className="storybook-container"
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="borrow-ui__sidebar__container borrow-ui__sidebar__container--closed   "
+      style={
+        Object {
+          "height": undefined,
+          "top": undefined,
+          "width": undefined,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__sidebar"
+      >
+        <div
+          className="borrow-ui__sidebar__trigger"
+          onClick={[Function]}
+        >
+          <i
+            className="borrow-ui__icon material-icons menu  borrow-ui__icon--normal "
+          />
+        </div>
+        <div
+          className="borrow-ui__sidebar__elements-container borrow-ui__sidebar__elements-container--with-trigger"
+        >
+          <div
+            className="borrow-ui__sidebar__top-container borrow-ui__sidebar__top-container--closed"
+          >
+            <div
+              className="borrow-ui__sidebar__entry  "
+              id=""
+              onClick={[Function]}
+              to=""
+            >
+              <div
+                className="borrow-ui__sidebar__icon"
+              >
+                <i
+                  className="borrow-ui__icon material-icons dashboard  borrow-ui__icon--normal "
+                />
+              </div>
+              <div
+                className="borrow-ui__sidebar__entry__label "
+              >
+                Dashboard
+              </div>
+            </div>
+            <div
+              className="borrow-ui__sidebar__entry  "
+              id=""
+              onClick={[Function]}
+              to=""
+            >
+              <div
+                className="borrow-ui__sidebar__entry__label__shortcut"
+              >
+                SC
+              </div>
+              <div
+                className="borrow-ui__sidebar__entry__label "
+              >
+                Shortcut
+              </div>
+            </div>
+            <div
+              className="borrow-ui__sidebar__entry  "
+              id="entry-with-details"
+              onClick={[Function]}
+              to=""
+            >
+              <div
+                className="borrow-ui__sidebar__icon"
+              >
+                <i
+                  className="borrow-ui__icon material-icons assignment  borrow-ui__icon--normal "
+                />
+              </div>
+              <div
+                className="borrow-ui__sidebar__entry__label "
+              >
+                Click for details
+              </div>
+            </div>
+            <div
+              className="borrow-ui__sidebar__entry__details borrow-ui__sidebar__entry__details--closed "
+              id="entry-with-details__details"
+            >
+              <ul>
+                <li>
+                  Row 1
+                </li>
+                <li>
+                  Row 2
+                </li>
+              </ul>
+            </div>
+            <div
+              className="borrow-ui__sidebar__entry  "
+              id=""
+              onClick={[Function]}
+              to=""
+            >
+              <div
+                className="borrow-ui__sidebar__entry__label "
+              >
+                <span>
+                  No Icon or shortcut
+                </span>
+              </div>
+            </div>
+            <div
+              className="borrow-ui__sidebar__entry  "
+              id=""
+              onClick={[Function]}
+              to=""
+            >
+              <div
+                className="borrow-ui__sidebar__entry__label__shortcut"
+              />
+              <div
+                className="borrow-ui__sidebar__entry__label "
+              >
+                <span>
+                  No Icon or shortcut (with spacer)
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="borrow-ui__sidebar__bottom-container"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="p-l-20 p-r-20 p-b-20"
+    >
+      <h2
+        className="m-t-10"
+      >
+        Collapsible Sidebar
+      </h2>
+      <div
+        className="borrow-ui__block overflow-auto h-400 borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded  "
+      >
+        
+        
+        <p
+          className="borrow-ui__text  "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+        </p>
+        <p
+          className="borrow-ui__text  "
+        >
+          Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Sidebar Sidebar SideMenu (non collapsible) 1`] = `
+<div
+  className="storybook-container"
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="borrow-ui__sidebar__container borrow-ui__sidebar__container--open   "
+      style={
+        Object {
+          "height": undefined,
+          "top": undefined,
+          "width": undefined,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__sidebar"
+      >
+        <div
+          className="borrow-ui__sidebar__elements-container "
+        >
+          <div
+            className="borrow-ui__sidebar__top-container borrow-ui__sidebar__top-container--open"
+          >
+            <div
+              className="borrow-ui__sidebar-menu borrow-ui__sidebar-menu--padded"
+            >
+              <div
+                className="borrow-ui__sidebar-menu__title  "
+              >
+                Section Title 1
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__entry borrow-ui__sidebar-menu__entry--active  "
+              >
+                Active entry
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__entry   "
+              >
+                Entry 2
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__entry   "
+              >
+                Entry 3
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__separator"
+              />
+              <div
+                className="borrow-ui__sidebar-menu__title  "
+              >
+                Section Title 2
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__entry   "
+              >
+                Entry 4
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__title  "
+              >
+                Section Title 3
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__entry   "
+              >
+                Entry 5
+              </div>
+              <div
+                className="borrow-ui__sidebar-menu__entry   "
+              >
+                Entry 6
+              </div>
+            </div>
+          </div>
+          <div
+            className="borrow-ui__sidebar__bottom-container"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="p-l-20 p-r-20 p-b-20"
+    >
+      <h2
+        className="m-t-10"
+      >
+        Non-Collapsible Sidebar
+      </h2>
+      <div
+        className="borrow-ui__block overflow-auto h-400 borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded  "
+      >
+        
+        
+        <p
+          className="borrow-ui__text  "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+        </p>
+        <p
+          className="borrow-ui__text  "
+        >
+          Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

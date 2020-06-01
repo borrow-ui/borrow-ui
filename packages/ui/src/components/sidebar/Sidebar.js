@@ -21,29 +21,33 @@ const SIDEBAR_TOP_CLASS = `${UI_PREFIX}__sidebar__top-container`;
 // closed => `${UI_PREFIX}__sidebar__top-container--closed`
 const SIDEBAR_BOTTOM_CLASS = `${UI_PREFIX}__sidebar__bottom-container`;
 
-export const SidebarContext = createContext([{}, () => ({})]);
+export function generateSidebarContextProvider() {
+    const SidebarContext = createContext([{}, () => ({})]);
 
-export const SidebarProvider = ({ children, initialStatus }) => {
-    const [state, setState] = useState({ status: initialStatus });
+    const SidebarProvider = ({ children, initialStatus = 'closed' }) => {
+        const [state, setState] = useState({ status: initialStatus });
 
-    return <SidebarContext.Provider value={[state, setState]}>{children}</SidebarContext.Provider>;
-};
+        return (
+            <SidebarContext.Provider value={[state, setState]}>{children}</SidebarContext.Provider>
+        );
+    };
 
-SidebarProvider.propTypes = {
-    children: propTypesChildren,
-    initialStatus: PropTypes.oneOf(['open', 'closed']),
-};
+    SidebarProvider.propTypes = {
+        children: propTypesChildren,
+        initialStatus: PropTypes.oneOf(['open', 'closed']),
+    };
 
-SidebarProvider.defaultProps = {
-    initialStatus: 'closed',
-};
+    return { SidebarContext, SidebarProvider };
+}
+
+export const { SidebarContext, SidebarProvider } = generateSidebarContextProvider();
 
 export function Sidebar({
     children,
     top,
     bottom,
-    initialStatus,
-    disableTrigger,
+    initialStatus = 'closed',
+    disableTrigger = false,
     height,
     closedWidth,
     stickyTop,
@@ -53,7 +57,7 @@ export function Sidebar({
     style = {},
     ...rest
 }) {
-    const emptyContext = React.createContext([{}, () => ({})]);
+    const emptyContext = createContext([{}, () => ({})]);
     const [contextState, setContextState] = useContext(sidebarContext || emptyContext);
     const [componentState, setComponentState] = useState({ status: initialStatus });
 
@@ -106,23 +110,31 @@ export function Sidebar({
 }
 
 Sidebar.propTypes = {
-    children: propTypesChildren,
-    stickyTop: PropTypes.number,
+    /** A function used to generate the top part of the sidebar.
+     * It will take two arguments (`sidebarState`, `setSidebarState`) and should return a valid node. */
     top: PropTypes.func,
+    /** A function used to generate the bottom part of the sidebar.
+     * It will take two arguments (`sidebarState`, `setSidebarState`) and should return a valid node. */
     bottom: PropTypes.func,
+    /** Initial status of the sidebar. */
     initialStatus: PropTypes.oneOf(['open', 'closed']),
+    /** Disable the generation of the trigger to open/close the sidebar. */
     disableTrigger: PropTypes.bool,
+    /** Make the sidebar sticky to the top. */
+    stickyTop: PropTypes.number,
+    /** Overrides the height of the container. */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Width of the sidebar when is closed. */
     closedWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Apply a shadow when the sidebar is open. */
     shadowWhenOpen: PropTypes.bool,
+    /** If elements does not require sidebar's state, the content can be passed as children. */
+    children: propTypesChildren,
+    /** It is possible to pass the `sidebarContext` if this is created outside
+     * (i.e. to use a trigger inside a page header or a menu bar). */
+    sidebarContext: PropTypes.object,
     className: PropTypes.string,
     style: PropTypes.object,
-    sidebarContext: PropTypes.object,
-};
-
-Sidebar.defaultProps = {
-    initialStatus: 'closed',
-    disableTrigger: false,
 };
 
 Sidebar.Provider = SidebarProvider;

@@ -79,15 +79,9 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
             </SidebarEntry>
             <SidebarEntry
                 sidebarState={sidebarState}
+                setSidebarState={setSidebarState}
                 iconName="menu"
                 id={entryWithIdId}
-                onClick={() =>
-                    setSidebarState({
-                        ...sidebarState,
-                        activeId:
-                            sidebarState.activeId === entryWithIdId ? undefined : entryWithIdId,
-                    })
-                }
                 details={
                     <ul>
                         <li>Row 1</li>
