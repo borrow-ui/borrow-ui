@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const TEXT_CLASS = `${UI_PREFIX}__text`;
 const TEXT_BIG_CLASS = `${UI_PREFIX}__text--big`;
 const TEXT_SMALL_CLASS = `${UI_PREFIX}__text--small`;
 
-export function Text({ className, size = 'default', textTag, children, ...rest }) {
-    const Tag = textTag || 'div';
-
+export function Text({ className, size = 'normal', tag: Tag = 'div', children, ...rest }) {
     const sizeClassName = size
         ? size === 'big'
             ? TEXT_BIG_CLASS
@@ -26,8 +25,8 @@ export function Text({ className, size = 'default', textTag, children, ...rest }
 }
 
 Text.propTypes = {
+    size: PropTypes.oneOf(['big', 'small', 'normal']),
+    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.func]),
     className: PropTypes.string,
-    size: PropTypes.oneOf(['big', 'small', 'default']),
-    textTag: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.func]),
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+    children: propTypesChildren,
 };

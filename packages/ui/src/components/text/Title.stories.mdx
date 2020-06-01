@@ -1,0 +1,44 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Block } from '../block/Block';
+import { Lorem } from '../lorem/Lorem';
+
+import { Title } from './Title';
+
+<Meta title="Components|Title" component={Title} />
+
+# Title
+
+`Title` component is used to create titles in a consistent way.
+
+By default, `h1` tag is used, but can be overridden by specifying `tag` prop.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <Title>Title example</Title>
+            <Lorem />
+        </div>
+    </Story>
+</Preview>
+
+Title can be also used as anchor. An `a` wrapper tag is used if `anchor` prop (anchor's name) is passed.
+The anchor class can be customized with `anchorClassName` prop.
+
+<Preview>
+    <Story name="Title anchor">
+        <div className="storybook-container">
+            <Title anchor="title-1">Anchor title</Title>
+            <Lorem />
+            <Title anchor="title-2" anchorClassName="color-primary">
+                Anchor title with custom class
+            </Title>
+            <Lorem />
+        </div>
+    </Story>
+</Preview>
+
+## Title Props
+
+<Props of={Title} />

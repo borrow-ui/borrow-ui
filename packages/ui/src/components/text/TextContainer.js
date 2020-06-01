@@ -20,6 +20,7 @@ export function TextContainer({ className = '', centered = false, children, ...r
 
 TextContainer.propTypes = {
     className: PropTypes.string,
+    /** Applies an auto margin on left and right, to make the container centered on a big screen. */
     centered: PropTypes.bool,
     children: propTypesChildren,
 };

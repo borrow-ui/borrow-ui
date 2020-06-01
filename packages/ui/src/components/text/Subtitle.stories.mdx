@@ -1,0 +1,27 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Lorem } from '../lorem/Lorem';
+import { Title } from './Title';
+
+import { Subtitle } from './Subtitle';
+
+<Meta title="Components|Subtitle" component={Subtitle} />
+
+# Subtitle
+
+`Subtitle` component can be used under a title to add more context information.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <Title>This will have a subtitle</Title>
+            <Subtitle>This is the component tested</Subtitle>
+            <Lorem />
+        </div>
+    </Story>
+</Preview>
+
+## Subtitle Props
+
+<Props of={Subtitle} />

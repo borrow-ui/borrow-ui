@@ -1,0 +1,42 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Text } from './Text';
+
+<Meta title="Components|Text" component={Text} />
+
+# Text
+
+`Text` component is used to render readable text in a consistent way.
+This can be used for posts, long descriptions or the main page content.
+
+By default the used tag is `div`, but it can be overriden by using `tag` prop.
+
+There are also two other sizes available, that can be specified via `size` prop: `small` and `big`.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <h2>Text example</h2>
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac
+                porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus
+                bibendum id lacus sit amet faucibus.
+            </Text>
+            <Text size="big">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac
+                porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus
+                bibendum id lacus sit amet faucibus.
+            </Text>
+            <Text size="small">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac
+                porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus
+                bibendum id lacus sit amet faucibus.
+            </Text>
+        </div>
+    </Story>
+</Preview>
+
+## Text Props
+
+<Props of={Text} />
