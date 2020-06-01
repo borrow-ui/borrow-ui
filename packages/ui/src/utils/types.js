@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { isValidElementType } from 'react-is';
 
 const propTypesChild = PropTypes.oneOfType([PropTypes.func, PropTypes.node, PropTypes.object]);
 
@@ -21,3 +22,11 @@ export const propTypesRefElement = PropTypes.oneOfType([
     // Element = typeof Element === 'undefined' ? function(){} : Element
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 ]);
+
+export const propTypesTag = (props, propName) => {
+    if (props[propName] && !isValidElementType(props[propName])) {
+        return new Error(
+            `Invalid prop 'component' supplied to 'Route': the prop is not a valid React component`
+        );
+    }
+};

@@ -49,7 +49,7 @@ exports[`Storyshots Components|Sidebar Default 1`] = `
                 className="borrow-ui__sidebar__icon"
               >
                 <i
-                  className="borrow-ui__icon material-icons dashboard  borrow-ui__icon--normal "
+                  className="borrow-ui__icon material-icons dashboard  borrow-ui__icon--normal  "
                 />
               </div>
               <div
@@ -85,7 +85,7 @@ exports[`Storyshots Components|Sidebar Default 1`] = `
                 className="borrow-ui__sidebar__icon"
               >
                 <i
-                  className="borrow-ui__icon material-icons assignment  borrow-ui__icon--normal "
+                  className="borrow-ui__icon material-icons assignment  borrow-ui__icon--normal  "
                 />
               </div>
               <div

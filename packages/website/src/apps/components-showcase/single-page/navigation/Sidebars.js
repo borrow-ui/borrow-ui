@@ -47,7 +47,7 @@ export function Sidebars() {
 
 function SidebarMenuNavigator() {
     return (
-        <SidebarMenu isPadded={true}>
+        <SidebarMenu padded={true}>
             <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
             <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
             <SidebarMenu.Entry>Entry 2</SidebarMenu.Entry>
@@ -63,7 +63,7 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
     const entryWithIdId = 'showcase-entry-with-id';
 
     return (
-        <SidebarMenu isPadded={false}>
+        <SidebarMenu padded={false}>
             <SidebarEntry
                 sidebarState={sidebarState}
                 iconName="dashboard"

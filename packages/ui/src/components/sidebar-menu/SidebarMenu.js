@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { propTypesChildren } from '../../utils/types';
+import { propTypesChildren, propTypesTag } from '../../utils/types';
 
 // import 'style/components/sidebarMenu/sidebarMenu.scss';
 
@@ -15,8 +15,8 @@ const SIDEBAR_MENU_ENTRY_ACTIVE_CLASS = `${UI_PREFIX}__sidebar-menu__entry--acti
 const SIDEBAR_MENU_ENTRY_CLICKABLE_CLASS = `${UI_PREFIX}__sidebar-menu__entry--clickable`;
 const SIDEBAR_MENU_SEPARATOR_CLASS = `${UI_PREFIX}__sidebar-menu__separator`;
 
-export function SidebarMenu({ children, isPadded = true }) {
-    const paddedClass = isPadded ? SIDEBAR_MENU_PADDED_CLASS : '';
+export function SidebarMenu({ children, padded = true }) {
+    const paddedClass = padded ? SIDEBAR_MENU_PADDED_CLASS : '';
     const sidebarMenuClass = `${SIDEBAR_MENU_CLASS} ${paddedClass}`;
 
     return <div className={sidebarMenuClass}>{children}</div>;
@@ -24,14 +24,15 @@ export function SidebarMenu({ children, isPadded = true }) {
 
 SidebarMenu.propTypes = {
     children: propTypesChildren,
-    isPadded: PropTypes.bool,
+    /** Applies a padding to the content */
+    padded: PropTypes.bool,
 };
 
 SidebarMenu.Title = SidebarMenuTitle;
 SidebarMenu.Entry = SidebarMenuEntry;
 SidebarMenu.Separator = SidebarMenuSeparator;
 
-function SidebarMenuTitle({ children, className = '', onClick, tag, href, ...rest }) {
+export function SidebarMenuTitle({ children, className = '', onClick, tag, href, ...rest }) {
     const clickableClass = onClick || href || rest.to ? SIDEBAR_MENU_TITLE_CLICKABLE_CLASS : '';
     const titleClass = `${SIDEBAR_MENU_TITLE_CLASS} ${clickableClass} ${className}`;
 
@@ -48,11 +49,21 @@ SidebarMenuTitle.propTypes = {
     children: propTypesChildren,
     className: PropTypes.string,
     onClick: PropTypes.func,
-    tag: PropTypes.oneOfType([PropTypes.string, propTypesChildren]),
+    /** Overrides the tag used to crate the title. If no tag is passed,
+     * it will be set as a `div` or as a `a` if `href` is specified */
+    tag: propTypesTag,
     href: PropTypes.string,
 };
 
-function SidebarMenuEntry({ isActive, className = '', onClick, children, tag, href, ...rest }) {
+export function SidebarMenuEntry({
+    isActive,
+    className = '',
+    onClick,
+    children,
+    tag,
+    href,
+    ...rest
+}) {
     const activeClass = isActive ? SIDEBAR_MENU_ENTRY_ACTIVE_CLASS : '';
     const clickableClass = onClick || href || rest.to ? SIDEBAR_MENU_ENTRY_CLICKABLE_CLASS : '';
     const entryClass = `${SIDEBAR_MENU_ENTRY_CLASS} ${activeClass} ${clickableClass} ${className}`;
@@ -70,11 +81,13 @@ SidebarMenuEntry.propTypes = {
     isActive: PropTypes.bool,
     className: PropTypes.string,
     onClick: PropTypes.func,
-    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    /** Overrides the tag used to crate the title. If no tag is passed,
+     * it will be set as a `div` or as a `a` if `href` is specified */
+    tag: propTypesTag,
     href: PropTypes.string,
     children: propTypesChildren,
 };
 
-function SidebarMenuSeparator() {
+export function SidebarMenuSeparator() {
     return <div className={SIDEBAR_MENU_SEPARATOR_CLASS}></div>;
 }
