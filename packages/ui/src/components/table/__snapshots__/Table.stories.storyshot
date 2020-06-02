@@ -103,12 +103,13 @@ exports[`Storyshots Components|Table Default 1`] = `
             <div
               className="borrow-ui__table__cell__content "
             >
-              <div
-                mean="primary"
-                size="small"
+              <button
+                className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--smaller borrow-ui__button--shadowed borrow-ui__button--separated "
               >
-                Test
-              </div>
+                <span>
+                  Test
+                </span>
+              </button>
             </div>
           </td>
         </tr>
@@ -154,12 +155,13 @@ exports[`Storyshots Components|Table Default 1`] = `
             <div
               className="borrow-ui__table__cell__content "
             >
-              <div
-                mean="primary"
-                size="small"
+              <button
+                className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--smaller borrow-ui__button--shadowed borrow-ui__button--separated "
               >
-                Test
-              </div>
+                <span>
+                  Test
+                </span>
+              </button>
             </div>
           </td>
         </tr>
@@ -205,12 +207,13 @@ exports[`Storyshots Components|Table Default 1`] = `
             <div
               className="borrow-ui__table__cell__content "
             >
-              <div
-                mean="primary"
-                size="small"
+              <button
+                className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--smaller borrow-ui__button--shadowed borrow-ui__button--separated "
               >
-                Test
-              </div>
+                <span>
+                  Test
+                </span>
+              </button>
             </div>
           </td>
         </tr>

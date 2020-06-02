@@ -29,7 +29,7 @@ Alternatively the `children` prop can be used if there is no dependency from the
 
 ```jsx
 import React from 'react';
-import { Sidebar } from 'borrow-ui/ui';
+import { Sidebar } from '@borrow-ui/ui';
 
 export function Page() {
     return <div style={{ display: 'flex', width: '100%' }}>
@@ -153,7 +153,7 @@ and the default context (exposed as `SidebarContext`).
 ```jsx
 // App.js
 
-import { Sidebar } from 'borrow-ui/ui';
+import { Sidebar } from '@borrow-ui/ui';
 
 export function App() {
     return <div className="main-app">
@@ -168,7 +168,7 @@ export function App() {
 You can also obtain a new provider/context couple with the function `generateSidebarContextProvider`:
 ```jsx
 // mySidebarConfig.js
-import { generateSidebarContextProvider } from 'borrow-ui/ui';
+import { generateSidebarContextProvider } from '@borrow-ui/ui';
 
 export const { SidebarContext, SidebarProvider } = generateSidebarContextProvider();
 ```
@@ -178,7 +178,7 @@ In header component then import the context: and use it to get the sidebar state
 ```jsx
 // Header.js
 
-import { SidebarContext } from 'borrow-ui/ui';
+import { SidebarContext } from '@borrow-ui/ui';
 
 export function Header() {
     const [sidebarState, setSidebarState] = useContext(SidebarContext);
@@ -212,7 +212,7 @@ Then pass the same context to the sidebar:
 ```jsx
 // Content.js
 
-import { Sidebar, SidebarContext } from 'borrow-ui/ui';
+import { Sidebar, SidebarContext } from '@borrow-ui/ui';
 
 export function Content() {
     return <div style={{ display: 'flex', width: '100%' }}>
