@@ -240,20 +240,24 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
               className="m-b-10"
             >
               <div
-                className="borrow-ui__form__field__checkbox  "
+                className="borrow-ui__form__field__checkbox__container "
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex="0"
               >
-                <input
-                  className="borrow-ui__form__field__checkbox__checkbox"
-                  onChange={[Function]}
-                  tabIndex="-1"
-                  type="checkbox"
-                />
                 <div
-                  className="borrow-ui__form__field__checkbox__indicator  "
-                />
+                  className="borrow-ui__form__field__checkbox  "
+                >
+                  <input
+                    className="borrow-ui__form__field__checkbox__checkbox"
+                    onChange={[Function]}
+                    tabIndex="-1"
+                    type="checkbox"
+                  />
+                  <div
+                    className="borrow-ui__form__field__checkbox__indicator"
+                  />
+                </div>
                 <div
                   className="borrow-ui__form__field__checkbox__label"
                 >
@@ -265,20 +269,24 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
               className="m-b-10"
             >
               <div
-                className="borrow-ui__form__field__checkbox  "
+                className="borrow-ui__form__field__checkbox__container "
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex="0"
               >
-                <input
-                  className="borrow-ui__form__field__checkbox__checkbox"
-                  onChange={[Function]}
-                  tabIndex="-1"
-                  type="checkbox"
-                />
                 <div
-                  className="borrow-ui__form__field__checkbox__indicator  "
-                />
+                  className="borrow-ui__form__field__checkbox  "
+                >
+                  <input
+                    className="borrow-ui__form__field__checkbox__checkbox"
+                    onChange={[Function]}
+                    tabIndex="-1"
+                    type="checkbox"
+                  />
+                  <div
+                    className="borrow-ui__form__field__checkbox__indicator"
+                  />
+                </div>
                 <div
                   className="borrow-ui__form__field__checkbox__label"
                 >
@@ -290,20 +298,24 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
               className="m-b-10"
             >
               <div
-                className="borrow-ui__form__field__checkbox  "
+                className="borrow-ui__form__field__checkbox__container "
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex="0"
               >
-                <input
-                  className="borrow-ui__form__field__checkbox__checkbox"
-                  onChange={[Function]}
-                  tabIndex="-1"
-                  type="checkbox"
-                />
                 <div
-                  className="borrow-ui__form__field__checkbox__indicator  "
-                />
+                  className="borrow-ui__form__field__checkbox  "
+                >
+                  <input
+                    className="borrow-ui__form__field__checkbox__checkbox"
+                    onChange={[Function]}
+                    tabIndex="-1"
+                    type="checkbox"
+                  />
+                  <div
+                    className="borrow-ui__form__field__checkbox__indicator"
+                  />
+                </div>
                 <div
                   className="borrow-ui__form__field__checkbox__label"
                 >
