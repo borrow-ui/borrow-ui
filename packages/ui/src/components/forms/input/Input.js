@@ -16,7 +16,7 @@ export function Input({ className, disabled, invalid, ...rest }) {
 }
 
 Input.propTypes = {
-    className: PropTypes.string,
     disabled: PropTypes.bool,
-    invalid: PropTypes.any,
+    invalid: PropTypes.bool,
+    className: PropTypes.string,
 };
