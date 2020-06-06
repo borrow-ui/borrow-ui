@@ -3,6 +3,16 @@
     font-weight: 500;
 }
 
+.#{$ui-prefix}__form__label--alignment-left {
+    text-align: left;
+}
+.#{$ui-prefix}__form__label--alignment-center {
+    text-align: center;
+}
+.#{$ui-prefix}__form__label--alignment-right {
+    text-align: right;
+}
+
 .#{$ui-prefix}__form__label--required {
     color: $ui-color-negative;
     font-size: 12px;

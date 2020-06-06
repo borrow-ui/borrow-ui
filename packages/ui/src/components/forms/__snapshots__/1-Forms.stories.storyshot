@@ -15,10 +15,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       }
     >
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__label borrow-ui__form__label--vertical "
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
           style={
             Object {
               "width": undefined,
@@ -29,7 +29,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
            
         </div>
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <input
             className="borrow-ui__form__field__input   undefined"
@@ -38,10 +38,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
         </div>
       </div>
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__label borrow-ui__form__label--vertical "
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
           style={
             Object {
               "width": undefined,
@@ -52,7 +52,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
            
         </div>
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <textarea
             className="borrow-ui__form__field__textarea   undefined"
@@ -61,10 +61,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
         </div>
       </div>
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__label borrow-ui__form__label--vertical "
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
           style={
             Object {
               "width": undefined,
@@ -75,7 +75,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
            
         </div>
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <div
             className="DayPickerInput"
@@ -95,10 +95,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
         </div>
       </div>
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__label borrow-ui__form__label--vertical "
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
           style={
             Object {
               "width": undefined,
@@ -109,7 +109,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
            
         </div>
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <div
             className="borrow-ui__form__field__react-select css-2b097c-container"
@@ -217,10 +217,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
         </div>
       </div>
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__label borrow-ui__form__label--vertical "
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
           style={
             Object {
               "width": undefined,
@@ -231,7 +231,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
            
         </div>
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <div
             className="m-t-5"
@@ -315,10 +315,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
         </div>
       </div>
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__label borrow-ui__form__label--vertical "
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
           style={
             Object {
               "width": undefined,
@@ -329,7 +329,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
            
         </div>
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <div
             className="borrow-ui__form__field__toggle borrow-ui__form__field__toggle--checked "
@@ -351,10 +351,10 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
         </div>
       </div>
       <div
-        className="borrow-ui__form__field borrow-ui__form__field--vertical "
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
       >
         <div
-          className="borrow-ui__form__field-input borrow-ui__form__field-input--vertical "
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <div
             className="borrow-ui__form__dropzone"
