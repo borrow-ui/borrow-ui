@@ -55,7 +55,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
           className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
         >
           <textarea
-            className="borrow-ui__form__field__textarea   undefined"
+            className="borrow-ui__form__field__textarea"
             placeholder="Tell me something about you..."
           />
         </div>

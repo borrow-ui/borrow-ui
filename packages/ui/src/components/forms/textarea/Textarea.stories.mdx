@@ -1,0 +1,75 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { FormsStoryWrapper } from '../FormsStory';
+import { Field } from '../field/Field';
+
+import { Textarea } from './Textarea';
+
+<Meta title="Forms|Textarea" />
+
+# Textarea
+
+`Textarea` component is used to input potentially long texts.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper initialState={{ text: '' }}>
+                {({ state, setState }) => {
+                    return (
+                        <div style={{ width: 400 }}>
+                            <Field label="Describe the book you are currently reading">
+                                <Textarea
+                                    value={state.text}
+                                    onChange={(e) => setState({ text: e.target.value })}
+                                />
+                            </Field>
+                        </div>
+                    );
+                }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+Textarea also supports invalid and disabled statuses via `invalid` and `disabled` props.
+
+<Preview>
+    <Story name="Textarea Invalid and Disabled">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper
+                initialState={{ disabled: 'This text cannot be changed', invalid: 'invalid' }}
+            >
+                {({ state, setState }) => {
+                    return (
+                        <div style={{ width: 400 }}>
+                            <Field label="This textarea should be disabled">
+                                <Textarea
+                                    value={state.disabled}
+                                    disabled={true}
+                                    onChange={(e) =>
+                                        setState({ ...state, disabled: e.target.value })
+                                    }
+                                />
+                            </Field>
+                            <Field label="Type `invalid` to see invalid style">
+                                <Textarea
+                                    value={state.invalid}
+                                    invalid={state.invalid === 'invalid'}
+                                    onChange={(e) =>
+                                        setState({ ...state, invalid: e.target.value })
+                                    }
+                                />
+                            </Field>
+                        </div>
+                    );
+                }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Textarea} />
