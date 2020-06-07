@@ -81,7 +81,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
             className="DayPickerInput"
           >
             <input
-              className=" borrow-ui__form__field__input"
+              className="borrow-ui__form__field__input"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -89,6 +89,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
               onKeyDown={[Function]}
               onKeyUp={[Function]}
               placeholder="YYYY-MM-DD"
+              style={Object {}}
               value=""
             />
           </div>
