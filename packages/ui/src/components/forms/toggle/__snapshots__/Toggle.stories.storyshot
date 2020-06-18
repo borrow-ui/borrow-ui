@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Forms|Toggle Default 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Close the window when the process is done
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="borrow-ui__form__field__toggle borrow-ui__form__field__toggle--checked "
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex="0"
+          >
+            <input
+              checked={true}
+              className="borrow-ui__form__field__toggle__checkbox"
+              onChange={[Function]}
+              tabIndex="-1"
+              type="checkbox"
+            />
+            <div
+              className="borrow-ui__form__field__toggle__switch borrow-ui__form__field__toggle__switch--checked "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|Toggle Toggle disabled 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Close the window when the process is done
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="borrow-ui__form__field__toggle borrow-ui__form__field__toggle--checked borrow-ui__form__field__toggle--disabled"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex="0"
+          >
+            <input
+              checked={true}
+              className="borrow-ui__form__field__toggle__checkbox"
+              disabled={true}
+              onChange={[Function]}
+              tabIndex="-1"
+              type="checkbox"
+            />
+            <div
+              className="borrow-ui__form__field__toggle__switch borrow-ui__form__field__toggle__switch--checked borrow-ui__form__field__toggle__switch--disabled"
+              disabled={true}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
