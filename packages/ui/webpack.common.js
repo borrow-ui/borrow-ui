@@ -54,6 +54,7 @@ module.exports = {
     },
     externals: {
         dayjs: 'dayjs',
+        'dayjs/plugin/customParseFormat': 'dayjs/plugin/customParseFormat',
         'prop-types': 'prop-types',
         prismjs: 'prismjs',
         react: {
