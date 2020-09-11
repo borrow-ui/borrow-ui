@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|TextContainer Default 1`] = `
+<div
+  className="storybook-container"
+>
+  <h1
+    className="borrow-ui__title "
+  >
+    Paragraph 1 - not wrapped
+  </h1>
+  <p
+    className="borrow-ui__text  "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </p>
+  <p
+    className="borrow-ui__text  "
+  >
+    Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+  </p>
+  <p
+    className="borrow-ui__text  "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </p>
+  <p
+    className="borrow-ui__text  "
+  >
+    Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+  </p>
+  <p
+    className="borrow-ui__text  "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </p>
+  <p
+    className="borrow-ui__text  "
+  >
+    Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+  </p>
+  <div
+    className="borrow-ui__text-container  "
+  >
+    <h1
+      className="borrow-ui__title "
+    >
+      Paragraph 2 - wrapped in TextContainer
+    </h1>
+    <p
+      className="borrow-ui__text  "
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+    </p>
+    <p
+      className="borrow-ui__text  "
+    >
+      Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+    </p>
+    <p
+      className="borrow-ui__text  "
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+    </p>
+    <p
+      className="borrow-ui__text  "
+    >
+      Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+    </p>
+    <p
+      className="borrow-ui__text  "
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+    </p>
+    <p
+      className="borrow-ui__text  "
+    >
+      Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+    </p>
+  </div>
+</div>
+`;

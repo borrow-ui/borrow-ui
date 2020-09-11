@@ -34,13 +34,15 @@ $ui-page-padding: 15px !default;
 
 .#{$ui-prefix}__tabs__body {
     display: none;
-    padding: $ui-page-padding;
 }
 
 .#{$ui-prefix}__tabs__body--selected {
     display: block;
 }
 
-.#{$ui-prefix}__tabs__body--compact {
-    padding: 0;
+.#{$ui-prefix}__tabs__body--padded {
+    padding: $ui-page-padding;
+}
+.#{$ui-prefix}__tabs__body--padded-top {
+    padding-top: $ui-page-padding;
 }

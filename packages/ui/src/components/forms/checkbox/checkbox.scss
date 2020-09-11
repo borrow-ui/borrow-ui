@@ -2,6 +2,10 @@
 * CREDITS: https://codepen.io/KenanYusuf/pen/PZKEKd/
 **/
 
+.#{$ui-prefix}__form__field__checkbox__container {
+    display: flex;
+}
+
 .#{$ui-prefix}__form__field__checkbox {
     display: inline-block;
     position: relative;
@@ -11,9 +15,15 @@
     height: $ui-form-checkbox-indicator-height;
 }
 .#{$ui-prefix}__form__field__checkbox__label {
+    margin-left: 10px;
     cursor: pointer;
     display: inline-block;
 }
+
+.#{$ui-prefix}__form__field__checkbox__label--disabled {
+    color: $ui-color-neutral-light;
+}
+
 .#{$ui-prefix}__form__field__checkbox__checkbox {
     position: absolute;
     z-index: -1;

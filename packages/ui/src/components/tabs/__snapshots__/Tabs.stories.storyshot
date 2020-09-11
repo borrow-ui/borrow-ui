@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Tabs Default 1`] = `
+<div
+  className="storybook-container"
+>
+  <div
+    className="borrow-ui__tabs "
+  >
+    <div
+      className="borrow-ui__tabs__header "
+    >
+      <div
+        className="borrow-ui__tabs__header__label "
+        onClick={[Function]}
+      >
+        First
+      </div>
+      <div
+        className="borrow-ui__tabs__header__label borrow-ui__tabs__header__label--selected"
+        onClick={[Function]}
+      >
+        Default
+      </div>
+      <div
+        className="borrow-ui__tabs__header__label "
+        onClick={[Function]}
+      >
+        Third
+      </div>
+      <div
+        className="borrow-ui__tabs__header__label "
+        onClick={[Function]}
+      >
+        Fourth
+      </div>
+    </div>
+    <div
+      className="borrow-ui__tabs__body__container "
+    >
+      <div
+        className="borrow-ui__tabs__body borrow-ui__tabs__body--padded  "
+      >
+        <div
+          className="borrow-ui__block  borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded  "
+        >
+          
+          
+          <h2>
+            First
+          </h2>
+          <p
+            className="borrow-ui__text  "
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+          </p>
+          <p
+            className="borrow-ui__text  "
+          >
+            Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+          </p>
+        </div>
+      </div>
+      <div
+        className="borrow-ui__tabs__body borrow-ui__tabs__body--padded  borrow-ui__tabs__body--selected"
+      >
+        <div
+          className="borrow-ui__block  borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded  "
+        >
+          
+          
+          <h2>
+            Default
+          </h2>
+          <p
+            className="borrow-ui__text  "
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+          </p>
+          <p
+            className="borrow-ui__text  "
+          >
+            Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+          </p>
+        </div>
+      </div>
+      <div
+        className="borrow-ui__tabs__body borrow-ui__tabs__body--padded  "
+      >
+        <div
+          className="borrow-ui__block  borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded  "
+        >
+          
+          
+          <h2>
+            Third
+          </h2>
+          <p
+            className="borrow-ui__text  "
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+          </p>
+          <p
+            className="borrow-ui__text  "
+          >
+            Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+          </p>
+        </div>
+      </div>
+      <div
+        className="borrow-ui__tabs__body borrow-ui__tabs__body--padded  "
+      >
+        <div
+          className="borrow-ui__block  borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded  "
+        >
+          
+          
+          <h2>
+            Fourth
+          </h2>
+          <p
+            className="borrow-ui__text  "
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+          </p>
+          <p
+            className="borrow-ui__text  "
+          >
+            Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin egestas, elit quam interdum massa, consequat sollicitudin dui felis nec massa. Nullam aliquet velit eget metus placerat tempus. Duis eu dapibus elit, et luctus odio. In velit lorem, sagittis eu sapien in, varius varius ipsum. Nunc tempor rhoncus aliquam. Nulla facilisis lobortis vulputate. Etiam sodales enim sit amet auctor suscipit. Mauris eget augue magna. Pellentesque id magna lectus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

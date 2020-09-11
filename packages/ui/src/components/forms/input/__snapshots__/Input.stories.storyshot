@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Forms|Input Default 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Full Name
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <input
+            className="borrow-ui__form__field__input   undefined"
+            onChange={[Function]}
+            placeholder="Insert your name..."
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|Input Input Disabled and Invalid 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Disabled cannot be changed
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <input
+            className="borrow-ui__form__field__input borrow-ui__form__field__input--disabled  undefined"
+            disabled={true}
+            value="Fixed string"
+          />
+        </div>
+      </div>
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Invalid style
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <input
+            className="borrow-ui__form__field__input  borrow-ui__form__field__input--invalid undefined"
+            onChange={[Function]}
+            placeholder="Type 'invalid' to see the invalid style"
+            value="invalid"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

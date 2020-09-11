@@ -1,24 +1,24 @@
 import React, { Fragment } from 'react';
 
-import { Block, Modal, Button, Lorem } from '@borrow-ui/ui/lib';
+import { Block, Modal, Button, Lorem } from '@borrow-ui/ui';
 
 export function Modals() {
     return (
         <Block>
             <Modal
-                Trigger={({ setViewModalWindow }) => (
-                    <Button onClick={() => setViewModalWindow(true)} className="m-r-10">
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} className="m-r-10">
                         Open Modal
                     </Button>
                 )}
-                getModalWindowProps={({ setViewModalWindow }) => {
+                getModalWindowProps={({ setVisible }) => {
                     return {
                         title: 'Modal',
                         content: <LoremContent />,
                         footer: (
                             <Fragment>
                                 <div>Left element</div>
-                                <Button mean="primary" onClick={() => setViewModalWindow(false)}>
+                                <Button mean="primary" onClick={() => setVisible(false)}>
                                     Close
                                 </Button>
                             </Fragment>
@@ -27,12 +27,12 @@ export function Modals() {
                 }}
             />
             <Modal
-                Trigger={({ setViewModalWindow }) => (
-                    <Button onClick={() => setViewModalWindow(true)} mean="primary">
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
                         Open Modal
                     </Button>
                 )}
-                getModalWindowProps={({ setViewModalWindow }) => {
+                getModalWindowProps={({ setVisible }) => {
                     return {
                         title: 'Something to work about',
                         content: <LoremContent />,
@@ -43,14 +43,11 @@ export function Modals() {
                                     <Button
                                         mean="positive"
                                         className="m-r-5"
-                                        onClick={() => setViewModalWindow(false)}
+                                        onClick={() => setVisible(false)}
                                     >
                                         Save
                                     </Button>
-                                    <Button
-                                        mean="negative"
-                                        onClick={() => setViewModalWindow(false)}
-                                    >
+                                    <Button mean="negative" onClick={() => setVisible(false)}>
                                         Cancel
                                     </Button>
                                 </div>

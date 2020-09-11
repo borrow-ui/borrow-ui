@@ -45,6 +45,6 @@
 .#{$ui-prefix}__icon--spin {
     animation-name: spin;
     animation-duration: 1s;
-    animation-timing-function: ease;
+    animation-timing-function: linear;
     animation-iteration-count: infinite;
 }

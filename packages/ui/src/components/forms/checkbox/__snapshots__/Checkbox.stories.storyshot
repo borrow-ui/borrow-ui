@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Forms|Checkbox Default 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Checkbox with label on top (vertical)
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="borrow-ui__form__field__checkbox__container "
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex="0"
+          >
+            <div
+              className="borrow-ui__form__field__checkbox borrow-ui__form__field__checkbox--checked "
+            >
+              <input
+                checked={true}
+                className="borrow-ui__form__field__checkbox__checkbox"
+                onChange={[Function]}
+                tabIndex="-1"
+                type="checkbox"
+              />
+              <div
+                className="borrow-ui__form__field__checkbox__indicator borrow-ui__form__field__checkbox__indicator--checked"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--horizontal"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Horizontal label
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--horizontal "
+        >
+          <div
+            className="borrow-ui__form__field__checkbox__container "
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex="0"
+          >
+            <div
+              className="borrow-ui__form__field__checkbox borrow-ui__form__field__checkbox--checked "
+            >
+              <input
+                checked={true}
+                className="borrow-ui__form__field__checkbox__checkbox"
+                onChange={[Function]}
+                tabIndex="-1"
+                type="checkbox"
+              />
+              <div
+                className="borrow-ui__form__field__checkbox__indicator borrow-ui__form__field__checkbox__indicator--checked"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="borrow-ui__form__field__checkbox__container "
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex="0"
+          >
+            <div
+              className="borrow-ui__form__field__checkbox  "
+            >
+              <input
+                className="borrow-ui__form__field__checkbox__checkbox"
+                onChange={[Function]}
+                tabIndex="-1"
+                type="checkbox"
+              />
+              <div
+                className="borrow-ui__form__field__checkbox__indicator"
+              />
+            </div>
+            <div
+              className="borrow-ui__form__field__checkbox__label"
+            >
+              Checkbox own label
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|Checkbox Disabled Checkbox 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="borrow-ui__form__field__checkbox__container "
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            tabIndex="0"
+          >
+            <div
+              className="borrow-ui__form__field__checkbox borrow-ui__form__field__checkbox--checked borrow-ui__form__field__checkbox--disabled"
+            >
+              <input
+                checked={true}
+                className="borrow-ui__form__field__checkbox__checkbox"
+                disabled={true}
+                onChange={[Function]}
+                tabIndex="-1"
+                type="checkbox"
+              />
+              <div
+                className="borrow-ui__form__field__checkbox__indicator borrow-ui__form__field__checkbox__indicator--checked borrow-ui__form__field__checkbox__indicator--disabled"
+              />
+            </div>
+            <div
+              className="borrow-ui__form__field__checkbox__label borrow-ui__form__field__checkbox__label--disabled"
+            >
+              This is always checked
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

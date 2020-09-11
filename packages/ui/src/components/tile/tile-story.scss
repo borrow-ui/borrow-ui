@@ -1,0 +1,7 @@
+@import '../../style/vars/main';
+
+.tile-block-hover-example {
+    &:hover {
+        color: $ui-color-primary;
+    }
+}

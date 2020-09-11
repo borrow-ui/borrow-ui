@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { DateUtils } from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import { FORM_INPUT_CLASS } from '../input/Input';
+import { FORM_INPUT_CLASS, FORM_INPUT_INVALID_CLASS, Input } from '../input/Input';
+
+dayjs.extend(customParseFormat);
 
 export function DatePicker({
     inputProps = {},
@@ -13,44 +15,111 @@ export function DatePicker({
     onDayChangeFormat = 'string',
     format = 'YYYY-MM-DD',
     placeholder,
-    value,
+    initialValue,
+    returnPartial = true,
+    disabled,
+    invalid = false,
     ...rest
 }) {
-    const currentValue = value ? parseDate(value, format) : undefined;
+    const initialValueDate = useMemo(
+        () => (initialValue ? parseDate(initialValue, format) : undefined),
+        [initialValue, format]
+    );
+    const [currentDate, setCurrentDate] = useState({ string: '', date: undefined });
+
+    useEffect(() => {
+        if (initialValue)
+            setCurrentDate({
+                string: initialValue,
+                date: initialValueDate,
+            });
+    }, [initialValue, initialValueDate]);
+
+    const { className: inputClassName = '', inputStyle = {}, ...restInputProps } = inputProps;
+    const inputInvalidClass = invalid ? FORM_INPUT_INVALID_CLASS : '';
+    const inputClass = `${FORM_INPUT_CLASS} ${inputInvalidClass} ${inputClassName}`.trim();
+
+    if (disabled) {
+        inputStyle.width = inputStyle.width || 209;
+
+        return (
+            <Input
+                value={initialValue}
+                disabled={disabled}
+                className={`${inputClassName}`}
+                style={inputStyle}
+                onChange={() => {}}
+                {...restInputProps}
+            />
+        );
+    }
 
     return (
         <DayPickerInput
-            overlayComponent={props => OverlayComponent({ ...props, ...overlayWrapperProps })}
+            overlayComponent={(props) => OverlayComponent({ ...props, ...overlayWrapperProps })}
             inputProps={{
-                ...inputProps,
-                className: `${inputProps.className || ''} ${FORM_INPUT_CLASS}`,
+                className: inputClass,
+                style: inputStyle,
+                ...restInputProps,
             }}
             format={format}
             placeholder={placeholder || format}
             todayButton="Go to Today"
             parseDate={parseDate}
             formatDate={formatDate}
-            onDayChange={d => {
+            onDayChange={(date, modifiers, dayPickerInput) => {
+                // Save the input value and the dateto the internal state
+                const input = dayPickerInput.getInput();
+                setCurrentDate({
+                    date,
+                    string: input.value,
+                });
+
                 if (!onDayChange) return;
 
-                const ret = onDayChangeFormat === 'date' ? d : formatDate(d, format);
-                onDayChange(ret);
+                // if onDayChange is set, pass the value accordingly to `onDayChangeFormat`
+                if (onDayChangeFormat === 'date') {
+                    onDayChange(date, modifiers, dayPickerInput);
+                } else {
+                    const parsed = dayjs(input.value, format, true);
+                    // Check if `returnPartial` is true, otherwise do not set
+                    if (returnPartial || parsed.isValid())
+                        onDayChange(input.value, modifiers, dayPickerInput);
+                }
             }}
-            selectedDays={currentValue}
-            value={currentValue}
+            selectedDays={currentDate.date}
+            disabled={disabled}
+            value={currentDate.string}
             {...rest}
         />
     );
 }
 
 DatePicker.propTypes = {
-    inputProps: PropTypes.object,
-    overlayWrapperProps: PropTypes.object,
+    /** Handler called when date is changed. Three args are passed: date, modifiers and dayPickerInput.
+     * The date is a string or object, depending on `onDayChangeFormat` prop.
+     * For modifiers and dayPickerInput, see
+     * [`react-day-picker` documentation](https://react-day-picker.js.org/api/DayPickerInput#onDayChange).
+     */
     onDayChange: PropTypes.func,
+    /** Format of the date passed to `onDayChange` handler */
     onDayChangeFormat: PropTypes.oneOf(['date', 'string']),
+    /** Date format. For all formats, see
+     * [`dayjs` documentation](https://day.js.org/docs/en/parse/string-format).
+     */
     format: PropTypes.string,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    initialValue: PropTypes.string,
+    /** Return partial strings, i.e. `2020-04-` */
+    returnPartial: PropTypes.bool,
+    disabled: PropTypes.bool,
+    invalid: PropTypes.bool,
+    /** Props passed to input field */
+    inputProps: PropTypes.object,
+    /** Props passed to the overlay wrapper see
+     * [documentation](https://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
+     */
+    overlayWrapperProps: PropTypes.object,
 };
 
 function OverlayComponent({ children, classNames, selectedDay, ...props }) {
@@ -68,10 +137,10 @@ OverlayComponent.propTypes = {
 };
 
 function parseDate(str, format) {
-    const parsed = dayjs(str, format).toDate();
+    const parsed = dayjs(str, format, true);
 
-    if (DateUtils.isDate(parsed)) {
-        return parsed;
+    if (parsed.isValid()) {
+        return parsed.toDate();
     }
     return undefined;
 }

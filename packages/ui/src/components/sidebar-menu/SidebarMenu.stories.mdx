@@ -1,0 +1,62 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Block } from '../block/Block';
+import { Lorem } from '../lorem/Lorem';
+import { Sidebar } from '../sidebar/Sidebar';
+
+import { SidebarMenu, SidebarMenuTitle, SidebarMenuEntry } from './SidebarMenu';
+
+<Meta title="Components|SidebarMenu" component={SidebarMenu} />
+
+# SidebarMenu
+
+`SidebarMenu` component is used to create vertical menus inside sidebars.
+
+It exposes three sub-components, `Title`, `Entry` and `Divider`.
+Entry can be set active via `isActive` prop.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <div style={{ display: 'flex', width: '100%' }}>
+                <Sidebar
+                    initialStatus="open"
+                    disableTrigger={true}
+                    shadowWhenOpen={false}
+                >
+                    <SidebarMenu padded={true}>
+                        <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
+                        <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
+                        <SidebarMenu.Entry>Entry 2</SidebarMenu.Entry>
+                        <SidebarMenu.Entry>Entry 3</SidebarMenu.Entry>
+                        <SidebarMenu.Separator />
+                        <SidebarMenu.Title>Section Title 2</SidebarMenu.Title>
+                        <SidebarMenu.Entry>Entry 4</SidebarMenu.Entry>
+                        <SidebarMenu.Title>Section Title 3</SidebarMenu.Title>
+                        <SidebarMenu.Entry>Entry 5</SidebarMenu.Entry>
+                        <SidebarMenu.Entry>Entry 6</SidebarMenu.Entry>
+                    </SidebarMenu>
+                </Sidebar>
+                <div className="p-l-20 p-r-20 p-b-20">
+                    <h2 className="m-t-10">Non-Collapsible Sidebar</h2>
+                    <Block className="overflow-auto h-400">
+                        <Lorem />
+                    </Block>
+                </div>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+## SidebarMenu Props
+
+<Props of={SidebarMenu} />
+
+## SidebarMenu.Title Props
+
+<Props of={SidebarMenuTitle} />
+
+## SidebarMenu.Entry Props
+
+<Props of={SidebarMenuEntry} />

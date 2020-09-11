@@ -1,19 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// For font-awesome, import this on your App:
-// import '@fortawesome/fontawesome-free/css/all.css';
-
-// For material-design icons, import this on your App:
-// import 'material-design-icons-iconfont/dist/material-design-icons.css';
-
 import { UI_PREFIX, SIZES } from '../../config';
 
 // import 'style/components/icon/icon.scss';
 
 const ICON_CLASS = `${UI_PREFIX}__icon`;
 /*
-Sizes: see SCSS file i.e. `${UI_PREFIX}__icon--smaller`
+Sizes: `${UI_PREFIX}__icon--smaller`
+Modifiers: `${UI_PREFIX}__icon--${modifier}` (see PropTypes for modifiers)
 */
 
 export function Icon({
@@ -38,8 +33,11 @@ export function Icon({
 
 Icon.propTypes = {
     name: PropTypes.string.isRequired,
+    /** Adds a class with the family name */
     family: PropTypes.oneOf(['material-icons', 'fa', 'fas', 'fab']),
+    /** Available modifiers: `clickable`, `spin` */
     modifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     className: PropTypes.string,
+    /** Size of the icon: `smaller`, `small`, `normal`, `big`, `bigger`, `huge` */
     size: PropTypes.oneOf(SIZES),
 };

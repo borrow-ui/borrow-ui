@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Card Default 1`] = `
+<div
+  className="borrow-ui__card borrow-ui__card--shadowed  borrow-ui__card--standing-hover m-b-20"
+  style={
+    Object {
+      "maxWidth": 500,
+    }
+  }
+>
+  <div
+    className="borrow-ui__card__side color-primary-bg"
+  >
+    <div
+      className="borrow-ui__card__side__icon-container "
+    >
+      <i
+        className="borrow-ui__icon material-icons home  borrow-ui__icon--big color-primary"
+      />
+    </div>
+  </div>
+  <div
+    className="borrow-ui__card__main borrow-ui__card__main--with-side "
+  >
+    <div
+      className="borrow-ui__card__body "
+    >
+      <div
+        className="borrow-ui__card__title "
+      >
+        Card sample
+      </div>
+      <div
+        className="borrow-ui__card__subtitle "
+      >
+        Subtitle goes here
+      </div>
+      <div
+        className="borrow-ui__card__description borrow-ui__card__description--with-controls "
+      >
+        Card can have content, called description, as well as title and subtitle. Check the hover!
+      </div>
+    </div>
+    <div
+      className="borrow-ui__card__controls "
+    >
+      <div>
+        Controls Content
+      </div>
+      <div>
+        <button
+          className="borrow-ui__button  borrow-ui__button--regular-reverse borrow-ui__button--smaller borrow-ui__button--shadowed borrow-ui__button--separated m-r-5"
+        >
+          <span>
+            Secondary
+          </span>
+        </button>
+        <button
+          className="borrow-ui__button  borrow-ui__button--positive borrow-ui__button--smaller borrow-ui__button--shadowed borrow-ui__button--separated "
+          onClick={[Function]}
+        >
+          <span>
+            Click me
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Card Witohut icon and controls 1`] = `
+<div
+  className="borrow-ui__card borrow-ui__card--shadowed  borrow-ui__card--standing-hover m-b-20"
+  style={
+    Object {
+      "width": 300,
+    }
+  }
+>
+  <div
+    className="borrow-ui__card__main borrow-ui__card__main--without-side "
+  >
+    <div
+      className="borrow-ui__card__body "
+    >
+      <div
+        className="borrow-ui__card__title "
+      >
+        Card sample
+      </div>
+      <div
+        className="borrow-ui__card__subtitle "
+      >
+        Example of a card
+      </div>
+      <div
+        className="borrow-ui__card__description  "
+      >
+        This card has only the main elements: title, subtitle and description. It also has fixed width.
+      </div>
+    </div>
+  </div>
+</div>
+`;

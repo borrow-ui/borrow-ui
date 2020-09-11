@@ -6,7 +6,7 @@ import { Page, Responsive, Title, Text } from '@borrow-ui/ui';
 export function Docs() {
     return (
         <div style={{ display: 'flex' }}>
-            <Page infinite={true}>
+            <Page continuousScroll={true}>
                 <Responsive>{matches => <DocsContent isSmallScreen={matches.small} />}</Responsive>
             </Page>
         </div>

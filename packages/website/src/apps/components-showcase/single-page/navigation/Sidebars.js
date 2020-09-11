@@ -6,27 +6,39 @@ import './sidebars.scss';
 
 export function Sidebars() {
     return (
-        <Block>
-            <div style={{ display: 'flex' }} className="singlepage__sidebars__sidebar-container">
-                <Sidebar
-                    disableTrigger={true}
-                    initialStatus={'open'}
-                    top={() => SidebarMenuNavigator()}
-                />
-                <div className="p-20">
-                    <h2>Non collapsible Sidebar with SidebarMenu</h2>
-                    <Block className="overflow-auto h-400">
-                        <Lorem />
-                    </Block>
+        <Block
+            style={{
+                overflow: 'scroll',
+            }}
+        >
+            <div style={{ display: 'grid' }}>
+                <div
+                    style={{ display: 'flex', overflow: 'scroll', width: '100%' }}
+                    className="singlepage__sidebars__sidebar-container"
+                >
+                    <Sidebar
+                        disableTrigger={true}
+                        initialStatus={'open'}
+                        top={() => SidebarMenuNavigator()}
+                    />
+                    <div className="p-20">
+                        <h2>Non collapsible Sidebar with SidebarMenu</h2>
+                        <Block className="overflow-auto h-400">
+                            <Lorem />
+                        </Block>
+                    </div>
                 </div>
-            </div>
-            <div style={{ display: 'flex' }} className="singlepage__sidebars__sidebar-container">
-                <Sidebar initialStatus={'closed'} top={SidebarMenuNavigatorCollapsible} />
-                <div className="p-20">
-                    <h2>Collapsible Sidebar with SidebarMenu</h2>
-                    <Block>
-                        <Lorem />
-                    </Block>
+                <div
+                    style={{ display: 'flex' }}
+                    className="singlepage__sidebars__sidebar-container"
+                >
+                    <Sidebar initialStatus={'closed'} top={SidebarMenuNavigatorCollapsible} />
+                    <div className="p-20">
+                        <h2>Collapsible Sidebar with SidebarMenu</h2>
+                        <Block>
+                            <Lorem />
+                        </Block>
+                    </div>
                 </div>
             </div>
         </Block>
@@ -35,7 +47,7 @@ export function Sidebars() {
 
 function SidebarMenuNavigator() {
     return (
-        <SidebarMenu isPadded={true}>
+        <SidebarMenu padded={true}>
             <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
             <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
             <SidebarMenu.Entry>Entry 2</SidebarMenu.Entry>
@@ -51,7 +63,7 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
     const entryWithIdId = 'showcase-entry-with-id';
 
     return (
-        <SidebarMenu isPadded={false}>
+        <SidebarMenu padded={false}>
             <SidebarEntry
                 sidebarState={sidebarState}
                 iconName="dashboard"
@@ -67,15 +79,9 @@ function SidebarMenuNavigatorCollapsible(sidebarState, setSidebarState) {
             </SidebarEntry>
             <SidebarEntry
                 sidebarState={sidebarState}
+                setSidebarState={setSidebarState}
                 iconName="menu"
                 id={entryWithIdId}
-                onClick={() =>
-                    setSidebarState({
-                        ...sidebarState,
-                        activeId:
-                            sidebarState.activeId === entryWithIdId ? undefined : entryWithIdId,
-                    })
-                }
                 details={
                     <ul>
                         <li>Row 1</li>

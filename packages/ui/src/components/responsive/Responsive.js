@@ -20,7 +20,9 @@ export function Responsive({ queries, query, children }) {
 }
 
 Responsive.propTypes = {
+    /** An object with name of the query as key and media query as value */
     queries: PropTypes.object,
+    /** Just the media query: the component content will be rendered only if the query passes. */
     query: PropTypes.string,
     children: PropTypes.func.isRequired,
 };

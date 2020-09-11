@@ -1,0 +1,134 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Monospace } from '../../text/Monospace';
+import { Input } from '../input/Input';
+import { Field, VField, HField } from './Field';
+
+import { FormsStoryWrapper } from '../FormsStory';
+
+<Meta title="Forms|Field" component={Field} />
+
+# Field
+
+Field represents forms' label-controller couple.
+The `Field` component wraps the controller and optionally creates a label, if the prop is specified.
+A `required` prop can be used to mark a field as required.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper>{({ state, setState }) => {
+                return <div style={{ width: 400 }}>
+                    <Field label="This field has a label" required={true}>
+                        <Input placeholder="Insert your name..." />
+                    </Field>
+                    <Field>
+                        <Input placeholder="This one doesn't" />
+                    </Field>
+                </div>
+            }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+### Layout
+
+Field's label and controller can have a vertical disposition (default) or an horizontal disposition.
+This can be changed by specifying `layout` prop or by using the shortcut component `VField` or `HField`.
+
+<Preview>
+    <Story name="Layout">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper>{({ state, setState }) => {
+                return <div style={{ width: 400 }}>
+                    <div>
+                        <Field label="Vertical layout label">
+                            <Input placeholder="Insert your name..." />
+                        </Field>
+                    </div>
+                    <div>
+                        <Field label="Horizontal layout label" layout="horizontal">
+                            <Input placeholder="Insert your name..." />
+                        </Field>
+                    </div>
+                    <h3>The same with shortcut components</h3>
+                    <div>
+                        <VField label="Vertical layout label">
+                            <Input placeholder="Insert your name..." />
+                        </VField>
+                    </div>
+                    <div>
+                        <HField label="Horizontal layout label">
+                            <Input placeholder="Insert your name..." />
+                        </HField>
+                    </div>
+                </div>
+            }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+When using the horizontal layout is convenient to specify a label width,
+to keep the spacing armoniuous between all the fields.
+This can be done by using `labelWidth` prop:
+
+<Preview>
+    <Story name="Horizontal Layout Label Width">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper>{({ state, setState }) => {
+                const lw = 280;
+                return <div style={{ width: 500 }}>
+                    <HField labelWidth={lw} label="Horizontal layout label">
+                        <Input placeholder="Insert your name..." />
+                    </HField>
+                    <HField labelWidth={lw} label="Short label">
+                        <Input placeholder="Insert your name..." />
+                    </HField>
+                    <HField labelWidth={lw} label="Very very long field label for input field">
+                        <Input placeholder="Insert your name..." />
+                    </HField>
+                </div>
+            }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+The label can also be aligned with `labelAlignment` prop shortcut.
+Possible values are: `left` (default), `center` and `right`.
+
+<Preview format={false}>
+    <Story name="Horizontal Layout Label Alignment" format={false}>
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper>{({ state, setState }) => {
+                const lw = 280;
+                const aligments = ['left', 'center', 'right'];
+                return <div style={{ width: 500 }}>
+                    {aligments.map(alignment => {
+                        return <div key={alignment} className="m-b-20">
+                            <h4>Alignment: <Monospace>{alignment}</Monospace></h4>
+                            <HField labelWidth={lw} labelAlignment={alignment} label="Horizontal layout label">
+                                <Input placeholder="Insert your name..." />
+                            </HField>
+                            <HField labelWidth={lw} labelAlignment={alignment} label="Short label">
+                                <Input placeholder="Insert your name..." />
+                            </HField>
+                            <HField labelWidth={lw} labelAlignment={alignment} label="Very very long field label for input field">
+                                <Input placeholder="Insert your name..." />
+                            </HField>
+                        </div>;
+                    })}
+                </div>
+            }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+
+## Props
+
+<Props of={Field} />

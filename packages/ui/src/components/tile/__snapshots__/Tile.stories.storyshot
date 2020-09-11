@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Tile Default 1`] = `
+<div
+  className="storybook-container"
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="borrow-ui__tile  "
+    >
+      <div
+        className="borrow-ui__tile__main"
+      >
+        <i
+          className="borrow-ui__icon material-icons home  borrow-ui__icon--huge "
+        />
+      </div>
+      <div
+        className="borrow-ui__tile__description"
+      >
+        A tile description
+      </div>
+    </div>
+    <div
+      className="borrow-ui__tile borrow-ui__tile--with-background "
+    >
+      <div
+        className="borrow-ui__tile__main"
+      >
+        <i
+          className="borrow-ui__icon material-icons home  borrow-ui__icon--huge "
+        />
+      </div>
+      <div
+        className="borrow-ui__tile__description"
+      >
+        A tile with predefined background
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Tile Wrapped inside Block 1`] = `
+<div
+  className="storybook-container"
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="borrow-ui__block m-r-10 borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded borrow-ui__block--outstanding "
+      style={
+        Object {
+          "width": 200,
+        }
+      }
+    >
+      
+      
+      <div
+        className="borrow-ui__tile  "
+      >
+        <div
+          className="borrow-ui__tile__main"
+        >
+          <i
+            className="borrow-ui__icon material-icons home  borrow-ui__icon--huge "
+          />
+        </div>
+        <div
+          className="borrow-ui__tile__description"
+        >
+          A tile wrapped in a block
+        </div>
+      </div>
+    </div>
+    <div
+      className="borrow-ui__block tile-block-hover-example m-r-10 borrow-ui__block--separated borrow-ui__block--padded borrow-ui__block--rounded borrow-ui__block--outstanding "
+      style={
+        Object {
+          "width": 200,
+        }
+      }
+    >
+      
+      
+      <div
+        className="borrow-ui__tile  "
+      >
+        <div
+          className="borrow-ui__tile__main"
+        >
+          <i
+            className="borrow-ui__icon material-icons home  borrow-ui__icon--bigger "
+          />
+        </div>
+        <div
+          className="borrow-ui__tile__description"
+        >
+          A tile wrapped in a block with hover effect
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

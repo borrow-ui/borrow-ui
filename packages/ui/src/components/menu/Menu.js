@@ -28,7 +28,7 @@ Menu.propTypes = {
     entries: PropTypes.arrayOf(
         PropTypes.shape({
             type: PropTypes.oneOf(['entry', 'divider']).isRequired,
-            label: PropTypes.string,
+            label: propTypesChildren,
             props: PropTypes.object,
         })
     ),

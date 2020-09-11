@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { UI_PREFIX } from '../../../config';
 import { propTypesChildren } from '../../../utils/types';
 import { Label } from '../label/Label';
-import { LAYOUTS } from '../constants';
+import { LAYOUTS, ALIGNMENTS } from '../constants';
 
 const FIELD_CLASS = `${UI_PREFIX}__form__field`;
 const FIELD_HORIZONTAL_CLASS = `${UI_PREFIX}__form__field--${LAYOUTS.HORIZONTAL}`;
 const FIELD_VERTICAL_CLASS = `${UI_PREFIX}__form__field--${LAYOUTS.VERTICAL}`;
-const FIELD_INPUT_CLASS = `${UI_PREFIX}__form__field-input`;
-const FIELD_INPUT_HORIZONTAL_CLASS = `${UI_PREFIX}__form__field-input--${LAYOUTS.HORIZONTAL}`;
-const FIELD_INPUT_VERTICAL_CLASS = `${UI_PREFIX}__form__field-input--${LAYOUTS.VERTICAL}`;
+const FIELD_CONTROLLER_CLASS = `${UI_PREFIX}__form__field__controller`;
+const FIELD_CONTROLLER_HORIZONTAL_CLASS = `${UI_PREFIX}__form__field__controller--${LAYOUTS.HORIZONTAL}`;
+const FIELD_CONTROLLER_VERTICAL_CLASS = `${UI_PREFIX}__form__field__controller--${LAYOUTS.VERTICAL}`;
 
 export function Field({
     label,
@@ -21,16 +21,19 @@ export function Field({
     layout = LAYOUTS.DEFAULT,
     labelProps = {},
     labelWidth,
-    inputProps = {},
+    labelAlignment,
+    controllerProps = {},
     ...rest
 }) {
     const layoutClass = layout === LAYOUTS.VERTICAL ? FIELD_VERTICAL_CLASS : FIELD_HORIZONTAL_CLASS;
-    const fieldClass = `${FIELD_CLASS} ${layoutClass} ${className}`;
+    const fieldClass = `${FIELD_CLASS} ${layoutClass} ${className}`.trim();
 
-    const fieldInputLayoutClass =
-        layout === LAYOUTS.VERTICAL ? FIELD_INPUT_VERTICAL_CLASS : FIELD_INPUT_HORIZONTAL_CLASS;
-    const { className: inputClassName = '', ...iProps } = inputProps;
-    const fieldInputClass = `${FIELD_INPUT_CLASS} ${fieldInputLayoutClass} ${inputClassName}`;
+    const fieldControllerLayoutClass =
+        layout === LAYOUTS.VERTICAL
+            ? FIELD_CONTROLLER_VERTICAL_CLASS
+            : FIELD_CONTROLLER_HORIZONTAL_CLASS;
+    const { className: controllerClassName = '', ...cProps } = controllerProps;
+    const fieldControllerClass = `${FIELD_CONTROLLER_CLASS} ${fieldControllerLayoutClass} ${controllerClassName}`;
 
     return (
         <div className={fieldClass} {...rest}>
@@ -38,12 +41,13 @@ export function Field({
                 <Label
                     label={label}
                     width={labelWidth}
+                    alignment={labelAlignment}
                     layout={layout}
                     required={required}
                     {...labelProps}
                 />
             )}
-            <div className={fieldInputClass} {...iProps}>
+            <div className={fieldControllerClass} {...cProps}>
                 {children}
             </div>
         </div>
@@ -55,10 +59,16 @@ Field.propTypes = {
     children: propTypesChildren,
     className: PropTypes.string,
     required: PropTypes.bool,
+    /** Layout can be `vertical` or `horizontal`. You can change the constants,
+     * as well as `DEFAULT`, to create other types of layout.
+     */
     layout: PropTypes.oneOf([LAYOUTS.VERTICAL, LAYOUTS.HORIZONTAL]),
-    labelProps: PropTypes.object,
     labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    inputProps: PropTypes.object,
+    labelAlignment: PropTypes.oneOf([ALIGNMENTS.LEFT, ALIGNMENTS.CENTER, ALIGNMENTS.RIGHT]),
+    /** Additional props passed to label container */
+    labelProps: PropTypes.object,
+    /** Additional props passed to controller container */
+    controllerProps: PropTypes.object,
 };
 
 export function VField({ children, ...rest }) {

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Monospace Default 1`] = `
+<div
+  className="storybook-container"
+>
+  This line contains 
+  <span
+    className="borrow-ui__text__monospace "
+  >
+    monospaced text
+  </span>
+   wrapped in normal text.
+</div>
+`;

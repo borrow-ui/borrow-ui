@@ -22,6 +22,7 @@ export const Forms = {
     Input,
     Label,
     ReactSelect,
+    Select: ReactSelect,
     Textarea,
     Toggle,
     VField,

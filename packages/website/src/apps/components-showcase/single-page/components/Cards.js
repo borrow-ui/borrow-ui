@@ -1,25 +1,24 @@
 import React, { Fragment } from 'react';
 
-import { Block, Card, Button, Icon } from '@borrow-ui/ui/lib';
+import { Block, Card, Button, Icon } from '@borrow-ui/ui';
 
 export function Cards() {
     return (
         <Block>
             <Card
                 standingHover={true}
-                icon={<Icon name="home" className="color-accent" />}
-                elementsProps={{
-                    cardProps: { className: 'm-b-20', style: { maxWidth: 500 }},
-                    sideProps: { className: 'color-accent-bg' },
-                }}
+                icon={<Icon name="home" size="big" className="color-primary" />}
                 title="Card sample"
-                subtitle="Example of a card"
+                subtitle="Subtitle goes here"
                 description="Card can have content, called description, as well as title and subtitle. Check the hover!"
+                className="m-b-20"
+                style={{ maxWidth: 500 }}
+                sideProps={{ className: 'color-primary-bg' }}
                 controls={
                     <Fragment>
-                        <div>Tertiary action</div>
+                        <div>Controls Content</div>
                         <div>
-                            <Button size="smaller" className="m-r-5">
+                            <Button size="smaller" mean="regular-reverse" className="m-r-5">
                                 Secondary
                             </Button>
                             <Button
@@ -36,14 +35,13 @@ export function Cards() {
 
             <Card
                 shadowed={false}
-                icon={<Icon name="check" className="color-positive" />}
-                elementsProps={{
-                    cardProps: { className: 'm-b-20', style: { maxWidth: 500 }},
-                    sideProps: { className: 'color-positive-bg' },
-                }}
+                icon={<Icon name="check" size="big" className="color-positive" />}
                 title="Success!"
                 subtitle="The operation was successfull."
                 description="Your pipeline run successfully. A message that you can later remove or keep visible. Flat without hover and shadow."
+                className="m-b-20"
+                style={{ maxWidth: 500 }}
+                sideProps={{ className: 'color-positive-bg' }}
                 controls={
                     <Fragment>
                         <span />

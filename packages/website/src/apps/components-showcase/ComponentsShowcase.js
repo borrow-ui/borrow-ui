@@ -135,7 +135,7 @@ function getNavigatorSections() {
 
 function ShowCaseSidebarNavigator({ sectionName, sections }) {
     return (
-        <SidebarMenu isPadded={true}>
+        <SidebarMenu padded={true}>
             {sections.map((section, index) => {
                 return (
                     <Fragment key={section.title}>

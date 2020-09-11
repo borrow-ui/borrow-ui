@@ -22,15 +22,20 @@ import { Modal, ModalWindow } from './components/modal/Modal';
 import { Monospace } from './components/text/Monospace';
 import { Navbar } from './components/navbar/Navbar';
 import { NavbarLink } from './components/navbar/NavbarLink';
-import { NavbarMenuItem } from './components/navbar/NavbarMenuItem';
-import { NavbarMenuTitle } from './components/navbar/NavbarMenuTitle';
+import { NavbarMenu } from './components/navbar-menu/NavbarMenu';
+import { NavbarMenuItem } from './components/navbar-menu/NavbarMenuItem';
+import { NavbarMenuTitle } from './components/navbar-menu/NavbarMenuTitle';
 import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
 import { Panel } from './components/panel/Panel';
 import { Popover } from './components/popover/Popover';
 import { Responsive } from './components/responsive/Responsive';
-import { Sidebar, SidebarContext } from './components/sidebar/Sidebar';
+import {
+    Sidebar,
+    SidebarContext,
+    generateSidebarContextProvider,
+} from './components/sidebar/Sidebar';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
 import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
@@ -77,6 +82,7 @@ export {
     Monospace,
     Navbar,
     NavbarLink,
+    NavbarMenu,
     NavbarMenuItem,
     NavbarMenuTitle,
     Page,
@@ -88,6 +94,7 @@ export {
     Row,
     Sidebar,
     SidebarContext,
+    generateSidebarContextProvider,
     SidebarEntry,
     SidebarIcon,
     SidebarMenu,

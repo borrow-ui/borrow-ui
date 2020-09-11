@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Forms|Textarea Default 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Describe the book you are currently reading
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <textarea
+            className="borrow-ui__form__field__textarea"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|Textarea Textarea Invalid and Disabled 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          This textarea should be disabled
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <textarea
+            className="borrow-ui__form__field__textarea borrow-ui__form__field__textarea--disabled"
+            disabled={true}
+            onChange={[Function]}
+            value="This text cannot be changed"
+          />
+        </div>
+      </div>
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Type \`invalid\` to see invalid style
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <textarea
+            className="borrow-ui__form__field__textarea  borrow-ui__form__field__textarea--invalid"
+            onChange={[Function]}
+            value="invalid"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

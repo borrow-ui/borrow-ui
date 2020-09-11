@@ -40,16 +40,22 @@ export function NavbarGroup({ position, elements, toggleSetItem }) {
     );
 }
 
+// component created only to generate props table in Storybook
+export function Element() {
+    return <span />;
+}
+
+Element.propTypes = {
+    headerLabel: propTypesChildren,
+    bodyItem: PropTypes.func,
+    showQueryInput: PropTypes.bool,
+    floatingControls: PropTypes.bool,
+};
+
 const elementType = PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
-    PropTypes.shape({
-        headerLabel: propTypesChildren,
-        name: PropTypes.string,
-        bodyItem: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-        showQueryInput: PropTypes.bool,
-        floatingControls: PropTypes.bool,
-    }),
+    PropTypes.shape(Element.propTypes),
 ]);
 
 NavbarGroup.propTypes = {

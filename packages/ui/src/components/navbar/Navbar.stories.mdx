@@ -1,0 +1,98 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Block } from '../block/Block';
+import { Row, Col } from '../grid/Grid';
+import { Lorem } from '../lorem/Lorem';
+import { Text } from '../text/Text';
+
+
+import { NavbarMenu } from '../navbar-menu/NavbarMenu';
+import { Navbar } from './Navbar';
+import { Element } from './NavbarGroup';
+
+<Meta title="Components|Navbar" component={Navbar} />
+
+# Navbar
+
+The `Navbar` components can be used to create navigation bars.
+Generally the navbar created with the `Navbar` component is the main website container for menus and application header.
+
+The navbar elements can be positioned on the left, center and right: the content is expected to be a list of navbar elements.
+Each navbar element can be:
+
+-   a node, rendered "as is" without wrapper:
+-   a string, rendered "as is" inside a span with appropriate class;
+-   an object, rendered inside a span with approrpiare class.
+
+In case the element is an object, it can have the following properties:
+
+-   `headerLabel`: label that will be shown in the navbar (a valid node can be used);
+-   `bodyItem`: function that generates content for a "mega-menu" that will be shown/hidden when the element is clicked;
+-   `showQueryInput`: show a query input, mainly used to filter the elements inside: a `query` prop is passed to the `bodyItem`;
+-   `floatingControls`: add a `float` class to the "mega-menu" icons.
+
+<Preview>
+    <Story name="Default">
+        <div style={{ height: 400, fontSize: '14px' }}>
+            <Navbar
+                stycky={false}
+                left={[
+                    'String item',
+                    <span style={{ color: 'green' }} className="flex-center-center">Node item</span>
+                ]}
+                center={[
+                    {
+                        headerLabel: 'Item with menu',
+                        bodyItem: () => <Block><Lorem /></Block>
+                    },
+                    {
+                        headerLabel: 'Item with query',
+                        bodyItem: function({ query }) {
+                            return <Block>
+                                <Text>Type in the query input to filter the elements below.</Text>
+                                <Text className="color-neutral">Only the labels will be filtered, but the function is implemented by you so you can include also the descriptions.</Text>
+                                <Row style={{ marginTop: 20 }}>
+                                    <Col>
+                                        <NavbarMenu
+                                            title='Menu on the left'
+                                            entries={[
+                                                { label: 'Entry 1' },
+                                                { label: 'Second entry', description: 'This also has a description, helpful to get more context' },
+                                                { label: 'Second Third one' },
+                                            ].filter(e => !query || e.label.toLowerCase().indexOf(query) >= 0)}
+                                        />
+                                    </Col>
+                                    <Col>
+                                        <NavbarMenu
+                                            title='Menu on the right'
+                                                entries={[
+                                                { label: 'Another menu' },
+                                                { label: 'This one is on the right' },
+                                                { label: 'Or below if the page is short' },
+                                            ].filter(e => !query || e.label.toLowerCase().indexOf(query) >= 0)}
+                                        />
+                                    </Col>
+                                </Row>
+                            </Block>;
+                        },
+                        showQueryInput: true,
+                    },
+                ]}
+                right={[
+                    'v 0.0.1'
+                ]}
+            />
+        </div>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={Navbar} />
+
+## Element Props
+
+An element can be a `string`, a valid `node` or an object with the following properties:
+
+<Props of={Element} />

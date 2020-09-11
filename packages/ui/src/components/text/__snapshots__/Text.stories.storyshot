@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Text Default 1`] = `
+<div
+  className="storybook-container"
+>
+  <h2>
+    Text example
+  </h2>
+  <div
+    className="borrow-ui__text  "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </div>
+  <div
+    className="borrow-ui__text borrow-ui__text--big "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </div>
+  <div
+    className="borrow-ui__text borrow-ui__text--small "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+  </div>
+</div>
+`;

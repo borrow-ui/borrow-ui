@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 const TABS_HEADER_CLASS = `${UI_PREFIX}__tabs__header`;
 const TABS_HEADER_LABEL_CLASS = `${UI_PREFIX}__tabs__header__label`;
@@ -32,7 +33,7 @@ export function TabHeader({ tabs, selectedTab, setSelectedTab, className = '', .
 TabHeader.propTypes = {
     tabs: PropTypes.arrayOf(
         PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+            label: propTypesChildren.isRequired,
         })
     ).isRequired,
     className: PropTypes.string,

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { UI_PREFIX, config } from '../../config';
 import { propTypesChildren } from '../../utils/types';
 
+import { Link } from '../link/Link';
+
 import { SidebarIcon } from './SidebarIcon';
 import { SidebarEntryLabelShortcut } from './SidebarEntryLabelShortcut';
 
@@ -22,15 +24,21 @@ export function SidebarEntry({
     shortcut,
     link = '',
     id = '',
+    onClick,
+    setSidebarState,
     children,
     details,
+    iconProps,
     ...rest
 }) {
     // const sidebarState = useContext(SidebarContext)[0];
     const location = config.getLocation();
 
-    // temp
-    const Link = config.getLinkComponent();
+    if (details && (!id || !setSidebarState)) {
+        throw new Error(
+            'SidebarEntry: if you specify `details` prop, you need to set `id` and `setSidebarState` as well.'
+        );
+    }
 
     const Tag = link ? Link : 'div';
     const isActive = isEntryActive(sidebarState, id, link, location);
@@ -45,10 +53,23 @@ export function SidebarEntry({
     const entryDetailsActiveClass = isActive ? SIDEBAR_ENTRY_DETAILS_ACTIVE_CLASS : '';
     const entryDetailsClass = `${SIDEBAR_ENTRY_DETAILS_CLASS} ${entryDetailsStatusClass} ${entryDetailsActiveClass}`;
 
+    const entryOnClick = () => {
+        setSidebarState &&
+            setSidebarState({ ...sidebarState, activeId: isActive ? undefined : id });
+        onClick && onClick();
+    };
+
     return (
         <Fragment>
-            <Tag className={entryClass} to={link} id={id} {...rest}>
-                {iconName && <SidebarIcon name={iconName} isActive={isActive} isOpen={isOpen} />}
+            <Tag className={entryClass} to={link} id={id} onClick={entryOnClick} {...rest}>
+                {iconName && (
+                    <SidebarIcon
+                        name={iconName}
+                        isActive={isActive}
+                        isOpen={isOpen}
+                        {...iconProps}
+                    />
+                )}
                 {!iconName && shortcut !== undefined && (
                     <SidebarEntryLabelShortcut label={shortcut} />
                 )}
@@ -64,13 +85,24 @@ export function SidebarEntry({
 }
 
 SidebarEntry.propTypes = {
+    /** `Sidebar` state */
     sidebarState: PropTypes.object.isRequired,
+    /** Name of the icon */
     iconName: PropTypes.string,
+    /** Shortcut alternative to the icon */
     shortcut: PropTypes.string,
+    /** Link associated with the entry */
     link: PropTypes.string,
-    id: PropTypes.string,
-    children: propTypesChildren,
+    /** Elements visible only when the sidebar is open and the entry is active */
     details: propTypesChildren,
+    /** Entry id, required if `details` are passed */
+    id: PropTypes.string,
+    /** Sidebar state setter, required if `details` are passed */
+    setSidebarState: PropTypes.func,
+    onClick: PropTypes.func,
+    children: propTypesChildren,
+    /** Additional properties passed to the icon component */
+    iconProps: PropTypes.object,
 };
 
 function isEntryActive(sidebarState, id, link, location) {

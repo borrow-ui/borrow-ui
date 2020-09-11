@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 import { Text } from '../text/Text';
 
-export function Lorem({ paragraphs }) {
+export function Lorem({ paragraphs = 2 }) {
     return (
         <Fragment>
             {paragraphs >= 1 && (
-                <Text textTag="p">
+                <Text tag="p">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo
                     ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus.
                     Vivamus bibendum id lacus sit amet faucibus.
                 </Text>
             )}
             {paragraphs >= 2 && (
-                <Text textTag="p">
+                <Text tag="p">
                     Etiam tortor orci, varius at massa ut, tristique suscipit lorem. Nullam vel
                     metus ex. Morbi vitae mauris volutpat erat commodo ultricies at ac magna. Cras
                     condimentum id magna vitae blandit. Vestibulum auctor, magna porta sollicitudin
@@ -26,7 +26,7 @@ export function Lorem({ paragraphs }) {
                 </Text>
             )}
             {paragraphs >= 3 && (
-                <Text textTag="p">
+                <Text tag="p">
                     Sed sed odio sapien. Aliquam feugiat nisi eget enim porttitor tristique. Aliquam
                     faucibus gravida eros sit amet euismod. Etiam at dolor ac ipsum sagittis
                     venenatis et quis dui. Praesent eros diam, maximus quis tellus ut, sodales
@@ -43,8 +43,4 @@ export function Lorem({ paragraphs }) {
 
 Lorem.propTypes = {
     paragraphs: PropTypes.number,
-};
-
-Lorem.defaultProps = {
-    paragraphs: 2,
 };

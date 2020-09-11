@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Forms|DatePicker DatePicker Disabled and Invalid 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "height": 400,
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Disabled date
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <input
+            className="borrow-ui__form__field__input borrow-ui__form__field__input--disabled  "
+            disabled={true}
+            onChange={[Function]}
+            style={
+              Object {
+                "width": 209,
+              }
+            }
+            value="2020-06-25"
+          />
+        </div>
+      </div>
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Invalid date (pick \`2020-04-01\`)
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="DayPickerInput"
+          >
+            <input
+              className="borrow-ui__form__field__input borrow-ui__form__field__input--invalid"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              placeholder="YYYY-MM-DD"
+              style={Object {}}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|DatePicker DatePicker initialValue 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "height": 400,
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Picker with initial date
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="DayPickerInput"
+          >
+            <input
+              className="borrow-ui__form__field__input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              placeholder="YYYY-MM-DD"
+              style={Object {}}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        className="borrow-ui__button  borrow-ui__button--accent borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
+        onClick={[Function]}
+      >
+        <span>
+          Set to 2020-10-22
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|DatePicker DatePicker onDayChangeFormat 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "height": 350,
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Select a date
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="DayPickerInput"
+          >
+            <input
+              className="borrow-ui__form__field__input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              placeholder="YYYY-MM-DD"
+              style={Object {}}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|DatePicker DatePicker returnPartial 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "height": 350,
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Select a date
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="DayPickerInput"
+          >
+            <input
+              className="borrow-ui__form__field__input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              placeholder="YYYY-MM-DD"
+              style={Object {}}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Forms|DatePicker Default 1`] = `
+<div
+  className="storybook-container borrow-ui"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      style={
+        Object {
+          "height": 400,
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Select a date
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="DayPickerInput"
+          >
+            <input
+              className="borrow-ui__form__field__input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              placeholder="YYYY-MM-DD"
+              style={Object {}}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="borrow-ui__form__field borrow-ui__form__field--vertical"
+      >
+        <div
+          className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
+          style={
+            Object {
+              "width": undefined,
+            }
+          }
+        >
+          Picker with initial date
+           
+        </div>
+        <div
+          className="borrow-ui__form__field__controller borrow-ui__form__field__controller--vertical "
+        >
+          <div
+            className="DayPickerInput"
+          >
+            <input
+              className="borrow-ui__form__field__input"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              placeholder="YYYY-MM-DD"
+              style={Object {}}
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

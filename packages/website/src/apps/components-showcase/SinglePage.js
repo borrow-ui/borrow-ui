@@ -82,7 +82,7 @@ export function SinglePage() {
 function SidebarMenuNavigator() {
     const { Title, Entry } = SidebarMenu;
     return (
-        <SidebarMenu isPadded={true}>
+        <SidebarMenu padded={true}>
             <Title href="#typography">Typography</Title>
             <Entry href="#typography-titles">Titles</Entry>
             <Entry href="#typography-text">Text</Entry>

@@ -11,6 +11,7 @@
     font-family: $ui-font;
     border-radius: 2px;
     text-decoration: none;
+    white-space: nowrap;
 }
 .#{$ui-prefix}__button:hover {
     background-color: $ui-color-neutral-over;
@@ -159,6 +160,7 @@
 .#{$ui-prefix}__button--regular-reverse:disabled:hover {
     color: $ui-color-neutral-disabled;
     border-color: $ui-color-neutral-disabled;
+    background-color: $ui-color-on-neutral;
 }
 
 .#{$ui-prefix}__button--primary-reverse {

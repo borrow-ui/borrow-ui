@@ -10,7 +10,7 @@ const NAVBAR_MENU_ITEM_DESCRIPTION_CLASS = `${UI_PREFIX}__navbar-menu__item__des
 
 export function NavbarMenuItem({
     tag: Tag = 'div',
-    className,
+    className = '',
     label,
     description,
     labelProps = {},
@@ -42,6 +42,8 @@ NavbarMenuItem.propTypes = {
     className: PropTypes.string,
     label: propTypesChildren,
     description: propTypesChildren,
+    /** Properties passed to the label container */
     labelProps: PropTypes.object,
+    /** Properties passed to the description container */
     descriptionProps: PropTypes.object,
 };

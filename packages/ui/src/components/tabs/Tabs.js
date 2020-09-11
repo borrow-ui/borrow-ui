@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 
 import { TabHeader } from './TabHeader';
 import { TabBody } from './TabBody';
@@ -11,10 +12,11 @@ const TABS_CLASS = `${UI_PREFIX}__tabs`;
 export function Tabs({
     tabs,
     firstOpen = 1,
-    compact = false,
+    padded = true,
+    paddedTop = false,
     className = '',
-    headerProps = {},
-    bodyProps = {},
+    tabHeaderProps = {},
+    tabBodyProps = {},
     ...rest
 }) {
     if (firstOpen > tabs.length) {
@@ -33,9 +35,15 @@ export function Tabs({
                 tabs={tabs}
                 selectedTab={selected}
                 setSelectedTab={setSelected}
-                {...bodyProps}
+                {...tabBodyProps}
             />
-            <TabBody tabs={tabs} selectedTab={selected} compact={compact} {...headerProps} />
+            <TabBody
+                tabs={tabs}
+                selectedTab={selected}
+                padded={padded}
+                paddedTop={paddedTop}
+                {...tabHeaderProps}
+            />
         </div>
     );
 }
@@ -43,13 +51,14 @@ export function Tabs({
 Tabs.propTypes = {
     tabs: PropTypes.arrayOf(
         PropTypes.shape({
-            label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-            content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+            label: propTypesChildren.isRequired,
+            content: propTypesChildren.isRequired,
         })
     ).isRequired,
     className: PropTypes.string,
     firstOpen: PropTypes.number,
-    compact: PropTypes.bool,
-    headerProps: PropTypes.object,
-    bodyProps: PropTypes.object,
+    padded: PropTypes.bool,
+    paddedTop: PropTypes.bool,
+    tabHeaderProps: PropTypes.object,
+    tabBodyProps: PropTypes.object,
 };

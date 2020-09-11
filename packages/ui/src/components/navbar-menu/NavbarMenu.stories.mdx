@@ -1,0 +1,68 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Block } from '../block/Block';
+import { Row, Col } from '../grid/Grid';
+import { Lorem } from '../lorem/Lorem';
+import { Text } from '../text/Text';
+
+
+import { NavbarMenu } from './NavbarMenu';
+import { NavbarMenuItem } from './NavbarMenuItem';
+import { NavbarMenuTitle } from './NavbarMenuTitle';
+
+<Meta title="Components|NavbarMenu" component={NavbarMenu} />
+
+# NavbarMenu
+
+The `NavbarMenu` component is the ideal way to create menus inside `Navbar`s.
+Two components are used underneath: `NavbarMenuTitle` and `NavbarMenuItem`.
+
+`NavbarMenu` takes a list of entry objects (`entries` prop) whose properties are valid `MenuItem` props.
+An optional `title` prop will be rendered by using `NavbarTitle` component.
+
+<Preview>
+    <Story name="Default">
+        <div style={{ fontSize: '14px' }}>
+            <Row>
+                <Col>
+                    <NavbarMenu
+                        title='Menu on the left'
+                        entries={[
+                            { label: 'Entry 1' },
+                            { label: 'Second entry', description: 'This also has a description, helpful to get more context' },
+                            { label: 'Second Third one' },
+                        ]}
+                    />
+                </Col>
+                <Col>
+                    <NavbarMenu
+                        title='Menu on the right'
+                        entries={[
+                            {
+                                label: 'Clickable one',
+                                description: 'Hover to see the cursor, click to view the alert',
+                                style: {cursor: 'pointer'},
+                                onClick: () => window.alert('Entry clicked')
+                            },
+                            { label: <span>Custom element as label</span>, description: 'This also has a description, helpful to get more context' },
+                            { label: 'Custom element as description', description: <div style={{ color: 'green' }}>A green description</div> },
+                        ]}
+                    />
+                </Col>
+            </Row>
+        </div>
+    </Story>
+</Preview>
+
+## NavbarMenu Props
+
+<Props of={NavbarMenu} />
+
+## NavbarMenuTitle Props
+
+<Props of={NavbarMenuTitle} />
+
+## NavbarMenuItem Props
+
+<Props of={NavbarMenuItem} />

@@ -1,0 +1,125 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import { Checkbox } from './checkbox/Checkbox';
+import { DatePicker } from './date-picker/DatePicker';
+import { Dropzone } from './dropzone/Dropzone';
+import { Field } from './field/Field';
+import { Input } from './input/Input';
+import { Textarea } from './textarea/Textarea';
+import { Toggle } from './toggle/Toggle';
+
+import { Forms } from './index';
+import { FormsStoryWrapper } from './FormsStory';
+
+<Meta title="Forms|Introduction" />
+
+# Forms
+
+Forms can be created by a combination of inputs/controllers.
+
+The standard way to represent form elements is by using a label-controller couple.
+This couple is represented by a "form field" and can be rendered by using `Field` component.
+
+```jsx
+import { Button, Forms } from '@borrow-ui/ui';
+
+const { Field, Input } = Forms;
+
+export function Form({ initialValues, onSubmit }) {
+    const [values, setValues] = useState(initialValues);
+    const onFormSubmit = e => {
+        e.preventDefault();
+        onSubmit({ values });
+    }
+
+    return <form onSubmit={onFormSubmit}>
+        <Field label="Full Name">
+            <Input
+                placeholder="Insert your name..."
+                value={values.name}
+                onChange={e => setValues({ ...values, name: e.target.value })}
+            />
+        </Field>
+
+        <div>
+            <Button type="submit" mean="positive">Save</Button>
+        </div>
+    </form>;
+}
+```
+
+Each controller can be used as `children` of `Field` component.
+The next example shows all the available controllers.
+
+For a detailed documentation of components, see the respective pages.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper initialState={{ useInternet: true }}>{({ state, setState }) => {
+                return <div style={{ width: 400 }}>
+                    <Field label="Full Name">
+                        <Input placeholder="Insert your name..." />
+                    </Field>
+                    <Field label="Bio">
+                        <Textarea placeholder="Tell me something about you..." />
+                    </Field>
+                    <Field label="Pick a day of the year">
+                        <DatePicker
+                            value={state.favouriteDay}
+                            onChange={date => setState({ ...state, favouriteDay: date })}
+                        />
+                    </Field>
+                    <Field label="Favourite day of weekend">
+                        <Forms.Select
+                            value={state.favouriteWeekendDay}
+                            onChange={option => setState({ ...state, favouriteWeekendDay: option.value })}
+                            options={[
+                                { value: 'friday', label: 'Friday'},
+                                { value: 'saturday', label: 'Saturday'},
+                                { value: 'sunday', label: 'Sunday'},
+                            ]}
+                        />
+                    </Field>
+                    <Field label="I have the following devices:">
+                        <div className="m-t-5">
+                            <div className="m-b-10">
+                                <Checkbox
+                                    label="Smartphone/Tablet"
+                                    checked={state.smartphone}
+                                    onClick={e => setState({ ...state, smartphone: !!!state.smartphone })}
+                                />
+                            </div>
+                            <div className="m-b-10">
+                                <Checkbox
+                                    label="Laptop"
+                                    checked={state.laptop}
+                                    onClick={e => setState({ ...state, laptop: !!!state.laptop })}
+                                />
+                            </div>
+                            <div className="m-b-10">
+                                <Checkbox
+                                    label="Desktop"
+                                    checked={state.desktop}
+                                    onClick={e => setState({ ...state, desktop: !!!state.desktop })}
+                                />
+                            </div>
+                        </div>
+                    </Field>
+                    <Field label="I use internet">
+                        <Toggle
+                            checked={state.useInternet}
+                            onClick={e => setState({ ...state, useInternet: !!!state.useInternet })}
+                        />
+                    </Field>
+                    <Field>
+                        <Dropzone dragMessage="Upload your desktop wallpaper" />
+                    </Field>
+                </div>
+            }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+

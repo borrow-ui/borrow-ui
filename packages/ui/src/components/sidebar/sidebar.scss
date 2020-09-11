@@ -84,7 +84,6 @@ $ui-sidebar-color: $ui-color-neutral-white;
     overflow-x: hidden;
 }
 .#{$ui-prefix}__sidebar__top-container--closed {
-    padding-top: 34px;
 }
 
 .#{$ui-prefix}__sidebar__bottom-container {
@@ -125,7 +124,7 @@ $ui-sidebar-color: $ui-color-neutral-white;
 }
 
 .#{$ui-prefix}__sidebar__entry__label__shortcut {
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
     @extend %sidebar-icon;
 }
