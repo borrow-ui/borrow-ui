@@ -44,7 +44,7 @@
     "devDependencies": {
         "babel-plugin-prismjs": "^2.0.1",
         "customize-cra": "^1.0.0",
-        "prettier-eslint": "^9.0.1",
+        "prettier-eslint": "^11.0.0",
         "react-app-rewired": "^2.1.6"
     }
 }
