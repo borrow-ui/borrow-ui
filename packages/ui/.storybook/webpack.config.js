@@ -25,5 +25,5 @@ module.exports = ({ config }) => {
         },
     };
 
-    return merge(config, split);
+    return merge.merge(config, split);
 };

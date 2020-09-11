@@ -45,9 +45,9 @@
         "@testing-library/react": "^10.0.3",
         "babel-jest": "^25.4.0",
         "babel-loader": "^8.0.6",
-        "css-loader": "^3.4.2",
+        "css-loader": "^4.3.0",
         "dayjs": "^1.8.35",
-        "file-loader": "^6.0.0",
+        "file-loader": "^6.1.0",
         "jest": "^25.4.0",
         "material-design-icons-iconfont": "^6.1.0",
         "node-sass": "^4.14.1",
@@ -56,12 +56,12 @@
         "react-is": "^16.13.1",
         "react-test-renderer": "^16.13.1",
         "sass": "^1.26.10",
-        "sass-loader": "^8.0.2",
+        "sass-loader": "^10.0.2",
         "style-loader": "^1.1.3",
-        "url-loader": "^3.0.0",
-        "webpack": "^4.42.0",
-        "webpack-bundle-analyzer": "^3.6.1",
-        "webpack-cli": "^3.3.11",
-        "webpack-merge": "^4.2.2"
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-bundle-analyzer": "^3.8.0",
+        "webpack-cli": "^3.3.12",
+        "webpack-merge": "^5.1.4"
     }
 }
