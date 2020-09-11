@@ -10,7 +10,7 @@
         "@testing-library/user-event": "^7.1.2",
         "dayjs": "^1.8.35",
         "material-design-icons-iconfont": "^5.0.1",
-        "prismjs": "^1.20.0",
+        "prismjs": "^1.21.0",
         "react": "^16.13.0",
         "react-day-picker": "^7.4.0",
         "react-dom": "^16.13.0",
