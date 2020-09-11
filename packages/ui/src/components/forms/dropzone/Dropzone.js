@@ -32,7 +32,6 @@ export function Dropzone({
 
     const onDropCallback = useCallback(
         acceptedFiles => {
-            console.log('onDropCallback', acceptedFiles);
             setDropzoneState({
                 ...dropzoneState,
                 files: [...dropzoneState.files, ...acceptedFiles],
@@ -44,7 +43,6 @@ export function Dropzone({
 
     const onRemoveCallback = useCallback(
         removeIndex => {
-            console.log('onRemoveCallback', removeIndex);
             const removedFile = dropzoneState.files[removeIndex];
             setDropzoneState({
                 ...dropzoneState,
