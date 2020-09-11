@@ -43,7 +43,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.css', '.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg'],
+        extensions: ['.jsx', '.js'],
         modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
     output: {
