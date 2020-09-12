@@ -3,7 +3,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { Row, Col } from './Grid';
 
-<Meta title="Components|Grid" component={Row} />
+<Meta title="Components/Grid" component={Row} />
 
 # Grid
 
@@ -21,29 +21,30 @@ This can be changed with the `colClassName` property. The standard `className` v
 be added: in this way it is possible to add custom classes without the need to repeat the
 size classes or to put two of them with contradictory values.
 
-
 <Preview>
     <Story name="Default">
         <div>
             <Row className="m-b-20">
-                <Col style={{ backgroundColor: '#EEE'}}>
+                <Col style={{ backgroundColor: '#EEE' }}>
                     <span className="p-10 display-inline-block">First Column</span>
                 </Col>
-                <Col style={{ backgroundColor: '#E2E2E2'}}>
+                <Col style={{ backgroundColor: '#E2E2E2' }}>
                     <span className="p-10 display-inline-block">Second Column</span>
                 </Col>
             </Row>
             <Row>
-                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#EEE'}}>
-                    <div><span className="p-10 display-inline-block">First</span></div>
+                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#EEE' }}>
+                    <div>
+                        <span className="p-10 display-inline-block">First</span>
+                    </div>
                 </Col>
-                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#E2E2E2'}}>
+                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#E2E2E2' }}>
                     <span className="p-10 display-inline-block">Second</span>
                 </Col>
-                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#EEE'}}>
+                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#EEE' }}>
                     <span className="p-10 display-inline-block">Third</span>
                 </Col>
-                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#E2E2E2'}}>
+                <Col colClassName="col-xs-12 col-sm-3" style={{ backgroundColor: '#E2E2E2' }}>
                     <span className="p-10 display-inline-block">Fourth</span>
                 </Col>
             </Row>

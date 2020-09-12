@@ -3,21 +3,21 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { Button } from './Button';
 
-<Meta title="Components|Button" component={Button} />
+<Meta title="Components/Button" component={Button} />
 
 # Button
 
 The `Button` renders a button.
 
 With the `mean` property we can define the style:
-- `regular`
-- `primary`
-- `positive`
-- `negative`
-- `warning`
-- `accent`
-Using this property will automatically adds a class. A `-reverse` suffix can be added to use reverse colors.
 
+-   `regular`
+-   `primary`
+-   `positive`
+-   `negative`
+-   `warning`
+-   `accent`
+    Using this property will automatically adds a class. A `-reverse` suffix can be added to use reverse colors.
 
 <Preview>
     <Story name="Default">
@@ -47,12 +47,24 @@ The size of the button can be controlled with the `size` prop (default is `norma
 <Preview>
     <Story name="Size">
         <div>
-            <Button mean="accent" size="smaller">Smaller</Button>
-            <Button mean="accent" size="small">Small</Button>
-            <Button mean="accent" size="normal">Normal</Button>
-            <Button mean="accent" size="big">Big</Button>
-            <Button mean="accent" size="bigger">Bigger</Button>
-            <Button mean="accent" size="huge">Huge</Button>
+            <Button mean="accent" size="smaller">
+                Smaller
+            </Button>
+            <Button mean="accent" size="small">
+                Small
+            </Button>
+            <Button mean="accent" size="normal">
+                Normal
+            </Button>
+            <Button mean="accent" size="big">
+                Big
+            </Button>
+            <Button mean="accent" size="bigger">
+                Bigger
+            </Button>
+            <Button mean="accent" size="huge">
+                Huge
+            </Button>
         </div>
     </Story>
 </Preview>
@@ -62,10 +74,18 @@ Showcase of other props using `flat` and `icon`; If you want to put aside button
 <Preview>
     <Story name="Other props">
         <div style={{ border: '1px solid darksalmon', display: 'flex', padding: 5 }}>
-            <Button mean="primary" flat={true}>Flat</Button>
-            <Button mean="primary" icon="home">Home</Button>
-            <Button mean="primary" icon="home" iconProps={{ style: { color: 'red' }}}>Red Home</Button>
-            <Button mean="primary" flat={false}>Non Flat</Button>
+            <Button mean="primary" flat={true}>
+                Flat
+            </Button>
+            <Button mean="primary" icon="home">
+                Home
+            </Button>
+            <Button mean="primary" icon="home" iconProps={{ style: { color: 'red' } }}>
+                Red Home
+            </Button>
+            <Button mean="primary" flat={false}>
+                Non Flat
+            </Button>
         </div>
     </Story>
 </Preview>

@@ -8,7 +8,7 @@ import { SidebarMenu } from '../sidebar-menu/SidebarMenu';
 import { Sidebar } from './Sidebar';
 import { SidebarEntry } from './SidebarEntry';
 
-<Meta title="Components|Sidebar" component={Sidebar} />
+<Meta title="Components/Sidebar" component={Sidebar} />
 
 # Sidebar
 
@@ -44,12 +44,9 @@ export function Page() {
         <div className="storybook-container">
             <div style={{ display: 'flex', width: '100%' }}>
                 <Sidebar
-                    top={(sidebarState, setSidebarState) =>
+                    top={(sidebarState, setSidebarState) => (
                         <Fragment>
-                            <SidebarEntry
-                                sidebarState={sidebarState}
-                                iconName="dashboard"
-                            >
+                            <SidebarEntry sidebarState={sidebarState} iconName="dashboard">
                                 Dashboard
                             </SidebarEntry>
                             <SidebarEntry sidebarState={sidebarState} shortcut="SC">
@@ -76,7 +73,7 @@ export function Page() {
                                 <span>No Icon or shortcut (with spacer)</span>
                             </SidebarEntry>
                         </Fragment>
-                    }
+                    )}
                 />
                 <div className="p-l-20 p-r-20 p-b-20">
                     <h2 className="m-t-10">Collapsible Sidebar</h2>
@@ -107,11 +104,7 @@ The sidebar can be made non-collapsible, so the menu is always visible.
     <Story name="Sidebar SideMenu (non collapsible)">
         <div className="storybook-container">
             <div style={{ display: 'flex', width: '100%' }}>
-                <Sidebar
-                    initialStatus="open"
-                    disableTrigger={true}
-                    shadowWhenOpen={false}
-                >
+                <Sidebar initialStatus="open" disableTrigger={true} shadowWhenOpen={false}>
                     <SidebarMenu padded={true}>
                         <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
                         <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
@@ -156,16 +149,19 @@ and the default context (exposed as `SidebarContext`).
 import { Sidebar } from '@borrow-ui/ui';
 
 export function App() {
-    return <div className="main-app">
-        <Sidebar.Provider>
-            <Header />
-            <Content />
-        </Sidebar.Provider>
-    </div>;
+    return (
+        <div className="main-app">
+            <Sidebar.Provider>
+                <Header />
+                <Content />
+            </Sidebar.Provider>
+        </div>
+    );
 }
 ```
 
 You can also obtain a new provider/context couple with the function `generateSidebarContextProvider`:
+
 ```jsx
 // mySidebarConfig.js
 import { generateSidebarContextProvider } from '@borrow-ui/ui';
@@ -198,12 +194,14 @@ export function Header() {
         </span>
     );
 
-    return <div className="header">
-        <SidebarTrigger />
-        <span>Logo</span>
-        <span>Entry 1</span>
-        <span>Entry 2</span>
-    </div>;
+    return (
+        <div className="header">
+            <SidebarTrigger />
+            <span>Logo</span>
+            <span>Entry 1</span>
+            <span>Entry 2</span>
+        </div>
+    );
 }
 ```
 
@@ -215,27 +213,21 @@ Then pass the same context to the sidebar:
 import { Sidebar, SidebarContext } from '@borrow-ui/ui';
 
 export function Content() {
-    return <div style={{ display: 'flex', width: '100%' }}>
-        <Sidebar
-            sidebarContext={SidebarContext}
-        >
-            <SidebarEntry
-                sidebarState={sidebarState}
-                iconName="dashboard"
-            >
-                Dashboard
-            </SidebarEntry>
-            <SidebarEntry
-                sidebarState={sidebarState}
-                iconName="assignment"
-            >
-                Test page
-            </SidebarEntry>
-        </Sidebar>
-        <div className="main-content">
-            <Routes />
+    return (
+        <div style={{ display: 'flex', width: '100%' }}>
+            <Sidebar sidebarContext={SidebarContext}>
+                <SidebarEntry sidebarState={sidebarState} iconName="dashboard">
+                    Dashboard
+                </SidebarEntry>
+                <SidebarEntry sidebarState={sidebarState} iconName="assignment">
+                    Test page
+                </SidebarEntry>
+            </Sidebar>
+            <div className="main-content">
+                <Routes />
+            </div>
         </div>
-    </div>;
+    );
 }
 ```
 

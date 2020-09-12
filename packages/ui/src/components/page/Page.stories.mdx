@@ -9,12 +9,11 @@ import { Lorem } from '../lorem/Lorem';
 import { Text } from '../text/Text';
 import { Monospace } from '../text/Monospace';
 
-
 import { Page } from './Page';
 import { PageHeader } from './PageHeader';
 import { PageBody } from './PageBody';
 
-<Meta title="Components|Page" component={Page} />
+<Meta title="Components/Page" component={Page} />
 
 # Page
 
@@ -23,17 +22,18 @@ It offers few helpers to have an header always visible (with a shadow if the bod
 and a container for the body.
 
 The default behaviour can be customized with the following props:
-- `continuousScroll`: makes the header part of the page and allows to scroll the entire page (not only the body);
-- `readableContent`: limits the widths to 1300 pixels, so big screens will not generate a page too wide;
-- `headerVisibleFollowRef`: makes the header title visible only if the React Reference passed is not visible.
+
+-   `continuousScroll`: makes the header part of the page and allows to scroll the entire page (not only the body);
+-   `readableContent`: limits the widths to 1300 pixels, so big screens will not generate a page too wide;
+-   `headerVisibleFollowRef`: makes the header title visible only if the React Reference passed is not visible.
 
 <Preview>
     <Story name="Default">
         <div style={{ height: 400, fontSize: '14px', overflow: 'hidden' }}>
             <Page title="Page Title" style={{ height: '100%' }}>
                 <Text>
-                    This content will be rendered inside the body of the page,
-                    via <Monospace>PageBody</Monospace> component.
+                    This content will be rendered inside the body of the page, via{' '}
+                    <Monospace>PageBody</Monospace> component.
                 </Text>
                 <Lorem paragraphs={3} />
                 <Lorem paragraphs={3} />
@@ -51,8 +51,8 @@ If you want to make the title scrolling away when the pages scroll, use the `con
         <div style={{ height: 400, fontSize: '14px' }}>
             <Page title="Page Title" continuousScroll={true}>
                 <Text>
-                    This content will be rendered inside the body of the page,
-                    via <Monospace>PageBody</Monospace> component.
+                    This content will be rendered inside the body of the page, via{' '}
+                    <Monospace>PageBody</Monospace> component.
                 </Text>
                 <Lorem paragraphs={3} />
                 <Lorem paragraphs={3} />
@@ -113,10 +113,18 @@ The `controls` prop accepts valid children and will be rendered inside `PageHead
                 title="Page Title"
                 style={{ height: '100%' }}
                 pageHeaderProps={{
-                    controls: <Fragment>
-                        <Button onClick={() => window.alert('clicked')} mean="primary">Add item</Button>
-                        <Icon name="settings" className="m-l-5 color-neutral" onClick={() => window.alert('settings')} />
-                    </Fragment>
+                    controls: (
+                        <Fragment>
+                            <Button onClick={() => window.alert('clicked')} mean="primary">
+                                Add item
+                            </Button>
+                            <Icon
+                                name="settings"
+                                className="m-l-5 color-neutral"
+                                onClick={() => window.alert('settings')}
+                            />
+                        </Fragment>
+                    ),
                 }}
             >
                 <Lorem paragraphs={3} />

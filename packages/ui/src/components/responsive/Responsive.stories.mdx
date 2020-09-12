@@ -5,7 +5,7 @@ import { Lorem } from '../lorem/Lorem';
 
 import { Responsive } from './Responsive';
 
-<Meta title="Components|Responsive" component={Responsive} />
+<Meta title="Components/Responsive" component={Responsive} />
 
 # Responsive
 
@@ -15,11 +15,13 @@ If the CSS media query changes, the `matches` prop is updated accordingly.
 The wrapper has been created in order to provide default queries, that can be changed in `Responsive` component file.
 
 The following text will have different class applied based on size:
-- "small" query: `color-accent`;
-- "medium" query: `color-primary`;
-- "large" query: no class.
+
+-   "small" query: `color-accent`;
+-   "medium" query: `color-primary`;
+-   "large" query: no class.
 
 Default queries constant is defined as follows, and can be customized with `queries` prop:
+
 ```jsx
 const DEFAULT_QUERIES = {
     small: '(max-width: 599px)',
@@ -28,15 +30,19 @@ const DEFAULT_QUERIES = {
 };
 ```
 
-
 <Preview>
     <Story name="Default">
         <div className="storybook-container">
             <Responsive>
-                {matches => <div className={matches.small ? 'color-accent' : matches.medium ? 'color-primary' : ''}>
-                    <Lorem />
-                </div>
-                }
+                {(matches) => (
+                    <div
+                        className={
+                            matches.small ? 'color-accent' : matches.medium ? 'color-primary' : ''
+                        }
+                    >
+                        <Lorem />
+                    </div>
+                )}
             </Responsive>
         </div>
     </Story>

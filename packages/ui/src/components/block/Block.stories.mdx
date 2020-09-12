@@ -4,7 +4,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { Block } from './Block';
 import { Lorem } from '../lorem/Lorem';
 
-<Meta title="Components|Block" component={Block} />
+<Meta title="Components/Block" component={Block} />
 
 # Block
 
@@ -44,13 +44,16 @@ Can also receive a `title` that is a component (not a string):
 
 <Preview>
     <Story name="Container title component">
-        <Block outstanding={true} rounded={false} title={<h2 style={{ color: 'red'}}>Red title</h2>}>
+        <Block
+            outstanding={true}
+            rounded={false}
+            title={<h2 style={{ color: 'red' }}>Red title</h2>}
+        >
             Is the title in red?
             <Lorem paragraphs={1} />
         </Block>
     </Story>
 </Preview>
-
 
 ### Content props
 
@@ -58,11 +61,7 @@ A shortcut to make the content centered is also present: `contentCentered` prop.
 
 <Preview>
     <Story name="Content properties">
-        <Block
-            outstanding={true}
-            contentCentered={true}
-            style={{ height: 200 }}
-        >
+        <Block outstanding={true} contentCentered={true} style={{ height: 200 }}>
             Height of 200px
         </Block>
     </Story>

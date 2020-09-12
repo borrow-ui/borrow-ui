@@ -6,12 +6,11 @@ import { Row, Col } from '../grid/Grid';
 import { Lorem } from '../lorem/Lorem';
 import { Text } from '../text/Text';
 
-
 import { NavbarMenu } from './NavbarMenu';
 import { NavbarMenuItem } from './NavbarMenuItem';
 import { NavbarMenuTitle } from './NavbarMenuTitle';
 
-<Meta title="Components|NavbarMenu" component={NavbarMenu} />
+<Meta title="Components/NavbarMenu" component={NavbarMenu} />
 
 # NavbarMenu
 
@@ -27,26 +26,39 @@ An optional `title` prop will be rendered by using `NavbarTitle` component.
             <Row>
                 <Col>
                     <NavbarMenu
-                        title='Menu on the left'
+                        title="Menu on the left"
                         entries={[
                             { label: 'Entry 1' },
-                            { label: 'Second entry', description: 'This also has a description, helpful to get more context' },
+                            {
+                                label: 'Second entry',
+                                description:
+                                    'This also has a description, helpful to get more context',
+                            },
                             { label: 'Second Third one' },
                         ]}
                     />
                 </Col>
                 <Col>
                     <NavbarMenu
-                        title='Menu on the right'
+                        title="Menu on the right"
                         entries={[
                             {
                                 label: 'Clickable one',
                                 description: 'Hover to see the cursor, click to view the alert',
-                                style: {cursor: 'pointer'},
-                                onClick: () => window.alert('Entry clicked')
+                                style: { cursor: 'pointer' },
+                                onClick: () => window.alert('Entry clicked'),
                             },
-                            { label: <span>Custom element as label</span>, description: 'This also has a description, helpful to get more context' },
-                            { label: 'Custom element as description', description: <div style={{ color: 'green' }}>A green description</div> },
+                            {
+                                label: <span>Custom element as label</span>,
+                                description:
+                                    'This also has a description, helpful to get more context',
+                            },
+                            {
+                                label: 'Custom element as description',
+                                description: (
+                                    <div style={{ color: 'green' }}>A green description</div>
+                                ),
+                            },
                         ]}
                     />
                 </Col>
