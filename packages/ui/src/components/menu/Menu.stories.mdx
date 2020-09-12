@@ -7,7 +7,7 @@ import { Menu } from './Menu';
 import { MenuDivider } from './MenuDivider';
 import { MenuEntry } from './MenuEntry';
 
-<Meta title="Components|Menu" component={Menu} />
+<Meta title="Components/Menu" component={Menu} />
 
 # Menu
 
@@ -28,7 +28,15 @@ Each entry is an object with the following properties:
                     { type: 'entry', label: 'Entry 1' },
                     { type: 'entry', label: 'Disabled Entry', props: { disabled: true } },
                     { type: 'entry', label: 'Red entry', props: { style: { color: 'red' } } },
-                    { type: 'entry', label: <span><Monospace>onClick</Monospace> specified</span>, props: { onClick: () => window.alert('clicked') } },
+                    {
+                        type: 'entry',
+                        label: (
+                            <span>
+                                <Monospace>onClick</Monospace> specified
+                            </span>
+                        ),
+                        props: { onClick: () => window.alert('clicked') },
+                    },
                     { type: 'divider' },
                     {
                         type: 'entry',

@@ -5,20 +5,20 @@ import { Card } from './Card';
 import { Button } from '../button/Button';
 import { Icon } from '../icon/Icon';
 
-<Meta title="Components|Card" component={Card} />
+<Meta title="Components/Card" component={Card} />
 
 # Card
 
 The `Card` component creates a card with a `side` and a `main` part.
 The `side` part is used to render an icon (see `Icon` component).
 The `main` part has different properties:
-- a `title`, rendered on top;
-- a `subtitle`, rendred below the title;
-- a `description`, the main content of the card;
-- `controls`, rendered at the bottom, that can be used to add buttons or another description.
+
+-   a `title`, rendered on top;
+-   a `subtitle`, rendred below the title;
+-   a `description`, the main content of the card;
+-   `controls`, rendered at the bottom, that can be used to add buttons or another description.
 
 Each of the sections have a dedicated prop that can be used to customize the section (i.e. `titleProps` - see the Props table below).
-
 
 <Preview>
     <Story name="Default">
@@ -68,7 +68,6 @@ A card can be rendered without icon and controls as well:
         />
     </Story>
 </Preview>
-
 
 ## Props
 

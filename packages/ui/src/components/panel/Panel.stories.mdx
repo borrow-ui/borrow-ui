@@ -6,15 +6,16 @@ import { Lorem } from '../lorem/Lorem';
 import { Panel, PanelContentWrapper } from './Panel';
 import { PanelContentPropsOnOpen } from './PanelStories';
 
-<Meta title="Components|Panel" component={Panel} />
+<Meta title="Components/Panel" component={Panel} />
 
 # Panel
 
 Panels are content containers that slides from the right.
 
 The `Panel` component expects two props, both functions (similarly to `Modal` component):
-- `Trigger`: a function that returns an element used to trigger the panel;
-- `getPanelContentProps`: a function that returns an object with valid `PanelContent` props.
+
+-   `Trigger`: a function that returns an element used to trigger the panel;
+-   `getPanelContentProps`: a function that returns an object with valid `PanelContent` props.
 
 Both functions have one argument: an object with a `setVisible` property.
 This is a function that takes a boolean as argument and can make the modal visible or not.
@@ -23,7 +24,11 @@ This is a function that takes a boolean as argument and can make the modal visib
     <Story name="Default">
         <div className="storybook-container">
             <Panel
-                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="primary">Open Panel</Button>}
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Open Panel
+                    </Button>
+                )}
                 getPanelContentProps={() => ({
                     title: 'Panel demo title',
                     content: <Lorem paragraphs={3} />,
@@ -45,15 +50,29 @@ via `footer` prop.
     <Story name="Title and footer">
         <div className="storybook-container">
             <Panel
-                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="accent">Open Panel</Button>}
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="accent">
+                        Open Panel
+                    </Button>
+                )}
                 getPanelContentProps={({ setVisible }) => ({
                     title: <h3 className="color-accent">Custom title</h3>,
-                    controls: <Button onClick={() => window.alert('clicked')} size="small">Test</Button>,
+                    controls: (
+                        <Button onClick={() => window.alert('clicked')} size="small">
+                            Test
+                        </Button>
+                    ),
                     content: <Lorem paragraphs={3} />,
-                    footer: <Fragment>
-                        <Button onClick={() => setVisible(false)} mean="negative">Close</Button>
-                        <Button onClick={() => setVisible(false)} mean="positive">Save</Button>
-                    </Fragment>
+                    footer: (
+                        <Fragment>
+                            <Button onClick={() => setVisible(false)} mean="negative">
+                                Close
+                            </Button>
+                            <Button onClick={() => setVisible(false)} mean="positive">
+                                Save
+                            </Button>
+                        </Fragment>
+                    ),
                 })}
             />
         </div>
@@ -68,29 +87,41 @@ The `Panel` width can be set via `width` prop, and the content width via `innerC
     <Story name="Widths">
         <div className="storybook-container">
             <Panel
-                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="regular">Open Panel (400px - 300px)</Button>}
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="regular">
+                        Open Panel (400px - 300px)
+                    </Button>
+                )}
                 getPanelContentProps={() => ({
                     title: 'Panel demo title',
                     content: <Lorem paragraphs={3} />,
                     width: 400,
-                    innerContainerWidth: 300
+                    innerContainerWidth: 300,
                 })}
             />
             <Panel
-                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="regular-reverse">Open Panel (75% - 300px)</Button>}
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="regular-reverse">
+                        Open Panel (75% - 300px)
+                    </Button>
+                )}
                 getPanelContentProps={() => ({
                     title: 'Panel demo title',
                     content: <Lorem paragraphs={3} />,
                     width: '75%',
-                    innerContainerWidth: 300
+                    innerContainerWidth: 300,
                 })}
             />
             <Panel
-                Trigger={({ setVisible }) => <Button onClick={() => setVisible(true)} mean="regular">Open Panel (75% - auto)</Button>}
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="regular">
+                        Open Panel (75% - auto)
+                    </Button>
+                )}
                 getPanelContentProps={() => ({
                     title: 'Panel demo title',
                     content: <Lorem paragraphs={3} />,
-                    width: '75%'
+                    width: '75%',
                 })}
             />
         </div>

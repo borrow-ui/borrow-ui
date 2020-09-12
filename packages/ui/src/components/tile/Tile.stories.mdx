@@ -7,13 +7,12 @@ import { Icon } from '../icon/Icon';
 import { Tile } from './Tile';
 import './tile-story.scss';
 
-<Meta title="Components|Tile" component={Tile} />
+<Meta title="Components/Tile" component={Tile} />
 
 # Tile
 
 A tile is a container with two parts: content and description.
 Tile's content is passed as `children`, and the description is specified with the `description` prop.
-
 
 <Preview>
     <Story name="Default">
@@ -41,7 +40,11 @@ Tiles can be wrapped by `Block` component to create an outstanding effect:
                         <Icon name="home" size="huge" />
                     </Tile>
                 </Block>
-                <Block outstanding={true} style={{ width: 200 }} className="tile-block-hover-example m-r-10">
+                <Block
+                    outstanding={true}
+                    style={{ width: 200 }}
+                    className="tile-block-hover-example m-r-10"
+                >
                     <Tile description="A tile wrapped in a block with hover effect">
                         <Icon name="home" size="bigger" />
                     </Tile>

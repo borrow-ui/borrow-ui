@@ -3,7 +3,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { Breadcrumbs } from './Breadcrumbs';
 
-<Meta title="Components|Breadcrumbs" component={Breadcrumbs} />
+<Meta title="Components/Breadcrumbs" component={Breadcrumbs} />
 
 # Breadcrumbs
 
@@ -15,11 +15,13 @@ If the link is not present the breadcrumb will be added just as a label
 
 <Preview>
     <Story name="Default">
-        <Breadcrumbs breadcrumbs={[
-            { label: 'Home', link: '/url/to/home' },
-            { label: 'List of Tests', link: '/url/to/list-of-tests' },
-            { label: 'Selected test' },
-        ]}>
+        <Breadcrumbs
+            breadcrumbs={[
+                { label: 'Home', link: '/url/to/home' },
+                { label: 'List of Tests', link: '/url/to/list-of-tests' },
+                { label: 'Selected test' },
+            ]}
+        >
             <h2>Selected test 123</h2>
         </Breadcrumbs>
     </Story>

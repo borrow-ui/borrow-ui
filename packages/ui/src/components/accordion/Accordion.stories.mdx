@@ -3,7 +3,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { Accordion } from './Accordion';
 import { Lorem } from '../lorem/Lorem';
 
-<Meta title="Components|Accordion" component={Accordion} />
+<Meta title="Components/Accordion" component={Accordion} />
 
 # Accordion
 
@@ -19,7 +19,9 @@ It is set in the CSS, but in case the default value is not enough it can be over
 <Preview>
     <Story name="Default">
         <Accordion title="Accordion title">
-            <div style={{ padding: 20 }}><Lorem /></div>
+            <div style={{ padding: 20 }}>
+                <Lorem />
+            </div>
         </Accordion>
     </Story>
 </Preview>
