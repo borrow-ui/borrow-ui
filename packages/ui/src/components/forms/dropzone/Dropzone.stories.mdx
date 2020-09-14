@@ -1,0 +1,129 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { FormsStoryWrapper } from '../FormsStory';
+import { Field } from '../field/Field';
+
+import { Dropzone } from './Dropzone';
+import { DropzoneFile } from './DropzoneFiles';
+
+<Meta title="Forms/Components/Dropzone" />
+
+# Dropzone
+
+Dropzone component is a wrapper around `react-dropzone` library.
+It allows to create an upload area which works with both Drag and Drop or classic "click here" browser.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper initialState={{ full_name: '' }}>
+                {({ state, setState }) => {
+                    return (
+                        <div style={{ width: 400 }}>
+                            <Field label="Documents">
+                                <Dropzone
+                                    initialFiles={[
+                                        { name: 'First file.pdf' },
+                                        { name: 'My profile picture.jpg' },
+                                    ]}
+                                />
+                            </Field>
+                        </div>
+                    );
+                }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+## Customizing messages
+
+The Drop area message can be customized with `dragMessage`.
+
+<Preview>
+    <Story name="Custom drag message">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper initialState={{ full_name: '' }}>
+                {({ state, setState }) => {
+                    return (
+                        <div style={{ width: 400 }}>
+                            <Field label="Documents">
+                                <Dropzone
+                                    dragMessage="Drag the files here and they will be added below"
+                                    initialFiles={[
+                                        { name: 'First file.pdf' },
+                                        { name: 'My profile picture.jpg' },
+                                    ]}
+                                />
+                            </Field>
+                        </div>
+                    );
+                }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+`dragMessage` controls the base message for both active and inactive status. If you need to customize each separately, you can set `dragActiveMessage` and `dragInactiveActiveMessage`:
+
+<Preview>
+    <Story name="Custom drag messages for each status">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper initialState={{ full_name: '' }}>
+                {({ state, setState }) => {
+                    return (
+                        <div style={{ width: 400 }}>
+                            <Field label="Documents">
+                                <Dropzone
+                                    dragActiveMessage="Drop the file!"
+                                    dragInactiveMessage="Drag a file in this zone here"
+                                    initialFiles={[
+                                        { name: 'First file.pdf' },
+                                        { name: 'My profile picture.jpg' },
+                                    ]}
+                                />
+                            </Field>
+                        </div>
+                    );
+                }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+## Maximum number of files
+
+By default, there is no limit on the number of files that can be uploaded.
+Sometimes however we need to specify a maximum number, i.e. when we need a single attachment.
+
+This can be done with `maxFiles` property:
+
+<Preview>
+    <Story name="Specify max number of files">
+        <div className="storybook-container borrow-ui">
+            <FormsStoryWrapper initialState={{ full_name: '' }}>
+                {({ state, setState }) => {
+                    return (
+                        <div style={{ width: 400 }}>
+                            <Field label="Documents">
+                                <Dropzone
+                                    maxFiles={1}
+                                    initialFiles={[{ name: 'First file.pdf' }]}
+                                />
+                            </Field>
+                        </div>
+                    );
+                }}
+            </FormsStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+## Dropzone Props
+
+<Props of={Dropzone} />
+
+## DropzoneFile Props
+
+<Props of={DropzoneFile} />

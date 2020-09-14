@@ -22,6 +22,9 @@ export function Dropzone({
     onFileRemove,
     onFilesChanges,
     initialFiles = [],
+    maxFiles,
+    disabled,
+    disabledMessage = 'File upload is disabled',
     FileComponent,
     ...rest
 }) {
@@ -31,7 +34,7 @@ export function Dropzone({
     });
 
     const onDropCallback = useCallback(
-        acceptedFiles => {
+        (acceptedFiles) => {
             setDropzoneState({
                 ...dropzoneState,
                 files: [...dropzoneState.files, ...acceptedFiles],
@@ -42,7 +45,7 @@ export function Dropzone({
     );
 
     const onRemoveCallback = useCallback(
-        removeIndex => {
+        (removeIndex) => {
             const removedFile = dropzoneState.files[removeIndex];
             setDropzoneState({
                 ...dropzoneState,
@@ -81,13 +84,19 @@ export function Dropzone({
     return (
         <div className={FORM_DROPZONE_CLASS}>
             <div {...rootProps} className={rootClassName} {...rest}>
-                <input {...inputProps} />
-                {isDragActive ? dragActive : dragInactive}
+                {disabled && disabledMessage}
+                {(!maxFiles || dropzoneState.files.length < maxFiles) && !disabled && (
+                    <>
+                        <input {...inputProps} />
+                        {isDragActive ? dragActive : dragInactive}
+                    </>
+                )}
             </div>
             <DropzoneFiles
                 dropzoneState={dropzoneState}
                 onRemove={onRemoveCallback}
                 FileComponent={FileComponent}
+                disabled={disabled}
             />
         </div>
     );
@@ -95,12 +104,32 @@ export function Dropzone({
 
 Dropzone.propTypes = {
     className: PropTypes.string,
-    dragActiveMessage: propTypesChildren,
-    dragInactiveMessage: propTypesChildren,
+    /** Message displayed in the Drop area */
     dragMessage: propTypesChildren,
-    initialFiles: PropTypes.array,
+    /** Message displayed in the Drop area when a file is dragged into it (before dropping) */
+    dragActiveMessage: propTypesChildren,
+    /** Message displayed int he Drop area when dragging in not active */
+    dragInactiveMessage: propTypesChildren,
+    /** Initial list of files, where each object requires the following keys:
+     *
+     * - `name`: the name of the file
+     */
+    initialFiles: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: propTypesChildren,
+        })
+    ),
+    /** Maximum number of files */
+    maxFiles: PropTypes.number,
+    disabled: PropTypes.bool,
+    /** Message shown when the field is disabled */
+    disabledMessage: propTypesChildren,
+    /** Function called when a file is dropped in the drop area */
     onDrop: PropTypes.func,
+    /** Callback called when a file is removed */
     onFileRemove: PropTypes.func,
+    /** Callback called when the list of file is changed (either for files added or removed) */
     onFilesChanges: PropTypes.func,
+    /** Component used to replace the default File representation in the list of files (see `DropzoneFile` props) */
     FileComponent: propTypesChildren,
 };

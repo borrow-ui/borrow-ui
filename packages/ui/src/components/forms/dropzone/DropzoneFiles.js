@@ -8,8 +8,9 @@ const DROPZONE_FILES_CLASS = `${UI_PREFIX}__form__dropzone__files`;
 const DROPZONE_FILES_FILE_CLASS = `${UI_PREFIX}__form__dropzone__files__file`;
 const DROPZONE_FILES_FILE_NAME_CLASS = `${UI_PREFIX}__form__dropzone__files__file__name`;
 const DROPZONE_FILES_FILE_REMOVE_CLASS = `${UI_PREFIX}__form__dropzone__files__file__remove`;
+const DROPZONE_FILES_FILE_REMOVE_DISABLED_CLASS = `${UI_PREFIX}__form__dropzone__files__file__remove--disabled`;
 
-export function DropzoneFiles({ dropzoneState, onRemove, FileComponent }) {
+export function DropzoneFiles({ dropzoneState, onRemove, FileComponent, disabled }) {
     const DropzoneFileComponent = FileComponent ? FileComponent : DropzoneFile;
 
     return (
@@ -21,6 +22,7 @@ export function DropzoneFiles({ dropzoneState, onRemove, FileComponent }) {
                         file={file}
                         fileIndex={index}
                         onRemove={onRemove}
+                        disabled={disabled}
                     />
                 );
             })}
@@ -32,15 +34,19 @@ DropzoneFiles.propTypes = {
     dropzoneState: PropTypes.object.isRequired,
     onRemove: PropTypes.func,
     FileComponent: propTypesChildren,
+    disabled: PropTypes.bool,
 };
 
-export function DropzoneFile({ file, fileIndex, onRemove }) {
+export function DropzoneFile({ file, fileIndex, onRemove, disabled }) {
+    const disabledClass = disabled ? DROPZONE_FILES_FILE_REMOVE_DISABLED_CLASS : '';
+    const filesFileRemoveClassName = `${DROPZONE_FILES_FILE_REMOVE_CLASS} ${disabledClass}`;
+
     return (
         <div className={DROPZONE_FILES_FILE_CLASS}>
             <span className={DROPZONE_FILES_FILE_NAME_CLASS}>{file.name}</span>
             <span
-                className={DROPZONE_FILES_FILE_REMOVE_CLASS}
-                onClick={() => onRemove && onRemove(fileIndex)}
+                className={filesFileRemoveClassName}
+                onClick={() => !disabled && onRemove && onRemove(fileIndex)}
             >
                 &times;
             </span>
@@ -52,4 +58,5 @@ DropzoneFile.propTypes = {
     file: PropTypes.object.isRequired,
     fileIndex: PropTypes.number.isRequired,
     onRemove: PropTypes.func,
+    disabled: PropTypes.bool,
 };
