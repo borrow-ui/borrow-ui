@@ -14,6 +14,8 @@
     .#{$ui-prefix}__form__field__react-select__placeholder {
         color: $ui-color-neutral-light;
         font-family: $ui-font;
+        font-size: 0.8rem;
+        padding: 0.1rem;
     }
 
     .#{$ui-prefix}__form__field__react-select__value-container {
