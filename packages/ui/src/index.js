@@ -49,6 +49,7 @@ import { TextContainer } from './components/text/TextContainer';
 
 // hooks
 import { useAnchor, useRefHash } from './hooks/useAnchor';
+import { useHover } from './hooks/useHover';
 
 /*
 EXPORTS
@@ -108,4 +109,5 @@ export {
     // hooks
     useAnchor,
     useRefHash,
+    useHover,
 };
