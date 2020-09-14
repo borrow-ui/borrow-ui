@@ -7,14 +7,14 @@ export function Dashboard() {
         <div className="p-10">
             <Row>
                 <Col colClassName="col-xs-12 col-sm-6 col-md-3">
-                    <Block className="flex-center-top" outstanding={true} rounded={false}>
+                    <Block className="flex-center-start" outstanding={true} rounded={false}>
                         <Tile description="Components">
                             {<Title className="m-t-10 m-b-10">10+</Title>}
                         </Tile>
                     </Block>
                 </Col>
                 <Col colClassName="col-xs-12 col-sm-6 col-md-3">
-                    <Block className="flex-center-top" outstanding={true} rounded={false}>
+                    <Block className="flex-center-start" outstanding={true} rounded={false}>
                         <Tile description="Random number">
                             {<Title className="m-t-10 m-b-10">42</Title>}
                         </Tile>
@@ -25,7 +25,7 @@ export function Dashboard() {
                         <Row>
                             <Col colClassName="col-xs-6">
                                 <Block
-                                    className="flex-center-top"
+                                    className="flex-center-start"
                                     separated={false}
                                     padded={false}
                                     rounded={false}
@@ -37,7 +37,7 @@ export function Dashboard() {
                             </Col>
                             <Col colClassName="col-xs-6">
                                 <Block
-                                    className="flex-center-top"
+                                    className="flex-center-start"
                                     separated={false}
                                     padded={false}
                                     rounded={false}
