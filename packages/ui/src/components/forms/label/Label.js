@@ -23,12 +23,18 @@ export function Label({
     ...rest
 }) {
     const layoutClass = layout === LAYOUTS.VERTICAL ? LABEL_VERTICAL_CLASS : LABEL_HORIZONTAL_CLASS;
+    const labelWidthStyle = {};
+    if (width) {
+        labelWidthStyle.width = width;
+        // Required for long texts in the controller part of field due to flex property
+        labelWidthStyle.minWidth = width;
+    }
     const alignmentClass = `${UI_PREFIX}__form__label--alignment-${alignment}`;
 
     return (
         <div
             className={`${LABEL_CLASS} ${layoutClass} ${alignmentClass} ${className}`.trim()}
-            style={{ width, ...style }}
+            style={{ ...labelWidthStyle, ...style }}
             {...rest}
         >
             {label} {required && <span className={LABEL_REQUIRED_CLASS}>*</span>}
