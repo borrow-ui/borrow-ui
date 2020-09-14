@@ -32,7 +32,7 @@ export function Panel({ Trigger, getPanelContentProps }) {
     const [visible, setVisible] = useState(false);
     getPanelRoot(); // use here to prepare the panel
 
-    const uniqueSetVisible = state => {
+    const uniqueSetVisible = (state) => {
         if (state) {
             if (lastSetVisible) lastSetVisible(false);
             lastSetVisible = null;
@@ -100,6 +100,7 @@ function PanelContent({
     width = DEFAULT_PANEL_WIDTH,
     innerContainerWidth,
     showWrapper = true,
+    ...rest
 }) {
     const [panelState, setPanelState] = useState({
         isLoading: hooks.onOpen ? true : false,
@@ -141,7 +142,11 @@ function PanelContent({
     }, [visible, panelRoot, panelWrapper, styleWidth, showWrapper]);
 
     return createPortal(
-        <div className={PANEL_CONTAINER_CLASS} style={{ width: innerContainerStyleWidth }}>
+        <div
+            className={PANEL_CONTAINER_CLASS}
+            style={{ width: innerContainerStyleWidth }}
+            {...rest}
+        >
             <div className={PANEL_HEADER_CLASS}>
                 <div className={PANEL_HEADER_TITLE_CLASS}>{title}</div>
                 <div className={PANEL_HEADER_CONTROLS_CLASS}>
