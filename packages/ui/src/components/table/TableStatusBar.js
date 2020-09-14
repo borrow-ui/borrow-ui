@@ -12,7 +12,12 @@ export function TableStatusBar({ tableState, totEntries }) {
 
     return (
         <div className={TABLE_STATUS_BAR_CLASS}>
-            Showing items {firstItem}-{lastItem} out of {totEntries}
+            {totEntries > 0 && (
+                <>
+                    Showing items {firstItem}-{lastItem} out of {totEntries}
+                </>
+            )}
+            {!totEntries && 'No entries'}
         </div>
     );
 }
