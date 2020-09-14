@@ -15,15 +15,20 @@ const SIDEBAR_MENU_ENTRY_ACTIVE_CLASS = `${UI_PREFIX}__sidebar-menu__entry--acti
 const SIDEBAR_MENU_ENTRY_CLICKABLE_CLASS = `${UI_PREFIX}__sidebar-menu__entry--clickable`;
 const SIDEBAR_MENU_SEPARATOR_CLASS = `${UI_PREFIX}__sidebar-menu__separator`;
 
-export function SidebarMenu({ children, padded = true }) {
+export function SidebarMenu({ children, className = '', padded = true, ...rest }) {
     const paddedClass = padded ? SIDEBAR_MENU_PADDED_CLASS : '';
-    const sidebarMenuClass = `${SIDEBAR_MENU_CLASS} ${paddedClass}`;
+    const sidebarMenuClass = `${SIDEBAR_MENU_CLASS} ${paddedClass} ${className}`.trim();
 
-    return <div className={sidebarMenuClass}>{children}</div>;
+    return (
+        <div className={sidebarMenuClass} {...rest}>
+            {children}
+        </div>
+    );
 }
 
 SidebarMenu.propTypes = {
     children: propTypesChildren,
+    className: PropTypes.string,
     /** Applies a padding to the content */
     padded: PropTypes.bool,
 };
