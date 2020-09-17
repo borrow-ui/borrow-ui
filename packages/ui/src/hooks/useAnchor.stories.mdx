@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Hooks/useAnchor" />
+
+# useAnchor
+
+`useAnchor` hook is used to automatically scroll to an element if the hash matches
+the element name.
+
+Imagine the page url is `/my-page?test=1#first-anchor`, the hash will be `first-anchor`. The hook will
+find the element with name `first-anchor` and will navigate to it by using `element.scrollIntoView()`.
+
+If an element is not found, no scrolling will be applied.
+
+### Usage
+
+```jsx
+import { useAnchor } from '@borrow-ui/ui';
+
+export function PageWithAnchors() {
+    // hooks and state
+    // ....
+    useAnchor();
+
+    // other code
+    return (
+        <div>
+            <a name="first-anchor" href="#first-anchor">
+                Title
+            </a>
+            <Lorem />
+        </div>
+    );
+}
+```

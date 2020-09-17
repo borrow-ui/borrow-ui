@@ -12,6 +12,7 @@ export const parameters = {
                 'Components',
                 'Forms',
                 ['Introduction', 'Field', 'Label', 'Components'],
+                'Hooks',
             ],
         },
     },
