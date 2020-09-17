@@ -144,6 +144,29 @@ The modal can also be maximized by default. This can be prevented by setting `ca
     </Story>
 </Preview>
 
+## Close on escape
+
+By default, if Escape key is pressed the modal visibilty will be set to `false`. To prevent this, pass `closeOnEscape` prop with `false` value.
+
+<Preview>
+    <Story name="closeOnEscape false">
+        <div>
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Open Modal
+                    </Button>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal demo title',
+                    content: <Lorem paragraphs={3} />,
+                    closeOnEscape: false,
+                })}
+            />
+        </div>
+    </Story>
+</Preview>
+
 ## Modal Props
 
 <Props of={Modal} />

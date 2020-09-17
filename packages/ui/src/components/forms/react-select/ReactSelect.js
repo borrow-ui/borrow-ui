@@ -32,7 +32,7 @@ export function ReactSelect({
         [options, key]
     );
     const selectValue = isMulti
-        ? value.map(v => mappedOptions[v] || { [key]: v, label: v })
+        ? value.map((v) => mappedOptions[v] || { [key]: v, label: v })
         : value
         ? mappedOptions[value]
         : null;
@@ -52,11 +52,16 @@ export function ReactSelect({
 
 ReactSelect.propTypes = {
     options: PropTypes.array.isRequired,
+    /** Current Selected value. Specify the `key` value to select an element from the options. */
     value: PropTypes.any,
-    invalid: PropTypes.any,
-    disabled: PropTypes.bool,
+    /** Customize which is the key to be used to determine the value */
     key: PropTypes.string,
-    className: PropTypes.string,
+    /** Specifies if the selection is invalid */
+    invalid: PropTypes.any,
+    /** Allow multiple options to be selected */
     isMulti: PropTypes.bool,
+    /** Allows to add an option to the list directly from the input */
     creatable: PropTypes.bool,
+    disabled: PropTypes.bool,
+    className: PropTypes.string,
 };

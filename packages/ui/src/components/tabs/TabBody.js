@@ -45,6 +45,7 @@ TabBody.propTypes = {
         })
     ).isRequired,
     className: PropTypes.string,
+    /** Selected tab number (starts from 1) */
     selectedTab: PropTypes.number.isRequired,
     padded: PropTypes.bool,
     paddedTop: PropTypes.bool,

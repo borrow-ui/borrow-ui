@@ -1,6 +1,9 @@
 .flex {
     display: flex;
 }
+.flex--inline {
+    display: inline-flex !important;
+}
 .flex--wrap {
     flex-wrap: wrap;
 }
@@ -9,50 +12,59 @@
     justify-content: center;
     align-items: center;
 }
-.flex-center-top {
+.flex-center-end {
     display: flex;
     justify-content: center;
-    align-items: top;
+    align-items: flex-end;
 }
-.flex-center-baseline {
+.flex-center-start {
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: flex-start;
 }
 .flex-start-center {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.flex-start-top {
+.flex-start-end {
     display: flex;
     justify-content: flex-start;
-    align-items: top;
+    align-items: flex-end;
 }
-.flex-start-baseline {
+.flex-start-start {
     display: flex;
     justify-content: flex-start;
-    align-items: baseline;
+    align-items: flex-start;
 }
 .flex-end-center {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.flex-end-top {
+.flex-end-end {
     display: flex;
     justify-content: flex-end;
-    align-items: top;
+    align-items: flex-end;
 }
-.flex-end-baseline {
+.flex-end-start {
     display: flex;
     justify-content: flex-end;
-    align-items: baseline;
+    align-items: flex-start;
+}
+.flex---center {
+    display: flex;
+    align-items: center;
+}
+.flex---end {
+    display: flex;
+    align-items: flex-end;
+}
+.flex---start {
+    display: flex;
+    align-items: flex-start;
 }
 
-.display-block {
-    display: block;
-}
 .display-inline-block {
     display: inline-block;
 }
@@ -113,6 +125,15 @@
 .w-100 {
     width: 100px !important;
 }
+.w-120 {
+    width: 120px !important;
+}
+.w-150 {
+    width: 150px !important;
+}
+.w-180 {
+    width: 180px !important;
+}
 .w-200 {
     width: 200px !important;
 }
@@ -151,9 +172,6 @@
 }
 .h-90 {
     height: 90px !important;
-}
-.h-100 {
-    height: 100px !important;
 }
 .h-100 {
     height: 100px !important;
@@ -340,4 +358,8 @@
 }
 .border-radius-50pc {
     border-radius: 50% !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

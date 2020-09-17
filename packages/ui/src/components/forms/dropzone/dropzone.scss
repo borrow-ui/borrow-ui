@@ -60,3 +60,7 @@
         border: 1px solid $ui-color-accent;
     }
 }
+
+.#{$ui-prefix}__form__dropzone__files__file__remove--disabled {
+    color: $ui-color-neutral;
+}

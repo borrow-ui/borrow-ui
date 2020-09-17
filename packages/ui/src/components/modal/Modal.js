@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { propTypesChildren } from '../../utils/types';
 import { IconControl } from '../icon/IconControl';
 import { Loader } from '../loader/Loader';
 
@@ -19,6 +20,7 @@ const MODAL_TITLE_CLASS = `${UI_PREFIX}__modal__title`;
 const MODAL_FOOTER_CLASS = `${UI_PREFIX}__modal__footer`;
 
 const MODAL_ROOT_ID = 'modal-root';
+const ESCAPE_CODE = 27;
 
 // these should match the CSS ones, are used to auto-calculate the
 // modal height with and withouth footer.
@@ -41,11 +43,11 @@ export function Modal({ Trigger, getModalWindowProps }) {
 }
 
 Modal.propTypes = {
-    Trigger: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-        PropTypes.func,
-    ]).isRequired,
+    /** Trigger component, will receive a `setVisible` function,
+     * which arg is a boolean to set the modal status */
+    Trigger: propTypesChildren.isRequired,
+    /** Function called to get the Modal props, it should return an object.
+     * See `ModalWindow` props to see the valid keys for the return object. */
     getModalWindowProps: PropTypes.func.isRequired,
 };
 
@@ -61,6 +63,7 @@ export function ModalWindow({
     startHeight = 400,
     hooks = {},
     canMaximize = true,
+    closeOnEscape = true,
 }) {
     const sizedModalContainerStyle = {};
     if (!maximized) {
@@ -75,7 +78,7 @@ export function ModalWindow({
         isLoading: hooks.onOpen ? true : false,
     });
 
-    const setIsMaximized = isMax => {
+    const setIsMaximized = (isMax) => {
         setModalState({
             ...modalState,
             isMaximized: isMax,
@@ -100,8 +103,22 @@ export function ModalWindow({
             document.body.style.overflow = 'hidden';
         });
 
+        let closeOnEscapeCallback = null;
+        if (closeOnEscape) {
+            closeOnEscapeCallback = (e) => {
+                if (e.keyCode === ESCAPE_CODE) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeModalWindow();
+                }
+            };
+
+            window.addEventListener('keydown', closeOnEscapeCallback);
+        }
+
         return function cleanup() {
             modalRoot.removeChild(modalContainer);
+            closeOnEscape && window.removeEventListener('keydown', closeOnEscapeCallback);
             document.body.style.overflow = bodyOverflow;
         };
     }, []); // eslint-disable-line
@@ -139,16 +156,29 @@ export function ModalWindow({
 }
 
 ModalWindow.propTypes = {
+    /** Modal Title */
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    /* Modal Content, rendered as modal body */
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    /** Modal Footer, rendered after the body */
     footer: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    /**  */
     closeModal: PropTypes.func,
+    /** setVisible callback, coming from Modal's Trigger */
     setVisible: PropTypes.func,
+    /** Set the modal maximized on open */
     maximized: PropTypes.bool,
+    /** If the modal can maximize to full screen, show icons to trigger the status */
     canMaximize: PropTypes.bool,
+    /** Close the modal if Escape key is pressed */
+    closeOnEscape: PropTypes.bool,
+    /** Class to be added to the modal's top element */
     wrapperClass: PropTypes.string,
+    /** Initial modal height */
     startHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Initial modal width */
     startWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Hooks called on modal events. Valid events are: `onOpen` */
     hooks: PropTypes.shape({
         onOpen: PropTypes.func,
     }),

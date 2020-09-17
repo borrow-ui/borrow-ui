@@ -37,6 +37,8 @@ TabHeader.propTypes = {
         })
     ).isRequired,
     className: PropTypes.string,
+    /** Selected tab number (starts from 1) */
     selectedTab: PropTypes.number.isRequired,
+    /** Function called when tab is selected */
     setSelectedTab: PropTypes.func.isRequired,
 };
