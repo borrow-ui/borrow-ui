@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Internal/Components/ReferenceOverlay Default 1`] = `
+<div
+  className="storybook-container"
+>
+  <span
+    className="borrow-ui__reference-overlay__trigger"
+    onClick={[Function]}
+  >
+    <button
+      className="borrow-ui__button  borrow-ui__button--positive borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
+    >
+      <span>
+        Hover me
+      </span>
+    </button>
+  </span>
+  <div
+    className="borrow-ui__reference-overlay"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    This is a simple text
+    <div
+      className="borrow-ui__reference-overlay__arrow"
+      style={Object {}}
+    />
+  </div>
+  <span
+    className="borrow-ui__reference-overlay__trigger"
+    onClick={[Function]}
+  >
+    <i
+      className="borrow-ui__icon material-icons help  borrow-ui__icon--normal color-primary"
+    />
+  </span>
+  <div
+    className="borrow-ui__reference-overlay"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    If you need help, read the docs!
+    <div
+      className="borrow-ui__reference-overlay__arrow"
+      style={Object {}}
+    />
+  </div>
+  <span
+    className="borrow-ui__reference-overlay__trigger"
+    onClick={[Function]}
+  >
+    <button
+      className="borrow-ui__button  borrow-ui__button--primary-reverse borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
+    >
+      <span>
+        Right placed
+      </span>
+    </button>
+  </span>
+  <div
+    className="borrow-ui__reference-overlay"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "white",
+          "border": "1px solid #444",
+          "marginRight": 5,
+          "padding": 5,
+        }
+      }
+    >
+      This should be shown on the right
+    </div>
+    <div
+      className="borrow-ui__reference-overlay__arrow"
+      style={Object {}}
+    />
+  </div>
+  <span
+    className="borrow-ui__reference-overlay__trigger"
+    onClick={[Function]}
+  >
+    <i
+      className="borrow-ui__icon material-icons settings  borrow-ui__icon--smaller  borrow-ui__icon-control"
+    />
+  </span>
+  <div
+    className="borrow-ui__reference-overlay"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    You can click anywhere to close this!
+    <div
+      className="borrow-ui__reference-overlay__arrow"
+      style={Object {}}
+    />
+  </div>
+  <span
+    className="borrow-ui__reference-overlay__trigger"
+    onClick={[Function]}
+  >
+    <button
+      className="borrow-ui__button  borrow-ui__button--primary-reverse borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
+    >
+      <span>
+        Click Persist
+      </span>
+    </button>
+  </span>
+  <div
+    className="borrow-ui__reference-overlay"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    You must click the trigger to close this message!
+    <div
+      className="borrow-ui__reference-overlay__arrow"
+      style={Object {}}
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Internal/Components/ReferenceOverlay Popper positioning 1`] = `
+<div
+  className="storybook-container"
+>
+  <div
+    style={
+      Object {
+        "height": 400,
+        "overflow": "auto",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": "200%",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "display": "block",
+            "height": 160,
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+              "width": "45%",
+            }
+          }
+        />
+        <span
+          className="borrow-ui__reference-overlay__trigger"
+          onClick={[Function]}
+        >
+          <button
+            className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
+          >
+            <span>
+              Click me
+            </span>
+          </button>
+        </span>
+        <div
+          className="borrow-ui__reference-overlay"
+          style={
+            Object {
+              "left": "0",
+              "maxWidth": 300,
+              "position": "absolute",
+              "top": "0",
+            }
+          }
+        >
+          <p
+            className="borrow-ui__text  "
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis egestas semper leo ac porta. Integer metus urna, lacinia vitae purus et, pharetra auctor purus. Vivamus bibendum id lacus sit amet faucibus.
+          </p>
+          <div
+            className="borrow-ui__reference-overlay__arrow"
+            style={Object {}}
+          />
+        </div>
+        <div
+          style={
+            Object {
+              "display": "block",
+              "width": "45%",
+            }
+          }
+        />
+      </div>
+      <div
+        style={
+          Object {
+            "display": "block",
+            "height": 400,
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
