@@ -1,0 +1,90 @@
+import { Fragment } from 'react';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Button } from '../button/Button';
+import { Icon } from '../icon/Icon';
+import { IconControl } from '../icon/IconControl';
+import { Lorem } from '../lorem/Lorem';
+
+import { Tooltip } from './Tooltip';
+
+<Meta title="Components/Tooltip" component={Tooltip} />
+
+# Tooltip
+
+Tooltips are a great way to show additional content with user interaction.
+Usually the are visible when an element is clicked or hovered.
+
+The `Tooltip` component accepts two main props:
+
+-   `tooltip`: the tooltip content;
+-   `children`: an element that, when hovered or clicked, will show the tooltip;
+
+The component leverages `ReferenceOverlay` component that is based on the great external library [Popper](https://popper.js.org/) and it's hook.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <Tooltip tooltip="This is a simple tooltip" className="m-r-20">
+                <Button mean="positive">Hover me!</Button>
+            </Tooltip>
+            <Tooltip tooltip="If you need help, read the docs!" className="m-r-20">
+                <Icon name="help" className="color-primary" />
+            </Tooltip>
+            <Tooltip
+                tooltip="This is a simple tooltip, shown on the right"
+                className="m-r-20"
+                placement="right"
+            >
+                <Button mean="primary-reverse">Right placed</Button>
+            </Tooltip>
+            <Tooltip
+                tooltip="You can click anywhere to close this!"
+                className="m-r-20"
+                triggerMode="click"
+                placement="bottom"
+            >
+                <IconControl name="settings" />
+            </Tooltip>
+            <Tooltip
+                tooltip="You must click the trigger to close this tooltip!"
+                className="m-r-20"
+                placement="bottom"
+                triggerMode="click"
+                clickPersist={true}
+            >
+                <Button mean="primary-reverse">Click Persist</Button>
+            </Tooltip>
+        </div>
+    </Story>
+</Preview>
+
+## Positioning
+
+Popper automatically set coordinates to the overlay element accordingly to the visibility.
+
+The following demo allows to see this in action:
+
+<Preview>
+    <Story name="Popper positioning">
+        <div className="storybook-container">
+            <div style={{ width: '100%', height: 400, overflow: 'auto' }}>
+                <div style={{ width: '200%' }}>
+                    <div style={{ display: 'block', height: 160 }}></div>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ display: 'block', width: '45%' }}></div>
+                        <Tooltip tooltip={<Lorem paragraphs={1} />} triggerMode="click">
+                            <Button mean="primary">Click me</Button>
+                        </Tooltip>
+                        <div style={{ display: 'block', width: '45%' }}></div>
+                    </div>
+                    <div style={{ display: 'block', height: 400 }}></div>
+                </div>
+            </div>
+        </div>
+    </Story>
+</Preview>
+
+## Tooltip Props
+
+<Props of={Tooltip} />

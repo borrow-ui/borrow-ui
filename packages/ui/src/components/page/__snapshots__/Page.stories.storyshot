@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Page Default 1`] = `
+exports[`Storyshots Components/Page Default 1`] = `
 <div
   style={
     Object {
@@ -40,7 +40,8 @@ exports[`Storyshots Components|Page Default 1`] = `
       <div
         className="borrow-ui__text  "
       >
-        This content will be rendered inside the body of the page, via 
+        This content will be rendered inside the body of the page, via
+         
         <span
           className="borrow-ui__text__monospace "
         >
@@ -83,7 +84,7 @@ exports[`Storyshots Components|Page Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Page PageHeader controls 1`] = `
+exports[`Storyshots Components/Page PageHeader controls 1`] = `
 <div
   style={
     Object {
@@ -168,7 +169,7 @@ exports[`Storyshots Components|Page PageHeader controls 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Page continuousScroll 1`] = `
+exports[`Storyshots Components/Page continuousScroll 1`] = `
 <div
   style={
     Object {
@@ -202,7 +203,8 @@ exports[`Storyshots Components|Page continuousScroll 1`] = `
       <div
         className="borrow-ui__text  "
       >
-        This content will be rendered inside the body of the page, via 
+        This content will be rendered inside the body of the page, via
+         
         <span
           className="borrow-ui__text__monospace "
         >

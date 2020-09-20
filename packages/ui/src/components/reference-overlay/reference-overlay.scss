@@ -1,0 +1,58 @@
+@import '../../style/vars/main';
+
+.#{$ui-prefix}__reference-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.#{$ui-prefix}__reference-overlay__trigger {
+    display: inline-block;
+}
+
+.#{$ui-prefix}__reference-overlay,
+.#{$ui-prefix}__reference-overlay__arrow {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.#{$ui-prefix}__reference-overlay--visible,
+.#{$ui-prefix}__reference-overlay__arrow--visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.#{$ui-prefix}__reference-overlay__arrow,
+.#{$ui-prefix}__reference-overlay__arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    z-index: -1;
+}
+
+.#{$ui-prefix}__reference-overlay__arrow::before {
+    content: '';
+    transform: rotate(45deg);
+}
+
+.#{$ui-prefix}__reference-overlay[data-popper-placement^='top']
+    > .#{$ui-prefix}__reference-overlay__arrow {
+    bottom: -4px;
+}
+
+.#{$ui-prefix}__reference-overlay[data-popper-placement^='bottom']
+    > .#{$ui-prefix}__reference-overlay__arrow {
+    top: -4px;
+}
+
+.#{$ui-prefix}__reference-overlay[data-popper-placement^='left']
+    > .#{$ui-prefix}__reference-overlay__arrow {
+    right: -4px;
+}
+
+.#{$ui-prefix}__reference-overlay[data-popper-placement^='right']
+    > .#{$ui-prefix}__reference-overlay__arrow {
+    left: -4px;
+}

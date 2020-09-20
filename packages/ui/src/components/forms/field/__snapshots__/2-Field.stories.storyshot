@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Forms|Field Default 1`] = `
+exports[`Storyshots Forms/Field Default 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -19,11 +19,7 @@ exports[`Storyshots Forms|Field Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           This field has a label
            
@@ -59,7 +55,7 @@ exports[`Storyshots Forms|Field Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
+exports[`Storyshots Forms/Field Horizontal Layout Label Alignment 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -91,6 +87,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -114,6 +111,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -137,6 +135,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -172,6 +171,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-center"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -195,6 +195,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-center"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -218,6 +219,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-center"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -253,6 +255,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-right"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -276,6 +279,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-right"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -299,6 +303,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-right"
             style={
               Object {
+                "minWidth": 280,
                 "width": 280,
               }
             }
@@ -321,7 +326,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Alignment 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Field Horizontal Layout Label Width 1`] = `
+exports[`Storyshots Forms/Field Horizontal Layout Label Width 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -342,6 +347,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Width 1`] = `
           className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
           style={
             Object {
+              "minWidth": 280,
               "width": 280,
             }
           }
@@ -365,6 +371,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Width 1`] = `
           className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
           style={
             Object {
+              "minWidth": 280,
               "width": 280,
             }
           }
@@ -388,6 +395,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Width 1`] = `
           className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
           style={
             Object {
+              "minWidth": 280,
               "width": 280,
             }
           }
@@ -409,7 +417,7 @@ exports[`Storyshots Forms|Field Horizontal Layout Label Width 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Field Layout 1`] = `
+exports[`Storyshots Forms/Field Layout 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -429,11 +437,7 @@ exports[`Storyshots Forms|Field Layout 1`] = `
         >
           <div
             className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
+            style={Object {}}
           >
             Vertical layout label
              
@@ -454,11 +458,7 @@ exports[`Storyshots Forms|Field Layout 1`] = `
         >
           <div
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
+            style={Object {}}
           >
             Horizontal layout label
              
@@ -482,11 +482,7 @@ exports[`Storyshots Forms|Field Layout 1`] = `
         >
           <div
             className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
+            style={Object {}}
           >
             Vertical layout label
              
@@ -507,11 +503,7 @@ exports[`Storyshots Forms|Field Layout 1`] = `
         >
           <div
             className="borrow-ui__form__label borrow-ui__form__label--horizontal borrow-ui__form__label--alignment-left"
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
+            style={Object {}}
           >
             Horizontal layout label
              

@@ -1,0 +1,16 @@
+@import '../../style/vars/main';
+
+$ui-tooltip-color: $ui-color-on-neutral-dark !default;
+$ui-tooltip-background-color: $ui-color-neutral-dark !default;
+
+.#{$ui-prefix}__tooltip {
+    max-width: 300px;
+    background: $ui-tooltip-background-color;
+    color: $ui-tooltip-color;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.#{$ui-prefix}__tooltip__arrow::before {
+    background: $ui-tooltip-background-color;
+}

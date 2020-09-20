@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Panel Default 1`] = `
+exports[`Storyshots Components/Panel Default 1`] = `
 <div
   className="storybook-container"
 >
@@ -15,7 +15,7 @@ exports[`Storyshots Components|Panel Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Panel Title and footer 1`] = `
+exports[`Storyshots Components/Panel Title and footer 1`] = `
 <div
   className="storybook-container"
 >
@@ -30,7 +30,7 @@ exports[`Storyshots Components|Panel Title and footer 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Panel Widths 1`] = `
+exports[`Storyshots Components/Panel Widths 1`] = `
 <div
   className="storybook-container"
 >
@@ -61,7 +61,7 @@ exports[`Storyshots Components|Panel Widths 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Panel onOpen hook 1`] = `
+exports[`Storyshots Components/Panel onOpen hook 1`] = `
 <div
   className="storybook-container"
 >

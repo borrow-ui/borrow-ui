@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Title Default 1`] = `
+exports[`Storyshots Components/Title Default 1`] = `
 <div
   className="storybook-container"
 >
@@ -22,7 +22,7 @@ exports[`Storyshots Components|Title Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Title Title anchor 1`] = `
+exports[`Storyshots Components/Title Title anchor 1`] = `
 <div
   className="storybook-container"
 >

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Tile Default 1`] = `
+exports[`Storyshots Components/Tile Default 1`] = `
 <div
   className="storybook-container"
 >
@@ -48,7 +48,7 @@ exports[`Storyshots Components|Tile Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Tile Wrapped inside Block 1`] = `
+exports[`Storyshots Components/Tile Wrapped inside Block 1`] = `
 <div
   className="storybook-container"
 >

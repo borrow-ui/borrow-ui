@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|TextContainer Default 1`] = `
+exports[`Storyshots Components/TextContainer Default 1`] = `
 <div
   className="storybook-container"
 >

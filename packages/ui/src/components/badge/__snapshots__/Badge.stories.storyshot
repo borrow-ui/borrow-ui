@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Badge Colored badges 1`] = `
+exports[`Storyshots Components/Badge Colored badges 1`] = `
 <div>
   <span
     className="borrow-ui__badge color-primary-bg color-on-primary borrow-ui__badge--rounded  undefined"
@@ -30,7 +30,7 @@ exports[`Storyshots Components|Badge Colored badges 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Badge Default 1`] = `
+exports[`Storyshots Components/Badge Default 1`] = `
 <div>
   A normal text close to a 
   <span
@@ -41,7 +41,7 @@ exports[`Storyshots Components|Badge Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Badge Different shapes 1`] = `
+exports[`Storyshots Components/Badge Different shapes 1`] = `
 <div>
   <span
     className="borrow-ui__badge color-primary-bg color-on-primary borrow-ui__badge--rounded  undefined"

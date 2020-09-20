@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Loader Default 1`] = `
+exports[`Storyshots Components/Loader Default 1`] = `
 <div>
   <div
     className="borrow-ui__loader__container borrow-ui__loader__container--full-section "
@@ -12,7 +12,7 @@ exports[`Storyshots Components|Loader Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Loader Inline 1`] = `
+exports[`Storyshots Components/Loader Inline 1`] = `
 <div>
   <div>
     This is inline 
