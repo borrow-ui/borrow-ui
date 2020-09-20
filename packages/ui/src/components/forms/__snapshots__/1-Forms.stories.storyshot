@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Forms|Introduction Default 1`] = `
+exports[`Storyshots Forms/Introduction Default 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -19,11 +19,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Full Name
            
@@ -42,11 +38,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Bio
            
@@ -65,11 +57,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Pick a day of the year
            
@@ -100,11 +88,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Favourite day of weekend
            
@@ -222,11 +206,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           I have the following devices:
            
@@ -332,11 +312,7 @@ exports[`Storyshots Forms|Introduction Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           I use internet
            

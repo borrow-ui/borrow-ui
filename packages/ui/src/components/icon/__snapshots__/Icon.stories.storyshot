@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Icon Default 1`] = `
+exports[`Storyshots Components/Icon Default 1`] = `
 <div>
   <i
     className="borrow-ui__icon material-icons content_copy  borrow-ui__icon--normal color-primary"
@@ -11,7 +11,7 @@ exports[`Storyshots Components|Icon Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Icon IconComponent 1`] = `
+exports[`Storyshots Components/Icon IconComponent 1`] = `
 <div>
   <span
     className="p-20 display-inline-block"
@@ -46,7 +46,7 @@ exports[`Storyshots Components|Icon IconComponent 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Icon Modifiers 1`] = `
+exports[`Storyshots Components/Icon Modifiers 1`] = `
 <div>
   <span
     className="p-20 display-inline-block"
@@ -73,7 +73,7 @@ exports[`Storyshots Components|Icon Modifiers 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Icon Sizes 1`] = `
+exports[`Storyshots Components/Icon Sizes 1`] = `
 <div>
   <i
     className="borrow-ui__icon material-icons view_in_ar  borrow-ui__icon--huge color-primary"

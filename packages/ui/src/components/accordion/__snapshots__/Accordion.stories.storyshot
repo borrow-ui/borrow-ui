@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Accordion Default 1`] = `
+exports[`Storyshots Components/Accordion Default 1`] = `
 <div
   className="borrow-ui__accordion "
 >

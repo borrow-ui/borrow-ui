@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Menu Customized content 1`] = `
+exports[`Storyshots Components/Menu Customized content 1`] = `
 <div>
   <div
     className="borrow-ui__menu "
@@ -39,7 +39,7 @@ exports[`Storyshots Components|Menu Customized content 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Menu Default 1`] = `
+exports[`Storyshots Components/Menu Default 1`] = `
 <div>
   <div
     className="borrow-ui__menu "

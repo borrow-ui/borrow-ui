@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Link Default 1`] = `
+exports[`Storyshots Components/Link Default 1`] = `
 <div>
   A normal link with "a" tag 
   <a
@@ -12,7 +12,7 @@ exports[`Storyshots Components|Link Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Link Underline 1`] = `
+exports[`Storyshots Components/Link Underline 1`] = `
 <div>
   A link without underline 
   <a

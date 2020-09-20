@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Forms|DatePicker DatePicker Disabled and Invalid 1`] = `
+exports[`Storyshots Forms/Components/DatePicker DatePicker Disabled and Invalid 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -20,11 +20,7 @@ exports[`Storyshots Forms|DatePicker DatePicker Disabled and Invalid 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Disabled date
            
@@ -50,11 +46,7 @@ exports[`Storyshots Forms|DatePicker DatePicker Disabled and Invalid 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Invalid date (pick \`2020-04-01\`)
            
@@ -85,7 +77,7 @@ exports[`Storyshots Forms|DatePicker DatePicker Disabled and Invalid 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|DatePicker DatePicker initialValue 1`] = `
+exports[`Storyshots Forms/Components/DatePicker DatePicker initialValue 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -105,11 +97,7 @@ exports[`Storyshots Forms|DatePicker DatePicker initialValue 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Picker with initial date
            
@@ -148,7 +136,7 @@ exports[`Storyshots Forms|DatePicker DatePicker initialValue 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|DatePicker DatePicker onDayChangeFormat 1`] = `
+exports[`Storyshots Forms/Components/DatePicker DatePicker onDayChangeFormat 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -168,11 +156,7 @@ exports[`Storyshots Forms|DatePicker DatePicker onDayChangeFormat 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Select a date
            
@@ -203,7 +187,7 @@ exports[`Storyshots Forms|DatePicker DatePicker onDayChangeFormat 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|DatePicker DatePicker returnPartial 1`] = `
+exports[`Storyshots Forms/Components/DatePicker DatePicker returnPartial 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -223,11 +207,7 @@ exports[`Storyshots Forms|DatePicker DatePicker returnPartial 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Select a date
            
@@ -258,7 +238,7 @@ exports[`Storyshots Forms|DatePicker DatePicker returnPartial 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|DatePicker Default 1`] = `
+exports[`Storyshots Forms/Components/DatePicker Default 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -278,11 +258,7 @@ exports[`Storyshots Forms|DatePicker Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Select a date
            
@@ -313,11 +289,7 @@ exports[`Storyshots Forms|DatePicker Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Picker with initial date
            

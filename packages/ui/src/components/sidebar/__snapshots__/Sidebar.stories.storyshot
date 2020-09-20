@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Sidebar Default 1`] = `
+exports[`Storyshots Components/Sidebar Default 1`] = `
 <div
   className="storybook-container"
 >
@@ -174,7 +174,7 @@ exports[`Storyshots Components|Sidebar Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Sidebar Sidebar SideMenu (non collapsible) 1`] = `
+exports[`Storyshots Components/Sidebar Sidebar SideMenu (non collapsible) 1`] = `
 <div
   className="storybook-container"
 >

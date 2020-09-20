@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Button Default 1`] = `
+exports[`Storyshots Components/Button Default 1`] = `
 <div>
   <div>
     <button
@@ -93,7 +93,7 @@ exports[`Storyshots Components|Button Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Button Other props 1`] = `
+exports[`Storyshots Components/Button Other props 1`] = `
 <div
   style={
     Object {
@@ -145,7 +145,7 @@ exports[`Storyshots Components|Button Other props 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Button Size 1`] = `
+exports[`Storyshots Components/Button Size 1`] = `
 <div>
   <button
     className="borrow-ui__button  borrow-ui__button--accent borrow-ui__button--smaller borrow-ui__button--shadowed borrow-ui__button--separated "

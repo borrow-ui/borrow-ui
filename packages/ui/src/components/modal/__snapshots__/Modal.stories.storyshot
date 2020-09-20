@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Modal Default 1`] = `
+exports[`Storyshots Components/Modal Default 1`] = `
 <div>
   <button
     className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
@@ -13,7 +13,7 @@ exports[`Storyshots Components|Modal Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Modal Modal Parts 1`] = `
+exports[`Storyshots Components/Modal Modal Parts 1`] = `
 <div>
   <button
     className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
@@ -34,7 +34,7 @@ exports[`Storyshots Components|Modal Modal Parts 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Modal Modal Size 1`] = `
+exports[`Storyshots Components/Modal Modal Size 1`] = `
 <div>
   <button
     className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
@@ -58,6 +58,19 @@ exports[`Storyshots Components|Modal Modal Size 1`] = `
   >
     <span>
       Maximized
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Components/Modal closeOnEscape false 1`] = `
+<div>
+  <button
+    className="borrow-ui__button  borrow-ui__button--primary borrow-ui__button--normal borrow-ui__button--shadowed borrow-ui__button--separated "
+    onClick={[Function]}
+  >
+    <span>
+      Open Modal
     </span>
   </button>
 </div>

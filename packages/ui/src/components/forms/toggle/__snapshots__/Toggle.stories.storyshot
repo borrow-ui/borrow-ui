@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Forms|Toggle Default 1`] = `
+exports[`Storyshots Forms/Components/Toggle Default 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -19,11 +19,7 @@ exports[`Storyshots Forms|Toggle Default 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Close the window when the process is done
            
@@ -55,7 +51,7 @@ exports[`Storyshots Forms|Toggle Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Toggle Toggle disabled 1`] = `
+exports[`Storyshots Forms/Components/Toggle Toggle disabled 1`] = `
 <div
   className="storybook-container borrow-ui"
 >
@@ -74,11 +70,7 @@ exports[`Storyshots Forms|Toggle Toggle disabled 1`] = `
       >
         <div
           className="borrow-ui__form__label borrow-ui__form__label--vertical borrow-ui__form__label--alignment-left"
-          style={
-            Object {
-              "width": undefined,
-            }
-          }
+          style={Object {}}
         >
           Close the window when the process is done
            
