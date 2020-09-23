@@ -1,0 +1,10 @@
+@import '../../style/vars/main';
+
+.#{$ui-prefix}__search-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.#{$ui-prefix}__search-bar__input {
+    flex-grow: 1;
+}

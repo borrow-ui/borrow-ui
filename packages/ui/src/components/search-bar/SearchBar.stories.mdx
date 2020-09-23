@@ -1,0 +1,71 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { SearchBar } from './SearchBar';
+
+import { SearchBarStoryWrapper } from './SearchBarStory';
+
+<Meta title="Components/SearchBar" component={SearchBar} />
+
+# SearchBar
+
+A `SearchBar` can be used to filter a list of entries.
+Only text properties are looked up for matching values.
+By default, all entries with a value that includes the search text are returned.
+
+<Preview>
+    <Story name="Default">
+        <div className="storybook-container">
+            <SearchBarStoryWrapper
+                entries={[
+                    { id: 1, name: 'first entry' },
+                    { id: 2, name: 'second entry' },
+                    { id: 3, name: 'third entry' },
+                ]}
+            >
+                {({ entries, setFilteredEntries }) => {
+                    return (
+                        <div>
+                            <p>Filter the entries by text</p>
+                            <SearchBar entries={entries} setFilteredEntries={setFilteredEntries} />
+                        </div>
+                    );
+                }}
+            </SearchBarStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+### Exact match
+
+To filter only entries with an exact match, set `stringIncludes` property to `false`:
+
+<Preview>
+    <Story name="Exact match: disable stringIncludes">
+        <div className="storybook-container">
+            <SearchBarStoryWrapper
+                entries={[
+                    { id: 1, name: 'first entry', group: 'group 1' },
+                    { id: 2, name: 'second entry', group: 'group 2' },
+                    { id: 3, name: 'third entry', group: 'group 1' },
+                ]}
+            >
+                {({ entries, setFilteredEntries }) => {
+                    return (
+                        <div>
+                            <p>Filter the entries by text</p>
+                            <SearchBar
+                                entries={entries}
+                                setFilteredEntries={setFilteredEntries}
+                                stringIncludes={false}
+                            />
+                        </div>
+                    );
+                }}
+            </SearchBarStoryWrapper>
+        </div>
+    </Story>
+</Preview>
+
+## Props
+
+<Props of={SearchBar} />

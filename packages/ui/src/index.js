@@ -31,6 +31,7 @@ import { PageHeader } from './components/page/PageHeader';
 import { Panel } from './components/panel/Panel';
 import { Popover } from './components/popover/Popover';
 import { Responsive } from './components/responsive/Responsive';
+import { SearchBar } from './components/search-bar/SearchBar';
 import {
     Sidebar,
     SidebarContext,
@@ -93,6 +94,7 @@ export {
     Popover,
     Responsive,
     Row,
+    SearchBar,
     Sidebar,
     SidebarContext,
     generateSidebarContextProvider,
