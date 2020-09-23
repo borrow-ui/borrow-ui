@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { filterEntries } from '../../utils/filters';
+import { propTypesChildren } from '../../utils/types';
 
 import { Input } from '../forms/input/Input';
 
@@ -15,6 +16,9 @@ export function SearchBar({
     setFilteredEntries,
     stringIncludes,
     filterEntriesFunction = filterEntries,
+    inputProps = {},
+    beforeInput,
+    afterInput,
     ...rest
 }) {
     const [search, setSearch] = useState(null);
@@ -31,13 +35,19 @@ export function SearchBar({
         setFilteredEntries && setFilteredEntries(filteredEntries);
     };
 
+    const { className: inputPropsClassName = '', ...restInputProps } = inputProps;
+    const inputClassName = `${SEARCH_BAR_INPUT_CLASS} ${inputPropsClassName}`.trim();
+
     return (
         <div className={searchBarClassName} {...rest}>
+            {beforeInput && beforeInput}
             <Input
                 value={search}
                 onChange={(e) => changeSearch(e.target.value)}
-                className={SEARCH_BAR_INPUT_CLASS}
+                className={inputClassName}
+                {...restInputProps}
             />
+            {afterInput && afterInput}
         </div>
     );
 }
@@ -62,5 +72,13 @@ SearchBar.propTypes = {
      *
      * - `stringIncludes`: a boolean as described above. */
     filterEntriesFunction: PropTypes.func,
+    /** Props forwarded to Input component */
+    inputProps: PropTypes.shape({
+        className: PropTypes.string,
+    }),
+    /** Elements to render before Input */
+    beforeInput: propTypesChildren,
+    /** Elements to render before Input */
+    afterInput: propTypesChildren,
     className: PropTypes.string,
 };
