@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 
+import { Icon } from '../icon/Icon';
+import { SearchBar } from '../search-bar/SearchBar';
+
 import { TableWrapper } from './TableWrapper';
 import { TablePagination } from './TablePagination';
 import { TableStatusBar } from './TableStatusBar';
@@ -10,6 +13,7 @@ import { TableStatusBar } from './TableStatusBar';
 // import 'style/component/table/table.scss';
 
 const TABLE_CONTAINER_CLASS = `${UI_PREFIX}__table__container`;
+const TABLE_SEARCH_BAR_CONTAINER = `${UI_PREFIX}__table__search-bar__container`;
 const TABLE_STATUS_BAR_CONTAINER = `${UI_PREFIX}__table__status-bar__container`;
 
 const DEFAULT_CONFIG = {
@@ -21,6 +25,10 @@ const DEFAULT_PAGINATION = {
     pageSize: 20,
 };
 
+const DEFAULT_SEARCH_BAR = {
+    visible: false,
+};
+
 const DEFAULT_STATUS_BAR = {
     visible: true,
 };
@@ -30,15 +38,15 @@ export function Table({
     entries,
     config,
     pagination,
+    searchBar,
     statusBar,
     className = '',
     elementsProps = {},
 }) {
     const tableConfig = { ...DEFAULT_CONFIG, ...config };
     const tablePagination = { ...DEFAULT_PAGINATION, ...pagination };
+    const tableSearchBar = { ...DEFAULT_SEARCH_BAR, ...searchBar };
     const tableStatusBar = { ...DEFAULT_STATUS_BAR, ...statusBar };
-
-    const totEntries = entries.length;
 
     const [tableState, setTableState] = useState({
         columns: [...columns],
@@ -46,29 +54,48 @@ export function Table({
         pageSize: tablePagination.pageSize,
     });
 
+    const [filteredEntries, setFilteredEntries] = useState(entries);
+
+    const totOriginalEntries = entries.length;
+    const totEntries = filteredEntries.length;
+
     const { className: containerClassName = '', ...containerProps } =
         elementsProps.containerProps || {};
     const tableContainerClassName = `${TABLE_CONTAINER_CLASS} ${containerClassName || ''}`;
 
     const startEntry = (tableState.page - 1) * tableState.pageSize;
-    const filteredEntries = !tablePagination.pageSize
-        ? entries
-        : entries.slice(startEntry, startEntry + tableState.pageSize);
+    const paginatedEntries = !tablePagination.pageSize
+        ? filteredEntries
+        : filteredEntries.slice(startEntry, startEntry + tableState.pageSize);
 
     // TableWrapper: used to implement fixed header / columns in next update
     return (
         <div className={tableContainerClassName} {...containerProps}>
+            {tableSearchBar.visible && (
+                <div className={TABLE_SEARCH_BAR_CONTAINER}>
+                    <SearchBar
+                        entries={entries}
+                        setFilteredEntries={setFilteredEntries}
+                        beforeInput={<Icon name="search" size="small" className="m-r-5" />}
+                        inputProps={{ placeholder: 'Type here to filter entries...' }}
+                    />
+                </div>
+            )}
             <TableWrapper
                 className={className}
                 tableState={tableState}
                 setTableState={setTableState}
-                entries={filteredEntries}
+                entries={paginatedEntries}
                 tableConfig={tableConfig}
                 elementsProps={elementsProps}
             />
             {tableStatusBar.visible && (
                 <div className={TABLE_STATUS_BAR_CONTAINER}>
-                    <TableStatusBar tableState={tableState} totEntries={totEntries} />
+                    <TableStatusBar
+                        tableState={tableState}
+                        totEntries={totEntries}
+                        totOriginalEntries={totOriginalEntries}
+                    />
                     {tablePagination.pageSize !== 0 && (
                         <TablePagination
                             tableState={tableState}
@@ -99,6 +126,9 @@ Table.propTypes = {
     }),
     pagination: PropTypes.shape({
         pageSize: PropTypes.number,
+    }),
+    searchBar: PropTypes.shape({
+        visible: PropTypes.bool,
     }),
     statusBar: PropTypes.shape({
         visible: PropTypes.bool,

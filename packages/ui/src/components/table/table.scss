@@ -58,6 +58,10 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 .#{$ui-prefix}__table__body__cell {
 }
 
+.#{$ui-prefix}__table__search-bar__container {
+    margin-bottom: 10px;
+}
+
 .#{$ui-prefix}__table__status-bar__container {
     @media (min-width: 600px) {
         display: flex;
