@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
+import { KEY_CODES } from '../../utils/constants';
 import { IconControl } from '../icon/IconControl';
 import { Loader } from '../loader/Loader';
 
@@ -20,7 +21,6 @@ const MODAL_TITLE_CLASS = `${UI_PREFIX}__modal__title`;
 const MODAL_FOOTER_CLASS = `${UI_PREFIX}__modal__footer`;
 
 const MODAL_ROOT_ID = 'modal-root';
-const ESCAPE_CODE = 27;
 
 // these should match the CSS ones, are used to auto-calculate the
 // modal height with and withouth footer.
@@ -106,7 +106,7 @@ export function ModalWindow({
         let closeOnEscapeCallback = null;
         if (closeOnEscape) {
             closeOnEscapeCallback = (e) => {
-                if (e.keyCode === ESCAPE_CODE) {
+                if (e.keyCode === KEY_CODES.escape) {
                     e.preventDefault();
                     e.stopPropagation();
                     closeModalWindow();

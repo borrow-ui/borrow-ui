@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../../config';
 
-import { SPACEBAR_CODE } from '../constants';
+import { KEY_CODES } from '../../../utils/constants';
 
 const FORM_TOGGLE_CLASS = `${UI_PREFIX}__form__field__toggle`;
 const FORM_TOGGLE_CHECKED_CLASS = `${UI_PREFIX}__form__field__toggle--checked`;
@@ -22,8 +22,8 @@ export function Toggle({ checked, onClick, disabled, ...rest }) {
     const switchClass = `${FORM_TOGGLE_SWITCH_CLASS} ${checkedSwitchClass} ${disabledSwitchClass}`;
 
     const onToggleClick = () => !disabled && onClick(!checked);
-    const onKeyDown = e => {
-        if (e.keyCode === SPACEBAR_CODE) {
+    const onKeyDown = (e) => {
+        if (e.keyCode === KEY_CODES.SPACEBAR) {
             e.preventDefault();
             e.stopPropagation();
             onToggleClick();

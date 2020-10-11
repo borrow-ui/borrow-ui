@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../../config';
 import { propTypesChildren } from '../../../utils/types';
-
-import { SPACEBAR_CODE } from '../constants';
+import { KEY_CODES } from '../../../utils/constants';
 
 const FORM_CHECKBOX_CONTAINER_CLASS = `${UI_PREFIX}__form__field__checkbox__container`;
 const FORM_CHECKBOX_CLASS = `${UI_PREFIX}__form__field__checkbox`;
@@ -39,7 +38,7 @@ export function Checkbox({
 
     const onCheckboxClick = () => !disabled && onClick(!checked);
     const onKeyDown = (e) => {
-        if (e.keyCode === SPACEBAR_CODE) {
+        if (e.keyCode === KEY_CODES.SPACEBAR) {
             e.preventDefault();
             e.stopPropagation();
             onCheckboxClick();
