@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 const TABS_HEADER_CLASS = `${UI_PREFIX}__tabs__header`;
@@ -20,7 +21,7 @@ export function TabHeader({ tabs, selectedTab, setSelectedTab, className = '', .
                     <div
                         key={`ui-tabs-header-label-${index}`}
                         className={`${TABS_HEADER_LABEL_CLASS} ${classSelected}`}
-                        onClick={() => setSelectedTab(index + 1)}
+                        {...a11yClickableElement({ onClick: () => setSelectedTab(index + 1) })}
                     >
                         {tab.label}
                     </div>

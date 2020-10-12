@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../../config';
-import { propTypesChildren } from '../../../utils/types';
 import { KEY_CODES } from '../../../utils/constants';
+import { propTypesChildren } from '../../../utils/types';
 
 const FORM_CHECKBOX_CONTAINER_CLASS = `${UI_PREFIX}__form__field__checkbox__container`;
 const FORM_CHECKBOX_CLASS = `${UI_PREFIX}__form__field__checkbox`;
@@ -51,6 +51,8 @@ export function Checkbox({
             onClick={onCheckboxClick}
             onKeyDown={onKeyDown}
             tabIndex="0"
+            role="checkbox"
+            aria-checked={checked}
         >
             <div className={checkboxClass}>
                 <input

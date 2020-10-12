@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 
 import { Icon } from '../icon/Icon';
 import { propTypesChildren } from '../../utils/types';
@@ -16,7 +17,7 @@ export function TablePagination({ tableState, setTableState, totEntries }) {
     const { page, pageSize } = tableState;
     const maxPage = Math.ceil(totEntries / pageSize);
 
-    const setPage = n => setTableState({ ...tableState, page: n });
+    const setPage = (n) => setTableState({ ...tableState, page: n });
     const commonProps = { page, setPage };
 
     return (
@@ -52,7 +53,10 @@ function PaginationPage({ label, pageNumber, page, setPage }) {
         page === pageNumber && !label ? TABLE_PAGINATION_PAGE_ACTIVE_CLASS : '';
     const paginationControlClassName = `${TABLE_PAGINATION_PAGE_CLASS} ${activePageClassName}`;
     return (
-        <div className={paginationControlClassName} onClick={() => setPage(pageNumber)}>
+        <div
+            className={paginationControlClassName}
+            {...a11yClickableElement({ onClick: () => setPage(pageNumber) })}
+        >
             {pageLabel}
         </div>
     );

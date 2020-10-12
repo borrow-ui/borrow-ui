@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 import { Icon } from '../icon/Icon';
 
@@ -81,18 +82,20 @@ export function Sidebar({
     const width = closedWidth !== undefined && state.status === 'closed' ? closedWidth : undefined;
     const sidebarContainerStyle = { height, top: stickyTop, width, ...style };
 
+    const onTriggerClick = () => {
+        setState({
+            ...state,
+            status: state.status === 'open' ? 'closed' : 'open',
+        });
+    };
+
     return (
         <div className={sidebarContainerClass} style={sidebarContainerStyle} {...rest}>
             <div className={SIDEBAR_CLASS}>
                 {!disableTrigger && (
                     <div
                         className={SIDEBAR_TRIGGER_CLASS}
-                        onClick={() => {
-                            setState({
-                                ...state,
-                                status: state.status === 'open' ? 'closed' : 'open',
-                            });
-                        }}
+                        {...a11yClickableElement({ onClick: onTriggerClick })}
                     >
                         {state.status === 'open' ? <Icon name="close" /> : <Icon name="menu" />}
                     </div>

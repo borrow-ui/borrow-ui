@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { usePopper } from 'react-popper';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 // import './reference-overlay.scss';
@@ -111,6 +112,7 @@ export function ReferenceOverlay({
 
     const overlayArrowStyle = { ...styles.arrow, ...propsOverlayArrowStyle };
 
+    const clickable = triggerMode === 'click' || propsTriggerOnClick;
     const triggerOnClick = () => {
         triggerMode === 'click' && setIsVisible((v) => !v);
         propsTriggerOnClick && propsTriggerOnClick();
@@ -121,7 +123,7 @@ export function ReferenceOverlay({
             <span
                 ref={setReferenceElement}
                 className={referenceOverlayTriggerClass}
-                onClick={triggerOnClick}
+                {...(clickable ? a11yClickableElement({ onClick: triggerOnClick }) : {})}
                 {...restTriggerProps}
             >
                 {children}

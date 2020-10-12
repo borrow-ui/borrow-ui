@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX, config } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 import { Link } from '../link/Link';
@@ -61,7 +62,13 @@ export function SidebarEntry({
 
     return (
         <Fragment>
-            <Tag className={entryClass} to={link} id={id} onClick={entryOnClick} {...rest}>
+            <Tag
+                className={entryClass}
+                to={link}
+                id={id}
+                {...a11yClickableElement({ onClick: entryOnClick })}
+                {...rest}
+            >
                 {iconName && (
                     <SidebarIcon
                         name={iconName}

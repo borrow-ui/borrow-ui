@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 const MENU_ENTRY_CLASS = `${UI_PREFIX}__menu__entry`;
@@ -14,7 +15,7 @@ export function MenuEntry({ children, onClick, disabled = false, ...rest }) {
     const menuEntryClass = `${MENU_ENTRY_CLASS} ${clickableClass} ${disabledClass}`;
 
     return (
-        <div className={menuEntryClass} onClick={onClick} {...rest}>
+        <div className={menuEntryClass} {...a11yClickableElement({ onClick })} {...rest}>
             {children}
         </div>
     );

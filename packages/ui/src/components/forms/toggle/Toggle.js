@@ -30,7 +30,14 @@ export function Toggle({ checked, onClick, disabled, ...rest }) {
         }
     };
     return (
-        <div className={toggleClass} onClick={onToggleClick} onKeyDown={onKeyDown} tabIndex="0">
+        <div
+            className={toggleClass}
+            onClick={onToggleClick}
+            onKeyDown={onKeyDown}
+            tabIndex="0"
+            role="checkbox"
+            aria-checked={checked}
+        >
             <input
                 type="checkbox"
                 className={FORM_TOGGLE_CHECKBOX_CLASS}
