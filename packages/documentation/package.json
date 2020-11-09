@@ -1,5 +1,5 @@
 {
-  "name": "documentation",
+  "name": "@borrow-ui/documentation",
   "version": "0.0.1",
   "description": "Borrow-UI documentation based on Docz",
   "author": "Vittorio Zamboni",
@@ -9,8 +9,8 @@
     "docz:build": "docz build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
     "@borrow-ui/ui": "0.0.1",
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "dayjs": "^1.8.35",
     "docz": "^2.3.1",
     "gatsby-plugin-catch-links": "^2.3.15",
@@ -23,9 +23,5 @@
     "react-media": "^1.10.0",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.1.0"
-  },
-  "workspaces": [
-    "../../packages/**/*",
-    "../../../packages/**/*"
-  ]
+  }
 }
