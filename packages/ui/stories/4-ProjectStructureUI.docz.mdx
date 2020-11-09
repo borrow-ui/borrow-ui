@@ -1,0 +1,156 @@
+---
+name: UI Package
+route: /project-structure/ui-package
+menu: Project Structure
+---
+
+# ui package
+
+The `ui` package is the core package, the container of all the shared components.
+It has a simple structure and few tools already setup:
+
+-   [jest](https://jestjs.io/) and
+    [react-testing-library](https://testing-library.com/docs/react-testing-library/intro) for tests;
+-   storybook for documentation and, in combination with the
+    [storyshot addon](https://github.com/storybookjs/storybook/tree/master/addons/storyshots), for snapshots tests;
+-   [webpack](https://webpack.js.org/) to bundle all the files;
+-   [prettier](https://prettier.io/) to format the code;
+-   [babel](https://babeljs.io/) to transpile;
+-   [scss](https://sass-lang.com/) for styling the components.
+
+## Main folder
+
+The main folder looks like this:
+
+```
+.storybook
+lib
+src
+stories
+.babelrc
+.eslintrc
+.gitignore
+jest.config.js
+package.json
+prettier.config.js
+webpack.common.js
+webpack.dev.js
+webpack.prod.js
+```
+
+-   `.storybook` and `stories` folder are Storybook related configuration and main stories.
+    Each component will also include it's own stories (`*.stories.mdx` files);
+-   `lib` folder will contain the build version of the `ui` package;
+-   `src` folder contains all the source for components (`*.js` files) and styles (`*.scss` files);
+-   `.babelrc` contains babel configuration (standard React preset);
+-   `.gitignore` the files that git must ignore and not include in the repository;
+-   `jest.config.js` contains instruction for `jest` based on file extensions;
+-   `package.json` has all the information about the package: name and website,
+    which commands are valid, which are the dependencies (peer, dev or standard);
+-   `prettier.config.js` contains prettier configuration;
+-   `webpack` files contains the configuration for webpack: which loaders to run, how to minimize the code
+    for production build and to include source maps in development. If you look inside `webpack.common.js` file, you will notice that all
+    external libraries (like `React` itself or `react-media`) are specified also in the `externals` section, so they will
+    not be bundled and must be installed separately if needed.
+
+## src folder
+
+While `.storybook` and `stories` folder are pretty straightforward to understand, the `src` folder deserves documentation.
+The structure is the following:
+
+```
+src/
+    components
+    hooks
+    style
+    utils
+    config.js
+    index.js
+    storybook.test.js
+```
+
+### Main files
+
+`config.js` file allows to customize the UI library. It has the following objects:
+
+-   `UI_PREFIX` constant: allows to specify the prefix for all the classes;
+-   `SIZES` list: list some sizes used by components (i.e. buttons and icons);
+-   `config` object: defines methods to get the current page location and the tag to use
+    as default for the `Link` component.
+
+You will probably like to set them by using `setConfig` helper to use `react-router`
+utilities and `Link` component.
+
+`index.js` files imports all components, hooks and utils and exports them, to be used form other projects.
+
+### `components` folder
+
+All the components are placed inside the `components` folder, each one inside it's own folder.
+Each component folder contains the component itself, the related style,
+the tests file(s) and the Storybook file.
+
+A special mention is the `forms` folder, that contains all the forms related components.
+It also contains it's "own" `index.js` file where all the components are imported.
+
+All the components are then imported/exported in `index.js` file,
+so you will be able to import them like `import { Text } from '@borrow-ui/ui'`;
+
+To use forms components you will need to import the `Forms` first, and use the components from it:
+
+```js
+import { Forms, Title } from '@borrow-ui/ui/lib';
+
+const { Input, Textarea } = Forms;
+```
+
+### `hooks` folder
+
+The hooks folder contains useful and reusable hooks.
+
+### `style` folder
+
+The style folder contains all globals `scss` variables and a `ui.full.scss` files that imports all the
+single component's files.
+Alternatively, you can import the style files directly in the components but you will not be able to
+take advantage of sass customization in your other projects where the style is imported.
+
+The style folder looks like this:
+
+```
+mixins/
+    _icons.scss
+vars/
+    _colors.scss
+    _main.scss
+    _shadows.scss
+_content.scss
+_global.scss
+_helpers.scss
+_prefix.scss
+colors.scss
+ui.full.scss
+ui.scss
+```
+
+The `mixins` folder contains usful mixins that are used in different components.
+
+`vars` folder contains all the variables:
+
+-   `_colors.scss` defines the colors used in the application;
+-   `_main.scss` defines all the variables;
+-   `_shadows.scss` defines variables for shadows.
+
+`_helpers.scss` defines all the helpers: from padding to margin, height and width, flex shortcuts.
+
+`_prefix.scss` contains the prefix name for all classes and should match `config.UI_PREFIX` JS constant.
+
+`colors.scss` defines the colors classes.
+
+All the variables and main `scss` files are imported in `ui.scss` file.
+The `ui.scss` file itself and all the components files are imported in `ui.full.scss` file.
+
+### `utils` folder
+
+The `utils` folder contains utility files:
+
+-   `types.js` contains reusable PropTypes.

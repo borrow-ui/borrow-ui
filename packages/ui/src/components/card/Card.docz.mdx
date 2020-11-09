@@ -1,0 +1,70 @@
+---
+name: Card
+route: /components/card
+menu: Components
+---
+
+import { Fragment } from 'react';
+import { Playground, Props } from 'docz';
+
+import { Card } from './Card';
+import { Button } from '../button/Button';
+import { Icon } from '../icon/Icon';
+
+# Card
+
+The `Card` component creates a card with a `side` and a `main` part.
+The `side` part is used to render an icon (see `Icon` component).
+The `main` part has different properties:
+
+-   a `title`, rendered on top;
+-   a `subtitle`, rendred below the title;
+-   a `description`, the main content of the card;
+-   `controls`, rendered at the bottom, that can be used to add buttons or another description.
+
+Each of the sections have a dedicated prop that can be used to customize the section (i.e. `titleProps` - see the Props table below).
+
+<Playground>
+    <Card
+        standingHover={true}
+        icon={<Icon name="home" size="big" className="color-primary" />}
+        title="Card sample"
+        subtitle="Subtitle goes here"
+        description="Card can have content, called description, as well as title and subtitle. Check the hover!"
+        className="m-b-20"
+        style={{ maxWidth: 500 }}
+        sideProps={{ className: 'color-primary-bg' }}
+        controls={
+            <Fragment>
+                <div>Controls Content</div>
+                <div>
+                    <Button size="smaller" mean="regular-reverse" className="m-r-5">
+                        Secondary
+                    </Button>
+                    <Button size="smaller" mean="positive" onClick={() => window.alert('Clicked')}>
+                        Click me
+                    </Button>
+                </div>
+            </Fragment>
+        }
+    />
+</Playground>
+
+## Variations
+
+A card can be rendered without icon and controls as well:
+
+<Playground>
+    <Card
+        standingHover={true}
+        title="Card sample"
+        subtitle="Example of a card"
+        description="This card has only the main elements: title, subtitle and description. It also has fixed width."
+        className="m-b-20"
+        style={{ width: 300 }}
+    />
+</Playground>
+
+## Props
+
+<Props of={Card} />

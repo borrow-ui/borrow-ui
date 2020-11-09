@@ -1,0 +1,64 @@
+---
+name: Block
+route: /components/block
+menu: Components
+---
+
+import { Fragment } from 'react';
+import { Playground, Props } from 'docz';
+
+import { Block } from './Block';
+import { Lorem } from '../lorem/Lorem';
+
+# Block
+
+A `Block` can be used to wrap text or components.
+
+It has shortcuts for padding and margin, shadow and round borders,
+make the text centered (both vertically and horizontally) and to add a title,
+which can be customized via `titleProps` property.
+
+<Playground>
+    <Block title="Block title">
+        <Lorem />
+    </Block>
+</Playground>
+
+### Container props
+
+The `Block` container can be customized with different properties:
+
+-   `separated` adds a margin;
+-   `padded` adds padding;
+-   `rounded` makes border rounded;
+-   `outstanding` adds a shadow to make the block outstading from the background.
+
+<Playground>
+    <Block outstanding={true} rounded={false}>
+        With `outstanding` set to `true`.
+        <Lorem paragraphs={1} />
+    </Block>
+</Playground>
+
+Can also receive a `title` that is a component (not a string):
+
+<Playground>
+    <Block outstanding={true} rounded={false} title={<h2 style={{ color: 'red' }}>Red title</h2>}>
+        Is the title in red?
+        <Lorem paragraphs={1} />
+    </Block>
+</Playground>
+
+### Content props
+
+A shortcut to make the content centered is also present: `contentCentered` prop.
+
+<Playground>
+    <Block outstanding={true} contentCentered={true} style={{ height: 200 }}>
+        Height of 200px
+    </Block>
+</Playground>
+
+## Props
+
+<Props of={Block} />
