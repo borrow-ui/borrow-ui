@@ -10,7 +10,7 @@ import { StructureProject } from './StructureProject';
 import { KeyPoints } from './KeyPoints';
 import { GetTheCode } from './GetTheCode';
 
-import logo from 'static/borrow-ui-color-192.png';
+import logo from 'static/logo-color-192.png';
 import './home.scss';
 
 export function Home() {
@@ -31,7 +31,7 @@ export function Home() {
                 headerVisibleFollowRef={titleRef}
             >
                 <Responsive>
-                    {matches => (
+                    {(matches) => (
                         <HomeContent isSmallScreen={matches.small} setTitleRef={setTitleRef} />
                     )}
                 </Responsive>
