@@ -22,7 +22,7 @@ export function Navbar({ sticky = true, left, center, right }) {
 
     const resetState = () => setState(getInitialState());
 
-    const toggleBodyOpen = forcedStatus => {
+    const toggleBodyOpen = (forcedStatus) => {
         const { bodyOpen } = state;
         const newOpenStatus = forcedStatus !== undefined ? forcedStatus : !bodyOpen;
         setState({ ...state, bodyOpen: newOpenStatus });

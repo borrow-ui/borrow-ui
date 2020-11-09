@@ -42,7 +42,7 @@ export function SearchBar({
         <div className={searchBarClassName} {...rest}>
             {beforeInput && beforeInput}
             <Input
-                value={search}
+                value={search || ''}
                 onChange={(e) => changeSearch(e.target.value)}
                 className={inputClassName}
                 {...restInputProps}
