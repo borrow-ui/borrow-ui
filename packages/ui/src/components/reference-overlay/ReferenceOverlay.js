@@ -120,29 +120,28 @@ export function ReferenceOverlay({
 
     return (
         <>
-            <span
+            <div
                 ref={setReferenceElement}
                 className={referenceOverlayTriggerClass}
                 {...(clickable ? a11yClickableElement({ onClick: triggerOnClick }) : {})}
                 {...restTriggerProps}
             >
                 {children}
-            </span>
-
-            <div
-                ref={setPopperElement}
-                className={referenceOverlayClass}
-                style={overlayStyle}
-                {...attributes.popper}
-                {...restOverlayProps}
-            >
-                {overlayContent}
                 <div
-                    ref={setArrowElement}
-                    className={referenceOverlayArrowClass}
-                    style={overlayArrowStyle}
-                    {...restOverlayArrowProps}
-                />
+                    ref={setPopperElement}
+                    className={referenceOverlayClass}
+                    style={overlayStyle}
+                    {...attributes.popper}
+                    {...restOverlayProps}
+                >
+                    {overlayContent}
+                    <div
+                        ref={setArrowElement}
+                        className={referenceOverlayArrowClass}
+                        style={overlayArrowStyle}
+                        {...restOverlayArrowProps}
+                    />
+                </div>
             </div>
         </>
     );
