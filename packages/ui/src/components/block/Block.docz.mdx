@@ -62,3 +62,82 @@ A shortcut to make the content centered is also present: `contentCentered` prop.
 ## Props
 
 <Props of={Block} />
+
+---
+
+## React Tutorial
+
+As a text wrapper, the Block component starts by wrapping the content:
+
+```jsx
+import React from 'react';
+
+export function Block({ children }) {
+    return (
+        <div>{children}</div>;
+    );
+}
+```
+
+A set of props, along with a main `className`, can be passed to customize the
+block style. For an example, see the [Badge tutorial](/components/badge#tutorial).
+
+### Title and sub-components props
+
+A special prop, `title`, can be used to generate a title for the block.
+
+```jsx
+import React from 'react';
+
+export function Block({ title = '', children }) {
+
+    // Generate a title class
+    const titleClass = 'title';
+
+    return (
+        <div>
+            {title && <h2 className={titleClass}>{title}</h2>}
+            {children}
+        </div>;
+    );
+}
+```
+
+However, it would be convenient if we could also customize the title props as well.
+To separate the class customization from the main class for the block, we can
+use a `titleProps` main prop which will be used to customize the title component.
+The first try would be to spread the `titleProps`:
+
+```jsx
+<h2 className={titleClass} {...titleProps}>
+    {title}
+</h2>
+```
+
+but this would override the class generated.
+An easy trick is then to extract the `className` from the `titleProps` and append
+that new value to the generated one:
+
+```jsx
+import React from 'react';
+
+export function Block({ title = '', titleProps = {}, children }) {
+
+    // Extract the nested class
+    const { className: titleClassName = '', ...restTitleProps } = titleProps;
+    // Generate a title class
+    const titleClass = `title ${titleClassName}`.trim();
+
+    return (
+        <div>
+            {title && <h2 className={titleClass} {...restTitleProps}>{title}</h2>}
+            {children}
+        </div>;
+    );
+}
+```
+
+This is done via the object destructuring rename feature
+([see here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Assigning_to_new_variable_names)).
+The `className` prop is assigned to a variable called `titleClassName`, and all the other
+defined properties to the `restTitleProps` object.
