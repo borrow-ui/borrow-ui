@@ -58,10 +58,10 @@ export function ReferenceOverlay({
         const closeTooltip = (e) => {
             isVisible && !clickPersist && setIsVisible(false);
         };
-        document.addEventListener('click', closeTooltip);
+        typeof document !== undefined && document.addEventListener('click', closeTooltip);
 
         return () => {
-            document.removeEventListener('click', closeTooltip);
+            typeof document !== undefined && document.removeEventListener('click', closeTooltip);
         };
     });
 

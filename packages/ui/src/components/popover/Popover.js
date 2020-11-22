@@ -82,7 +82,7 @@ function useAmendedPosition(state, setState, containerRef, position) {
     useEffect(() => {
         const node = containerRef.current;
         if (node && state.visible) {
-            const leftBound = window.innerWidth;
+            const leftBound = typeof window !== 'undefined' ? window.innerWidth : 200;
             const dropDownRect = node.getBoundingClientRect();
             const lastCoord = state.left + dropDownRect.width;
 
@@ -113,10 +113,10 @@ function useAmendedPosition(state, setState, containerRef, position) {
                 if (!state.persist || e.target === state.triggerRef)
                     setState({ ...state, visible: false });
             };
-            document.addEventListener('click', closeMenu);
+            typeof document !== undefined && document.addEventListener('click', closeMenu);
 
             return () => {
-                document.removeEventListener('click', closeMenu);
+                typeof document !== undefined && document.removeEventListener('click', closeMenu);
             };
         }
     }, [state, setState, containerRef, position]);

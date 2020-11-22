@@ -71,7 +71,9 @@ export function ModalWindow({
         sizedModalContainerStyle.height = startHeight;
     }
 
-    const [modalContainer] = useState(document.createElement('div'));
+    const [modalContainer] = useState(
+        typeof document !== undefined ? document.createElement('div') : null
+    );
     const [modalState, setModalState] = useState({
         isMaximized: maximized,
         modalContainerStyle: maximized ? {} : sizedModalContainerStyle,
@@ -92,7 +94,7 @@ export function ModalWindow({
         const modalRoot = getModalRoot();
         modalRoot.appendChild(modalContainer);
 
-        const bodyOverflow = document.body.style.overflow;
+        const bodyOverflow = typeof document !== undefined && document.body.style.overflow;
 
         const openPromise = new Promise((resolve, reject) => {
             if (hooks.onOpen) return hooks.onOpen({ resolve, reject });
@@ -100,7 +102,7 @@ export function ModalWindow({
         });
         openPromise.then(() => {
             setModalState({ ...modalState, isLoading: false });
-            document.body.style.overflow = 'hidden';
+            if (typeof document !== undefined) document.body.style.overflow = 'hidden';
         });
 
         let closeOnEscapeCallback = null;
@@ -113,11 +115,14 @@ export function ModalWindow({
                 }
             };
 
+            if (typeof window !== 'undefined')
             window.addEventListener('keydown', closeOnEscapeCallback);
         }
 
         return function cleanup() {
             modalRoot.removeChild(modalContainer);
+            if (typeof document === undefined || typeof window === undefined) return;
+
             closeOnEscape && window.removeEventListener('keydown', closeOnEscapeCallback);
             document.body.style.overflow = bodyOverflow;
         };
@@ -266,6 +271,8 @@ IconClose.propTypes = {
 };
 
 function getModalRoot() {
+    if (typeof document === undefined) return;
+
     let modalRoot = document.getElementById(MODAL_ROOT_ID);
     if (modalRoot === null) {
         modalRoot = document.createElement('div');

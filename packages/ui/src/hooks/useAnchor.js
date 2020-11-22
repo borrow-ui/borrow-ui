@@ -17,7 +17,8 @@ export function useAnchor() {
     useEffect(() => {
         if (!hash) return;
         const refHash = hash.split('?')[0].substr(1);
-        const element = document.querySelector(`[name='${refHash}']`);
+        const element =
+            typeof document !== undefined && document.querySelector(`[name='${refHash}']`);
         if (element) element.scrollIntoView();
     }, [hash]);
 }
