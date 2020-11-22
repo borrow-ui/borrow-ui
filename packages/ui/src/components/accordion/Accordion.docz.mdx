@@ -31,3 +31,42 @@ It is set in the CSS, but in case the default value is not enough it can be over
 ## Props
 
 <Props of={Accordion} />
+
+---
+
+## React Tutorial
+
+Accordion component is relative simple.
+The main elements are the title and the content, both wrapped into their containers.
+
+The idea is that clicking on the title the content shuold swap visibilty.
+For example, if the content is not visible, clicking the title should make it visible.
+
+To achieve this we can use a state variable and show/hide the content accordingly:
+
+```jsx
+import React, { useState } from 'react';
+
+export function Accordion({ title, children }) {
+    const [isOpen, setIsOpen] = useState(false); // make content hidden by default
+
+    return (
+        <div>
+            <div onClick={() => setIsOpen(!isOpen)}>{title}</div>
+            <div style={{ display: isOpen ? 'block' : 'none' }}>{children}</div>
+        </div>
+    );
+}
+```
+
+We can then customize the initial state with another prop: `initialStatus`.
+This can have more explicit values rather than just a boolean, such as `open` or `closed`:
+
+```jsx
+export function Accordion({ title, initialStatus, children }) {
+    // Initialization based on initialStatus prop
+    const [isOpen, setIsOpen] = useState(initialStatus === 'open');
+
+    // ... same as before
+}
+```
