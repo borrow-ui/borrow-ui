@@ -116,7 +116,7 @@ export function ModalWindow({
             };
 
             if (typeof window !== 'undefined')
-            window.addEventListener('keydown', closeOnEscapeCallback);
+                window.addEventListener('keydown', closeOnEscapeCallback);
         }
 
         return function cleanup() {

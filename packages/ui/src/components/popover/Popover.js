@@ -42,13 +42,14 @@ export function Popover({
     const containerStyle = { top: state.top + 'px', left: state.left + 'px' };
 
     const triggerProps = {};
-    if (triggerOn === 'click') triggerProps.onClick = e => toggleMenuVisibility(e, state, setState);
+    if (triggerOn === 'click')
+        triggerProps.onClick = (e) => toggleMenuVisibility(e, state, setState);
     if (triggerOn === 'hover') {
-        triggerProps.onMouseEnter = e => toggleMenuVisibility(e, state, setState);
+        triggerProps.onMouseEnter = (e) => toggleMenuVisibility(e, state, setState);
         if (!persist) {
-            triggerProps.onMouseLeave = e => setState(st => ({ ...st, visible: false }));
+            triggerProps.onMouseLeave = (e) => setState((st) => ({ ...st, visible: false }));
         } else {
-            triggerProps.onClick = e => toggleMenuVisibility(e, state, setState);
+            triggerProps.onClick = (e) => toggleMenuVisibility(e, state, setState);
         }
     }
 
@@ -109,7 +110,7 @@ function useAmendedPosition(state, setState, containerRef, position) {
                 setState({ ...state, ...amendedState });
             }
 
-            const closeMenu = e => {
+            const closeMenu = (e) => {
                 if (!state.persist || e.target === state.triggerRef)
                     setState({ ...state, visible: false });
             };
