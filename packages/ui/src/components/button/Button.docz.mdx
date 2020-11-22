@@ -91,3 +91,135 @@ Showcase of other props using `flat` and `icon`; If you want to put aside button
 ## Props
 
 <Props of={Button} />
+
+---
+
+## React Tutorial
+
+Button component allows to create consistent buttons with basic meanings: regular, primary,
+semaphore (positive/negative/warning) and accentuated.
+
+To start, we can define some CSS classes (one for each mean) and associate a `mean` prop:
+
+```jsx
+import React from 'react';
+
+export function Button({ mean='regular', children, ...rest }) {
+    const className = `button button--${mean}`;
+
+    return (
+        <button className={className} {...rest}>{children}</button>;
+    );
+}
+```
+
+Given the consistency of the BEM style, we can add other properties,
+such as size or separated (with margins) and apply all these modifiers at once:
+
+```jsx
+import React from 'react';
+
+export function Button({ mean='regular', size='normal', separated=false, children, ...rest }) {
+    const mods = [ // set values if prop is not undefined,
+        mean && mean,
+        size && size,
+        separated && 'separated',
+    ].filter(m => m); // remove undefined
+
+    // generate BEM classes
+    const modifiersClass = mods.map(mod => `button--${mod}`).join(' ');
+    const className = `button ${modifiersClass}`.trim();
+
+    return (
+        <button className={className} {...rest}>{children}</button>;
+    );
+}
+```
+
+In the above examples, if we pass a `className` in the rest props, it will override
+the built one so we need to take that into consideration as well:
+
+```jsx
+import React from 'react';
+
+export function Button({ mean='regular', size='normal', separated=false, className='', children, ...rest }) {
+    // ... same as before
+
+    const buttonClassName = `button ${className} ${modifiersClass}`.trim();
+
+    return (
+        <button className={buttonClassName} {...rest}>{children}</button>;
+    );
+}
+```
+
+Like other components, we can customize the tag as well:
+
+```jsx {diff}
+import React from 'react';
+
+export function Button({
+    mean = 'regular',
+    size = 'normal',
+    separated = false,
++     tag: Tag = 'button',
+    className = '',
+    children,
+    ...rest
+}) {
+    // ... same as before
+
+    return (
+        <Tag className={buttonClassName} {...rest}>{children}</Tag>;
+    );
+}
+```
+
+Finally, we can add a shortcut to include an icon before the button text.
+For consistency, icons will use the `Icon` component by default.
+In this case, the only custom property to be derived from button is the size:
+the icon size should be smaller than the button, given it will be "inside" it.
+
+Since buttons and icons shares the same sizes names, we can take the immediate smaller one
+automatically:
+
+```jsx {diff}
+import React from 'react';
+
++import { SIZES } from '../../config';
++import { Icon } from '../icon/Icon';
+
+export function Button({
+    mean = 'regular',
+    size = 'normal',
+    separated = false,
+    tag: Tag = 'button',
++     icon,
++     iconProps = {},
+    className = '',
+    children,
+    ...rest
+}) {
+    // ... same as before
+
+    // Get icon size that is smaller than button or the smallest
+    // if the button is the smallest as well
++    const iconSize = icon && SIZES[Math.max(SIZES.indexOf(size) - 1, 0)];
+    // Get the class name to extened it with a margin helper
++    const { className: iconClassName = '', ...restIconProps } = iconProps;
+
+    return (
+        <Tag className={buttonClassName} {...rest}>
++            {icon && (
++                <Icon
++                    size={iconSize}
++                    name={icon}
++                    {...restIconProps}
++                    className={`${iconClassName} m-r-5`}
++                />
++            )}
+            <span>{children}</span>
+        </Tag>;
+    );
+}
+```
