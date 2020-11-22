@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import 'style/components/navbar/navbar.scss';
-
 import { UI_PREFIX } from '../../config';
 import { NavbarGroup } from './NavbarGroup';
 import { NavbarBody } from './NavbarBody';
 
 const NAVBAR_CLASS = `${UI_PREFIX}__navbar`;
 const NAVBAR_STICKY_CLASS = `${UI_PREFIX}__navbar--sticky`;
+const NAVBAR_FIXED_CLASS = `${UI_PREFIX}__navbar--fixed`;
 const NAVBAR_HEADER_CLASS = `${UI_PREFIX}__navbar__header`;
 
 const getInitialState = () => ({
@@ -17,7 +16,7 @@ const getInitialState = () => ({
     query: '',
 });
 
-export function Navbar({ sticky = true, left, center, right }) {
+export function Navbar({ sticky = true, fixed = false, left, center, right }) {
     const [state, setState] = useState({ ...getInitialState() });
 
     const resetState = () => setState(getInitialState());
@@ -48,7 +47,9 @@ export function Navbar({ sticky = true, left, center, right }) {
     const SelectedItemBody =
         selectedItem && selectedItem.hasOwnProperty('bodyItem') ? selectedItem.bodyItem : null;
 
-    const navbarClass = `${NAVBAR_CLASS} ${sticky ? NAVBAR_STICKY_CLASS : ''}`;
+    const stickyClass = sticky ? NAVBAR_STICKY_CLASS : '';
+    const fixedClass = fixed ? NAVBAR_FIXED_CLASS : '';
+    const navbarClass = `${NAVBAR_CLASS} ${stickyClass} ${fixedClass}`.trim();
 
     return (
         <header className={navbarClass}>
@@ -89,7 +90,10 @@ const elementsPropType = PropTypes.oneOfType([
 ]);
 
 Navbar.propTypes = {
+    /** Position with position:sticky on the top of the container */
     sticky: PropTypes.bool,
+    /** Use position:fixed to move the navbar on the top of the page, ignoring container */
+    fixed: PropTypes.bool,
     left: elementsPropType,
     center: elementsPropType,
     right: elementsPropType,
