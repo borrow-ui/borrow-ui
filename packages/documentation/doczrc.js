@@ -22,5 +22,15 @@ export default {
     "Hooks",
     "Contribute",
   ],
+  gatsbyRemarkPlugins: [
+    {
+      resolve: "gatsby-remark-vscode",
+      options: {
+        injectStyles: false,
+        theme: {
+          default: "Dark+ (default dark)",
+        },
+      },
+    },
   ],
 };
