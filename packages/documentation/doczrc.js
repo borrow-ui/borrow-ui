@@ -10,8 +10,8 @@ export default {
   files: ["**/*.docz.mdx", "../ui/**/*.docz.mdx"],
   ignore: ["../ui/node_modules"],
   menu: [
-    "Introduction",
-    "Getting Started",
+    "Welcome",
+    "Installation",
     {
       name: "Project Structure",
       menu: ["Introduction", "UI Package", "Add a Component"],
@@ -19,5 +19,8 @@ export default {
     "Typography",
     "Components",
     { name: "Forms", menu: ["Introduction", "Field", "Label"] },
+    "Hooks",
+    "Contribute",
+  ],
   ],
 };

@@ -21,7 +21,6 @@ function Paragraph({ children, ...rest }) {
 }
 
 function Props({ children, props, ...rest }) {
-  console.log(rest, arguments);
   const entries = Object.keys(props).map((name) => {
     const prop = props[name];
     return {
@@ -32,11 +31,11 @@ function Props({ children, props, ...rest }) {
         <Monospace>{prop.defaultValue.value}</Monospace>
       ),
       description: prop.description && (
-        <>
+        <div>
           {prop.description.map((block, i) => (
             <div key={i}>{block}</div>
           ))}
-        </>
+        </div>
       ),
     };
   });
@@ -60,12 +59,15 @@ function Props({ children, props, ...rest }) {
 
 export const customComponents = {
   ...components,
+
+  // Custom generated components
   h1: generateTitle("h1"),
   h2: generateTitle("h2"),
   h3: generateTitle("h3"),
   h4: generateTitle("h4"),
   h5: generateTitle("h5"),
   h6: generateTitle("h6"),
+  hr: () => <hr className="docz-hr" />,
   p: Paragraph,
   props: Props,
   inlineCode: Monospace,
