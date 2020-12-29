@@ -11,8 +11,6 @@ It has a simple structure and few tools already setup:
 
 -   [jest](https://jestjs.io/) and
     [react-testing-library](https://testing-library.com/docs/react-testing-library/intro) for tests;
--   storybook for documentation and, in combination with the
-    [storyshot addon](https://github.com/storybookjs/storybook/tree/master/addons/storyshots), for snapshots tests;
 -   [webpack](https://webpack.js.org/) to bundle all the files;
 -   [prettier](https://prettier.io/) to format the code;
 -   [babel](https://babeljs.io/) to transpile;
@@ -23,7 +21,6 @@ It has a simple structure and few tools already setup:
 The main folder looks like this:
 
 ```
-.storybook
 lib
 src
 stories
@@ -38,8 +35,8 @@ webpack.dev.js
 webpack.prod.js
 ```
 
--   `.storybook` and `stories` folder are Storybook related configuration and main stories.
-    Each component will also include it's own stories (`*.stories.mdx` files);
+-   `stories` folder contains the main documentation files.
+    Each component will also include it's own stories (`*.docz.mdx` files);
 -   `lib` folder will contain the build version of the `ui` package;
 -   `src` folder contains all the source for components (`*.js` files) and styles (`*.scss` files);
 -   `.babelrc` contains babel configuration (standard React preset);
@@ -55,8 +52,7 @@ webpack.prod.js
 
 ## src folder
 
-While `.storybook` and `stories` folder are pretty straightforward to understand, the `src` folder deserves documentation.
-The structure is the following:
+The structure of the `src` folder is the following:
 
 ```
 src/
@@ -66,7 +62,6 @@ src/
     utils
     config.js
     index.js
-    storybook.test.js
 ```
 
 ### Main files

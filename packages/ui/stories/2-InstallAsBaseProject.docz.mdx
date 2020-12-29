@@ -1,7 +1,7 @@
 ---
 name: Use as a project base
 route: /introduction/getting-started-use-as-a-project-base
-menu: Getting Started
+menu: Installation
 ---
 
 # Use as a project base
@@ -15,6 +15,7 @@ and [yarn workspaces](https://yarnpkg.com/features/workspaces).
 The following packages are included:
 
 -   `ui`: the components library;
+-   `documentation`: components and website documentation;
 -   `website`: public website presenting the project;
 -   `example-dashboard`: a dashboard backbone example; [TODO #4](https://github.com/borrow-ui/borrow-ui/issues/4)
 
@@ -27,9 +28,9 @@ or one of the [many tutorials](https://www.google.com/search?q=lerna+yarn+worksp
 ### Download and rename the project
 
 Download the latest zip [here](https://github.com/borrow-ui/borrow-ui/archive/master.zip)
-and extract the content, for example in `~Downloads/borrow-ui-master`.
+and extract the content, for example in `~/Downloads/borrow-ui-master`.
 
-Copy and rename the package anywhere, like in `~repositories/my-ui-name`.
+Copy and rename the package anywhere, like in `~/repositories/my-ui-name`.
 Delete the packages you don't need, for example `packages/website`.
 
 Now, with your favourite editor (a [script is planned](https://github.com/borrow-ui/borrow-ui/issues/5))
@@ -64,7 +65,7 @@ git push -u origin master
 
 ### Start developing the components
 
-The `packages/ui` folder contains the components and their styles, along with this guide and the tests.
+The `packages/ui` folder contains the components and their styles, along with the tests.
 
 There are few commands you can use to develop your components. From `packages/ui` folder, you can run:
 
@@ -74,9 +75,6 @@ There are few commands you can use to develop your components. From `packages/ui
     application if you want to use the relative components. For a list of all peer dependencies,
     see "peerDependencies" section in the [package.json](https://github.com/borrow-ui/borrow-ui/blob/master/packages/ui/package.json) file;
 -   `yarn test --watchAll` to run tests and watch for changes.
--   `yarn storybook` to start [Storybook](https://storybook.js.org/) server in development mode.
-    If you use Storybook, you can develop your components without the watcher or other projects as it looks for changes
-    in your folders. Remember to document your components!
 
 Production commands are very similar to the standard list of commands for any React project:
 
@@ -84,7 +82,17 @@ Production commands are very similar to the standard list of commands for any Re
     This version is minified and contains only the components and `flexboxgrid2`, so all other packages
     must be installed in your application
     (see "peerDependencies" section in the [package.json](https://github.com/borrow-ui/borrow-ui/blob/master/packages/ui/package.json) file);
--   `yarn test` to launch the tests without watcher.
+-   `yarn test` to launch the tests without watcher;
+
+#### Documentation
+
+The `packages/documentation` folders contains this guide backbone and the `docz` configuration files.
+Two commands are available:
+
+-   `yarn docz:dev` to start [Docz](https://www.docz.site/) server in development mode.
+    This allows you to develop your components without the watcher or other projects as it looks for changes
+    in your folders. Remember to document your components! (...and to restart the dev site when you add new components/docs files)
+-   `yarn docz:build` to build the documentation for production.
 
 ### Add new packages
 
