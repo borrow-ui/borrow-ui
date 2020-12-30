@@ -95,6 +95,52 @@ The initial input value can be specified via `initialSearch` prop:
     </div>
 </Playground>
 
+### Controlling the search value outside
+
+Sometimes we need to control the search value outside the component, for example when
+setting filters from a table or to handle suggestions.
+
+This can be done by setting the `globalSearch` and `setGlobalSearch` props:
+
+<Playground>
+    <div className="storybook-container">
+        <SearchBarStoryWrapper
+            entries={[
+                { id: 1, name: 'first entry', group: 'group 1' },
+                { id: 2, name: 'second entry', group: 'group 2' },
+                { id: 3, name: 'third entry', group: 'group 1' },
+            ]}
+            withGlobalSearch={true}
+        >
+            {({ entries, setFilteredEntries, globalSearch, setGlobalSearch }) => {
+                return (
+                    <div>
+                        <p>Filter the entries by tags</p>
+                        <div>
+                            <button onClick={() => setGlobalSearch('first')} className="m-r-10">
+                                first
+                            </button>
+                            <button onClick={() => setGlobalSearch('second')} className="m-r-10">
+                                second
+                            </button>
+                            <button onClick={() => setGlobalSearch('third')} className="m-r-10">
+                                third
+                            </button>
+                        </div>
+                        <p>Filter the entries by text</p>
+                        <SearchBar
+                            entries={entries}
+                            setFilteredEntries={setFilteredEntries}
+                            globalSearch={globalSearch}
+                            setGlobalSearch={setGlobalSearch}
+                        />
+                    </div>
+                );
+            }}
+        </SearchBarStoryWrapper>
+    </div>
+</Playground>
+
 ## Props
 
 <Props of={SearchBar} />
