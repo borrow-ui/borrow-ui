@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
+    "@mdx-js/mdx": "^1.6.16",
     "dayjs": "^1.8.35",
     "docz": "^2.3.1",
     "gatsby-plugin-catch-links": "^2.3.15",
