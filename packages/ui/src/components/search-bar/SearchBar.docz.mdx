@@ -17,24 +17,22 @@ Only text properties are looked up for matching values.
 By default, all entries with a value that includes the search text are returned.
 
 <Playground>
-    <div className="storybook-container">
-        <SearchBarStoryWrapper
-            entries={[
-                { id: 1, name: 'first entry' },
-                { id: 2, name: 'second entry' },
-                { id: 3, name: 'third entry' },
-            ]}
-        >
-            {({ entries, setFilteredEntries }) => {
-                return (
-                    <div>
-                        <p>Filter the entries by text</p>
-                        <SearchBar entries={entries} setFilteredEntries={setFilteredEntries} />
-                    </div>
-                );
-            }}
-        </SearchBarStoryWrapper>
-    </div>
+    <SearchBarStoryWrapper
+        entries={[
+            { id: 1, name: 'first entry' },
+            { id: 2, name: 'second entry' },
+            { id: 3, name: 'third entry' },
+        ]}
+    >
+        {({ entries, setFilteredEntries }) => {
+            return (
+                <div>
+                    <p>Filter the entries by text</p>
+                    <SearchBar entries={entries} setFilteredEntries={setFilteredEntries} />
+                </div>
+            );
+        }}
+    </SearchBarStoryWrapper>
 </Playground>
 
 ### Exact match
@@ -42,28 +40,26 @@ By default, all entries with a value that includes the search text are returned.
 To filter only entries with an exact match, set `stringIncludes` property to `false`:
 
 <Playground>
-    <div className="storybook-container">
-        <SearchBarStoryWrapper
-            entries={[
-                { id: 1, name: 'first entry', group: 'group 1' },
-                { id: 2, name: 'second entry', group: 'group 2' },
-                { id: 3, name: 'third entry', group: 'group 1' },
-            ]}
-        >
-            {({ entries, setFilteredEntries }) => {
-                return (
-                    <div>
-                        <p>Filter the entries by text</p>
-                        <SearchBar
-                            entries={entries}
-                            setFilteredEntries={setFilteredEntries}
-                            stringIncludes={false}
-                        />
-                    </div>
-                );
-            }}
-        </SearchBarStoryWrapper>
-    </div>
+    <SearchBarStoryWrapper
+        entries={[
+            { id: 1, name: 'first entry', group: 'group 1' },
+            { id: 2, name: 'second entry', group: 'group 2' },
+            { id: 3, name: 'third entry', group: 'group 1' },
+        ]}
+    >
+        {({ entries, setFilteredEntries }) => {
+            return (
+                <div>
+                    <p>Filter the entries by text</p>
+                    <SearchBar
+                        entries={entries}
+                        setFilteredEntries={setFilteredEntries}
+                        stringIncludes={false}
+                    />
+                </div>
+            );
+        }}
+    </SearchBarStoryWrapper>
 </Playground>
 
 ### Initial Search
@@ -71,28 +67,26 @@ To filter only entries with an exact match, set `stringIncludes` property to `fa
 The initial input value can be specified via `initialSearch` prop:
 
 <Playground>
-    <div className="storybook-container">
-        <SearchBarStoryWrapper
-            entries={[
-                { id: 1, name: 'first entry', group: 'group 1' },
-                { id: 2, name: 'second entry', group: 'group 2' },
-                { id: 3, name: 'third entry', group: 'group 1' },
-            ]}
-        >
-            {({ entries, setFilteredEntries }) => {
-                return (
-                    <div>
-                        <p>Filter the entries by text</p>
-                        <SearchBar
-                            entries={entries}
-                            setFilteredEntries={setFilteredEntries}
-                            initialSearch="second"
-                        />
-                    </div>
-                );
-            }}
-        </SearchBarStoryWrapper>
-    </div>
+    <SearchBarStoryWrapper
+        entries={[
+            { id: 1, name: 'first entry', group: 'group 1' },
+            { id: 2, name: 'second entry', group: 'group 2' },
+            { id: 3, name: 'third entry', group: 'group 1' },
+        ]}
+    >
+        {({ entries, setFilteredEntries }) => {
+            return (
+                <div>
+                    <p>Filter the entries by text</p>
+                    <SearchBar
+                        entries={entries}
+                        setFilteredEntries={setFilteredEntries}
+                        initialSearch="second"
+                    />
+                </div>
+            );
+        }}
+    </SearchBarStoryWrapper>
 </Playground>
 
 ### Controlling the search value outside
@@ -103,42 +97,40 @@ setting filters from a table or to handle suggestions.
 This can be done by setting the `globalSearch` and `setGlobalSearch` props:
 
 <Playground>
-    <div className="storybook-container">
-        <SearchBarStoryWrapper
-            entries={[
-                { id: 1, name: 'first entry', group: 'group 1' },
-                { id: 2, name: 'second entry', group: 'group 2' },
-                { id: 3, name: 'third entry', group: 'group 1' },
-            ]}
-            withGlobalSearch={true}
-        >
-            {({ entries, setFilteredEntries, globalSearch, setGlobalSearch }) => {
-                return (
+    <SearchBarStoryWrapper
+        entries={[
+            { id: 1, name: 'first entry', group: 'group 1' },
+            { id: 2, name: 'second entry', group: 'group 2' },
+            { id: 3, name: 'third entry', group: 'group 1' },
+        ]}
+        withGlobalSearch={true}
+    >
+        {({ entries, setFilteredEntries, globalSearch, setGlobalSearch }) => {
+            return (
+                <div>
+                    <p>Filter the entries by tags</p>
                     <div>
-                        <p>Filter the entries by tags</p>
-                        <div>
-                            <button onClick={() => setGlobalSearch('first')} className="m-r-10">
-                                first
-                            </button>
-                            <button onClick={() => setGlobalSearch('second')} className="m-r-10">
-                                second
-                            </button>
-                            <button onClick={() => setGlobalSearch('third')} className="m-r-10">
-                                third
-                            </button>
-                        </div>
-                        <p>Filter the entries by text</p>
-                        <SearchBar
-                            entries={entries}
-                            setFilteredEntries={setFilteredEntries}
-                            globalSearch={globalSearch}
-                            setGlobalSearch={setGlobalSearch}
-                        />
+                        <button onClick={() => setGlobalSearch('first')} className="m-r-10">
+                            first
+                        </button>
+                        <button onClick={() => setGlobalSearch('second')} className="m-r-10">
+                            second
+                        </button>
+                        <button onClick={() => setGlobalSearch('third')} className="m-r-10">
+                            third
+                        </button>
                     </div>
-                );
-            }}
-        </SearchBarStoryWrapper>
-    </div>
+                    <p>Filter the entries by text</p>
+                    <SearchBar
+                        entries={entries}
+                        setFilteredEntries={setFilteredEntries}
+                        globalSearch={globalSearch}
+                        setGlobalSearch={setGlobalSearch}
+                    />
+                </div>
+            );
+        }}
+    </SearchBarStoryWrapper>
 </Playground>
 
 ## Props

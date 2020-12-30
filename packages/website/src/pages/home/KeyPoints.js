@@ -34,7 +34,7 @@ export function KeyPoints() {
                     </Tile>
                 </Col>
                 <Col colClassName="col-xs-6 col-md-3 flex-center-start">
-                    <Tile description="Storybook">
+                    <Tile description="Docz">
                         <Icon name="grid_view" size="bigger" />
                     </Tile>
                 </Col>

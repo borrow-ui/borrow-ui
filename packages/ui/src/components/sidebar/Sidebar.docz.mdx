@@ -44,46 +44,44 @@ export function Page() {
 ```
 
 <Playground>
-    <div className="storybook-container">
-        <div style={{ display: 'flex', width: '100%' }}>
-            <Sidebar
-                top={(sidebarState, setSidebarState) => (
-                    <Fragment>
-                        <SidebarEntry sidebarState={sidebarState} iconName="dashboard">
-                            Dashboard
-                        </SidebarEntry>
-                        <SidebarEntry sidebarState={sidebarState} shortcut="SC">
-                            Shortcut
-                        </SidebarEntry>
-                        <SidebarEntry
-                            sidebarState={sidebarState}
-                            setSidebarState={setSidebarState}
-                            id="entry-with-details"
-                            iconName="assignment"
-                            details={
-                                <ul>
-                                    <li>Row 1</li>
-                                    <li>Row 2</li>
-                                </ul>
-                            }
-                        >
-                            Click for details
-                        </SidebarEntry>
-                        <SidebarEntry sidebarState={sidebarState}>
-                            <span>No Icon or shortcut</span>
-                        </SidebarEntry>
-                        <SidebarEntry sidebarState={sidebarState} shortcut={null}>
-                            <span>No Icon or shortcut (with spacer)</span>
-                        </SidebarEntry>
-                    </Fragment>
-                )}
-            />
-            <div className="p-l-20 p-r-20 p-b-20">
-                <h2 className="m-t-10">Collapsible Sidebar</h2>
-                <Block className="overflow-auto h-400">
-                    <Lorem />
-                </Block>
-            </div>
+    <div style={{ display: 'flex', width: '100%' }}>
+        <Sidebar
+            top={(sidebarState, setSidebarState) => (
+                <Fragment>
+                    <SidebarEntry sidebarState={sidebarState} iconName="dashboard">
+                        Dashboard
+                    </SidebarEntry>
+                    <SidebarEntry sidebarState={sidebarState} shortcut="SC">
+                        Shortcut
+                    </SidebarEntry>
+                    <SidebarEntry
+                        sidebarState={sidebarState}
+                        setSidebarState={setSidebarState}
+                        id="entry-with-details"
+                        iconName="assignment"
+                        details={
+                            <ul>
+                                <li>Row 1</li>
+                                <li>Row 2</li>
+                            </ul>
+                        }
+                    >
+                        Click for details
+                    </SidebarEntry>
+                    <SidebarEntry sidebarState={sidebarState}>
+                        <span>No Icon or shortcut</span>
+                    </SidebarEntry>
+                    <SidebarEntry sidebarState={sidebarState} shortcut={null}>
+                        <span>No Icon or shortcut (with spacer)</span>
+                    </SidebarEntry>
+                </Fragment>
+            )}
+        />
+        <div className="p-l-20 p-r-20 p-b-20">
+            <h2 className="m-t-10">Collapsible Sidebar</h2>
+            <Block className="overflow-auto h-400">
+                <Lorem />
+            </Block>
         </div>
     </div>
 </Playground>
@@ -103,28 +101,26 @@ This uses `SideMenu` component.
 The sidebar can be made non-collapsible, so the menu is always visible.
 
 <Playground>
-    <div className="storybook-container">
-        <div style={{ display: 'flex', width: '100%' }}>
-            <Sidebar initialStatus="open" disableTrigger={true} shadowWhenOpen={false}>
-                <SidebarMenu padded={true}>
-                    <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
-                    <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
-                    <SidebarMenu.Entry>Entry 2</SidebarMenu.Entry>
-                    <SidebarMenu.Entry>Entry 3</SidebarMenu.Entry>
-                    <SidebarMenu.Separator />
-                    <SidebarMenu.Title>Section Title 2</SidebarMenu.Title>
-                    <SidebarMenu.Entry>Entry 4</SidebarMenu.Entry>
-                    <SidebarMenu.Title>Section Title 3</SidebarMenu.Title>
-                    <SidebarMenu.Entry>Entry 5</SidebarMenu.Entry>
-                    <SidebarMenu.Entry>Entry 6</SidebarMenu.Entry>
-                </SidebarMenu>
-            </Sidebar>
-            <div className="p-l-20 p-r-20 p-b-20">
-                <h2 className="m-t-10">Non-Collapsible Sidebar</h2>
-                <Block className="overflow-auto h-400">
-                    <Lorem />
-                </Block>
-            </div>
+    <div style={{ display: 'flex', width: '100%' }}>
+        <Sidebar initialStatus="open" disableTrigger={true} shadowWhenOpen={false}>
+            <SidebarMenu padded={true}>
+                <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
+                <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
+                <SidebarMenu.Entry>Entry 2</SidebarMenu.Entry>
+                <SidebarMenu.Entry>Entry 3</SidebarMenu.Entry>
+                <SidebarMenu.Separator />
+                <SidebarMenu.Title>Section Title 2</SidebarMenu.Title>
+                <SidebarMenu.Entry>Entry 4</SidebarMenu.Entry>
+                <SidebarMenu.Title>Section Title 3</SidebarMenu.Title>
+                <SidebarMenu.Entry>Entry 5</SidebarMenu.Entry>
+                <SidebarMenu.Entry>Entry 6</SidebarMenu.Entry>
+            </SidebarMenu>
+        </Sidebar>
+        <div className="p-l-20 p-r-20 p-b-20">
+            <h2 className="m-t-10">Non-Collapsible Sidebar</h2>
+            <Block className="overflow-auto h-400">
+                <Lorem />
+            </Block>
         </div>
     </div>
 </Playground>

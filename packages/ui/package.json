@@ -11,8 +11,6 @@
         "watch": "webpack --watch --progress --config webpack.dev.js",
         "compile-css": "sass src/style/ui.full.scss lib/ui.full.css",
         "compile-css-min": "sass src/style/ui.full.scss lib/ui.full.min.css --style=compressed",
-        "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook",
         "test": "jest"
     },
     "dependencies": {

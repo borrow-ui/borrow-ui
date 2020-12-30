@@ -24,49 +24,47 @@ Tabs are managed as a list; the initial open item can be set by using the tab's 
 This index starts from 1.
 
 <Playground>
-    <div className="storybook-container">
-        <Tabs
-            tabs={[
-                {
-                    label: 'First',
-                    content: (
-                        <Block>
-                            <h2>First</h2>
-                            <Lorem />
-                        </Block>
-                    ),
-                },
-                {
-                    label: 'Default',
-                    content: (
-                        <Block>
-                            <h2>Default</h2>
-                            <Lorem />
-                        </Block>
-                    ),
-                },
-                {
-                    label: 'Third',
-                    content: (
-                        <Block>
-                            <h2>Third</h2>
-                            <Lorem />
-                        </Block>
-                    ),
-                },
-                {
-                    label: 'Fourth',
-                    content: (
-                        <Block>
-                            <h2>Fourth</h2>
-                            <Lorem />
-                        </Block>
-                    ),
-                },
-            ]}
-            firstOpen={2}
-        />
-    </div>
+    <Tabs
+        tabs={[
+            {
+                label: 'First',
+                content: (
+                    <Block>
+                        <h2>First</h2>
+                        <Lorem />
+                    </Block>
+                ),
+            },
+            {
+                label: 'Default',
+                content: (
+                    <Block>
+                        <h2>Default</h2>
+                        <Lorem />
+                    </Block>
+                ),
+            },
+            {
+                label: 'Third',
+                content: (
+                    <Block>
+                        <h2>Third</h2>
+                        <Lorem />
+                    </Block>
+                ),
+            },
+            {
+                label: 'Fourth',
+                content: (
+                    <Block>
+                        <h2>Fourth</h2>
+                        <Lorem />
+                    </Block>
+                ),
+            },
+        ]}
+        firstOpen={2}
+    />
 </Playground>
 
 `Tabs` component is divided into two parts: header and body.

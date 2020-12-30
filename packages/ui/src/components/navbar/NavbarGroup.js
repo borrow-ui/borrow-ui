@@ -43,7 +43,7 @@ export function NavbarGroup({ position, elements, toggleSetItem }) {
     );
 }
 
-// component created only to generate props table in Storybook
+// component created only to generate props table in Docz
 export function Element() {
     return <span />;
 }
