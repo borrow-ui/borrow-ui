@@ -35,14 +35,14 @@ export function Tabs({
                 tabs={tabs}
                 selectedTab={selected}
                 setSelectedTab={setSelected}
-                {...tabBodyProps}
+                {...tabHeaderProps}
             />
             <TabBody
                 tabs={tabs}
                 selectedTab={selected}
                 padded={padded}
                 paddedTop={paddedTop}
-                {...tabHeaderProps}
+                {...tabBodyProps}
             />
         </div>
     );

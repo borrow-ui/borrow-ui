@@ -47,6 +47,7 @@ import { Text } from './components/text/Text';
 import { Tile } from './components/tile/Tile';
 import { Title } from './components/text/Title';
 import { TextContainer } from './components/text/TextContainer';
+import { Tooltip } from './components/tooltip/Tooltip';
 
 // hooks
 import { useAnchor, useRefHash } from './hooks/useAnchor';
@@ -108,6 +109,7 @@ export {
     TextContainer,
     Tile,
     Title,
+    Tooltip,
     // hooks
     useAnchor,
     useRefHash,

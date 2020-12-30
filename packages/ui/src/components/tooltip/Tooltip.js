@@ -6,8 +6,6 @@ import { propTypesChildren } from '../../utils/types';
 
 import { ReferenceOverlay, PLACEMENTS } from '../reference-overlay/ReferenceOverlay';
 
-// import './tooltip.scss';
-
 const TOOLTIP_CLASS = `${UI_PREFIX}__tooltip`;
 const TOOLTIP_ARROW_CLASS = `${UI_PREFIX}__tooltip__arrow`;
 
