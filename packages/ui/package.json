@@ -22,6 +22,7 @@
     "peerDependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
         "dayjs": "^1.8.35",
+        "lodash.debounce": "^4.0.8",
         "material-design-icons-iconfont": "^5.0.1",
         "react": "16.13.0",
         "react-day-picker": "^7.4.0",
@@ -42,6 +43,7 @@
         "css-loader": "^4.3.0",
         "dayjs": "^1.8.35",
         "file-loader": "^6.1.0",
+        "lodash.debounce": "^4.0.8",
         "jest": "^25.4.0",
         "material-design-icons-iconfont": "^6.1.0",
         "node-sass": "^4.14.1",

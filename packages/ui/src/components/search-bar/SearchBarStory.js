@@ -7,10 +7,11 @@ import { propTypesChildren } from '../../utils/types';
 
 export function SearchBarStoryWrapper({ entries, children }) {
     const [filteredEntries, setFilteredEntries] = useState(entries);
+    const [globalSearch, setGlobalSearch] = useState(null);
 
     return (
         <>
-            {children({ entries, setFilteredEntries })}
+            {children({ entries, setFilteredEntries, globalSearch, setGlobalSearch })}
             <div>
                 <h3>Story filtered entries:</h3>
                 <ul>
