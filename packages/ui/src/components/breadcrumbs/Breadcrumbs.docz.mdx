@@ -1,0 +1,103 @@
+---
+name: Breadcrumbs
+route: /components/breadcrumbs
+menu: Components
+---
+
+import { Fragment } from 'react';
+import { Playground, Props } from 'docz';
+
+import { Breadcrumbs } from './Breadcrumbs';
+
+# Breadcrumbs
+
+`Breadcrumbs` component is used to display the page path, usually from home.
+
+It expects a list of objects with a mandatory `label` key, and an optional `link`.
+If the link is not present the breadcrumb will be added just as a label
+(usually the last element does not have a link).
+
+<Playground>
+    <Breadcrumbs
+        breadcrumbs={[
+            { label: 'Home', link: '/url/to/home' },
+            { label: 'List of Tests', link: '/url/to/list-of-tests' },
+            { label: 'Selected test' },
+        ]}
+    >
+        <h2>Selected test 123</h2>
+    </Breadcrumbs>
+</Playground>
+
+## Props
+
+<Props of={Breadcrumbs} />
+
+---
+
+## React Tutorial
+
+Breadcrumbs component is built from a list of elements, each of them rendered by a Breadcrumb component.
+In order to get the list working we need to create the single element component as well:
+
+```javascript
+import React from 'react';
+import Link from 'react-router-dom';
+
+export function Breadcrumbs({ breadcrumbs, children }) {
+    return (
+        <div className="breadcrumbs">
+            {breadcrumbs.map((breadcrumb, index) => {
+                return <Breadcrumb link={breadcrumb.link}>{breadcrumb.label}</Breadcrumb>;
+            })}
+            {children}
+        </div>
+    );
+}
+
+function Breadcrumb({ link, children }) {
+    return (
+        <Link className="breadcrumb" to={link}>
+            {children}
+        </Link>
+    );
+}
+```
+
+In the example above few choices are made, to simplify the initial code:
+
+-   `breadcrumbs` prop is a list of objects, each of them having two attributes: `link` and `label`;
+-   the link will use react-router-dom component `Link`.
+
+The second point needs some improvements for those situations where
+we need a normal label or use a different component (i.e. Gatsby's Link or just an 'a').
+Instead of using react-router-dom component we will use a "default" one, that we can configure when we
+initialize the UI in the app. To see how this is done, [look at the Link component tutorial]() (#TODO).
+
+```jsx {diff}
+import React from 'react';
+- import Link from 'react-router-dom';
++ import { config } from '../../config';
+
+export function Breadcrumbs({ breadcrumbs, children }) {
+    return (
+        <div className='breadcrumbs'>
+            {breadcrumbs.map((breadcrumb, index) => {
+-                return <Breadcrumb link={breadcrumb.link}>
++                return <Breadcrumb link={breadcrumb.link} tag={breadcrumb.tag}>
+                    {breadcrumb.label}
+                </Breadcrumb>;
+            })}
+            {children}
+        </div>
+    );
+}
+
+function Breadcrumb({ link, tag, children }) {
++    const Tag = tag ? tag : link ? config.getLinkComponent() : 'div';
+
+    return <Tag className='breadcrumb' to={link}>
+        {children}
+    </Tag>;
+}
+```

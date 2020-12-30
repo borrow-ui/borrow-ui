@@ -42,13 +42,14 @@ export function Popover({
     const containerStyle = { top: state.top + 'px', left: state.left + 'px' };
 
     const triggerProps = {};
-    if (triggerOn === 'click') triggerProps.onClick = e => toggleMenuVisibility(e, state, setState);
+    if (triggerOn === 'click')
+        triggerProps.onClick = (e) => toggleMenuVisibility(e, state, setState);
     if (triggerOn === 'hover') {
-        triggerProps.onMouseEnter = e => toggleMenuVisibility(e, state, setState);
+        triggerProps.onMouseEnter = (e) => toggleMenuVisibility(e, state, setState);
         if (!persist) {
-            triggerProps.onMouseLeave = e => setState(st => ({ ...st, visible: false }));
+            triggerProps.onMouseLeave = (e) => setState((st) => ({ ...st, visible: false }));
         } else {
-            triggerProps.onClick = e => toggleMenuVisibility(e, state, setState);
+            triggerProps.onClick = (e) => toggleMenuVisibility(e, state, setState);
         }
     }
 
@@ -82,7 +83,7 @@ function useAmendedPosition(state, setState, containerRef, position) {
     useEffect(() => {
         const node = containerRef.current;
         if (node && state.visible) {
-            const leftBound = window.innerWidth;
+            const leftBound = typeof window !== 'undefined' ? window.innerWidth : 200;
             const dropDownRect = node.getBoundingClientRect();
             const lastCoord = state.left + dropDownRect.width;
 
@@ -109,14 +110,14 @@ function useAmendedPosition(state, setState, containerRef, position) {
                 setState({ ...state, ...amendedState });
             }
 
-            const closeMenu = e => {
+            const closeMenu = (e) => {
                 if (!state.persist || e.target === state.triggerRef)
                     setState({ ...state, visible: false });
             };
-            document.addEventListener('click', closeMenu);
+            typeof document !== undefined && document.addEventListener('click', closeMenu);
 
             return () => {
-                document.removeEventListener('click', closeMenu);
+                typeof document !== undefined && document.removeEventListener('click', closeMenu);
             };
         }
     }, [state, setState, containerRef, position]);

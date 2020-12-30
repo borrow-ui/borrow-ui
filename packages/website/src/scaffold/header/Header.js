@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Navbar, NavbarLink, SidebarContext, Icon } from '@borrow-ui/ui/lib';
-import logo from 'static/borrow-ui-color-192.png';
+import logo from 'static/logo-color-192.png';
 // import { ComponentsMenu } from './Menu';
 
 export function Header() {

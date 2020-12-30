@@ -1,0 +1,29 @@
+---
+name: Subtitle
+route: /typography/subtitle
+menu: Typography
+---
+
+import { Fragment } from 'react';
+import { Playground, Props } from 'docz';
+
+import { Lorem } from '../lorem/Lorem';
+import { Title } from './Title';
+
+import { Subtitle } from './Subtitle';
+
+# Subtitle
+
+`Subtitle` component can be used under a title to add more context information.
+
+<Playground>
+    <div className="storybook-container">
+        <Title>This will have a subtitle</Title>
+        <Subtitle>This is the component tested</Subtitle>
+        <Lorem />
+    </div>
+</Playground>
+
+## Subtitle Props
+
+<Props of={Subtitle} />

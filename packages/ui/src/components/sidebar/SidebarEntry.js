@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX, config } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 import { Link } from '../link/Link';
@@ -29,6 +30,7 @@ export function SidebarEntry({
     children,
     details,
     iconProps,
+    tag,
     ...rest
 }) {
     // const sidebarState = useContext(SidebarContext)[0];
@@ -40,7 +42,7 @@ export function SidebarEntry({
         );
     }
 
-    const Tag = link ? Link : 'div';
+    const Tag = tag ? tag : link ? Link : 'div';
     const isActive = isEntryActive(sidebarState, id, link, location);
     const isOpen = sidebarState.status === 'open';
 
@@ -61,7 +63,13 @@ export function SidebarEntry({
 
     return (
         <Fragment>
-            <Tag className={entryClass} to={link} id={id} onClick={entryOnClick} {...rest}>
+            <Tag
+                className={entryClass}
+                to={link}
+                id={id}
+                {...a11yClickableElement({ onClick: entryOnClick })}
+                {...rest}
+            >
                 {iconName && (
                     <SidebarIcon
                         name={iconName}
@@ -100,9 +108,11 @@ SidebarEntry.propTypes = {
     /** Sidebar state setter, required if `details` are passed */
     setSidebarState: PropTypes.func,
     onClick: PropTypes.func,
-    children: propTypesChildren,
     /** Additional properties passed to the icon component */
     iconProps: PropTypes.object,
+    /** Tag to use for the entry */
+    tag: propTypesChildren,
+    children: propTypesChildren,
 };
 
 function isEntryActive(sidebarState, id, link, location) {
@@ -110,7 +120,7 @@ function isEntryActive(sidebarState, id, link, location) {
 
     const locationCheck = location
         ? location.pathname
-        : typeof window !== undefined
+        : typeof window !== 'undefined'
         ? window.location.pathname
         : '';
 

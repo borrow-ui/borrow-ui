@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { Icon } from './Icon';
+import { KEY_CODES } from '../../utils/constants';
 
-const SPACEBAR_CODE = 32;
+import { Icon } from './Icon';
 
 const ICON_CONTROL_CLASS = `${UI_PREFIX}__icon-control`;
 
@@ -14,8 +14,8 @@ export function IconControl({ className = '', ...rest }) {
     const onKeyDown = rest.onKeyDown
         ? rest.onKeyDown
         : rest.onClick
-        ? e => {
-              if (e.keyCode === SPACEBAR_CODE) {
+        ? (e) => {
+              if (e.keyCode === KEY_CODES.SPACEBAR) {
                   e.preventDefault();
                   e.stopPropagation();
                   rest.onClick();

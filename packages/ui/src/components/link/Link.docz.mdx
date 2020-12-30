@@ -1,0 +1,55 @@
+---
+name: Link
+route: /components/link
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+
+import { Link } from './Link';
+
+# Link
+
+Links are used to create connections between pages and to external content.
+The `Link` component can be used as a standard link (`a` tag)
+or customized to use another component (like `react-router-dom`'s `Link`).
+
+<Playground>
+    <div>
+        A normal link with "a" tag <Link>looks like this</Link>.
+    </div>
+</Playground>
+
+By default the link is underlined, but the decoration can be turned off by
+using the `underline` property:
+
+<Playground>
+    <div>
+        A link without underline <Link underline={false}>looks like this</Link>.
+    </div>
+</Playground>
+
+## Default tag
+
+The default tag is `a` tag and it is obtained from config function called `getLinkComponent`.
+This is a function that returns a valid component or tag.
+
+The setting can be changed with config setter function called `setConfig`.
+In your `App.js` or `index.js` file you can call the function and set your custom one:
+
+```jsx
+import { Link as RouterLink } from 'react-router-dom';
+import { setConfig } from '@borrow-ui/ui';
+
+setConfig('getLinkComponent', () => RouterLink);
+
+export default function App() {
+    // ...
+}
+```
+
+This can always be overridden by specifying the `tag` prop.
+
+## Props
+
+<Props of={Link} />

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../../config';
+import { a11yClickableElement } from '../../../utils/a11y';
 import { propTypesChildren } from '../../../utils/types';
 
 const DROPZONE_FILES_CLASS = `${UI_PREFIX}__form__dropzone__files`;
@@ -46,7 +47,9 @@ export function DropzoneFile({ file, fileIndex, onRemove, disabled }) {
             <span className={DROPZONE_FILES_FILE_NAME_CLASS}>{file.name}</span>
             <span
                 className={filesFileRemoveClassName}
-                onClick={() => !disabled && onRemove && onRemove(fileIndex)}
+                {...a11yClickableElement({
+                    onClick: () => !disabled && onRemove && onRemove(fileIndex),
+                })}
             >
                 &times;
             </span>

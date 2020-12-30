@@ -10,5 +10,3 @@ export const ALIGNMENTS = {
     RIGHT: 'right',
     DEFAULT: 'left',
 };
-
-export const SPACEBAR_CODE = 32;

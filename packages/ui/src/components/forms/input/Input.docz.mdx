@@ -1,0 +1,66 @@
+---
+name: Input
+route: /components/forms/input
+menu: Forms
+---
+
+import { Fragment } from 'react';
+import { Playground, Props } from 'docz';
+
+import { FormsStoryWrapper } from '../FormsStory';
+import { Field } from '../field/Field';
+
+import { Input } from './Input';
+
+<Meta title="Forms/Components/Input" />
+
+# Input
+
+Inputs are the most common forms controller.
+`Input` component creates inputs controller with a consistent style.
+
+<Playground>
+    <FormsStoryWrapper initialState={{ full_name: '' }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400 }}>
+                    <Field label="Full Name">
+                        <Input
+                            placeholder="Insert your name..."
+                            value={state.full_name}
+                            onChange={(e) => setState({ ...state, full_name: e.target.value })}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
+</Playground>
+
+The `Input` component has custom classes for `disabled` and `invalid` statuses:
+
+<Playground>
+    <FormsStoryWrapper initialState={{ invalid_field: 'invalid' }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400 }}>
+                    <Field label="Disabled cannot be changed">
+                        <Input value="Fixed string" disabled={true} />
+                    </Field>
+                    <Field label="Invalid style">
+                        <Input
+                            placeholder="Type 'invalid' to see the invalid style"
+                            value={state.invalid_field}
+                            invalid={state.invalid_field === 'invalid'}
+                            onChange={(e) => setState({ ...state, invalid_field: e.target.value })}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
+</Playground>
+
+## Props
+
+<Props of={Input} />

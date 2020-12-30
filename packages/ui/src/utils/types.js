@@ -20,7 +20,7 @@ export const propTypesRefElement = PropTypes.oneOfType([
     PropTypes.func,
     // Or the instance of a DOM native element - requires Element shim for SSR:
     // Element = typeof Element === 'undefined' ? function(){} : Element
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+    PropTypes.shape({ current: PropTypes.instanceOf(PropTypes.element) }),
 ]);
 
 export const propTypesTag = (props, propName) => {

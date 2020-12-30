@@ -1,0 +1,46 @@
+---
+name: Loader
+route: /components/loader
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+
+import { Button } from '../button/Button';
+import { Loader } from './Loader';
+
+# Loader
+
+Loaders are usually used when some content is not available and a
+process needs to be completed.
+
+There are two loader types available: `full-section` and `inline`.
+
+<Playground>
+    <div>
+        <Loader />
+    </div>
+</Playground>
+
+The inline one can be put within other content:
+
+<Playground>
+    <div>
+        <div>
+            This is inline <Loader type="inline" /> with content.
+        </div>
+        <div>
+            It can also be used inside a button:
+            <Button disabled={true} mean="regular-reverse">
+                <Loader type="inline" />
+                Loading
+            </Button>
+        </div>
+    </div>
+</Playground>
+
+## Props
+
+Note: the `...rest` spread is passed to the loader container.
+
+<Props of={Loader} />

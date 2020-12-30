@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
+import { KEY_CODES } from '../../utils/constants';
 import { IconControl } from '../icon/IconControl';
 import { Loader } from '../loader/Loader';
 
@@ -20,7 +21,6 @@ const MODAL_TITLE_CLASS = `${UI_PREFIX}__modal__title`;
 const MODAL_FOOTER_CLASS = `${UI_PREFIX}__modal__footer`;
 
 const MODAL_ROOT_ID = 'modal-root';
-const ESCAPE_CODE = 27;
 
 // these should match the CSS ones, are used to auto-calculate the
 // modal height with and withouth footer.
@@ -71,7 +71,9 @@ export function ModalWindow({
         sizedModalContainerStyle.height = startHeight;
     }
 
-    const [modalContainer] = useState(document.createElement('div'));
+    const [modalContainer] = useState(
+        typeof document !== undefined ? document.createElement('div') : null
+    );
     const [modalState, setModalState] = useState({
         isMaximized: maximized,
         modalContainerStyle: maximized ? {} : sizedModalContainerStyle,
@@ -92,7 +94,7 @@ export function ModalWindow({
         const modalRoot = getModalRoot();
         modalRoot.appendChild(modalContainer);
 
-        const bodyOverflow = document.body.style.overflow;
+        const bodyOverflow = typeof document !== undefined && document.body.style.overflow;
 
         const openPromise = new Promise((resolve, reject) => {
             if (hooks.onOpen) return hooks.onOpen({ resolve, reject });
@@ -100,24 +102,27 @@ export function ModalWindow({
         });
         openPromise.then(() => {
             setModalState({ ...modalState, isLoading: false });
-            document.body.style.overflow = 'hidden';
+            if (typeof document !== undefined) document.body.style.overflow = 'hidden';
         });
 
         let closeOnEscapeCallback = null;
         if (closeOnEscape) {
             closeOnEscapeCallback = (e) => {
-                if (e.keyCode === ESCAPE_CODE) {
+                if (e.keyCode === KEY_CODES.escape) {
                     e.preventDefault();
                     e.stopPropagation();
                     closeModalWindow();
                 }
             };
 
-            window.addEventListener('keydown', closeOnEscapeCallback);
+            if (typeof window !== 'undefined')
+                window.addEventListener('keydown', closeOnEscapeCallback);
         }
 
         return function cleanup() {
             modalRoot.removeChild(modalContainer);
+            if (typeof document === undefined || typeof window === undefined) return;
+
             closeOnEscape && window.removeEventListener('keydown', closeOnEscapeCallback);
             document.body.style.overflow = bodyOverflow;
         };
@@ -266,6 +271,8 @@ IconClose.propTypes = {
 };
 
 function getModalRoot() {
+    if (typeof document === undefined) return;
+
     let modalRoot = document.getElementById(MODAL_ROOT_ID);
     if (modalRoot === null) {
         modalRoot = document.createElement('div');

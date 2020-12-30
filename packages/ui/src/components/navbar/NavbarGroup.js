@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 const NAVBAR_GROUP_CLASS = `${UI_PREFIX}__navbar__group`;
@@ -27,7 +28,9 @@ export function NavbarGroup({ position, elements, toggleSetItem }) {
                         {itemHeader && (
                             <span
                                 className={`${NAVBAR_GROUP_ITEM_CLASS} ${NAVBAR_GROUP_ITEM_CLICKABLE_CLASS}`}
-                                onClick={() => toggleSetItem(item, true)}
+                                {...a11yClickableElement({
+                                    onClick: () => toggleSetItem(item, true),
+                                })}
                             >
                                 {item.headerLabel}
                             </span>
@@ -55,7 +58,12 @@ Element.propTypes = {
 const elementType = PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
-    PropTypes.shape(Element.propTypes),
+    PropTypes.shape({
+        headerLabel: propTypesChildren,
+        bodyItem: PropTypes.func,
+        showQueryInput: PropTypes.bool,
+        floatingControls: PropTypes.bool,
+    }),
 ]);
 
 NavbarGroup.propTypes = {

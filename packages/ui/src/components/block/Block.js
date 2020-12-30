@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 
-// import './block.scss';
-
 const BLOCK_CLASS = `${UI_PREFIX}__block`;
 const BLOCK_SEPARATED_CLASS = `${UI_PREFIX}__block--separated`;
 const BLOCK_PADDED_CLASS = `${UI_PREFIX}__block--padded`;
@@ -35,11 +33,11 @@ export function Block({
     const blockClassName = `${BLOCK_CLASS} ${className} ${propertiesClass}`;
 
     const { className: titleClassName = '', ...restTitleProps } = titleProps;
-
+    const titleClass = `${BLOCK_TITLE_CLASS} ${titleClassName}`.trim();
     return (
         <div className={blockClassName} ref={blockRef} {...rest}>
             {title && typeof title === 'string' && (
-                <h2 className={`${titleClassName} ${BLOCK_TITLE_CLASS}`} {...restTitleProps}>
+                <h2 className={titleClass} {...restTitleProps}>
                     {title}
                 </h2>
             )}

@@ -56,6 +56,11 @@ This is the element that contains the entire menu, both header and body
 
 .#{$ui-prefix}__navbar--sticky {
     width: 100%;
+    position: sticky;
+    top: 0;
+}
+.#{$ui-prefix}__navbar--fixed {
+    width: 100%;
     position: fixed;
     top: 0;
 }

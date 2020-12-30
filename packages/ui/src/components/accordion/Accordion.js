@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
+import { a11yClickableElement } from '../../utils/a11y';
 
 const ACCORDION_CLASS = `${UI_PREFIX}__accordion`;
 const ACCORDION_TITLE_CLASS = `${UI_PREFIX}__accordion__title`;
@@ -51,7 +52,11 @@ export function Accordion({
 
     return (
         <div className={accordionClassName} {...rest}>
-            <div className={titleClassName} onClick={onTitleClick} {...restTitleProps}>
+            <div
+                className={titleClassName}
+                {...a11yClickableElement({ onClick: onTitleClick })}
+                {...restTitleProps}
+            >
                 {title}
             </div>
             <div className={contentClassName} style={contentStyle} {...restContentProps}>

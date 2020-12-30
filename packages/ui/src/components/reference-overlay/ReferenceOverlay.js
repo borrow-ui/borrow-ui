@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { usePopper } from 'react-popper';
 
 import { UI_PREFIX } from '../../config';
+import { a11yClickableElement } from '../../utils/a11y';
 import { propTypesChildren } from '../../utils/types';
 
 // import './reference-overlay.scss';
@@ -57,10 +58,10 @@ export function ReferenceOverlay({
         const closeTooltip = (e) => {
             isVisible && !clickPersist && setIsVisible(false);
         };
-        document.addEventListener('click', closeTooltip);
+        typeof document !== undefined && document.addEventListener('click', closeTooltip);
 
         return () => {
-            document.removeEventListener('click', closeTooltip);
+            typeof document !== undefined && document.removeEventListener('click', closeTooltip);
         };
     });
 
@@ -111,6 +112,7 @@ export function ReferenceOverlay({
 
     const overlayArrowStyle = { ...styles.arrow, ...propsOverlayArrowStyle };
 
+    const clickable = triggerMode === 'click' || propsTriggerOnClick;
     const triggerOnClick = () => {
         triggerMode === 'click' && setIsVisible((v) => !v);
         propsTriggerOnClick && propsTriggerOnClick();
@@ -118,29 +120,28 @@ export function ReferenceOverlay({
 
     return (
         <>
-            <span
+            <div
                 ref={setReferenceElement}
                 className={referenceOverlayTriggerClass}
-                onClick={triggerOnClick}
+                {...(clickable ? a11yClickableElement({ onClick: triggerOnClick }) : {})}
                 {...restTriggerProps}
             >
                 {children}
-            </span>
-
-            <div
-                ref={setPopperElement}
-                className={referenceOverlayClass}
-                style={overlayStyle}
-                {...attributes.popper}
-                {...restOverlayProps}
-            >
-                {overlayContent}
                 <div
-                    ref={setArrowElement}
-                    className={referenceOverlayArrowClass}
-                    style={overlayArrowStyle}
-                    {...restOverlayArrowProps}
-                />
+                    ref={setPopperElement}
+                    className={referenceOverlayClass}
+                    style={overlayStyle}
+                    {...attributes.popper}
+                    {...restOverlayProps}
+                >
+                    {overlayContent}
+                    <div
+                        ref={setArrowElement}
+                        className={referenceOverlayArrowClass}
+                        style={overlayArrowStyle}
+                        {...restOverlayArrowProps}
+                    />
+                </div>
             </div>
         </>
     );

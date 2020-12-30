@@ -1,0 +1,25 @@
+---
+name: Lorem
+route: /components/lorem
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Lorem } from './Lorem';
+
+# Lorem
+
+When developing pages sometimes is useful to have pre-generated text as placeholder.
+The `Lorem` component can be used precisely for this.
+
+A `paragraphs` prop can be used to specify how many text paragraphs should be rendered (from 1 to 3).
+
+<Playground>
+    <div>
+        <Lorem paragraphs={3} />
+    </div>
+</Playground>
+
+## Props
+
+<Props of={Lorem} />

@@ -1,0 +1,120 @@
+---
+name: Use as a project base
+route: /introduction/getting-started-use-as-a-project-base
+menu: Installation
+---
+
+# Use as a project base
+
+`borrow-ui` can be used as a monorepo project base. It is already configured to
+use the `ui` package inside the other packages.
+
+This project is setup to work with [lerna](https://github.com/lerna/lerna)
+and [yarn workspaces](https://yarnpkg.com/features/workspaces).
+
+The following packages are included:
+
+-   `ui`: the components library;
+-   `documentation`: components and website documentation;
+-   `website`: public website presenting the project;
+-   `example-dashboard`: a dashboard backbone example; [TODO #4](https://github.com/borrow-ui/borrow-ui/issues/4)
+
+To understand how a monorepo works, you can read the official documentation on
+[lerna home page](https://github.com/lerna/lerna),
+or one of the [many tutorials](https://www.google.com/search?q=lerna+yarn+workspaces).
+
+## Step by step
+
+### Download and rename the project
+
+Download the latest zip [here](https://github.com/borrow-ui/borrow-ui/archive/master.zip)
+and extract the content, for example in `~/Downloads/borrow-ui-master`.
+
+Copy and rename the package anywhere, like in `~/repositories/my-ui-name`.
+Delete the packages you don't need, for example `packages/website`.
+
+Now, with your favourite editor (a [script is planned](https://github.com/borrow-ui/borrow-ui/issues/5))
+rename all the occurrencies of `borrow-ui` to `my-ui-name`.
+
+Alternatively, if you are using Linux (even WSL), you can launch the following command:
+
+```bash
+find . -type f -print0 | xargs -0 sed -i 's/borrow-ui/my-ui-name/g'
+```
+
+### Install dependencies
+
+From the main folder, run:
+
+```bash
+yarn # this will install lerna and all the dependencies
+```
+
+#### Initialize the git repository
+
+Advice: initialize the folder as a repository and set a remote origin; if you are using github, you
+can create an empty repository directly on the website and the run the following command:
+
+```bash
+git init
+git add
+git commit -m "Started project from @borrow-ui"
+git remote add origin git@github.com:<USERNAME>/<REPOSITORY>.git
+git push -u origin master
+```
+
+### Start developing the components
+
+The `packages/ui` folder contains the components and their styles, along with the tests.
+
+There are few commands you can use to develop your components. From `packages/ui` folder, you can run:
+
+-   `yarn watch` to start build and watch for file changes. This option is the preferred one during development,
+    so you can immediatlely see the changes when importing the project from other packages. This version is not minified,
+    but does not include peer dependencies (like `react-select` or `react-media`), so they must be installed in your
+    application if you want to use the relative components. For a list of all peer dependencies,
+    see "peerDependencies" section in the [package.json](https://github.com/borrow-ui/borrow-ui/blob/master/packages/ui/package.json) file;
+-   `yarn test --watchAll` to run tests and watch for changes.
+
+Production commands are very similar to the standard list of commands for any React project:
+
+-   `yarn build` to build the component library and allow the other packages to use it.
+    This version is minified and contains only the components and `flexboxgrid2`, so all other packages
+    must be installed in your application
+    (see "peerDependencies" section in the [package.json](https://github.com/borrow-ui/borrow-ui/blob/master/packages/ui/package.json) file);
+-   `yarn test` to launch the tests without watcher;
+
+#### Documentation
+
+The `packages/documentation` folders contains this guide backbone and the `docz` configuration files.
+Two commands are available:
+
+-   `yarn docz:dev` to start [Docz](https://www.docz.site/) server in development mode.
+    This allows you to develop your components without the watcher or other projects as it looks for changes
+    in your folders. Remember to document your components! (...and to restart the dev site when you add new components/docs files)
+-   `yarn docz:build` to build the documentation for production.
+
+### Add new packages
+
+Since we are using yarn workspaces, new packages must be added with a specific command.
+For example, if you want to add `react-dropzone` dependency to `website` package, run this command from the main folder:
+
+```bash
+yarn workspaces @borrow-ui/website add react-dropzone
+```
+
+Where:
+
+-   `@borrow-ui/website` is the name of the website package as defined in website's `package.json` file under `name`;
+-   `react-dropzone` is the name of the new dependency.
+
+You can add `-D` or `--dev` flag to install the dependency as a Dev Dependency.
+
+To remove a package, use `remove` instead of `add`:
+
+```bash
+yarn workspaces @borrow-ui/website remove react-dropzone
+```
+
+Sometimes when you are developing and have one or more watcher enabled, you might have to run
+`lerna bootstrap` command from the main folder again to relink the packages and restart the watchers.

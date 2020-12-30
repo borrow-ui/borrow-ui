@@ -1,0 +1,27 @@
+{
+  "name": "@borrow-ui/documentation",
+  "version": "0.0.1",
+  "description": "Borrow-UI documentation based on Docz",
+  "author": "Vittorio Zamboni",
+  "private": true,
+  "scripts": {
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "dayjs": "^1.8.35",
+    "docz": "^2.3.1",
+    "gatsby-plugin-catch-links": "^2.3.15",
+    "gatsby-plugin-mdx": "^1.2.43",
+    "gatsby-plugin-sass": "^2.3.14",
+    "gatsby-remark-vscode": "3.x",
+    "material-design-icons-iconfont": "^5.0.1",
+    "react": "^16.13.1",
+    "react-day-picker": "^7.4.0",
+    "react-dom": "^16.13.1",
+    "react-media": "^1.10.0",
+    "react-router-dom": "^5.2.0",
+    "react-select": "^3.1.0"
+  }
+}

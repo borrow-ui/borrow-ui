@@ -9,7 +9,7 @@ const BADGE_CLICKABLE_CLASS = `${UI_PREFIX}__badge--clickable`;
 // type class is calculated, i.e. `${UI_PREFIX}__badge--rounded`
 
 export function Badge({
-    className,
+    className = '',
     color = 'neutral',
     type = 'rounded',
     tag: Tag = 'span',
@@ -19,7 +19,8 @@ export function Badge({
     const colorClass = color ? `color-${color}-bg color-on-${color}` : '';
     const typeClass = type && type !== 'squared' ? `${BADGE_CLASS}--${type}` : '';
     const clickableClass = rest.onClick ? BADGE_CLICKABLE_CLASS : '';
-    const badgeClass = `${BADGE_CLASS} ${colorClass} ${typeClass} ${clickableClass} ${className}`;
+    const propsClasses = `${colorClass} ${typeClass} ${clickableClass}`.trim();
+    const badgeClass = `${BADGE_CLASS} ${propsClasses} ${className}`.trim();
 
     return (
         <Tag className={badgeClass} {...rest}>

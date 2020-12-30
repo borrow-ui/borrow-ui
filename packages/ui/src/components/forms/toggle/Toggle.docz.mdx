@@ -1,0 +1,58 @@
+---
+name: Toggle
+route: /components/forms/toggle
+menu: Forms
+---
+
+import { Fragment } from 'react';
+import { Playground, Props } from 'docz';
+
+import { FormsStoryWrapper } from '../FormsStory';
+import { Field } from '../field/Field';
+
+import { Toggle } from './Toggle';
+
+# Toggle
+
+`Toggle` component can be used as an alternative of checkboxes.
+
+<Playground>
+    <FormsStoryWrapper initialState={{ value: true }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400 }}>
+                    <Field label="Close the window when the process is done">
+                        <Toggle
+                            checked={state.value}
+                            onClick={() => setState({ value: !state.value })}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
+</Playground>
+
+Disabled status is supported as well via `disabled` prop:
+
+<Playground>
+    <FormsStoryWrapper initialState={{ value: true }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400 }}>
+                    <Field label="Close the window when the process is done">
+                        <Toggle
+                            checked={state.value}
+                            disabled={true}
+                            onClick={() => setState({ value: !state.value })}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
+</Playground>
+
+## Props
+
+<Props of={Toggle} />

@@ -165,6 +165,8 @@ function PanelContent({
 }
 
 function getPanelRoot() {
+    if (typeof document === 'undefined') return;
+
     let panelRoot = document.getElementById(PANEL_ROOT_ID);
     if (panelRoot === null) {
         panelRoot = document.createElement('div');
@@ -176,6 +178,8 @@ function getPanelRoot() {
     return panelRoot;
 }
 function getPanelWrapper() {
+    if (typeof document === 'undefined') return;
+
     let panelWrapper = document.getElementById(PANEL_WRAPPER_ID);
     if (panelWrapper === null) {
         panelWrapper = document.createElement('div');
