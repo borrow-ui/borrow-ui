@@ -24,69 +24,65 @@ You need to install the following dependencies:
 The initial value of the picker can be set with `initialValue` prop.
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ select_date: null, initial_date: '2020-06-22' }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, height: 400 }}>
-                        <Field label="Select a date">
-                            <DatePicker
-                                onDayChange={(date) =>
-                                    setState({
-                                        ...state,
-                                        select_date: date,
-                                    })
-                                }
-                            />
-                        </Field>
-                        <Field label="Picker with initial date">
-                            <DatePicker
-                                initialValue={state.initial_date}
-                                onDayChange={(date) =>
-                                    setState({
-                                        ...state,
-                                        initial_date: date,
-                                    })
-                                }
-                            />
-                        </Field>
-                    </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+    <FormsStoryWrapper initialState={{ select_date: null, initial_date: '2020-06-22' }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, height: 400 }}>
+                    <Field label="Select a date">
+                        <DatePicker
+                            onDayChange={(date) =>
+                                setState({
+                                    ...state,
+                                    select_date: date,
+                                })
+                            }
+                        />
+                    </Field>
+                    <Field label="Picker with initial date">
+                        <DatePicker
+                            initialValue={state.initial_date}
+                            onDayChange={(date) =>
+                                setState({
+                                    ...state,
+                                    initial_date: date,
+                                })
+                            }
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 `initialValue` can also be used to reset the date from outside the component:
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ select_date: null, initial_date: '2020-06-22' }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, height: 400 }}>
-                        <Field label="Picker with initial date">
-                            <DatePicker
-                                initialValue={state.initial_date}
-                                onDayChange={(date) =>
-                                    setState({
-                                        ...state,
-                                        initial_date: date,
-                                    })
-                                }
-                            />
-                        </Field>
-                        <Button
-                            onClick={() => setState({ ...state, initial_date: '2020-10-22' })}
-                            mean="accent"
-                        >
-                            Set to 2020-10-22
-                        </Button>
-                    </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+    <FormsStoryWrapper initialState={{ select_date: null, initial_date: '2020-06-22' }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, height: 400 }}>
+                    <Field label="Picker with initial date">
+                        <DatePicker
+                            initialValue={state.initial_date}
+                            onDayChange={(date) =>
+                                setState({
+                                    ...state,
+                                    initial_date: date,
+                                })
+                            }
+                        />
+                    </Field>
+                    <Button
+                        onClick={() => setState({ ...state, initial_date: '2020-10-22' })}
+                        mean="accent"
+                    >
+                        Set to 2020-10-22
+                    </Button>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 The new clicked date is passed to `onDayChange` prop function handler.
@@ -94,34 +90,32 @@ By default the type of `date` argument is string, but it can be changed to nativ
 with `onDayChangeFormat` parameter, by setting it to `date` (open the console to see the changes).
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ select_date: null }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, height: 350 }}>
-                        <Field label="Select a date">
-                            <DatePicker
-                                onDayChangeFormat="date"
-                                onDayChange={(date) => {
-                                    console.log(
-                                        'DatePicker `onDayChangeFormat`: date changed to',
-                                        date
-                                    );
-                                    setState({
-                                        ...state,
-                                        select_date:
-                                            date && date.toISOString
-                                                ? date.toISOString().substr(0, 10)
-                                                : date,
-                                    });
-                                }}
-                            />
-                        </Field>
-                    </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+    <FormsStoryWrapper initialState={{ select_date: null }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, height: 350 }}>
+                    <Field label="Select a date">
+                        <DatePicker
+                            onDayChangeFormat="date"
+                            onDayChange={(date) => {
+                                console.log(
+                                    'DatePicker `onDayChangeFormat`: date changed to',
+                                    date
+                                );
+                                setState({
+                                    ...state,
+                                    select_date:
+                                        date && date.toISOString
+                                            ? date.toISOString().substr(0, 10)
+                                            : date,
+                                });
+                            }}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 Having an input means we can have partial values (i.e. `2020-04-`) while we are typing.
@@ -130,31 +124,26 @@ If we need only valid results, we can set `returnPartial` prop to false.
 Open the console and see the log:
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ select_date: null }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, height: 350 }}>
-                        <Field label="Select a date">
-                            <DatePicker
-                                returnPartial={false}
-                                onDayChange={(date) => {
-                                    console.log(
-                                        'DatePicker `returnPartial`: date changed to',
-                                        date
-                                    );
-                                    setState({
-                                        ...state,
-                                        select_date: date,
-                                    });
-                                }}
-                            />
-                        </Field>
-                    </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+    <FormsStoryWrapper initialState={{ select_date: null }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, height: 350 }}>
+                    <Field label="Select a date">
+                        <DatePicker
+                            returnPartial={false}
+                            onDayChange={(date) => {
+                                console.log('DatePicker `returnPartial`: date changed to', date);
+                                setState({
+                                    ...state,
+                                    select_date: date,
+                                });
+                            }}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 ### Disabled and Invalid
@@ -162,39 +151,35 @@ Open the console and see the log:
 The input field can be set as both disabled and invalid with `disabled` and `invalid` props:
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper
-            initialState={{ disabled_date: '2020-06-25', invalid_date: '2020-04-01' }}
-        >
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, height: 400 }}>
-                        <Field label="Disabled date">
-                            <DatePicker
-                                disabled={true}
-                                initialValue={state.disabled_date}
-                                onDayChange={(date) => {
-                                    setState({
-                                        ...state,
-                                        disabled_date: date,
-                                    });
-                                }}
-                            />
-                        </Field>
-                        <Field label="Invalid date (pick `2020-04-01`)">
-                            <DatePicker
-                                invalid={state.invalid_date === '2020-04-01'}
-                                initialValue={state.invalid_date}
-                                onDayChange={(date) => {
-                                    setState({ ...state, invalid_date: date });
-                                }}
-                            />
-                        </Field>
-                    </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+    <FormsStoryWrapper initialState={{ disabled_date: '2020-06-25', invalid_date: '2020-04-01' }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, height: 400 }}>
+                    <Field label="Disabled date">
+                        <DatePicker
+                            disabled={true}
+                            initialValue={state.disabled_date}
+                            onDayChange={(date) => {
+                                setState({
+                                    ...state,
+                                    disabled_date: date,
+                                });
+                            }}
+                        />
+                    </Field>
+                    <Field label="Invalid date (pick `2020-04-01`)">
+                        <DatePicker
+                            invalid={state.invalid_date === '2020-04-01'}
+                            initialValue={state.invalid_date}
+                            onDayChange={(date) => {
+                                setState({ ...state, invalid_date: date });
+                            }}
+                        />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 ## Props

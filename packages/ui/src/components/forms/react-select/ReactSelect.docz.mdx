@@ -17,31 +17,29 @@ import { ReactSelect } from './ReactSelect';
 `ReactSelect` component is a wrapper around [react-select](https://react-select.com/home)'s `Select` or `CreatableSelect` components, based on `creatable` prop.
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ country: null }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, marginBottom: 200 }}>
-                        <Field label="Select your country">
-                            <ReactSelect
-                                options={[
-                                    { value: 'Italy', label: 'Italy' },
-                                    { value: 'spain', label: 'Spain' },
-                                ]}
-                                value={state.country ? state.country.value : null}
-                                onChange={(obj) => setState({ country: obj })}
-                                isClearable={true}
-                            />
-                        </Field>
-                        <div>
-                            <span style={{ marginRight: 10 }}>Selected country:</span>
-                            {state.country ? state.country.label : 'No country selected'}
-                        </div>
+    <FormsStoryWrapper initialState={{ country: null }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, marginBottom: 200 }}>
+                    <Field label="Select your country">
+                        <ReactSelect
+                            options={[
+                                { value: 'Italy', label: 'Italy' },
+                                { value: 'spain', label: 'Spain' },
+                            ]}
+                            value={state.country ? state.country.value : null}
+                            onChange={(obj) => setState({ country: obj })}
+                            isClearable={true}
+                        />
+                    </Field>
+                    <div>
+                        <span style={{ marginRight: 10 }}>Selected country:</span>
+                        {state.country ? state.country.label : 'No country selected'}
                     </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 ## Cretable: Tags
@@ -49,39 +47,35 @@ import { ReactSelect } from './ReactSelect';
 An example of `creatable` property is to enable tag associations:
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ tags: [{ value: 'bug', label: 'bug' }] }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400, marginBottom: 200 }}>
-                        <Field label="Select some tags">
-                            <ReactSelect
-                                options={['bug', 'help needed', 'production'].map((v) => ({
-                                    value: v,
-                                    label: v,
-                                }))}
-                                value={
-                                    state.tags.length > 0 ? state.tags.map((obj) => obj.value) : []
-                                }
-                                onChange={(tags) => {
-                                    setState({ tags });
-                                }}
-                                isMulti={true}
-                                creatable={true}
-                                isClearable={true}
-                            />
-                        </Field>
-                        <div>
-                            <span style={{ marginRight: 10 }}>Selected tags:</span>
-                            {state.tags.length > 0
-                                ? state.tags.map((tag) => tag.label).join(', ')
-                                : 'No tags selected'}
-                        </div>
+    <FormsStoryWrapper initialState={{ tags: [{ value: 'bug', label: 'bug' }] }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400, marginBottom: 200 }}>
+                    <Field label="Select some tags">
+                        <ReactSelect
+                            options={['bug', 'help needed', 'production'].map((v) => ({
+                                value: v,
+                                label: v,
+                            }))}
+                            value={state.tags.length > 0 ? state.tags.map((obj) => obj.value) : []}
+                            onChange={(tags) => {
+                                setState({ tags });
+                            }}
+                            isMulti={true}
+                            creatable={true}
+                            isClearable={true}
+                        />
+                    </Field>
+                    <div>
+                        <span style={{ marginRight: 10 }}>Selected tags:</span>
+                        {state.tags.length > 0
+                            ? state.tags.map((tag) => tag.label).join(', ')
+                            : 'No tags selected'}
                     </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
 
 ## Props

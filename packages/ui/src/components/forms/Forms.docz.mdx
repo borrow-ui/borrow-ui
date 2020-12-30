@@ -63,84 +63,80 @@ The next example shows all the available controllers.
 For a detailed documentation of components, see the respective pages.
 
 <Playground>
-    <div className="storybook-container borrow-ui">
-        <FormsStoryWrapper initialState={{ useInternet: true }}>
-            {({ state, setState }) => {
-                return (
-                    <div style={{ width: 400 }}>
-                        <Field label="Full Name">
-                            <Input placeholder="Insert your name..." />
-                        </Field>
-                        <Field label="Bio">
-                            <Textarea placeholder="Tell me something about you..." />
-                        </Field>
-                        <Field label="Pick a day of the year">
-                            <DatePicker
-                                value={state.favouriteDay}
-                                onChange={(date) => setState({ ...state, favouriteDay: date })}
-                            />
-                        </Field>
-                        <Field label="Favourite day of weekend">
-                            <Forms.Select
-                                value={state.favouriteWeekendDay}
-                                onChange={(option) =>
-                                    setState({ ...state, favouriteWeekendDay: option.value })
-                                }
-                                options={[
-                                    { value: 'friday', label: 'Friday' },
-                                    { value: 'saturday', label: 'Saturday' },
-                                    { value: 'sunday', label: 'Sunday' },
-                                ]}
-                            />
-                        </Field>
-                        <Field label="I have the following devices:">
-                            <div className="m-t-5">
-                                <div className="m-b-10">
-                                    <Checkbox
-                                        label="Smartphone/Tablet"
-                                        checked={state.smartphone}
-                                        onClick={(e) =>
-                                            setState({
-                                                ...state,
-                                                smartphone: !!!state.smartphone,
-                                            })
-                                        }
-                                    />
-                                </div>
-                                <div className="m-b-10">
-                                    <Checkbox
-                                        label="Laptop"
-                                        checked={state.laptop}
-                                        onClick={(e) =>
-                                            setState({ ...state, laptop: !!!state.laptop })
-                                        }
-                                    />
-                                </div>
-                                <div className="m-b-10">
-                                    <Checkbox
-                                        label="Desktop"
-                                        checked={state.desktop}
-                                        onClick={(e) =>
-                                            setState({ ...state, desktop: !!!state.desktop })
-                                        }
-                                    />
-                                </div>
+    <FormsStoryWrapper initialState={{ useInternet: true }}>
+        {({ state, setState }) => {
+            return (
+                <div style={{ width: 400 }}>
+                    <Field label="Full Name">
+                        <Input placeholder="Insert your name..." />
+                    </Field>
+                    <Field label="Bio">
+                        <Textarea placeholder="Tell me something about you..." />
+                    </Field>
+                    <Field label="Pick a day of the year">
+                        <DatePicker
+                            value={state.favouriteDay}
+                            onChange={(date) => setState({ ...state, favouriteDay: date })}
+                        />
+                    </Field>
+                    <Field label="Favourite day of weekend">
+                        <Forms.Select
+                            value={state.favouriteWeekendDay}
+                            onChange={(option) =>
+                                setState({ ...state, favouriteWeekendDay: option.value })
+                            }
+                            options={[
+                                { value: 'friday', label: 'Friday' },
+                                { value: 'saturday', label: 'Saturday' },
+                                { value: 'sunday', label: 'Sunday' },
+                            ]}
+                        />
+                    </Field>
+                    <Field label="I have the following devices:">
+                        <div className="m-t-5">
+                            <div className="m-b-10">
+                                <Checkbox
+                                    label="Smartphone/Tablet"
+                                    checked={state.smartphone}
+                                    onClick={(e) =>
+                                        setState({
+                                            ...state,
+                                            smartphone: !!!state.smartphone,
+                                        })
+                                    }
+                                />
                             </div>
-                        </Field>
-                        <Field label="I use internet">
-                            <Toggle
-                                checked={state.useInternet}
-                                onClick={(e) =>
-                                    setState({ ...state, useInternet: !!!state.useInternet })
-                                }
-                            />
-                        </Field>
-                        <Field>
-                            <Dropzone dragMessage="Upload your desktop wallpaper" />
-                        </Field>
-                    </div>
-                );
-            }}
-        </FormsStoryWrapper>
-    </div>
+                            <div className="m-b-10">
+                                <Checkbox
+                                    label="Laptop"
+                                    checked={state.laptop}
+                                    onClick={(e) => setState({ ...state, laptop: !!!state.laptop })}
+                                />
+                            </div>
+                            <div className="m-b-10">
+                                <Checkbox
+                                    label="Desktop"
+                                    checked={state.desktop}
+                                    onClick={(e) =>
+                                        setState({ ...state, desktop: !!!state.desktop })
+                                    }
+                                />
+                            </div>
+                        </div>
+                    </Field>
+                    <Field label="I use internet">
+                        <Toggle
+                            checked={state.useInternet}
+                            onClick={(e) =>
+                                setState({ ...state, useInternet: !!!state.useInternet })
+                            }
+                        />
+                    </Field>
+                    <Field>
+                        <Dropzone dragMessage="Upload your desktop wallpaper" />
+                    </Field>
+                </div>
+            );
+        }}
+    </FormsStoryWrapper>
 </Playground>
