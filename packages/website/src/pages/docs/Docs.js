@@ -17,7 +17,7 @@ function DocsContent({ isSmallScreen }) {
         <div className="documentation__container">
             <Title>Documentation</Title>
             <Text size="big">Work in progress</Text>
-            <Text>Documentation will be available as a Storybook docs.</Text>
+            <Text>Documentation will be available as a Docz docs.</Text>
         </div>
     );
 }

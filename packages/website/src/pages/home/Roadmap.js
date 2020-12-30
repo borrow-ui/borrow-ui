@@ -12,7 +12,7 @@ export function Roadmap() {
             <ul>
                 <li>Documentation</li>
                 <li>Tests</li>
-                <li>Storybook</li>
+                <li>Docz</li>
                 <li>Script to rename the UI library</li>
                 <li>
                     Examples:
