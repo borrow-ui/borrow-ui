@@ -16,22 +16,17 @@ import { TextContainer } from './TextContainer';
 
 `TextContainer` component is used to wrap text. It will limit the width to 960px to make it readable in big screens.
 
-**Note**: to test the component, you need to manually modify the css of Storybook by inspecting the code,
-because Storybook already wraps the page content.
-
 <Playground>
-    <div className="storybook-container">
-        <Title>Paragraph 1 - not wrapped</Title>
+    <Title>Paragraph 1 - not wrapped</Title>
+    <Lorem />
+    <Lorem />
+    <Lorem />
+    <TextContainer>
+        <Title>Paragraph 2 - wrapped in TextContainer</Title>
         <Lorem />
         <Lorem />
         <Lorem />
-        <TextContainer>
-            <Title>Paragraph 2 - wrapped in TextContainer</Title>
-            <Lorem />
-            <Lorem />
-            <Lorem />
-        </TextContainer>
-    </div>
+    </TextContainer>
 </Playground>
 
 ## TextContainer Props

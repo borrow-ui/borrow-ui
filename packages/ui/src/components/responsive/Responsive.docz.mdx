@@ -35,19 +35,13 @@ const DEFAULT_QUERIES = {
 ```
 
 <Playground>
-    <div className="storybook-container">
-        <Responsive>
-            {(matches) => (
-                <div
-                    className={
-                        matches.small ? 'color-accent' : matches.medium ? 'color-primary' : ''
-                    }
-                >
-                    <Lorem />
-                </div>
-            )}
-        </Responsive>
-    </div>
+    <Responsive>
+        {(matches) => (
+            <div className={matches.small ? 'color-accent' : matches.medium ? 'color-primary' : ''}>
+                <Lorem />
+            </div>
+        )}
+    </Responsive>
 </Playground>
 
 ## Responsive Props

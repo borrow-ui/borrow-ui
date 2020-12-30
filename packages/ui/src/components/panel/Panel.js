@@ -59,7 +59,7 @@ Panel.propTypes = {
     getPanelContentProps: PropTypes.func.isRequired,
 };
 
-// Used only to get Storybook generate props
+// Used only to get Docz generate props
 export function PanelContentWrapper(props) {
     return <PanelContent {...props} />;
 }
