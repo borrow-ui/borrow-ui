@@ -42,9 +42,9 @@ export function SearchBar({
                 // if a value is not specified, all entries should be seen
                 setFilteredEntries(entries);
             }
-            // in case a callback to set the search value is passed, call it
-            setGlobalSearch && setGlobalSearch(value);
         }
+        // in case a callback to set the search value is passed, call it
+        setGlobalSearch && setGlobalSearch(value);
     };
 
     const debouncedSearch = useCallback(
@@ -65,11 +65,11 @@ export function SearchBar({
     // If search value is stored outside the component,
     // update the search box and execute search when it changes outside as well
     useEffect(() => {
-        if (globalSearch !== search) {
+        if (setGlobalSearch && globalSearch !== search) {
             setSearch(globalSearch);
             doSearch(globalSearch, entries);
         }
-    }, [globalSearch]); // eslint-disable-line
+    }, [globalSearch, setGlobalSearch]); // eslint-disable-line
 
     const { className: inputPropsClassName = '', ...restInputProps } = inputProps;
     const inputClassName = `${SEARCH_BAR_INPUT_CLASS} ${inputPropsClassName}`.trim();
@@ -90,7 +90,7 @@ export function SearchBar({
 
 SearchBar.propTypes = {
     /** The full list of entries to filter */
-    entries: PropTypes.array.isRequired,
+    entries: PropTypes.array,
     /** Initial value of the search bar */
     initialSearch: PropTypes.string,
     /** A function called after the list is filtered */

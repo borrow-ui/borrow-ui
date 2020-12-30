@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
+import { filterEntries } from '../../utils/filters';
 
 import { Icon } from '../icon/Icon';
 import { SearchBar } from '../search-bar/SearchBar';
@@ -21,11 +22,12 @@ const DEFAULT_CONFIG = {
 
 const DEFAULT_PAGINATION = {
     pageSize: 20,
-    autoPaginate: true,
+    autoPage: true,
 };
 
 const DEFAULT_SEARCH_BAR = {
     visible: false,
+    initialSearch: undefined,
 };
 
 const DEFAULT_STATUS_BAR = {
@@ -47,6 +49,8 @@ export function Table({
     const tableSearchBar = { ...DEFAULT_SEARCH_BAR, ...searchBar };
     const tableStatusBar = { ...DEFAULT_STATUS_BAR, ...statusBar };
 
+    const [search, setSearch] = useState(tableSearchBar.initialSearch);
+
     const [tableState, setTableState] = useState({
         columns: [...columns],
         page: 1,
@@ -55,6 +59,27 @@ export function Table({
 
     const [filteredEntries, setFilteredEntries] = useState(entries);
 
+    const resetPage = () => setTableState((tableState) => ({ ...tableState, page: 1 }));
+
+    useEffect(() => {
+        const filteredSearchedEntries = search
+            ? filterEntries(entries, [search], {
+                  stringIncludes: true,
+              })
+            : entries;
+        setFilteredEntries(filteredSearchedEntries);
+    }, [entries, search]);
+
+    useEffect(() => {
+        resetPage();
+    }, [search]);
+
+    const updateSearch = (value) => {
+        setSearch(value);
+        resetPage();
+    };
+
+    // if totEntries is passed, it should override the counted one
     const totOriginalEntries = entries.length;
     const totFilteredEntries = filteredEntries.length;
 
@@ -74,10 +99,11 @@ export function Table({
             {tableSearchBar.visible && (
                 <div className={TABLE_SEARCH_BAR_CONTAINER}>
                     <SearchBar
-                        entries={entries}
-                        setFilteredEntries={setFilteredEntries}
+                        globalSearch={search}
+                        setGlobalSearch={updateSearch}
                         beforeInput={<Icon name="search" size="small" className="m-r-5" />}
                         inputProps={{ placeholder: 'Type here to filter entries...' }}
+                        initialSearch={search}
                     />
                 </div>
             )}
@@ -130,6 +156,7 @@ Table.propTypes = {
     }),
     searchBar: PropTypes.shape({
         visible: PropTypes.bool,
+        initialSearch: PropTypes.string,
     }),
     statusBar: PropTypes.shape({
         visible: PropTypes.bool,
