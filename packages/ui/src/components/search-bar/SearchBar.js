@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'lodash.debounce';
 
 import { UI_PREFIX } from '../../config';
 import { filterEntries } from '../../utils/filters';
@@ -16,6 +17,7 @@ export function SearchBar({
     setFilteredEntries,
     stringIncludes,
     filterEntriesFunction = filterEntries,
+    debounceDelay = 400,
     inputProps = {},
     beforeInput,
     afterInput,
@@ -25,14 +27,29 @@ export function SearchBar({
 
     const searchBarClassName = `${SEARCH_BAR_CLASS} ${className}`.trim();
 
-    const changeSearch = (value) => {
-        setSearch(value);
-        doSearch(value);
+    const doSearch = (value, currentEntries) => {
+        if (setFilteredEntries) {
+            if (value) {
+                // filter the entries based on value and options
+                const filteredEntries = filterEntriesFunction(currentEntries, [value], {
+                    stringIncludes,
+                });
+                setFilteredEntries(filteredEntries);
+            } else {
+                // if a value is not specified, all entries should be seen
+                setFilteredEntries(entries);
+            }
+        }
     };
 
-    const doSearch = (value) => {
-        const filteredEntries = filterEntriesFunction(entries, [value], { stringIncludes });
-        setFilteredEntries && setFilteredEntries(filteredEntries);
+    const debouncedSearch = useCallback(
+        debounce((value) => doSearch(value, entries), debounceDelay),
+        [entries, debounceDelay] // Debounce the actual search
+    );
+
+    const changeSearch = (value) => {
+        setSearch(value);
+        debouncedSearch(value);
     };
 
     const { className: inputPropsClassName = '', ...restInputProps } = inputProps;
@@ -72,6 +89,8 @@ SearchBar.propTypes = {
      *
      * - `stringIncludes`: a boolean as described above. */
     filterEntriesFunction: PropTypes.func,
+    /** Specify a delay in ms to do search when the input changes */
+    debounceDelay: PropTypes.bool,
     /** Props forwarded to Input component */
     inputProps: PropTypes.shape({
         className: PropTypes.string,
