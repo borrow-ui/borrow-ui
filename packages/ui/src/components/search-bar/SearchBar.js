@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
@@ -14,6 +14,7 @@ const SEARCH_BAR_INPUT_CLASS = `${UI_PREFIX}__search-bar__input`;
 export function SearchBar({
     className = '',
     entries,
+    initialSearch,
     setFilteredEntries,
     stringIncludes,
     filterEntriesFunction = filterEntries,
@@ -23,7 +24,7 @@ export function SearchBar({
     afterInput,
     ...rest
 }) {
-    const [search, setSearch] = useState(null);
+    const [search, setSearch] = useState(initialSearch);
 
     const searchBarClassName = `${SEARCH_BAR_CLASS} ${className}`.trim();
 
@@ -46,6 +47,11 @@ export function SearchBar({
         debounce((value) => doSearch(value, entries), debounceDelay),
         [entries, debounceDelay] // Debounce the actual search
     );
+
+    // Execute the search on load only if initialSearch is set
+    useEffect(() => {
+        if (initialSearch) doSearch(initialSearch, entries);
+    }, [initialSearch]); // eslint-disable-line
 
     const changeSearch = (value) => {
         setSearch(value);
@@ -72,6 +78,8 @@ export function SearchBar({
 SearchBar.propTypes = {
     /** The full list of entries to filter */
     entries: PropTypes.array.isRequired,
+    /** Initial value of the search bar */
+    initialSearch: PropTypes.string,
     /** A function called after the list is filtered */
     setFilteredEntries: PropTypes.func,
     /** Keep elements if the search string is included in any of the values */

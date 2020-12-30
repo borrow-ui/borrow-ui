@@ -66,6 +66,35 @@ To filter only entries with an exact match, set `stringIncludes` property to `fa
     </div>
 </Playground>
 
+### Initial Search
+
+The initial input value can be specified via `initialSearch` prop:
+
+<Playground>
+    <div className="storybook-container">
+        <SearchBarStoryWrapper
+            entries={[
+                { id: 1, name: 'first entry', group: 'group 1' },
+                { id: 2, name: 'second entry', group: 'group 2' },
+                { id: 3, name: 'third entry', group: 'group 1' },
+            ]}
+        >
+            {({ entries, setFilteredEntries }) => {
+                return (
+                    <div>
+                        <p>Filter the entries by text</p>
+                        <SearchBar
+                            entries={entries}
+                            setFilteredEntries={setFilteredEntries}
+                            initialSearch="second"
+                        />
+                    </div>
+                );
+            }}
+        </SearchBarStoryWrapper>
+    </div>
+</Playground>
+
 ## Props
 
 <Props of={SearchBar} />
