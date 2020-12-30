@@ -52,6 +52,21 @@
     justify-content: flex-end;
     align-items: flex-start;
 }
+.flex-spacebetween-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-spacebetween-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.flex-spacebetween-start {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 .flex---center {
     display: flex;
     align-items: center;
@@ -63,6 +78,16 @@
 .flex---start {
     display: flex;
     align-items: flex-start;
+}
+
+.text-align-center {
+    text-align: center;
+}
+.text-align-left {
+    text-align: left;
+}
+.text-align-right {
+    text-align: right;
 }
 
 .display-inline-block {
