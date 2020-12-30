@@ -101,7 +101,7 @@ For a detailed documentation of components, see the respective pages.
                                     onClick={(e) =>
                                         setState({
                                             ...state,
-                                            smartphone: !!!state.smartphone,
+                                            smartphone: !state.smartphone,
                                         })
                                     }
                                 />
@@ -110,16 +110,14 @@ For a detailed documentation of components, see the respective pages.
                                 <Checkbox
                                     label="Laptop"
                                     checked={state.laptop}
-                                    onClick={(e) => setState({ ...state, laptop: !!!state.laptop })}
+                                    onClick={(e) => setState({ ...state, laptop: !state.laptop })}
                                 />
                             </div>
                             <div className="m-b-10">
                                 <Checkbox
                                     label="Desktop"
                                     checked={state.desktop}
-                                    onClick={(e) =>
-                                        setState({ ...state, desktop: !!!state.desktop })
-                                    }
+                                    onClick={(e) => setState({ ...state, desktop: !state.desktop })}
                                 />
                             </div>
                         </div>
@@ -127,9 +125,7 @@ For a detailed documentation of components, see the respective pages.
                     <Field label="I use internet">
                         <Toggle
                             checked={state.useInternet}
-                            onClick={(e) =>
-                                setState({ ...state, useInternet: !!!state.useInternet })
-                            }
+                            onClick={(e) => setState({ ...state, useInternet: !state.useInternet })}
                         />
                     </Field>
                     <Field>
