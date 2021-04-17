@@ -3,8 +3,19 @@
 .#{$ui-prefix}__form__field--horizontal {
     display: inline-flex;
     padding: $ui-form-field-padding;
-    align-items: center;
     width: 100%;
+}
+
+.#{$ui-prefix}__form__field--valignment-top {
+    align-items: flex-start;
+}
+
+.#{$ui-prefix}__form__field--valignment-middle {
+    align-items: center;
+}
+
+.#{$ui-prefix}__form__field--valignment-bottom {
+    align-items: flex-end;
 }
 
 .#{$ui-prefix}__form__field__controller--horizontal {
@@ -22,4 +33,14 @@
 .#{$ui-prefix}__form__field--vertical {
     padding: $ui-form-field-padding;
     display: block;
+}
+
+.#{$ui-prefix}__form__field__description__container {
+    color: $ui-color-neutral-light;
+}
+
+.#{$ui-prefix}__form__field__description {
+    margin: 7px 0;
+    display: block;
+    font-size: 0.9em;
 }

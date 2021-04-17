@@ -10,3 +10,10 @@ export const ALIGNMENTS = {
     RIGHT: 'right',
     DEFAULT: 'left',
 };
+
+export const VALIGNMENTS = {
+    TOP: 'top',
+    MIDDLE: 'middle',
+    BOTTOM: 'bottom',
+    DEFAULT: 'middle',
+};
