@@ -28,11 +28,10 @@ export function DatePicker({
     const [currentDate, setCurrentDate] = useState({ string: '', date: undefined });
 
     useEffect(() => {
-        if (initialValue)
-            setCurrentDate({
-                string: initialValue,
-                date: initialValueDate,
-            });
+        setCurrentDate({
+            string: initialValue,
+            date: initialValueDate,
+        });
     }, [initialValue, initialValueDate]);
 
     const { className: inputClassName = '', inputStyle = {}, ...restInputProps } = inputProps;
