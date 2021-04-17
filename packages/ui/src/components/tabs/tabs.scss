@@ -28,6 +28,11 @@ $ui-page-padding: 15px !default;
     }
 }
 
+.#{$ui-prefix}__tabs__header__extra-header {
+    padding: 7px 15px 5px;
+    flex-grow: 1;
+}
+
 /*
 .#{$ui-prefix}__tabs__body__container {}
 */
