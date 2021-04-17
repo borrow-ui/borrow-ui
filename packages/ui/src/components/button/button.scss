@@ -176,6 +176,7 @@
 .#{$ui-prefix}__button--primary-reverse:disabled,
 .#{$ui-prefix}__button--primary-reverse:disabled:hover {
     color: $ui-color-primary-disabled;
+    color: $ui-color-on-primary;
     border-color: $ui-color-primary-disabled;
 }
 
