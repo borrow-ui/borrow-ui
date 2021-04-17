@@ -1,11 +1,5 @@
 @import '../../style/vars/main';
 
-.#{$ui-prefix}__reference-overlay {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
-}
-
 .#{$ui-prefix}__reference-overlay__trigger {
     display: inline-block;
 }
