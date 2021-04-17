@@ -12,6 +12,13 @@ $ui-link-color-over: $ui-color-primary-over !default;
 
 .#{$ui-prefix}__link--underline {
     text-decoration: underline;
+    -webkit-text-underline-position: under;
+    -ms-text-underline-position: below;
+    text-underline-position: under;
+    text-decoration-color: lighten($ui-color-primary-light, 15);
+}
+.#{$ui-prefix}__link--underline:hover {
+    text-decoration-color: $ui-color-primary-light;
 }
 
 .#{$ui-prefix}__link--no-underline {
