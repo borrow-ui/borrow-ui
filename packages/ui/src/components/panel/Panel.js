@@ -78,7 +78,7 @@ PanelContentWrapper.propTypes = {
     /** Set the panel visible */
     visible: PropTypes.bool,
     /** hooks called when the panel:
-     * - open: `onOpen`, this must be a promise.
+     * - opens: `onOpen`, this must be a promise.
      */
     hooks: PropTypes.object,
     /** Width of the panel. */

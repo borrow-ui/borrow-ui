@@ -11,7 +11,6 @@ import { Fragment } from 'react';
 import { Button } from '../button/Button';
 import { Lorem } from '../lorem/Lorem';
 import { Panel, PanelContentWrapper } from './Panel';
-import { PanelContentPropsOnOpen } from './PanelStories';
 
 # Panel
 
@@ -124,9 +123,29 @@ The `Panel` width can be set via `width` prop, and the content width via `innerC
 ### onOpen hook
 
 It is possible to specify a callback called when the component is open via `onOpen` callback.
+This can be useful for example if you need to define a state variable and populate it asynchronously,
+like `const [variableContent, setVariableContent] = useState(null);`.
 
 <Playground>
-    <PanelContentPropsOnOpen />
+    <Panel
+        Trigger={({ setVisible }) => (
+            <Button onClick={() => setVisible(true)} mean="primary">
+                Open Panel with onOpen
+            </Button>
+        )}
+        getPanelContentProps={() => ({
+            title: 'Panel demo title',
+            content: <Lorem paragraphs={3} />, // use variableContent
+            hooks: {
+                onOpen: ({ resolve }) => {
+                    setTimeout(() => {
+                        // setVariableContent('Content set after 1500 ms.');
+                        resolve();
+                    }, 1500);
+                },
+            },
+        })}
+    />
 </Playground>
 
 ## Panel Props
