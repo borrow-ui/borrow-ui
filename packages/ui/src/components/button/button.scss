@@ -226,6 +226,7 @@
 .#{$ui-prefix}__button--positive-reverse:disabled:hover {
     color: $ui-color-positive-disabled;
     border-color: $ui-color-positive-disabled;
+    background-color: $ui-color-on-positive;
 }
 
 .#{$ui-prefix}__button--negative-reverse {
