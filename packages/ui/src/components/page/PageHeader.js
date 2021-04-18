@@ -17,7 +17,7 @@ export function PageHeader({
     children,
     controls,
     scrollRef,
-    titleTag: TitleTag = 'h2',
+    titleTag,
     headerVisibleFollowRef,
     headerVisibleFollowOffset = 0,
     readableContent = false,
@@ -58,6 +58,8 @@ export function PageHeader({
     const headerClass = `${PAGE_HEADER_CONTAINER_CLASS} ${trackerClass} ${readableContentClass} ${shadowClass} ${className}`;
 
     const pageHeaderHeaderContainerClass = `${PAGE_HEADER_HEADER_CONTAINER_CLASS}`;
+
+    const TitleTag = titleTag || (typeof children === 'string' ? 'h2' : 'div');
 
     return (
         <div className={headerClass}>
