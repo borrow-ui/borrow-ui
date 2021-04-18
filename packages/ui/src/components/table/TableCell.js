@@ -27,20 +27,26 @@ export function TableCell({
         ? `${UI_PREFIX}__table__cell--border-${tableConfig.borderType}`
         : '';
 
-    const cellElementProps = !elementsProps.cellProps
-        ? {}
-        : elementsProps.cellProps.getProps
-        ? elementsProps.cellProps.getProps(column, entry)
-        : elementsProps.cellProps;
+    const cellElementProps =
+        !elementsProps.cellProps && !column.cellProps
+            ? {}
+            : elementsProps.cellProps && elementsProps.cellProps.getProps
+            ? elementsProps.cellProps.getProps(column, entry)
+            : column.cellProps
+            ? column.cellProps
+            : elementsProps.cellProps;
 
     const { className: cellPropsClassName = '', ...cellOtherProps } = cellElementProps || {};
     const cellClassName = `${TABLE_CELL_CLASS} ${className} ${borderClassName} ${verticalAlignClassName} ${cellPropsClassName}`;
 
-    const cellContentElementProps = !elementsProps.cellContentProps
-        ? {}
-        : elementsProps.cellContentProps.getProps
-        ? elementsProps.cellContentProps.getProps(column, entry)
-        : elementsProps.cellContentProps;
+    const cellContentElementProps =
+        !elementsProps.cellContentProps && !column.cellContentProps
+            ? {}
+            : elementsProps.cellContentProps && elementsProps.cellContentProps.getProps
+            ? elementsProps.cellContentProps.getProps(column, entry)
+            : column.cellContentProps
+            ? column.cellContentProps
+            : elementsProps.cellContentProps;
 
     const { className: cellContentPropsClassName = '', ...cellContentOtherProps } =
         cellContentElementProps || {};

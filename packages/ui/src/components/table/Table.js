@@ -22,7 +22,7 @@ const DEFAULT_CONFIG = {
 
 const DEFAULT_PAGINATION = {
     pageSize: 20,
-    autoPage: true,
+    autoPaginate: true,
 };
 
 const DEFAULT_SEARCH_BAR = {
