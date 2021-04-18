@@ -10,7 +10,6 @@ import { customComponents } from "./customComponents";
 import "gatsby-remark-vscode/styles.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import "@fortawesome/fontawesome-free/css/all.css";
-import "typeface-lato/index.css";
 import "@borrow-ui/ui/style/ui.full.scss";
 import "./docz.scss";
 
@@ -21,9 +20,11 @@ const themeConfig = {
 
 // Update configuration by name
 themeConfig.styles.root.fontSize = 2;
-themeConfig.styles.root.fontFamily = "Lato";
-themeConfig.prism.dark.plain.fontSize = 16;
-themeConfig.prism.light.plain.fontSize = 16;
+themeConfig.styles.root.fontFamily = "Segoe UI";
+themeConfig.styles.root.fontSize = 14;
+themeConfig.styles.root.textRendering = "optimizeLegibility";
+themeConfig.prism.dark.plain.fontSize = 14;
+themeConfig.prism.light.plain.fontSize = 14;
 
 const Theme = ({ children }) => {
   const { themeConfig } = useConfig();

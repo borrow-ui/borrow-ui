@@ -14,8 +14,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "flexboxgrid2": "^7.2.1",
-        "typeface-lato": "^0.0.75"
+        "flexboxgrid2": "^7.2.1"
     },
     "peerDependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
