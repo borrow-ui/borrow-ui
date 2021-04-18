@@ -22,10 +22,10 @@ const SIDEBAR_TOP_CLASS = `${UI_PREFIX}__sidebar__top-container`;
 // closed => `${UI_PREFIX}__sidebar__top-container--closed`
 const SIDEBAR_BOTTOM_CLASS = `${UI_PREFIX}__sidebar__bottom-container`;
 
-export function generateSidebarContextProvider() {
+export function generateSidebarContextProvider({ initialStatus = 'closed' } = {}) {
     const SidebarContext = createContext([{}, () => ({})]);
 
-    const SidebarProvider = ({ children, initialStatus = 'closed' }) => {
+    const SidebarProvider = ({ children }) => {
         const [state, setState] = useState({ status: initialStatus });
 
         return (
