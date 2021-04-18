@@ -18,6 +18,7 @@ export function Tooltip({
     tooltipProps = {},
     tooltipArrowProps = {},
     popperProps,
+    className = '',
     ...rest
 }) {
     const { className: tooltipPropsClass, ...restTooltipProps } = tooltipProps;
@@ -30,6 +31,7 @@ export function Tooltip({
     return (
         <ReferenceOverlay
             overlayContent={tooltip}
+            className={className}
             triggerProps={rest}
             triggerMode={triggerMode}
             clickPersist={clickPersist}
@@ -73,4 +75,5 @@ Tooltip.propTypes = {
     /** Props forwarded to popper hook.
      * See [documentation](https://popper.js.org/react-popper/v2/hook/). */
     popperProps: PropTypes.object,
+    className: PropTypes.string,
 };
