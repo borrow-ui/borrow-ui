@@ -7,7 +7,7 @@ function filterPropertyValue(propValue, value, { stringIncludes = true }) {
      *  property value.
      */
     if (typeof propValue === 'string' && stringIncludes) {
-        return propValue.indexOf(value) >= 0;
+        return propValue.toLowerCase().indexOf(value.toLowerCase()) >= 0;
     }
     return propValue === value;
 }
