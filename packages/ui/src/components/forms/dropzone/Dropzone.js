@@ -35,11 +35,12 @@ export function Dropzone({
 
     const onDropCallback = useCallback(
         (acceptedFiles) => {
-            setDropzoneState({
+            const newState = {
                 ...dropzoneState,
                 files: [...dropzoneState.files, ...acceptedFiles],
-            });
-            onDrop && onDrop(acceptedFiles, dropzoneState, setDropzoneState);
+            };
+            setDropzoneState(newState);
+            onDrop && onDrop(acceptedFiles, newState, setDropzoneState);
         },
         [onDrop, dropzoneState]
     );
@@ -47,11 +48,12 @@ export function Dropzone({
     const onRemoveCallback = useCallback(
         (removeIndex) => {
             const removedFile = dropzoneState.files[removeIndex];
-            setDropzoneState({
+            const newState = {
                 ...dropzoneState,
                 files: dropzoneState.files.filter((f, i) => i !== removeIndex),
-            });
-            onFileRemove && onFileRemove(removedFile, dropzoneState, setDropzoneState);
+            };
+            setDropzoneState(newState);
+            onFileRemove && onFileRemove(removedFile, newState, setDropzoneState);
         },
         [onFileRemove, dropzoneState]
     );
