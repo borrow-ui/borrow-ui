@@ -2,7 +2,7 @@ $ui-modal-header-height: 55px !default;
 $ui-modal-footer-height: 65px !default;
 
 .#{$ui-prefix}__modal__wrapper {
-    background-color: hsla(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     left: 0;
