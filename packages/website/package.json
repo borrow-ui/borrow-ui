@@ -1,9 +1,9 @@
 {
     "name": "@borrow-ui/website",
-    "version": "0.1.0",
+    "version": "0.0.1-alpha.1",
     "private": true,
     "dependencies": {
-        "@borrow-ui/ui": "0.0.1",
+        "@borrow-ui/ui": "^0.0.1-alpha.1",
         "@fortawesome/fontawesome-free": "^5.14.0",
         "@testing-library/jest-dom": "^5.1.14",
         "@testing-library/react": "^11.0.2",
