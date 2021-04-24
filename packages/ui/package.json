@@ -14,7 +14,7 @@
     "license": "MIT",
     "scripts": {
         "build": "rollup -c && yarn compile-css-min",
-        "watch": "webpack --watch --progress --config webpack.dev.js",
+        "watch": "yarn rollup --watch --watch.clearScreen",
         "compile-css": "sass src/style/ui.full.scss dist/ui.full.css",
         "compile-css-min": "sass src/style/ui.full.scss dist/ui.full.min.css --style=compressed",
         "test": "jest",
