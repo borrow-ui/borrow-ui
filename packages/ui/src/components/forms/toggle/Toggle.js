@@ -13,10 +13,10 @@ const FORM_TOGGLE_SWITCH_CLASS = `${UI_PREFIX}__form__field__toggle__switch`;
 const FORM_TOGGLE_SWITCH_CHECKED_CLASS = `${UI_PREFIX}__form__field__toggle__switch--checked`;
 const FORM_TOGGLE_SWITCH_DISABLED_CLASS = `${UI_PREFIX}__form__field__toggle__switch--disabled`;
 
-export function Toggle({ checked, onClick, disabled, ...rest }) {
+export function Toggle({ checked, onClick, disabled, className = '', ...rest }) {
     const checkedToggleClass = checked ? FORM_TOGGLE_CHECKED_CLASS : '';
     const disabledToggleClass = disabled ? FORM_TOGGLE_DISABLED_CLASS : '';
-    const toggleClass = `${FORM_TOGGLE_CLASS} ${checkedToggleClass} ${disabledToggleClass}`;
+    const toggleClass = `${FORM_TOGGLE_CLASS} ${checkedToggleClass} ${disabledToggleClass} ${className}`.trim();
     const checkedSwitchClass = checked ? FORM_TOGGLE_SWITCH_CHECKED_CLASS : '';
     const disabledSwitchClass = disabled ? FORM_TOGGLE_SWITCH_DISABLED_CLASS : '';
     const switchClass = `${FORM_TOGGLE_SWITCH_CLASS} ${checkedSwitchClass} ${disabledSwitchClass}`;
@@ -56,4 +56,5 @@ Toggle.propTypes = {
     onClick: PropTypes.func.isRequired,
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    className: PropTypes.string,
 };

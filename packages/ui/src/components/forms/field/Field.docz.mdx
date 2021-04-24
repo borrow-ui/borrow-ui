@@ -157,32 +157,34 @@ The vertical alignment can be set as well by using `vAlignment` prop:
 <Playground format={false}>
     <FormsStoryWrapper>
         {() => {
-            return <>
-                <HField
-                    vAlignment="top"
-                    labelWidth={200}
-                    label="Short label"
-                    description="This is a short label used to describe the field content."
-                >
-                    <Input placeholder="Insert your name..." />
-                </HField>
-                <HField
-                    vAlignment="middle"
-                    labelWidth={200}
-                    label="Short label"
-                    description="This is a short label used to describe the field content."
-                >
-                    <Input placeholder="Insert your name..." />
-                </HField>
-                <HField
-                    vAlignment="bottom"
-                    labelWidth={200}
-                    label="Short label"
-                    description="This is a short label used to describe the field content."
-                >
-                    <Input placeholder="Insert your name..." />
-                </HField>
-            </>;
+            return (
+                <>
+                    <HField
+                        vAlignment="top"
+                        labelWidth={100}
+                        label="Short label"
+                        description="This is a short label used to describe the field content."
+                    >
+                        <Input placeholder="Insert your name..." />
+                    </HField>
+                    <HField
+                        vAlignment="middle"
+                        labelWidth={100}
+                        label="Short label"
+                        description="This is a short label used to describe the field content."
+                    >
+                        <Input placeholder="Insert your name..." />
+                    </HField>
+                    <HField
+                        vAlignment="bottom"
+                        labelWidth={100}
+                        label="Short label"
+                        description="This is a short label used to describe the field content."
+                    >
+                        <Input placeholder="Insert your name..." />
+                    </HField>
+                </>
+            );
         }}
     </FormsStoryWrapper>
 </Playground>

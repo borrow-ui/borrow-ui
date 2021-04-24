@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import 'flexboxgrid2/flexboxgrid2.css';
-
 import { propTypesChildren } from '../../utils/types';
 
 export function Row({ children, className = '', ...rest }) {

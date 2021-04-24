@@ -1,9 +1,9 @@
 @import '../../style/vars/colors';
 
 .#{$ui-prefix}__badge {
-    font-size: 12px;
+    font-size: 11px;
     margin: 0 5px;
-    padding: 1px 6px 2px 6px;
+    padding: 2px 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;

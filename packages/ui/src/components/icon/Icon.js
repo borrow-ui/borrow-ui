@@ -24,7 +24,7 @@ export function Icon({
     const modifiersList = Array.isArray(modifiers) ? modifiers : [modifiers];
     if (rest.onClick && !modifiersList.includes('clickable')) modifiersList.push('clickable');
 
-    const modifiersClasses = modifiersList.map(m => `${ICON_CLASS}--${m}`).join(' ');
+    const modifiersClasses = modifiersList.map((m) => `${ICON_CLASS}--${m}`).join(' ');
 
     const iconClassName = `${ICON_CLASS} ${family} ${name} ${modifiersClasses} ${sizeClass} ${className}`;
 
@@ -35,7 +35,7 @@ Icon.propTypes = {
     name: PropTypes.string.isRequired,
     /** Adds a class with the family name */
     family: PropTypes.oneOf(['material-icons', 'fa', 'fas', 'fab']),
-    /** Available modifiers: `clickable`, `spin` */
+    /** Available modifiers: `clickable`, `spin`, `90deg`, `180deg`, `270deg` */
     modifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     className: PropTypes.string,
     /** Size of the icon: `smaller`, `small`, `normal`, `big`, `bigger`, `huge` */

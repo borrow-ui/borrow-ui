@@ -45,6 +45,7 @@ import { Table } from './components/table/Table';
 import { Tabs } from './components/tabs/Tabs';
 import { Text } from './components/text/Text';
 import { Tile } from './components/tile/Tile';
+import { TileLink } from './components/tile-link/TileLink';
 import { Title } from './components/text/Title';
 import { TextContainer } from './components/text/TextContainer';
 import { Tooltip } from './components/tooltip/Tooltip';
@@ -108,6 +109,7 @@ export {
     Text,
     TextContainer,
     Tile,
+    TileLink,
     Title,
     Tooltip,
     // hooks

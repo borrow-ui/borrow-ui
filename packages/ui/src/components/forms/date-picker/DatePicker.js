@@ -135,7 +135,7 @@ OverlayComponent.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-function parseDate(str, format) {
+export function parseDate(str, format) {
     const parsed = dayjs(str, format, true);
 
     if (parsed.isValid()) {
@@ -144,6 +144,6 @@ function parseDate(str, format) {
     return undefined;
 }
 
-function formatDate(date, format) {
+export function formatDate(date, format) {
     return dayjs(date).format(format);
 }

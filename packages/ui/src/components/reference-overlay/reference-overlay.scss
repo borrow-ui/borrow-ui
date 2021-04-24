@@ -16,6 +16,7 @@
     visibility: visible;
     opacity: 1;
     transition: visibility 0s linear 0s, opacity 300ms;
+    z-index: 10;
 }
 
 .#{$ui-prefix}__reference-overlay__arrow,

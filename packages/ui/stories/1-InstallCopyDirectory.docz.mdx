@@ -37,13 +37,13 @@ cp -r ~/Downloads/borrow-ui-master/packages/ui/src @borrow-ui/ui
 ### Install dependencies
 
 Now, before starting the React app, the required dependencies needs to be installed.
-You can check which are the "dependencies" and "peerDependencies" from the source
+You can check which are the "optionalDependencies" and "peerDependencies" from the source
 [package.json](https://github.com/borrow-ui/borrow-ui/blob/master/packages/ui/package.json)
 file and install them or launch the following command:
 
 ```bash
-yarn add -D node-sass
-yarn add flexboxgrid2 react-media material-design-icons-iconfont typeface-lato
+yarn add -D sass
+yarn add flexboxgrid2 react-media material-design-icons-iconfont @popperjs/core react-popper lodash.debounce
 # if you want to use forms:
 yarn add dayjs react-select react-day-picker react-dropzone
 ```
@@ -66,7 +66,6 @@ export {
 Import in your application the required dependencies, for example in your main `src/index.js`:
 
 ```jsx
-import 'typeface-lato';
 import '@borrow-ui/ui/style/ui.full.scss';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 ```

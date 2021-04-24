@@ -3,4 +3,7 @@
 .#{$ui-prefix}__navbar__link {
     color: $ui-color-neutral-dark;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }

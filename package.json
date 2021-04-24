@@ -1,7 +1,7 @@
 {
   "name": "borrow-ui",
   "repository": "git@github.com:borrow-ui/borrow-ui.git",
-  "author": "Vittorio Zamboni <vittorio.zamboni@gmail.com>",
+  "author": "borrow-ui <info@borrow-ui.dev>",
   "description": "A simple design system for React",
   "private": true,
   "workspaces": [

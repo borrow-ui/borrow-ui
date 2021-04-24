@@ -22,6 +22,7 @@ const REFERENCE_OVERLAY_ARROW_VISIBLE_CLASS = `${UI_PREFIX}__reference-overlay__
 export function ReferenceOverlay({
     overlayContent,
     children,
+    className = '',
     placement = 'top',
     triggerMode = 'hover',
     clickPersist = false,
@@ -69,13 +70,9 @@ export function ReferenceOverlay({
 
     useTriggerHover(referenceElement, update, setIsVisible, triggerMode);
 
-    const {
-        className: propsTriggerClass = '',
-        propsTriggerOnClick,
-        ...restTriggerProps
-    } = triggerProps;
+    const { propsTriggerOnClick, ...restTriggerProps } = triggerProps;
 
-    const referenceOverlayTriggerClass = `${REFERENCE_OVERLAY_TRIGGER_CLASS} ${propsTriggerClass}`.trim();
+    const referenceOverlayTriggerClass = `${REFERENCE_OVERLAY_TRIGGER_CLASS} ${className}`.trim();
 
     const triggerOnClick = () => {
         update();
@@ -116,6 +113,7 @@ ReferenceOverlay.propTypes = {
     overlayContent: propTypesChildren,
     /** Trigger content */
     children: propTypesChildren,
+    className: PropTypes.string,
     /** Overlay placement.
      * See [popper documentation](https://popper.js.org/docs/v2/constructors/#options). */
     placement: PropTypes.oneOf(PLACEMENTS),

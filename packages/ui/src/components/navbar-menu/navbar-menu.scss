@@ -1,5 +1,7 @@
 @import '../../style/vars/main';
 
+$ui-navbar-menu-item-description-color: $ui-color-neutral !default;
+
 .#{$ui-prefix}__navbar-menu {
 }
 
@@ -27,8 +29,8 @@
 }
 
 .#{$ui-prefix}__navbar-menu__item__description {
-    color: $ui-color-neutral;
-    font-size: 0.8em;
+    color: $ui-navbar-menu-item-description-color;
+    font-size: 0.9em;
     margin-top: 3px;
     text-decoration: none;
     display: block;

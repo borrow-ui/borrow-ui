@@ -3,6 +3,10 @@
         width: 100%;
     }
 
+    .#{$ui-prefix}__form__field__react-select__single-value {
+        padding: 0 0.3rem;
+    }
+
     .#{$ui-prefix}__form__field__react-select--is-disabled {
         background-color: $ui-form-input-disabled-color;
     }
