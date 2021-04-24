@@ -47,7 +47,7 @@ export default {
     ],
     plugins: [
         cleaner({
-            targets: ['./dist', './build_stats'],
+            targets: ['./build_stats'],
         }),
         peerDepsExternal(),
         resolve(),

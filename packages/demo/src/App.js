@@ -1,6 +1,6 @@
 import React from "react";
 
-import "@borrow-ui/ui/lib/ui.full.css";
+import "@borrow-ui/ui/dist/ui.full.min.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 
 import { Content } from "./Content";
