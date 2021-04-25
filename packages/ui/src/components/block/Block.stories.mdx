@@ -1,0 +1,151 @@
+import { Fragment } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Block } from './Block';
+import { Lorem } from '../lorem/Lorem';
+
+<Meta title="Components/Block" component={Block} />
+
+# Block
+
+A `Block` can be used to wrap text or components.
+
+It has shortcuts for padding and margin, shadow and round borders,
+make the text centered (both vertically and horizontally) and to add a title,
+which can be customized via `titleProps` property.
+
+<Canvas>
+    <Story name="Default">
+        <Block title="Block title">
+            <Lorem />
+        </Block>
+    </Story>
+</Canvas>
+
+### Container props
+
+The `Block` container can be customized with different properties:
+
+-   `separated` adds a margin;
+-   `padded` adds padding;
+-   `rounded` makes border rounded;
+-   `outstanding` adds a shadow to make the block outstading from the background.
+
+<Canvas>
+    <Story name="Outstanding Squared">
+        <Block outstanding={true} rounded={false}>
+            With `outstanding` set to `true`.
+            <Lorem paragraphs={1} />
+        </Block>
+    </Story>
+</Canvas>
+
+Can also receive a `title` that is a component (not a string):
+
+<Canvas>
+    <Story name="Title">
+        <Block
+            outstanding={true}
+            rounded={false}
+            title={<h2 style={{ color: 'red' }}>Red title</h2>}
+        >
+            Is the title in red?
+            <Lorem paragraphs={1} />
+        </Block>
+    </Story>
+</Canvas>
+
+### Content props
+
+A shortcut to make the content centered is also present: `contentCentered` prop.
+
+<Canvas>
+    <Story name="Content Props">
+        <Block outstanding={true} contentCentered={true} style={{ height: 200 }}>
+            Height of 200px
+        </Block>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Block} />
+
+---
+
+## React Tutorial
+
+As a text wrapper, the Block component starts by wrapping the content:
+
+```jsx
+import React from 'react';
+
+export function Block({ children }) {
+    return (
+        <div>{children}</div>;
+    );
+}
+```
+
+A set of props, along with a main `className`, can be passed to customize the
+block style. For an example, see the [Badge tutorial](/components/badge#tutorial).
+
+### Title and sub-components props
+
+A special prop, `title`, can be used to generate a title for the block.
+
+```jsx
+import React from 'react';
+
+export function Block({ title = '', children }) {
+
+    // Generate a title class
+    const titleClass = 'title';
+
+    return (
+        <div>
+            {title && <h2 className={titleClass}>{title}</h2>}
+            {children}
+        </div>;
+    );
+}
+```
+
+However, it would be convenient if we could also customize the title props as well.
+To separate the class customization from the main class for the block, we can
+use a `titleProps` main prop which will be used to customize the title component.
+The first try would be to spread the `titleProps`:
+
+```jsx
+<h2 className={titleClass} {...titleProps}>
+    {title}
+</h2>
+```
+
+but this would override the class generated.
+An easy trick is then to extract the `className` from the `titleProps` and append
+that new value to the generated one:
+
+```jsx
+import React from 'react';
+
+export function Block({ title = '', titleProps = {}, children }) {
+
+    // Extract the nested class
+    const { className: titleClassName = '', ...restTitleProps } = titleProps;
+    // Generate a title class
+    const titleClass = `title ${titleClassName}`.trim();
+
+    return (
+        <div>
+            {title && <h2 className={titleClass} {...restTitleProps}>{title}</h2>}
+            {children}
+        </div>;
+    );
+}
+```
+
+This is done via the object destructuring rename feature
+([see here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Assigning_to_new_variable_names)).
+The `className` prop is assigned to a variable called `titleClassName`, and all the other
+defined properties to the `restTitleProps` object.

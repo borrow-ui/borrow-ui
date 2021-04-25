@@ -1,0 +1,176 @@
+import { Fragment } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Button } from '../button/Button';
+import { Lorem } from '../lorem/Lorem';
+import { Modal, ModalWindow } from './Modal';
+
+<Meta title="Components/Modal" component={Modal} />
+
+# Modal
+
+Modals are a common way to render content that needs attention,
+requires an action or show more information about an element (i.e. a detailed entry of a table).
+
+The `Modal` component expects two props, both functions:
+
+-   `Trigger`: a function that returns an element used to trigger the modal.
+-   `getModalWindowProps`: a function that returns an object with valid `ModalWindow` props.
+
+Both functions have one argument: an object with a `setVisible` property.
+This is a function that takes a boolean as argument and can make the modal visible or not.
+
+<Canvas>
+    <Story name="Default">
+        <div>
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Open Modal
+                    </Button>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal demo title',
+                    content: <Lorem paragraphs={3} />,
+                })}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+## Modal Parts
+
+The modal is composed of different parts: a title, the content and the footer.
+The first two are always rendered, while the footer is optional.
+
+<Canvas>
+    <Story name="Modal Parts">
+        <div>
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Modal without footer
+                    </Button>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal without footer',
+                    content: <Lorem paragraphs={3} />,
+                })}
+            />
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary-reverse">
+                        Modal with footer
+                    </Button>
+                )}
+                getModalWindowProps={({ setVisible }) => ({
+                    title: 'Modal with footer',
+                    content: <Lorem paragraphs={3} />,
+                    footer: (
+                        <Fragment>
+                            <span className="color-accent">Some text here</span>
+                            <Button size="small" onClick={() => setVisible(false)}>
+                                Close
+                            </Button>
+                        </Fragment>
+                    ),
+                })}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+## Modal Size
+
+By default the modal window has the width set to 70% and height set to 400px.
+The two initial values can be specified by `startHeight` and `startWidth` props.
+Both values can be numbers (that will be rendered as pixels) or string values.
+The height must be represented only as pixels (either number or string) abecause the value is used to
+calculate the modal content height automatically in presence or abscence of footer.
+
+The modal can also be maximized by default. This can be prevented by setting `canMaximize` prop to false.
+
+<Canvas>
+    <Story name="Modal Size">
+        <div>
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Initial 400 x 300
+                    </Button>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal without footer',
+                    content: <Lorem paragraphs={3} />,
+                    startHeight: 300,
+                    startWidth: 400,
+                })}
+            />
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary-reverse">
+                        Initial 50% x 300
+                    </Button>
+                )}
+                getModalWindowProps={({ setVisible }) => ({
+                    title: 'Modal with footer',
+                    content: <Lorem paragraphs={3} />,
+                    footer: (
+                        <Fragment>
+                            <span className="color-accent">Some text here</span>
+                            <Button size="small" onClick={() => setVisible(false)}>
+                                Close
+                            </Button>
+                        </Fragment>
+                    ),
+                    startWidth: '50%',
+                    startHeight: '300px',
+                    canMaximize: false,
+                })}
+            />
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary-reverse">
+                        Maximized
+                    </Button>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal without footer',
+                    content: <Lorem paragraphs={3} />,
+                    maximized: true,
+                })}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+## Close on escape
+
+By default, if Escape key is pressed the modal visibilty will be set to `false`. To prevent this, pass `closeOnEscape` prop with `false` value.
+
+<Canvas>
+    <Story name="ESC to close">
+        <div>
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Open Modal without Esc
+                    </Button>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal demo title',
+                    content: <Lorem paragraphs={3} />,
+                    closeOnEscape: false,
+                })}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+## Modal Props
+
+<ArgsTable of={Modal} />
+
+## ModalWindow Props
+
+<ArgsTable of={ModalWindow} />

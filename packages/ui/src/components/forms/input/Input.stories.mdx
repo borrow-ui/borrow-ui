@@ -1,0 +1,66 @@
+import { Fragment } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { FormsStoryWrapper } from '../FormsStoryWrapper';
+import { Field } from '../field/Field';
+
+import { Input } from './Input';
+
+<Meta title="Forms/Components/Input" component={Input} />
+
+# Input
+
+Inputs are the most common forms controller.
+`Input` component creates inputs controller with a consistent style.
+
+<Canvas>
+    <Story name="Default">
+        <FormsStoryWrapper initialState={{ full_name: '' }}>
+            {({ state, setState }) => {
+                return (
+                    <div style={{ width: 400 }}>
+                        <Field label="Full Name">
+                            <Input
+                                placeholder="Insert your name..."
+                                value={state.full_name}
+                                onChange={(e) => setState({ ...state, full_name: e.target.value })}
+                            />
+                        </Field>
+                    </div>
+                );
+            }}
+        </FormsStoryWrapper>
+    </Story>
+</Canvas>
+
+The `Input` component has custom classes for `disabled` and `invalid` statuses:
+
+<Canvas>
+    <Story name="Disabled and Invalid">
+        <FormsStoryWrapper initialState={{ invalid_field: 'invalid' }}>
+            {({ state, setState }) => {
+                return (
+                    <div style={{ width: 400 }}>
+                        <Field label="Disabled cannot be changed">
+                            <Input value="Fixed string" disabled={true} />
+                        </Field>
+                        <Field label="Invalid style">
+                            <Input
+                                placeholder="Type 'invalid' to see the invalid style"
+                                value={state.invalid_field}
+                                invalid={state.invalid_field === 'invalid'}
+                                onChange={(e) =>
+                                    setState({ ...state, invalid_field: e.target.value })
+                                }
+                            />
+                        </Field>
+                    </div>
+                );
+            }}
+        </FormsStoryWrapper>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Input} />

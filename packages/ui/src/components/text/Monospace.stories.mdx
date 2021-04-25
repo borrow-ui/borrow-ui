@@ -1,0 +1,20 @@
+import { Fragment } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Monospace } from './Monospace';
+
+<Meta title="Components/Typography/Monospace" component={Monospace} />
+
+# Monospace
+
+`Monospace` component can be used to render monospace text.
+
+<Canvas>
+    <Story name="Default">
+        This line contains <Monospace>monospaced text</Monospace> wrapped in normal text.
+    </Story>
+</Canvas>
+
+## Monospace Props
+
+<ArgsTable of={Monospace} />

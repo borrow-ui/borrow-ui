@@ -1,0 +1,60 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import LinkTo from "@storybook/addon-links/react";
+
+<Meta title="Getting Started/Welcome" />
+
+# Welcome
+
+Welcome to `borrow-ui` guide!
+
+In this guide you will learn how to get ready to start using the components
+and the other utilities included in this project.
+
+Before you start, make sure you have a [NodeJS](https://nodejs.org/) environment ready.
+We will use [yarn](https://yarnpkg.com/) and, optionally, [lerna](https://github.com/lerna/lerna).
+
+You can use `borrow-ui` in different ways: by including the `src` folder or using this project as a base.
+In the future will be possible to install `borrow-ui` from the npm registry.
+
+## Goal of this project
+
+`borrow-ui` project is intended to be a quick-start for a full controlled set of components.
+Often when we start a new project we can't or won't use 3rd-party UI Kits such as
+Material UI, UI Kit or React Bootstrap; each of these is great and is ready to use, with
+a lot of documentation and examples.
+However, there is almost no control over the components that are given. Small fixes or changes, or
+systematic improvements are controlled by the Kit managers and might take a lot of time before
+they are available.
+
+`borrow-ui` allows you to start and maintain your own Kit. Each component:
+
+- is minimal and can be used as a starter for more complex scenarios;
+- is consistent with other comonents (code styles, tests, nomenclatures);
+- is tested (TODO: [#39](https://github.com/borrow-ui/borrow-ui/issues/39));
+- has a documentation file written for [`Storybook`](https://storybook.js.org/);
+- usually has no 3rd party dependencies\*.
+
+\* except for `flexboxgrid2` and `react-media`, which are easily swappable with others,
+and the ones used in forms, `react-select`, `react-dropzone`, `react-day-picker` and `dayjs`.
+
+### Tools and dependencies
+
+Beside the components, `borrow-ui` offers tests (in form of snapshots and unit tests) and
+documentation. As soon as your project is renamed as you wish, you will have this same
+documentation available. It is strongly recommended to invest time documenting your components,
+as well as testing them.
+
+Styling is done with [scss](https://sass-lang.com/) and few variables can help to customize the Kit.
+
+## Installation
+
+As mentioned above, there are different ways to install and use `borrow-ui`.
+
+- [include](/introduction/getting-started-include-in-an-existing-project)
+  the `ui`'s `src` folder directly in your existing project:
+  this will allow you to import and use all the components directly;
+- [use this monorepo](/introduction/getting-started-use-as-a-project-base) as a base for your project,
+  with storybook and examples already setup;
+- by installing it from `npm` registry (TODO: [#3](https://github.com/borrow-ui/borrow-ui/issues/3)).
+
+All the installation procedures are explained in the next section.

@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { TileLink } from './TileLink';
+
+<Meta title="Components/TileLink" component={TileLink} />
+
+# TileLink
+
+`TileLink` component can be used to create home page or section menus.
+It uses the `Tile`, `Link` and `Icon` components to generate a clickable Tile.
+
+The `TileLink` component accepts three main props:
+
+-   `icon`: the icon visualized in the tile;
+-   `name`: the name of the Tile (larger text);
+-   `description`: the description of the Tile (smaller text).
+
+It also accepts a `size` prop, which can be `small` or `large` (default to small).
+
+<Canvas>
+    <Story name="Default">
+        <div>
+            <div>
+                <TileLink
+                    icon="computer"
+                    name="Local"
+                    description="Files on this device"
+                    size="big"
+                />
+                <TileLink icon="cloud" name="Cloud" description="Your shared data" size="big" />
+            </div>
+            <div>
+                <TileLink icon="event" name="Today" description="What happens today" />
+                <TileLink icon="group" name="Groups" description="Manage available user groups" />
+                <TileLink
+                    icon="person"
+                    name="Your Profile"
+                    description="Change your profile data"
+                />
+            </div>
+        </div>
+    </Story>
+</Canvas>
+
+## TileLink Props
+
+<ArgsTable of={TileLink} />
