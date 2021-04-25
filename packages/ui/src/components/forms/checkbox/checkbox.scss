@@ -3,7 +3,8 @@
 **/
 
 .#{$ui-prefix}__form__field__checkbox__container {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
 }
 
 .#{$ui-prefix}__form__field__checkbox {
