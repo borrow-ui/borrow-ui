@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Block } from '../block/Block';
+import { Icon } from '../icon/Icon';
+
+import { Tile } from './Tile';
+import './tile-story.scss';
+
+<Meta title="Components/Tile" component={Tile} />
+
+# Tile
+
+A tile is a container with two parts: content and description.
+Tile's content is passed as `children`, and the description is specified with the `description` prop.
+
+<Canvas>
+    <Story name="Default">
+        <div className="storybook-container">
+            <div style={{ display: 'flex', width: '100%' }}>
+                <Tile description="A tile description">
+                    <Icon name="home" size="huge" />
+                </Tile>
+                <Tile description="A tile with predefined background" withBackground={true}>
+                    <Icon name="home" size="huge" />
+                </Tile>
+            </div>
+        </div>
+    </Story>
+</Canvas>
+
+Tiles can be wrapped by `Block` component to create an outstanding effect:
+
+<Canvas>
+    <Story name="Wrapped inside Block">
+        <div className="storybook-container">
+            <div style={{ display: 'flex', width: '100%' }}>
+                <Block outstanding={true} style={{ width: 200 }} className="m-r-10">
+                    <Tile description="A tile wrapped in a block">
+                        <Icon name="home" size="huge" />
+                    </Tile>
+                </Block>
+                <Block
+                    outstanding={true}
+                    style={{ width: 200 }}
+                    className="tile-block-hover-example m-r-10"
+                >
+                    <Tile description="A tile wrapped in a block with hover effect">
+                        <Icon name="home" size="bigger" />
+                    </Tile>
+                </Block>
+            </div>
+        </div>
+    </Story>
+</Canvas>
+
+## Tile Props
+
+<ArgsTable of={Tile} />

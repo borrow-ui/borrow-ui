@@ -1,0 +1,35 @@
+@import "~material-design-icons-iconfont/dist/material-design-icons.css";
+@import "../../ui/src/style/ui.full.scss";
+
+.storybook-container {
+  font-size: 14px;
+}
+#docs-root div.sbdocs.sbdocs-div .borrow-ui form {
+  .borrow-ui__form__label,
+  .borrow-ui__form__field__checkbox__label {
+    font-size: 14px;
+  }
+}
+.docblock-source {
+  .language-jsx {
+    .token.comment {
+      font-style: normal;
+      color: #98c3d0;
+    }
+
+    .token.keyword {
+      color: #4178dc;
+      &.module {
+        color: #0000ff;
+      }
+    }
+
+    .token.tag {
+      color: #6d6790;
+
+      &.attr-name {
+        color: #f18a63;
+      }
+    }
+  }
+}

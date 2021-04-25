@@ -1,0 +1,70 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Accordion } from './Accordion';
+import { Lorem } from '../lorem/Lorem';
+
+<Meta title="Components/Accordion" component={Accordion} />
+
+# Accordion
+
+Accordions allow to show and hide content by clicking on their title bar.
+An Accordion can be open or closed at start.
+By default, accordions start closed.
+
+It is possible to customize both the title and the content container via `titleProps` and `contentProps`.
+
+To have the transition animation a `max-height` value is required.
+It is set in the CSS, but in case the default value is not enough it can be overridden via `maxHeight` props.
+
+<Canvas>
+    <Story name="Default">
+        <Accordion title="Accordion title">
+            <div style={{ padding: 20 }}>
+                <Lorem />
+            </div>
+        </Accordion>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Accordion} />
+
+---
+
+## React Tutorial
+
+Accordion component is relative simple.
+The main elements are the title and the content, both wrapped into their containers.
+
+The idea is that clicking on the title the content shuold swap visibilty.
+For example, if the content is not visible, clicking the title should make it visible.
+
+To achieve this we can use a state variable and show/hide the content accordingly:
+
+```jsx
+import React, { useState } from 'react';
+
+export function Accordion({ title, children }) {
+    const [isOpen, setIsOpen] = useState(false); // make content hidden by default
+
+    return (
+        <div>
+            <div onClick={() => setIsOpen(!isOpen)}>{title}</div>
+            <div style={{ display: isOpen ? 'block' : 'none' }}>{children}</div>
+        </div>
+    );
+}
+```
+
+We can then customize the initial state with another prop: `initialStatus`.
+This can have more explicit values rather than just a boolean, such as `open` or `closed`:
+
+```jsx
+export function Accordion({ title, initialStatus, children }) {
+    // Initialization based on initialStatus prop
+    const [isOpen, setIsOpen] = useState(initialStatus === 'open');
+
+    // ... same as before
+}
+```

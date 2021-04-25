@@ -1,0 +1,66 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { FormsStoryWrapper } from '../FormsStoryWrapper';
+import { Field } from '../field/Field';
+
+import { Textarea } from './Textarea';
+
+<Meta title="Forms/Components/Textarea" component={Textarea} />
+
+# Textarea
+
+`Textarea` component is used to input potentially long texts.
+
+<Canvas>
+    <Story name="Default">
+        <FormsStoryWrapper initialState={{ text: '' }}>
+            {({ state, setState }) => {
+                return (
+                    <div style={{ width: 400 }}>
+                        <Field label="Describe the book you are currently reading">
+                            <Textarea
+                                value={state.text}
+                                onChange={(e) => setState({ text: e.target.value })}
+                            />
+                        </Field>
+                    </div>
+                );
+            }}
+        </FormsStoryWrapper>
+    </Story>
+</Canvas>
+
+Textarea also supports invalid and disabled statuses via `invalid` and `disabled` props.
+
+<Canvas>
+    <Story name="Invalid and Disabled">
+        <FormsStoryWrapper
+            initialState={{ disabled: 'This text cannot be changed', invalid: 'invalid' }}
+        >
+            {({ state, setState }) => {
+                return (
+                    <div style={{ width: 400 }}>
+                        <Field label="This textarea should be disabled">
+                            <Textarea
+                                value={state.disabled}
+                                disabled={true}
+                                onChange={(e) => setState({ ...state, disabled: e.target.value })}
+                            />
+                        </Field>
+                        <Field label="Type `invalid` to see invalid style">
+                            <Textarea
+                                value={state.invalid}
+                                invalid={state.invalid === 'invalid'}
+                                onChange={(e) => setState({ ...state, invalid: e.target.value })}
+                            />
+                        </Field>
+                    </div>
+                );
+            }}
+        </FormsStoryWrapper>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Textarea} />

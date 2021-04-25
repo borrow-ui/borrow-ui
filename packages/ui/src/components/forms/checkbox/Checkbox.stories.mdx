@@ -1,0 +1,85 @@
+import { Fragment } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { FormsStoryWrapper } from '../FormsStoryWrapper';
+import { Field } from '../field/Field';
+
+import { Checkbox } from './Checkbox';
+
+<Meta title="Forms/Components/Checkbox" component={Checkbox} />
+
+# Checkbox
+
+Checkboxes represent a two-statuses controller.
+In vertical layout fields they are can be associated to a specific label instead of the field's one.
+
+<Canvas>
+    <Story name="Default">
+        <FormsStoryWrapper initialState={{ vertical_label: true, horizontal_label: true }}>
+            {({ state, setState }) => {
+                return (
+                    <div style={{ width: 400 }}>
+                        <Field label="Checkbox with label on top (vertical)">
+                            <Checkbox
+                                checked={state.vertical_label}
+                                onClick={() =>
+                                    setState({
+                                        ...state,
+                                        vertical_label: !state.vertical_label,
+                                    })
+                                }
+                            />
+                        </Field>
+                        <Field label="Horizontal label" layout="horizontal">
+                            <Checkbox
+                                checked={state.horizontal_label}
+                                onClick={() =>
+                                    setState({
+                                        ...state,
+                                        horizontal_label: !state.horizontal_label,
+                                    })
+                                }
+                            />
+                        </Field>
+                        <Field>
+                            <Checkbox
+                                label="Checkbox own label"
+                                checked={state.own_label}
+                                onClick={() => setState({ ...state, own_label: !state.own_label })}
+                            />
+                        </Field>
+                    </div>
+                );
+            }}
+        </FormsStoryWrapper>
+    </Story>
+</Canvas>
+
+### Disabled checkbox
+
+Checkboxes can be disabled as well:
+
+<Canvas>
+    <Story name="Disabled">
+        <FormsStoryWrapper initialState={{ disabled_label: true }}>
+            {({ state, setState }) => {
+                return (
+                    <div style={{ width: 400 }}>
+                        <Field>
+                            <Checkbox
+                                label="This is always checked"
+                                checked={state.disabled_label}
+                                disabled={true}
+                                onClick={() => setState({ ...state, own_label: !state.own_label })}
+                            />
+                        </Field>
+                    </div>
+                );
+            }}
+        </FormsStoryWrapper>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Checkbox} />

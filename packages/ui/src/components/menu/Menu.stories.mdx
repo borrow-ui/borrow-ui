@@ -1,0 +1,82 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Icon } from '../icon/Icon';
+import { Loader } from '../loader/Loader';
+import { Monospace } from '../text/Monospace';
+import { Menu } from './Menu';
+import { MenuDivider } from './MenuDivider';
+import { MenuEntry } from './MenuEntry';
+
+<Meta title="Components/Menu" component={Menu} />
+
+# Menu
+
+A `Menu` component is available to generate simple Menus.
+
+A list of entries can be passed with the `entries` prop.
+Each entry is an object with the following properties:
+
+-   `type`: can be either `entry` (rendered with a `MenuEntry` compoent) or `divider` (rendered with a `MenuDivider` component);
+-   `label`: label shown in the menu entry;
+-   `props`: extra properties added to the `MenuEntry` component's label container.
+
+<Canvas>
+    <Story name="Default">
+        <div>
+            <Menu
+                entries={[
+                    { type: 'entry', label: 'Entry 1' },
+                    { type: 'entry', label: 'Disabled Entry', props: { disabled: true } },
+                    { type: 'entry', label: 'Red entry', props: { style: { color: 'red' } } },
+                    {
+                        type: 'entry',
+                        label: (
+                            <span>
+                                <Monospace>onClick</Monospace> specified
+                            </span>
+                        ),
+                        props: { onClick: () => window.alert('clicked') },
+                    },
+                    { type: 'divider' },
+                    {
+                        type: 'entry',
+                        label: (
+                            <span>
+                                <Icon name="home" size="smaller" /> Home
+                            </span>
+                        ),
+                    },
+                ]}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+### Specify entries manually
+
+The content (_children_) of `Menu` can also be specified manually without autogeneration.
+
+The two components used by the autogeneration can be imported separately and then used directly.
+
+<Canvas>
+    <Story name="Entries">
+        <div>
+            <Menu>
+                <MenuEntry>Entry 1</MenuEntry>
+                <MenuEntry style={{ color: 'red' }}>Red entry</MenuEntry>
+                <MenuDivider />
+                <MenuEntry>
+                    <Loader type="inline" /> Inline loader
+                </MenuEntry>
+            </Menu>
+        </div>
+    </Story>
+</Canvas>
+
+## Menu Props
+
+<ArgsTable of={Menu} />
+
+## MenuEntry Props
+
+<ArgsTable of={MenuEntry} />

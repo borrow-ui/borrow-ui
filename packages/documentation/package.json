@@ -1,28 +1,36 @@
 {
   "name": "@borrow-ui/documentation",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "description": "Borrow-UI documentation based on Docz",
-  "author": "Vittorio Zamboni",
+  "author": "borrow-ui",
   "private": true,
   "scripts": {
-    "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "storybook": "start-storybook -p 6006 -s public --no-manager-cache",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "@mdx-js/mdx": "^1.6.16",
     "dayjs": "^1.8.35",
-    "docz": "^2.3.1",
-    "gatsby-plugin-catch-links": "^2.3.15",
-    "gatsby-plugin-mdx": "^1.2.43",
-    "gatsby-plugin-sass": "^2.3.14",
-    "gatsby-remark-vscode": "3.x",
     "material-design-icons-iconfont": "^5.0.1",
-    "react": "^16.13.1",
     "react-day-picker": "^7.4.0",
-    "react-dom": "^16.13.1",
     "react-media": "^1.10.0",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/node-logger": "^6.2.8",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/react": "^6.2.8",
+    "@storybook/testing-react": "^0.0.10",
+    "@storybook/theming": "^6.2.9",
+    "css-loader": "^5.2.4",
+    "sass": "^1.32.11",
+    "sass-loader": "^10",
+    "string-replace-loader": "^3.0.1",
+    "style-loader": "^2.0.0"
   }
 }

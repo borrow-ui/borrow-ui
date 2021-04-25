@@ -11,7 +11,8 @@ const BUTTON_CLASS = `${UI_PREFIX}__button`;
 // primary => `${BUTTON_CLASS}--primary`
 
 const MEANS_REGULAR = ['regular', 'primary', 'positive', 'negative', 'warning', 'accent'];
-export const MEANS = [...MEANS_REGULAR, ...MEANS_REGULAR.map((m) => `${m}-reverse`)];
+const MEANS_REVERSE = MEANS_REGULAR.map((m) => `${m}-reverse`);
+export const MEANS = [...MEANS_REGULAR, ...MEANS_REVERSE];
 export const MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES];
 
 export function Button({

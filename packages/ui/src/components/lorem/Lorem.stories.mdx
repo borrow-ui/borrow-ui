@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Lorem } from './Lorem';
+
+<Meta title="Components/Lorem" component={Lorem} />
+
+# Lorem
+
+When developing pages sometimes is useful to have pre-generated text as placeholder.
+The `Lorem` component can be used precisely for this.
+
+A `paragraphs` prop can be used to specify how many text paragraphs should be rendered (from 1 to 3).
+
+<Canvas>
+    <Story name="Default">
+        <div>
+            <Lorem paragraphs={3} />
+        </div>
+    </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Lorem} />

@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Button } from '../button/Button';
+import { Loader } from './Loader';
+
+<Meta title="Components/Loader" component={Loader} />
+
+# Loader
+
+Loaders are usually used when some content is not available and a
+process needs to be completed.
+
+There are two loader types available: `full-section` and `inline`.
+
+<Canvas>
+    <Story name="Default">
+        <div>
+            <Loader />
+        </div>
+    </Story>
+</Canvas>
+
+The inline one can be put within other content:
+
+<Canvas>
+    <Story name="Inline">
+        <div>
+            <div>
+                This is inline <Loader type="inline" /> with content.
+            </div>
+            <div>
+                It can also be used inside a button:
+                <Button disabled={true} mean="regular-reverse">
+                    <Loader type="inline" />
+                    Loading
+                </Button>
+            </div>
+        </div>
+    </Story>
+</Canvas>
+
+## Props
+
+Note: the `...rest` spread is passed to the loader container.
+
+<ArgsTable of={Loader} />
