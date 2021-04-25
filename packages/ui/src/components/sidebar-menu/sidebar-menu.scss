@@ -34,6 +34,7 @@ $ui-page-padding: 15px !default;
     display: block;
     text-decoration: none;
     color: $ui-color-on-neutral-white;
+    font-size: 14px;
 }
 .#{$ui-prefix}__sidebar-menu__entry:hover {
     background-color: $ui-color-neutral-white-over;
