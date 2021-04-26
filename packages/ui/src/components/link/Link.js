@@ -10,7 +10,7 @@ const LINK_NO_UNDERLINE_CLASS = `${UI_PREFIX}__link--no-underline`;
 
 export function Link({ tag, className = '', underline = true, children, ...rest }) {
     const underlineClass = underline ? LINK_UNDERLINE_CLASS : LINK_NO_UNDERLINE_CLASS;
-    const linkClassName = `${LINK_CLASS} ${underlineClass} ${className}`;
+    const linkClassName = `${LINK_CLASS} ${underlineClass} ${className}`.trim();
 
     const Tag = tag || getConfig('getLinkComponent')();
 
