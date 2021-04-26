@@ -29,8 +29,8 @@ export function Block({
     const roundedClass = rounded ? BLOCK_ROUNDED_CLASS : '';
     const outstandingClass = outstanding ? BLOCK_OUTSTANDING_CLASS : '';
     const contentCenteredClass = contentCentered ? BLOCK_CONTENT_CENTERED_CLASS : '';
-    const propertiesClass = `${separatedClass} ${paddedClass} ${roundedClass} ${outstandingClass} ${contentCenteredClass}`;
-    const blockClassName = `${BLOCK_CLASS} ${className} ${propertiesClass}`;
+    const propertiesClass = `${separatedClass} ${paddedClass} ${roundedClass} ${outstandingClass} ${contentCenteredClass}`.trim();
+    const blockClassName = `${BLOCK_CLASS} ${className} ${propertiesClass}`.trim();
 
     const { className: titleClassName = '', ...restTitleProps } = titleProps;
     const titleClass = `${BLOCK_TITLE_CLASS} ${titleClassName}`.trim();
