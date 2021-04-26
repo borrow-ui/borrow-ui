@@ -8,24 +8,34 @@ import { Icon } from './Icon';
 
 const ICON_CONTROL_CLASS = `${UI_PREFIX}__icon-control`;
 
-export function IconControl({ className = '', ...rest }) {
-    const iconControlClassName = `${className} ${ICON_CONTROL_CLASS}`;
+export function IconControl({ className = '', onKeyDown, onClick, ...rest }) {
+    const iconControlClassName = `${ICON_CONTROL_CLASS} ${className}`.trim();
 
-    const onKeyDown = rest.onKeyDown
-        ? rest.onKeyDown
-        : rest.onClick
+    const propOnKeyDown = onKeyDown
+        ? onKeyDown
+        : onClick
         ? (e) => {
               if (e.keyCode === KEY_CODES.SPACEBAR) {
                   e.preventDefault();
                   e.stopPropagation();
-                  rest.onClick();
+                  onClick();
               }
           }
         : undefined;
 
-    return <Icon size="smaller" className={iconControlClassName} onKeyDown={onKeyDown} {...rest} />;
+    return (
+        <Icon
+            size="smaller"
+            className={iconControlClassName}
+            onKeyDown={propOnKeyDown}
+            onClick={onClick}
+            {...rest}
+        />
+    );
 }
 
 IconControl.propTypes = {
     className: PropTypes.string,
+    onKeyDown: PropTypes.func,
+    onClick: PropTypes.func,
 };
