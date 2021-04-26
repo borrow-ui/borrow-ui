@@ -7,6 +7,7 @@ import { propTypesChildren } from '../../utils/types';
 const BADGE_CLASS = `${UI_PREFIX}__badge`;
 const BADGE_CLICKABLE_CLASS = `${UI_PREFIX}__badge--clickable`;
 // type class is calculated, i.e. `${UI_PREFIX}__badge--rounded`
+// color classes are added for bg and color, i.e. `color-on-primary color-primary-bg`
 
 export function Badge({
     className = '',
@@ -19,8 +20,8 @@ export function Badge({
     const colorClass = color ? `color-${color}-bg color-on-${color}` : '';
     const typeClass = type && type !== 'squared' ? `${BADGE_CLASS}--${type}` : '';
     const clickableClass = rest.onClick ? BADGE_CLICKABLE_CLASS : '';
-    const propsClasses = `${colorClass} ${typeClass} ${clickableClass}`.trim();
-    const badgeClass = `${BADGE_CLASS} ${propsClasses} ${className}`.trim();
+    const propsClasses = [colorClass, typeClass, clickableClass].join(' ');
+    const badgeClass = [BADGE_CLASS, propsClasses, className].join(' ');
 
     return (
         <Tag className={badgeClass} {...rest}>
