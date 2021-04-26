@@ -29,7 +29,7 @@ export function Accordion({
     const { className: titlePropsClassName = '', onClick: titleOnClick, ...restTitleProps } =
         titleProps || {};
     const titleStatusClass = isOpen ? ACCORDION_TITLE_OPEN_CLASS : ACCORDION_TITLE_CLOSED_CLASS;
-    const titleClassName = `${ACCORDION_TITLE_CLASS} ${titlePropsClassName} ${titleStatusClass}`;
+    const titleClassName = `${ACCORDION_TITLE_CLASS} ${titlePropsClassName} ${titleStatusClass}`.trim();
 
     const {
         className: contentPropsClassName = '',
@@ -39,7 +39,7 @@ export function Accordion({
     const contentStatusClass = isOpen
         ? ACCORDION_CONTENT_OPEN_CLASS
         : ACCORDION_CONTENT_CLOSED_CLASS;
-    const contentClassName = `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`;
+    const contentClassName = `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`.trim();
     const contentStyle = {
         ...contentPropsStyle,
         ...(maxHeight && { maxHeight: isOpen ? maxHeight : undefined }),
