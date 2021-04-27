@@ -42,5 +42,6 @@ export function Lorem({ paragraphs = 2 }) {
 }
 
 Lorem.propTypes = {
+    /** Number of paragraphs, from 1 to 3. */
     paragraphs: PropTypes.number,
 };
