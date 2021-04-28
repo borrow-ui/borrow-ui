@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "14.16.1"
+
+cache: yarn
+
+install:
+  - yarn global add lerna
+  - lerna bootstrap
+
+matrix:
+  include:
+    - name: "borrow-ui/ui"
+      env: PACKAGE_LOCATION=packages/ui
+
+script:
+  - cd $PACKAGE_LOCATION
+  - yarn coveralls

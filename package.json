@@ -13,6 +13,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
     "ui:build": "cd packages/ui && yarn build",
+    "ui:test": "cd packages/ui && yarn test",
+    "ui:coveralls": "cd packages/ui && yarn coveralls",
     "website:build": "cd packages/website && yarn build"
   }
 }

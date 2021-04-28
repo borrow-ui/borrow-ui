@@ -7,7 +7,7 @@ module.exports = {
         '\\.(css|scss)$': 'identity-obj-proxy',
     },
     setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-    coverageReporters: ['text', 'html'],
+    coverageReporters: ['text', 'html', 'lcov'],
     coverageThreshold: {
         global: {
             branches: 80,
