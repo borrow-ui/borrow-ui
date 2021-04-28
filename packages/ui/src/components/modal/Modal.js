@@ -58,12 +58,15 @@ export function ModalWindow({
     maximized = false,
     closeModal,
     setVisible,
-    wrapperClass = '',
     startWidth = '70%',
     startHeight = 400,
     hooks = {},
     canMaximize = true,
     closeOnEscape = true,
+    wrapperProps = {},
+    containerProps = {},
+    contentProps = {},
+    footerProps = {},
 }) {
     const sizedModalContainerStyle = {};
     if (!maximized) {
@@ -108,15 +111,16 @@ export function ModalWindow({
         let closeOnEscapeCallback = null;
         if (closeOnEscape) {
             closeOnEscapeCallback = (e) => {
-                if (e.keyCode === KEY_CODES.escape) {
+                if (e.keyCode === KEY_CODES.ESCAPE) {
                     e.preventDefault();
                     e.stopPropagation();
                     closeModalWindow();
                 }
             };
 
-            if (typeof window !== 'undefined')
+            if (typeof window !== 'undefined') {
                 window.addEventListener('keydown', closeOnEscapeCallback);
+            }
         }
 
         return function cleanup() {
@@ -149,13 +153,17 @@ export function ModalWindow({
             title={title}
             content={content}
             footer={footer}
-            classes={{ wrapperClass, modalContainerStatusClass, modalContentSizeClass }}
+            classes={{ modalContainerStatusClass, modalContentSizeClass }}
             styles={{ modalContentStyle }}
             canMaximize={canMaximize}
             setIsMaximized={setIsMaximized}
             closeModalWindow={closeModalWindow}
             modalState={modalState}
             modalContainer={modalContainer}
+            wrapperProps={wrapperProps}
+            containerProps={containerProps}
+            contentProps={contentProps}
+            footerProps={footerProps}
         />
     );
 }
@@ -177,8 +185,6 @@ ModalWindow.propTypes = {
     canMaximize: PropTypes.bool,
     /** Close the modal if Escape key is pressed */
     closeOnEscape: PropTypes.bool,
-    /** Class to be added to the modal's top element */
-    wrapperClass: PropTypes.string,
     /** Initial modal height */
     startHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Initial modal width */
@@ -187,6 +193,14 @@ ModalWindow.propTypes = {
     hooks: PropTypes.shape({
         onOpen: PropTypes.func,
     }),
+    /** Props to be passed to modal's top element */
+    wrapperProps: PropTypes.object,
+    /** Props to be passed to modal's container, inside wrapper element */
+    containerProps: PropTypes.object,
+    /** Props to be passed to modal's content, inside wrapper element */
+    contentProps: PropTypes.object,
+    /** Props to be passed to modal's footer, inside wrapper element */
+    footerProps: PropTypes.object,
 };
 
 function ModalWindowPortal({
@@ -200,41 +214,67 @@ function ModalWindowPortal({
     closeModalWindow,
     modalState,
     modalContainer,
+    wrapperProps = {},
+    containerProps = {},
+    contentProps = {},
+    footerProps = {},
 }) {
-    const { wrapperClass, modalContainerStatusClass, modalContentSizeClass } = classes;
+    const { modalContainerStatusClass, modalContentSizeClass } = classes;
     const { modalContentStyle } = styles;
 
+    const { className: wrapperClass = '', ...restWrapperProps } = wrapperProps;
+    const wrapperClassName = `${MODAL_WRAPPER_CLASS} ${wrapperClass}`.trim();
+
+    const {
+        className: containerClass = '',
+        style: containerStyleProp,
+        ...restContainerProps
+    } = containerProps;
+    const containerClassName = `${MODAL_CONTAINER_CLASS} ${modalContainerStatusClass} ${containerClass}`.trim();
+    const containerStyle = { ...modalState.modalContainerStyle, ...containerStyleProp };
+
+    const { className: contentClass = '', ...restContentProps } = contentProps;
+    const contentClassName = `${MODAL_CONTENT_CLASS} ${modalContentSizeClass} ${contentClass}`.trim();
+
+    const { className: footerClass = '', ...restFooterProps } = footerProps;
+    const footerClassName = `${MODAL_FOOTER_CLASS} ${footerClass}`.trim();
+
     return createPortal(
-        <div className={`${MODAL_WRAPPER_CLASS} ${wrapperClass}`}>
-            <div
-                className={`${MODAL_CONTAINER_CLASS} ${modalContainerStatusClass}`}
-                style={modalState.modalContainerStyle}
-            >
+        <div className={wrapperClassName} {...restWrapperProps}>
+            <div className={containerClassName} style={containerStyle} {...restContainerProps}>
                 <div className={MODAL_HEADER_CLASS}>
                     <div className={MODAL_TITLE_CLASS}>{title}</div>
                     <div className={MODAL_CONTROLS_CLASS}>
                         {!modalState.isLoading && (
                             <Fragment>
                                 {!modalState.isMaximized && canMaximize && (
-                                    <IconMaximize setIsMaximized={setIsMaximized} />
+                                    <IconMaximize
+                                        setIsMaximized={setIsMaximized}
+                                        data-testid="modal-maximize-icon"
+                                    />
                                 )}
                                 {modalState.isMaximized && canMaximize && (
-                                    <IconMinimize setIsMaximized={setIsMaximized} />
+                                    <IconMinimize
+                                        setIsMaximized={setIsMaximized}
+                                        data-testid="modal-minimize-icon"
+                                    />
                                 )}
-                                <IconClose closeModalWindow={closeModalWindow} />
+                                <IconClose
+                                    closeModalWindow={closeModalWindow}
+                                    data-testid="modal-close-icon"
+                                />
                             </Fragment>
                         )}
                     </div>
                 </div>
-                <div
-                    className={`${MODAL_CONTENT_CLASS} ${modalContentSizeClass}`}
-                    style={modalContentStyle}
-                >
+                <div className={contentClassName} style={modalContentStyle} {...restContentProps}>
                     {modalState.isLoading && <Loader />}
                     {!modalState.isLoading && content}
                 </div>
                 {footer && (
-                    <div className={MODAL_FOOTER_CLASS}>{!modalState.isLoading && footer}</div>
+                    <div className={footerClassName} {...restFooterProps}>
+                        {!modalState.isLoading && footer}
+                    </div>
                 )}
             </div>
         </div>,
@@ -246,24 +286,30 @@ function ModalIcon(props) {
     return <IconControl size="small" {...props} />;
 }
 
-function IconMaximize({ setIsMaximized }) {
-    return <ModalIcon name="fullscreen" onClick={() => setIsMaximized(true)} />;
+function IconMaximize({ setIsMaximized, ...rest }) {
+    return <ModalIcon name="fullscreen" onClick={() => setIsMaximized(true)} {...rest} />;
 }
 
 IconMaximize.propTypes = {
     setIsMaximized: PropTypes.func.isRequired,
 };
 
-function IconMinimize({ setIsMaximized }) {
-    return <ModalIcon name="fullscreen_exit" onClick={() => setIsMaximized(false)} />;
+function IconMinimize({ setIsMaximized, ...rest }) {
+    return <ModalIcon name="fullscreen_exit" onClick={() => setIsMaximized(false)} {...rest} />;
 }
 
 IconMinimize.propTypes = {
     setIsMaximized: PropTypes.func.isRequired,
 };
 
-function IconClose({ closeModalWindow }) {
-    return <ModalIcon name="close" onClick={() => closeModalWindow({ source: 'closeIcon' })} />;
+function IconClose({ closeModalWindow, ...rest }) {
+    return (
+        <ModalIcon
+            name="close"
+            onClick={() => closeModalWindow({ source: 'closeIcon' })}
+            {...rest}
+        />
+    );
 }
 
 IconClose.propTypes = {
