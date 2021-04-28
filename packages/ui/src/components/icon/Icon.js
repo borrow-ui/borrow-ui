@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX, SIZES } from '../../config';
 
-// import 'style/components/icon/icon.scss';
+export const ICON_DEFAULT_FAMILY = 'material-icons';
 
 const ICON_CLASS = `${UI_PREFIX}__icon`;
 /*
@@ -13,7 +13,7 @@ Modifiers: `${UI_PREFIX}__icon--${modifier}` (see PropTypes for modifiers)
 
 export function Icon({
     name,
-    family = 'material-icons',
+    family = ICON_DEFAULT_FAMILY,
     size = 'normal',
     modifiers = [],
     className = '',

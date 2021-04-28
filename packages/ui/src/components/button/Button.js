@@ -38,8 +38,7 @@ export function Button({
         separated && 'separated',
         icon && 'icon',
     ].filter((m) => m);
-    const modifiersClass =
-        mods.length === 0 ? '' : mods.map((m) => `${BUTTON_CLASS}--${m}`).join(' ');
+    const modifiersClass = mods.map((m) => `${BUTTON_CLASS}--${m}`).join(' ');
     const buttonClassName = `${BUTTON_CLASS} ${modifiersClass} ${className}`.trim();
 
     const iconSize = icon && SIZES[Math.max(SIZES.indexOf(size) - 1, 0)];

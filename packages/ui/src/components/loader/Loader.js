@@ -16,7 +16,7 @@ export function Loader({ type = 'full-section', className = '', ...rest }) {
 
     const typeContainerClassName =
         type === 'inline' ? LOADER_CONTAINER_INLINE_CLASS : LOADER_CONTAINER_FULL_SECTION_CLASS;
-    const loaderContainerClassName = `${LOADER_CONTAINER_CLASS} ${typeContainerClassName} ${className}`;
+    const loaderContainerClassName = `${LOADER_CONTAINER_CLASS} ${typeContainerClassName} ${className}`.trim();
 
     return (
         <div className={loaderContainerClassName} {...rest}>

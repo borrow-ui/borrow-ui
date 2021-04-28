@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
 
-// import 'style/components/card/card.scss';
-
 const CARD_CLASS = `${UI_PREFIX}__card`;
 const CARD_SHADOWED_CLASS = `${UI_PREFIX}__card--shadowed`;
 const CARD_MARGIN_BETWEEN_CLASS = `${UI_PREFIX}__card--margin-between`;
@@ -59,23 +57,23 @@ export function Card({
 
     const { className: mainPropsClassName = '', ...restMainProps } = mainProps;
     const cardMainSideClassName = icon ? CARD_MAIN_WITH_SIDE_CLASS : CARD_MAIN_WITHOUT_SIDE_CLASS;
-    const mainClassName = `${CARD_MAIN_CLASS} ${cardMainSideClassName} ${mainPropsClassName}`;
+    const mainClassName = `${CARD_MAIN_CLASS} ${cardMainSideClassName} ${mainPropsClassName}`.trim();
 
     const { className: bodyPropsClassName = '', ...restBodyProps } = bodyProps;
-    const bodyClassName = `${CARD_BODY_CLASS} ${bodyPropsClassName}`;
+    const bodyClassName = `${CARD_BODY_CLASS} ${bodyPropsClassName}`.trim();
 
     const { className: titlePropsClassName = '', ...restTitleProps } = titleProps;
-    const titleClassName = `${CARD_TITLE_CLASS} ${titlePropsClassName}`;
+    const titleClassName = `${CARD_TITLE_CLASS} ${titlePropsClassName}`.trim();
 
     const { className: subtitlePropsClassName = '', ...restSubtitleProps } = subtitleProps;
-    const subtitleClassName = `${CARD_SUBTITLE_CLASS} ${subtitlePropsClassName}`;
+    const subtitleClassName = `${CARD_SUBTITLE_CLASS} ${subtitlePropsClassName}`.trim();
 
     const { className: descriptionPropsClassName = '', ...restDescriptionProps } = descriptionProps;
     const descriptionWithControlsClassName = controls ? CARD_DESCRIPTION_WITH_CONTROLS_CLASS : '';
-    const descriptionClassName = `${CARD_DESCRIPTION_CLASS} ${descriptionWithControlsClassName} ${descriptionPropsClassName}`;
+    const descriptionClassName = `${CARD_DESCRIPTION_CLASS} ${descriptionWithControlsClassName} ${descriptionPropsClassName}`.trim();
 
     const { className: controlsPropsClassName = '', ...restControlsProps } = controlsProps;
-    const controlsClassName = `${CARD_CONTROLS_CLASS} ${controlsPropsClassName}`;
+    const controlsClassName = `${CARD_CONTROLS_CLASS} ${controlsPropsClassName}`.trim();
 
     return (
         <div className={cardClass} {...rest}>

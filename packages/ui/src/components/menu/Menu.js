@@ -9,13 +9,13 @@ import { MenuDivider } from './MenuDivider';
 
 const MENU_CLASS = `${UI_PREFIX}__menu`;
 
-export function Menu({ children, className = '', entries = [] }) {
-    const menuClassName = `${MENU_CLASS} ${className}`;
+export function Menu({ children, className = '', entries = [], ...rest }) {
+    const menuClassName = `${MENU_CLASS} ${className}`.trim();
 
     const menuEntries = entries.length > 0 ? buildMenuEntries(entries) : null;
 
     return (
-        <div className={menuClassName}>
+        <div className={menuClassName} {...rest}>
             {menuEntries && menuEntries}
             {children}
         </div>
@@ -35,8 +35,6 @@ Menu.propTypes = {
 };
 
 function buildMenuEntries(entries) {
-    if (entries.length === 0) return null;
-
     return entries.map((entry, i) => {
         if (entry.type === 'divider') return <MenuDivider key={`menu-item-${i}`} />;
         return (
