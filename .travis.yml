@@ -4,6 +4,10 @@ node_js:
 
 cache: yarn
 
+branches:
+  only:
+    - master
+
 install:
   - yarn global add lerna
   - lerna bootstrap
