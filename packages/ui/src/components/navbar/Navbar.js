@@ -16,7 +16,15 @@ const getInitialState = () => ({
     query: '',
 });
 
-export function Navbar({ sticky = true, fixed = false, left, center, right }) {
+export function Navbar({
+    sticky = true,
+    fixed = false,
+    left,
+    center,
+    right,
+    className = '',
+    ...rest
+}) {
     const [state, setState] = useState({ ...getInitialState() });
 
     const resetState = () => setState(getInitialState());
@@ -49,10 +57,10 @@ export function Navbar({ sticky = true, fixed = false, left, center, right }) {
 
     const stickyClass = sticky ? NAVBAR_STICKY_CLASS : '';
     const fixedClass = fixed ? NAVBAR_FIXED_CLASS : '';
-    const navbarClass = `${NAVBAR_CLASS} ${stickyClass} ${fixedClass}`.trim();
+    const navbarClass = `${NAVBAR_CLASS} ${stickyClass} ${fixedClass} ${className}`.trim();
 
     return (
-        <header className={navbarClass}>
+        <header className={navbarClass} {...rest}>
             <div className={NAVBAR_HEADER_CLASS}>
                 {left && (
                     <NavbarGroup toggleSetItem={toggleSetItem} position="left" elements={left} />
@@ -97,4 +105,5 @@ Navbar.propTypes = {
     left: elementsPropType,
     center: elementsPropType,
     right: elementsPropType,
+    className: PropTypes.string,
 };

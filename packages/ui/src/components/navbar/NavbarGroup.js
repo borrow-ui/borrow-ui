@@ -10,8 +10,6 @@ const NAVBAR_GROUP_ITEM_CLASS = `${UI_PREFIX}__navbar__group__item`;
 const NAVBAR_GROUP_ITEM_CLICKABLE_CLASS = `${UI_PREFIX}__navbar__group__item--clickable`;
 
 export function NavbarGroup({ position, elements, toggleSetItem }) {
-    if (!elements) return;
-
     const positionClass = `${NAVBAR_GROUP_CLASS}--${position}`;
 
     const items = Array.isArray(elements) ? elements : [elements];
@@ -23,17 +21,17 @@ export function NavbarGroup({ position, elements, toggleSetItem }) {
                 return (
                     <Fragment key={`navbar-header-group-${position}-${index}`}>
                         {typeof item === 'string' && (
-                            <span className={NAVBAR_GROUP_ITEM_CLASS}>{item}</span>
+                            <div className={NAVBAR_GROUP_ITEM_CLASS}>{item}</div>
                         )}
                         {itemHeader && (
-                            <span
+                            <div
                                 className={`${NAVBAR_GROUP_ITEM_CLASS} ${NAVBAR_GROUP_ITEM_CLICKABLE_CLASS}`}
                                 {...a11yClickableElement({
                                     onClick: () => toggleSetItem(item, true),
                                 })}
                             >
                                 {item.headerLabel}
-                            </span>
+                            </div>
                         )}
                         {React.isValidElement(item) && !item.hasOwnProperty('renderHeader') && item}
                     </Fragment>
@@ -43,18 +41,6 @@ export function NavbarGroup({ position, elements, toggleSetItem }) {
     );
 }
 
-// component created only to generate props table in Docz
-export function Element() {
-    return <span />;
-}
-
-Element.propTypes = {
-    headerLabel: propTypesChildren,
-    bodyItem: PropTypes.func,
-    showQueryInput: PropTypes.bool,
-    floatingControls: PropTypes.bool,
-};
-
 const elementType = PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
@@ -63,6 +49,7 @@ const elementType = PropTypes.oneOfType([
         bodyItem: PropTypes.func,
         showQueryInput: PropTypes.bool,
         floatingControls: PropTypes.bool,
+        hideControls: PropTypes.bool,
     }),
 ]);
 

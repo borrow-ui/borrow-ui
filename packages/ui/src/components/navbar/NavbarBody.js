@@ -5,7 +5,6 @@ import { UI_PREFIX } from '../../config';
 import { NavbarBodyHeader } from './NavbarBodyHeader';
 
 const NAVBAR_BODY_CLASS = `${UI_PREFIX}__navbar__body`;
-const NAVBAR_BODY_FLOATING_CONTROLS_CLASS = `${UI_PREFIX}__navbar__body--floating-controls`;
 const NAVBAR_BODY_ITEM_CLASS = `${UI_PREFIX}__navbar__body__item`;
 
 export function NavbarBody({
@@ -16,21 +15,19 @@ export function NavbarBody({
     setState,
     resetState,
 }) {
-    const floatingControlsClass = selectedItem.floatingControls
-        ? NAVBAR_BODY_FLOATING_CONTROLS_CLASS
-        : '';
-    const navbarBodyClassName = `${NAVBAR_BODY_CLASS} ${floatingControlsClass}`;
+    const navbarBodyClassName = `${NAVBAR_BODY_CLASS}`;
 
     return (
         <div className={navbarBodyClassName}>
             <NavbarBodyHeader
                 query={query}
-                handleChangeQuery={queryValue => {
-                    setState(state => ({ ...state, query: queryValue }));
+                handleChangeQuery={(queryValue) => {
+                    setState((state) => ({ ...state, query: queryValue }));
                 }}
                 toggleBodyOpen={toggleBodyOpen}
                 showQueryInput={selectedItem.showQueryInput}
                 floatingControls={selectedItem.floatingControls}
+                hideControls={selectedItem.hideControls}
             />
             {SelectedItemBody && (
                 <div className={NAVBAR_BODY_ITEM_CLASS}>
@@ -45,6 +42,7 @@ NavbarBody.propTypes = {
     selectedItem: PropTypes.shape({
         showQueryInput: PropTypes.bool,
         floatingControls: PropTypes.bool,
+        hideControls: PropTypes.bool,
     }),
     SelectedItemBody: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
     query: PropTypes.string,
