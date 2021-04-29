@@ -8,7 +8,7 @@ import { Text } from '../text/Text';
 
 import { NavbarMenu } from '../navbar-menu/NavbarMenu';
 import { Navbar } from './Navbar';
-import { Element } from './NavbarGroup';
+import { Element, BodyItem } from './Navbar.stories';
 
 <Meta title="Components/Navbar" component={Navbar} />
 
@@ -29,13 +29,25 @@ In case the element is an object, it can have the following properties:
 -   `headerLabel`: label that will be shown in the navbar (a valid node can be used);
 -   `bodyItem`: function that generates content for a "mega-menu" that will be shown/hidden when the element is clicked;
 -   `showQueryInput`: show a query input, mainly used to filter the elements inside: a `query` prop is passed to the `bodyItem`;
--   `floatingControls`: add a `float` class to the "mega-menu" icons.
+-   `floatingControls`: add a `float` class to the "mega-menu" control icons;
+-   `hideControls`: hides the control icons.
+
+The available control icons are:
+
+-   `close`: display an X to close the menu.
 
 <Canvas>
     <Story name="Default">
-        <div style={{ height: 400, fontSize: '14px' }}>
+        <div
+            style={{
+                height: 400,
+                fontSize: '14px',
+                position: 'relative',
+                border: '1px solid #f5f7fa',
+            }}
+        >
             <Navbar
-                stycky={false}
+                sticky={false}
                 left={[
                     'String item',
                     <span style={{ color: 'green' }} className="flex-center-center">
@@ -109,6 +121,76 @@ In case the element is an object, it can have the following properties:
     </Story>
 </Canvas>
 
+## Floating and hidden controls
+
+If you need to use the full space of the item body and keep the controls, you probably wont see the space reserved for header.
+To use the full space you can make the controls "floating" on the top-right corner.
+To do this, set `floatingControls` property to `true`.
+
+The `hideControls` property hides them entirely:
+
+<Canvas>
+    <Story name="Floating Controls">
+        <div
+            style={{
+                height: 400,
+                fontSize: '14px',
+                position: 'relative',
+                border: '1px solid #f5f7fa',
+            }}
+        >
+            <Navbar
+                sticky={false}
+                center={[
+                    {
+                        headerLabel: 'Item without floating controls',
+                        bodyItem: function ({ query }) {
+                            return (
+                                <div
+                                    style={{
+                                        backgroundColor: '#CCCCCC',
+                                        border: '1px solid #999999',
+                                    }}
+                                >
+                                    <Lorem />
+                                </div>
+                            );
+                        },
+                        floatingControls: false,
+                    },
+                    {
+                        headerLabel: 'Item with floating controls',
+                        bodyItem: () => (
+                            <div
+                                style={{ backgroundColor: '#CCCCCC', border: '1px solid #999999' }}
+                            >
+                                <Lorem />
+                            </div>
+                        ),
+                        floatingControls: true,
+                    },
+                    {
+                        headerLabel: 'Item without controls',
+                        bodyItem: function ({ query }) {
+                            return (
+                                <div
+                                    style={{
+                                        backgroundColor: '#CCCCCC',
+                                        border: '1px solid #999999',
+                                    }}
+                                >
+                                    <Lorem />
+                                </div>
+                            );
+                        },
+                        hideControls: true,
+                    },
+                ]}
+            />
+        </div>
+    </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={Navbar} />
@@ -118,3 +200,9 @@ In case the element is an object, it can have the following properties:
 An element can be a `string`, a valid `node` or an object with the following properties:
 
 <ArgsTable of={Element} />
+
+## Body Item Props
+
+The component used in the `bodyItem` prop of the elements accepts the following properties:
+
+<ArgsTable of={BodyItem} />
