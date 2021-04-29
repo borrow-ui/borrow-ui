@@ -14,6 +14,7 @@ export function NavbarBodyHeader({
     toggleBodyOpen,
     showQueryInput = false,
     floatingControls = false,
+    hideControls = false,
 }) {
     const queryInputRef = useRef();
 
@@ -33,12 +34,17 @@ export function NavbarBodyHeader({
                         value={query}
                         placeholder="Type your query here..."
                         className={NAVBAR_BODY_QUERY_INPUT_CLASS}
-                        onChange={e => handleChangeQuery(e.target.value)}
+                        onChange={(e) => handleChangeQuery(e.target.value)}
                     />
                 </div>
             )}
             {!showQueryInput && <span />}
-            <NavbarBodyHeaderControls toggleBodyOpen={toggleBodyOpen} floating={floatingControls} />
+            {!hideControls && (
+                <NavbarBodyHeaderControls
+                    toggleBodyOpen={toggleBodyOpen}
+                    floating={floatingControls}
+                />
+            )}
         </div>
     );
 }
@@ -49,4 +55,5 @@ NavbarBodyHeader.propTypes = {
     query: PropTypes.string,
     showQueryInput: PropTypes.bool,
     floatingControls: PropTypes.bool,
+    hideControls: PropTypes.bool,
 };

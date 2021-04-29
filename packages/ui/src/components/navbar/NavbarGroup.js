@@ -63,6 +63,7 @@ const elementType = PropTypes.oneOfType([
         bodyItem: PropTypes.func,
         showQueryInput: PropTypes.bool,
         floatingControls: PropTypes.bool,
+        hideControls: PropTypes.bool,
     }),
 ]);
 
