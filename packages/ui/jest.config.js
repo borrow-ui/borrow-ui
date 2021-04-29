@@ -16,5 +16,11 @@ module.exports = {
     //         statements: 80,
     //     },
     // },
-    collectCoverageFrom: ['src/**/*.{js,jsx}', '!dist/*', '!src/index.js', '!src/utils/types.js'],
+    collectCoverageFrom: [
+        'src/**/*.{js,jsx}',
+        '!dist/*',
+        '!src/index.js',
+        '!src/utils/types.js',
+        '!src/**/*.stories.js',
+    ],
 };
