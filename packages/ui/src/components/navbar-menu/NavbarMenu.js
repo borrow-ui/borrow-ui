@@ -10,7 +10,7 @@ import { NavbarMenuTitle } from './NavbarMenuTitle';
 const NAVBAR_MENU_CLASS = `${UI_PREFIX}__navbar-menu`;
 
 export function NavbarMenu({ title, entries, className = '', titleProps = {}, ...rest }) {
-    const navbarMenuClassName = `${NAVBAR_MENU_CLASS} ${className}`;
+    const navbarMenuClassName = `${NAVBAR_MENU_CLASS} ${className}`.trim();
 
     return (
         <div className={navbarMenuClassName} {...rest}>
@@ -25,7 +25,15 @@ export function NavbarMenu({ title, entries, className = '', titleProps = {}, ..
 NavbarMenu.propTypes = {
     title: propTypesChildren,
     /** A list of entries whose props are valid `NavbarMenuItem` props. */
-    entries: PropTypes.arrayOf(NavbarMenuItem),
+    entries: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: propTypesChildren.isRequired,
+            description: propTypesChildren,
+            tag: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+            labelProps: PropTypes.object,
+            descriptionProps: PropTypes.object,
+        })
+    ),
     className: PropTypes.string,
     /** Properties passed to `NavbarMenuTitle` component. */
     titleProps: PropTypes.object,

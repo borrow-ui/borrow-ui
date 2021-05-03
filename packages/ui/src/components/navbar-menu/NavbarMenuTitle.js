@@ -7,7 +7,7 @@ import { propTypesChildren } from '../../utils/types';
 const NAVBAR_MENU_TITLE_CLASS = `${UI_PREFIX}__navbar-menu__title`;
 
 export function NavbarMenuTitle({ className = '', children, ...rest }) {
-    const navbarMenuTitleClass = `${NAVBAR_MENU_TITLE_CLASS} ${className}`;
+    const navbarMenuTitleClass = `${NAVBAR_MENU_TITLE_CLASS} ${className}`.trim();
 
     return (
         <h3 className={navbarMenuTitleClass} {...rest}>
