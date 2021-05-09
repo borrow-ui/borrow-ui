@@ -9,7 +9,7 @@ const PAGE_HEADER_CONTAINER_TRACKER_IS_VISIBLE = `${UI_PREFIX}__page__header--tr
 const PAGE_HEADER_CONTAINER_TRACKER_IS_NOT_VISIBLE = `${UI_PREFIX}__page__header--tracker-is-not-visible`;
 const PAGE_HEADER_CONTAINER_WITH_SHADOW_CLASS = `${UI_PREFIX}__page__header--with-shadow`;
 const PAGE_HEADER_TITLE_CLASS = `${UI_PREFIX}__page__header__title`;
-const PAGE_HEADER_READABLE_CONTENT_CLASS = `${UI_PREFIX}__page__header__readable-content`;
+const PAGE_HEADER_READABLE_CONTENT_CLASS = `${UI_PREFIX}__page__header--readable-content`;
 const PAGE_HEADER_HEADER_CONTAINER_CLASS = `${UI_PREFIX}__page__header__header-container`;
 const PAGE_HEADER_CONTROLS_CONTAINER_CLASS = `${UI_PREFIX}__page__header__controls-container`;
 
@@ -22,6 +22,7 @@ export function PageHeader({
     headerVisibleFollowOffset = 0,
     readableContent = false,
     className = '',
+    ...rest
 }) {
     const [showShadow, setShowShadow] = useState(false);
     const [trackerIsVisible, setTrackerIsVisible] = useState(!headerVisibleFollowRef);
@@ -62,7 +63,7 @@ export function PageHeader({
     const TitleTag = titleTag || (typeof children === 'string' ? 'h2' : 'div');
 
     return (
-        <div className={headerClass}>
+        <div className={headerClass} {...rest}>
             <div className={pageHeaderHeaderContainerClass}>
                 <TitleTag className={PAGE_HEADER_TITLE_CLASS}>{children}</TitleTag>
             </div>

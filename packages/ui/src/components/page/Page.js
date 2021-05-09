@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { propTypesChildren, propTypesRefElement } from '../../utils/types';
+import { propTypesChildren, propTypesRef } from '../../utils/types';
 
 import { PageHeader } from './PageHeader';
 import { PageBody } from './PageBody';
 
 const PAGE_CLASS = `${UI_PREFIX}__page`;
-const PAGE_CONTINUOUS_SCROLL_CLASS = `${UI_PREFIX}__page--continuousScroll`;
+const PAGE_CONTINUOUS_SCROLL_CLASS = `${UI_PREFIX}__page--continuous-scroll`;
 
 export function Page({
     className = '',
@@ -24,10 +24,8 @@ export function Page({
     ...rest
 }) {
     const bodyRef = useRef(null);
-
-    const pageClass = `${PAGE_CLASS} ${
-        continuousScroll ? PAGE_CONTINUOUS_SCROLL_CLASS : ''
-    } ${className}`;
+    const continuousScrollClass = continuousScroll ? PAGE_CONTINUOUS_SCROLL_CLASS : '';
+    const pageClass = `${PAGE_CLASS} ${continuousScrollClass} ${className}`;
 
     const bodyProps = {
         withPageHeader: Boolean(pageHeaderProps !== undefined || title),
@@ -74,7 +72,7 @@ Page.propTypes = {
     /** Additional props passed to `PageBody` */
     pageBodyProps: PropTypes.object,
     /** See `PageHeader` props */
-    headerVisibleFollowRef: propTypesRefElement,
+    headerVisibleFollowRef: propTypesRef,
     /** See `PageHeader` props */
     headerVisibleFollowOffset: PropTypes.number,
     children: propTypesChildren,

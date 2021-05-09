@@ -8,7 +8,7 @@ import { propTypesChildren } from '../../utils/types';
 
 const PAGE_BODY_CLASS = `${UI_PREFIX}__page__body`;
 const PAGE_BODY_WITH_HEADER_CLASS = `${UI_PREFIX}__page__body--with-page-header`;
-const PAGE_BODY_READABLE_CONTENT_CLASS = `${UI_PREFIX}__page__body__readable-content`;
+const PAGE_BODY_READABLE_CONTENT_CLASS = `${UI_PREFIX}__page__body--readable-content`;
 
 export function PageBody({
     children,
@@ -18,9 +18,10 @@ export function PageBody({
     pageBodyRef,
     ...rest
 }) {
-    const bodyClass = `${PAGE_BODY_CLASS} ${withPageHeader ? PAGE_BODY_WITH_HEADER_CLASS : ''} ${
-        readableContent ? PAGE_BODY_READABLE_CONTENT_CLASS : ''
-    }  ${className}`;
+    const withPageHeaderClass = withPageHeader ? PAGE_BODY_WITH_HEADER_CLASS : '';
+    const readableContentClass = readableContent ? PAGE_BODY_READABLE_CONTENT_CLASS : '';
+    const propsClasses = `${withPageHeaderClass} ${readableContentClass}`.trim();
+    const bodyClass = `${PAGE_BODY_CLASS} ${propsClasses} ${className}`.trim();
 
     return (
         <div className={bodyClass} ref={pageBodyRef} {...rest}>
