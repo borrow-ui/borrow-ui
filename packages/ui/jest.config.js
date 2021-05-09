@@ -6,7 +6,7 @@ module.exports = {
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',
     },
-    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect', './src/setupTests.js'],
     coverageReporters: ['text', 'html', 'lcov'],
     // coverageThreshold: {
     //     global: {
