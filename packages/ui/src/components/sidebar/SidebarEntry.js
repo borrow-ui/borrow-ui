@@ -10,6 +10,9 @@ import { Link } from '../link/Link';
 import { SidebarIcon } from './SidebarIcon';
 import { SidebarEntryLabelShortcut } from './SidebarEntryLabelShortcut';
 
+export const DETAILS_REQUIRES_ID_AND_SETSIDEBARSTATE =
+    'SidebarEntry: if you specify `details` prop, you need to set `id` and `setSidebarState` as well.';
+
 const SIDEBAR_ENTRY_CLASS = `${UI_PREFIX}__sidebar__entry`;
 const SIDEBAR_ENTRY_ACTIVE_CLASS = `${UI_PREFIX}__sidebar__entry--active`;
 const SIDEBAR_ENTRY_ACTIVE_OPEN_CLASS = `${UI_PREFIX}__sidebar__entry--active-open`;
@@ -37,9 +40,7 @@ export function SidebarEntry({
     const location = config.getLocation();
 
     if (details && (!id || !setSidebarState)) {
-        throw new Error(
-            'SidebarEntry: if you specify `details` prop, you need to set `id` and `setSidebarState` as well.'
-        );
+        throw new Error(DETAILS_REQUIRES_ID_AND_SETSIDEBARSTATE);
     }
 
     const Tag = tag ? tag : link ? Link : 'div';
@@ -67,7 +68,7 @@ export function SidebarEntry({
                 className={entryClass}
                 to={link}
                 id={id}
-                {...a11yClickableElement({ onClick: entryOnClick })}
+                {...a11yClickableElement({ onClick: entryOnClick, role: 'navigation' })}
                 {...rest}
             >
                 {iconName && (
@@ -83,9 +84,9 @@ export function SidebarEntry({
                 )}
                 <div className={entryLabelClass}>{children}</div>
             </Tag>
-            {(id || details) && (
-                <div className={entryDetailsClass} id={id ? `${id}__details` : undefined}>
-                    {details && details}
+            {details && (
+                <div className={entryDetailsClass} id={`${id}__details`}>
+                    {details}
                 </div>
             )}
         </Fragment>

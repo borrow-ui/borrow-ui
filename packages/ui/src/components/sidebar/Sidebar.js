@@ -70,14 +70,14 @@ export function Sidebar({
     const stickyClass = stickyTop !== undefined ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
     const openShadowClass =
         shadowWhenOpen && state.status === 'open' ? `${SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS}` : '';
-    const sidebarContainerClass = `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${openShadowClass} ${className}`;
+    const sidebarContainerClass = `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${openShadowClass} ${className}`.trim();
     const elementsContainerTriggerClass = !disableTrigger
         ? SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS
         : '';
-    const elementsContainerClass = `${SIDEBAR_ELEMENTS_CONTAINER_CLASS} ${elementsContainerTriggerClass}`;
+    const elementsContainerClass = `${SIDEBAR_ELEMENTS_CONTAINER_CLASS} ${elementsContainerTriggerClass}`.trim();
     const sidebarTopStatusClass = `${SIDEBAR_TOP_CLASS}--${state.status}`;
 
-    const sidebarTopClass = `${SIDEBAR_TOP_CLASS} ${sidebarTopStatusClass}`;
+    const sidebarTopClass = `${SIDEBAR_TOP_CLASS} ${sidebarTopStatusClass}`.trim();
 
     const width = closedWidth !== undefined && state.status === 'closed' ? closedWidth : undefined;
     const sidebarContainerStyle = { height, top: stickyTop, width, ...style };
@@ -96,6 +96,7 @@ export function Sidebar({
                     <div
                         className={SIDEBAR_TRIGGER_CLASS}
                         {...a11yClickableElement({ onClick: onTriggerClick })}
+                        data-testid="sidebar-trigger"
                     >
                         {state.status === 'open' ? <Icon name="close" /> : <Icon name="menu" />}
                     </div>
@@ -124,7 +125,7 @@ Sidebar.propTypes = {
     /** Disable the generation of the trigger to open/close the sidebar. */
     disableTrigger: PropTypes.bool,
     /** Make the sidebar sticky to the top. */
-    stickyTop: PropTypes.number,
+    stickyTop: PropTypes.bool,
     /** Overrides the height of the container. */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Width of the sidebar when is closed. */
