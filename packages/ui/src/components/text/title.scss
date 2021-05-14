@@ -15,9 +15,11 @@
 
     &:hover::after {
         content: '\1F517';
-        font-size: 0.7em;
+        font-size: 0.6em;
         color: $ui-color-primary;
-        margin-left: 5px;
+        margin-left: 0.5em;
+        position: relative;
+        top: -0.2em;
     }
 }
 

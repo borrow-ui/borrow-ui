@@ -10,20 +10,20 @@ const TITLE_ANCHOR_CLASS = `${UI_PREFIX}__title__anchor`;
 const TITLE_ANCHOR_ACTIVE_CLASS = `${UI_PREFIX}__title__anchor--active`;
 
 export function Title({
+    anchor,
+    anchorClassName = '',
     tag: Tag = 'h1',
     children,
     className = '',
-    anchor,
-    anchorClassName = '',
     ...rest
 }) {
     const refHash = useRefHash();
     const titleClassName = `${TITLE_CLASS} ${className}`;
 
-    const anchorActiveClassName = anchor === refHash && anchor ? TITLE_ANCHOR_ACTIVE_CLASS : '';
-    const anchorClassName_ = `${TITLE_ANCHOR_CLASS} ${anchorClassName} ${anchorActiveClassName}`;
+    const anchorActiveClass = anchor === refHash && anchor ? TITLE_ANCHOR_ACTIVE_CLASS : '';
+    const anchorClass = `${TITLE_ANCHOR_CLASS} ${anchorClassName} ${anchorActiveClass}`;
     const content = anchor ? (
-        <a className={anchorClassName_} name={anchor} href={`#${anchor}`}>
+        <a className={anchorClass} name={anchor} href={`#${anchor}`}>
             {children}
         </a>
     ) : (
@@ -38,9 +38,9 @@ export function Title({
 }
 
 Title.propTypes = {
-    tag: propTypesChildren,
-    className: PropTypes.string,
     anchor: PropTypes.string,
     anchorClassName: PropTypes.string,
+    tag: propTypesChildren,
+    className: PropTypes.string,
     children: propTypesChildren,
 };
