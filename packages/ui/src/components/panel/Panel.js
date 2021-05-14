@@ -59,48 +59,20 @@ Panel.propTypes = {
     getPanelContentProps: PropTypes.func.isRequired,
 };
 
-// Used only to get Docz generate props
-export function PanelContentWrapper(props) {
-    return <PanelContent {...props} />;
-}
-
-PanelContentWrapper.propTypes = {
-    /** Main content to be shown in the panel */
-    content: propTypesChildren,
-    /** Title of the panel */
-    title: propTypesChildren,
-    /** Items to be shown in the header (like in `PageHeader` component) */
-    controls: propTypesChildren,
-    /** Footer of the panel. A `flex` display is used with `space-between`,
-     * so if you need to add elements only on the right you need to pass also
-     * an empty item for the left. */
-    footer: propTypesChildren,
-    /** Set the panel visible */
-    visible: PropTypes.bool,
-    /** hooks called when the panel:
-     * - opens: `onOpen`, this must be a promise.
-     */
-    hooks: PropTypes.object,
-    /** Width of the panel. */
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    /** Width of the content. If you specify `width` as percentage, you need to specify  */
-    innerContainerWidth: PropTypes.number,
-    /** setVisible callback, passed by `Panel` component */
-    setVisible: PropTypes.func.isRequired,
-};
-
 function PanelContent({
     content,
-    title = null,
-    controls = null,
-    footer = null,
-    visible = false,
+    title,
+    controls,
+    footer,
+    visible,
     hooks = {},
     setVisible,
     width = DEFAULT_PANEL_WIDTH,
     innerContainerWidth,
     showWrapper = true,
-    ...rest
+    containerProps = {},
+    contentProps = {},
+    footerProps = {},
 }) {
     const [panelState, setPanelState] = useState({
         isLoading: hooks.onOpen ? true : false,
@@ -126,6 +98,7 @@ function PanelContent({
         panelWrapper.addEventListener('click', closePanel);
 
         return function cleanup() {
+            lastSetVisible = null;
             panelRoot.classList.remove(PANEL_VISIBLE_CLASS);
             panelRoot.style.width = 0;
             showWrapper && panelWrapper.classList.remove(PANEL_WRAPPER_VISIBLE_CLASS);
@@ -141,28 +114,80 @@ function PanelContent({
         }
     }, [visible, panelRoot, panelWrapper, styleWidth, showWrapper]);
 
+    const {
+        className: containerClass,
+        style: containerStyle,
+        ...restContainerProps
+    } = containerProps;
+    const containerClassName = `${PANEL_CONTAINER_CLASS} ${containerClass}`.trim();
+
+    const { className: contentClass = '', ...restContentProps } = contentProps;
+    const contentClassName = `${PANEL_CONTENT_CLASS} ${contentClass}`.trim();
+
+    const { className: footerClass = '', ...restFooterProps } = footerProps;
+    const footerClassName = `${PANEL_FOOTER_CLASS} ${footerClass}`.trim();
+
     return createPortal(
         <div
-            className={PANEL_CONTAINER_CLASS}
+            className={containerClassName}
             style={{ width: innerContainerStyleWidth }}
-            {...rest}
+            {...restContainerProps}
         >
             <div className={PANEL_HEADER_CLASS}>
                 <div className={PANEL_HEADER_TITLE_CLASS}>{title}</div>
                 <div className={PANEL_HEADER_CONTROLS_CLASS}>
                     {controls}
-                    <IconControl name={ICON_CLOSE} onClick={() => setVisible(false)} />
+                    <IconControl
+                        name={ICON_CLOSE}
+                        onClick={() => setVisible(false)}
+                        data-testid="panel-close-icon"
+                    />
                 </div>
             </div>
-            <div className={PANEL_CONTENT_CLASS}>
+            <div className={contentClassName} {...restContentProps}>
                 {panelState.isLoading && <Loader />}
                 {!panelState.isLoading && content}
             </div>
-            {footer && <div className={PANEL_FOOTER_CLASS}>{footer}</div>}
+            {footer && (
+                <div className={footerClassName} {...restFooterProps}>
+                    {footer}
+                </div>
+            )}
         </div>,
         panelRoot
     );
 }
+
+PanelContent.propTypes = {
+    /** Main content to be shown in the panel */
+    content: propTypesChildren,
+    /** Title of the panel */
+    title: propTypesChildren,
+    /** Items to be shown in the header (like in `PageHeader` component) */
+    controls: propTypesChildren,
+    /** Footer of the panel. A `flex` display is used with `space-between`,
+     * so if you need to add elements only on the right you need to pass also
+     * an empty item for the left. */
+    footer: propTypesChildren,
+    /** Set the panel visible */
+    visible: PropTypes.bool,
+    /** hooks called when the panel:
+     * - opens: `onOpen`, this must be a promise.
+     */
+    hooks: PropTypes.object,
+    /** Width of the panel. */
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /** Width of the content. If you specify `width` as percentage, you need to specify  */
+    innerContainerWidth: PropTypes.number,
+    /** setVisible callback, passed by `Panel` component */
+    setVisible: PropTypes.func.isRequired,
+    /** Props to be passed to modal's container, inside wrapper element */
+    containerProps: PropTypes.object,
+    /** Props to be passed to modal's content, inside wrapper element */
+    contentProps: PropTypes.object,
+    /** Props to be passed to modal's footer, inside wrapper element */
+    footerProps: PropTypes.object,
+};
 
 function getPanelRoot() {
     if (typeof document === 'undefined') return;
@@ -184,10 +209,9 @@ function getPanelWrapper() {
     if (panelWrapper === null) {
         panelWrapper = document.createElement('div');
         panelWrapper.setAttribute('id', PANEL_WRAPPER_ID);
+        panelWrapper.setAttribute('data-testid', 'panel-wrapper');
         panelWrapper.classList.add(PANEL_WRAPPER_CLASS);
         document.body.appendChild(panelWrapper);
     }
     return panelWrapper;
 }
-
-PanelContent.propTypes = PanelContentWrapper.propTypes;

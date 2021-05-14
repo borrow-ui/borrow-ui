@@ -41,8 +41,8 @@ export function ReferenceOverlay({
     const { popperModifiers = [], ...restPopperProps } = popperProps;
     const arrowOverrideModifier = popperModifiers.filter((mod) => mod.name === 'arrow');
     const arrowOverrideModifierOptions =
-        arrowOverrideModifier.length === 1 && arrowOverrideModifier.options
-            ? arrowOverrideModifier.options
+        arrowOverrideModifier.length === 1 && arrowOverrideModifier[0].options
+            ? arrowOverrideModifier[0].options
             : {};
     const arrowModifier = {
         name: 'arrow',
@@ -70,7 +70,7 @@ export function ReferenceOverlay({
 
     useTriggerHover(referenceElement, update, setIsVisible, triggerMode);
 
-    const { propsTriggerOnClick, ...restTriggerProps } = triggerProps;
+    const { onClick: propsTriggerOnClick, ...restTriggerProps } = triggerProps;
 
     const referenceOverlayTriggerClass = `${REFERENCE_OVERLAY_TRIGGER_CLASS} ${className}`.trim();
 

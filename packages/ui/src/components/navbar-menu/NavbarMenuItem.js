@@ -17,13 +17,13 @@ export function NavbarMenuItem({
     descriptionProps = {},
     ...rest
 }) {
-    const navbarMenuItemClass = `${NAVBAR_MENU_ITEM_CLASS} ${className}`;
+    const navbarMenuItemClass = `${NAVBAR_MENU_ITEM_CLASS} ${className}`.trim();
 
     const { className: labelPropsClassName = '', ...restLabelPros } = labelProps;
-    const labelClassName = `${NAVBAR_MENU_ITEM_LABEL_CLASS} ${labelPropsClassName}`;
+    const labelClassName = `${NAVBAR_MENU_ITEM_LABEL_CLASS} ${labelPropsClassName}`.trim();
 
     const { className: descriptionPropsClassName = '', ...restDescriptionPros } = descriptionProps;
-    const descriptionClassName = `${NAVBAR_MENU_ITEM_DESCRIPTION_CLASS} ${descriptionPropsClassName}`;
+    const descriptionClassName = `${NAVBAR_MENU_ITEM_DESCRIPTION_CLASS} ${descriptionPropsClassName}`.trim();
 
     return (
         <Tag className={navbarMenuItemClass} {...rest}>
@@ -38,12 +38,13 @@ export function NavbarMenuItem({
 }
 
 NavbarMenuItem.propTypes = {
-    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    className: PropTypes.string,
     label: propTypesChildren,
     description: propTypesChildren,
     /** Properties passed to the label container */
     labelProps: PropTypes.object,
     /** Properties passed to the description container */
     descriptionProps: PropTypes.object,
+    /** Customize the container tag */
+    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    className: PropTypes.string,
 };

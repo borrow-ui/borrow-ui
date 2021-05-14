@@ -93,6 +93,11 @@ SidebarMenuEntry.propTypes = {
     children: propTypesChildren,
 };
 
-export function SidebarMenuSeparator() {
-    return <div className={SIDEBAR_MENU_SEPARATOR_CLASS}></div>;
+export function SidebarMenuSeparator({ className = '', ...rest }) {
+    const separatorClass = `${SIDEBAR_MENU_SEPARATOR_CLASS} ${className}`.trim();
+    return <div className={separatorClass} {...rest}></div>;
 }
+
+SidebarMenuSeparator.propTypes = {
+    className: PropTypes.string,
+};
