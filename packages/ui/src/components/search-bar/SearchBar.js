@@ -12,7 +12,6 @@ const SEARCH_BAR_CLASS = `${UI_PREFIX}__search-bar`;
 const SEARCH_BAR_INPUT_CLASS = `${UI_PREFIX}__search-bar__input`;
 
 export function SearchBar({
-    className = '',
     entries,
     initialSearch,
     setFilteredEntries,
@@ -24,6 +23,7 @@ export function SearchBar({
     inputProps = {},
     beforeInput,
     afterInput,
+    className = '',
     ...rest
 }) {
     const [search, setSearch] = useState(initialSearch);
@@ -65,7 +65,7 @@ export function SearchBar({
     // If search value is stored outside the component,
     // update the search box and execute search when it changes outside as well
     useEffect(() => {
-        if (setGlobalSearch && globalSearch !== search) {
+        if (setGlobalSearch && globalSearch !== search && search !== undefined) {
             setSearch(globalSearch);
             doSearch(globalSearch, entries);
         }
@@ -115,7 +115,7 @@ SearchBar.propTypes = {
     /** Callback to set value of the search outside the component */
     setGlobalSearch: PropTypes.func,
     /** Specify a delay in ms to do search when the input changes */
-    debounceDelay: PropTypes.bool,
+    debounceDelay: PropTypes.number,
     /** Props forwarded to Input component */
     inputProps: PropTypes.shape({
         className: PropTypes.string,
