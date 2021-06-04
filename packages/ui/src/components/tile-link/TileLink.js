@@ -18,8 +18,8 @@ const TILE_LINK_ENTRY_ICON_CONTAINER_CLASS = `${UI_PREFIX}__tile-link__entry__ic
 // entrySize = `${TILE_LINK_ENTRY_CLASS}--${size}`;
 
 export function TileLink({
-    path,
-    getPath,
+    to,
+    href,
     icon,
     iconFamily,
     name,
@@ -31,7 +31,7 @@ export function TileLink({
 }) {
     const [hoverRef, isHovered] = useHover();
 
-    const LinkComponent = getPath ? 'a' : config.getLinkComponent();
+    const LinkComponent = href ? 'a' : config.getLinkComponent();
 
     const tileLinkClassName = `${TILE_LINK_CLASS} ${className}`.trim();
     const entrySizeClassName = `${TILE_LINK_ENTRY_CLASS}--${size}`;
@@ -42,12 +42,7 @@ export function TileLink({
 
     return (
         <div className={tileLinkClassName} {...rest}>
-            <LinkComponent
-                to={path}
-                href={getPath && getPath()}
-                className={TILE_LINK_LINK_CLASS}
-                ref={hoverRef}
-            >
+            <LinkComponent to={to} href={href} className={TILE_LINK_LINK_CLASS} ref={hoverRef}>
                 <Block className={entryClassName} outstanding={isHovered} separated={false}>
                     <div>
                         <Block
@@ -77,9 +72,9 @@ export function TileLink({
 
 TileLink.propTypes = {
     /** Used to populate `to` prop of Link component. */
-    path: PropTypes.string,
+    to: PropTypes.string,
     /** Used to populate `href` prop of Link component. */
-    getPath: PropTypes.func,
+    href: PropTypes.string,
     /** Icon name. */
     icon: PropTypes.string.isRequired,
     /** Overrides default icon family. */
