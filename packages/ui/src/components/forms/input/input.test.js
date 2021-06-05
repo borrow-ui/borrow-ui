@@ -4,17 +4,17 @@ import userEvent from '@testing-library/user-event';
 
 import { UI_PREFIX } from '../../../config';
 
-import { Textarea } from './Textarea';
+import { Input } from './Input';
 
-describe('Textarea', () => {
+describe('Input', () => {
     test('renders and can be changed', async () => {
         const Form = () => {
             const [text, setText] = useState('');
 
             return (
                 <div>
-                    <Textarea
-                        data-testid="textarea"
+                    <Input
+                        data-testid="input"
                         onChange={(e) => setText(e.target.value)}
                         value={text}
                     />
@@ -24,10 +24,10 @@ describe('Textarea', () => {
         };
         render(<Form />);
 
-        const textarea = screen.getByTestId('textarea');
-        expect(textarea).toHaveClass(`${UI_PREFIX}__form__field__textarea`);
+        const input = screen.getByTestId('input');
+        expect(input).toHaveClass(`${UI_PREFIX}__form__field__input`);
 
-        await userEvent.type(textarea, 'this is the content');
+        await userEvent.type(input, 'this is the content');
 
         expect(screen.getByTestId('content')).toHaveTextContent('this is the content');
     });
@@ -38,8 +38,8 @@ describe('Textarea', () => {
 
             return (
                 <div>
-                    <Textarea
-                        data-testid="textarea"
+                    <Input
+                        data-testid="input"
                         onChange={(e) => setText(e.target.value)}
                         value={text}
                         invalid={true}
@@ -51,12 +51,12 @@ describe('Textarea', () => {
         };
         render(<Form />);
 
-        const textarea = screen.getByTestId('textarea');
-        expect(textarea).toHaveClass(`${UI_PREFIX}__form__field__textarea--disabled`);
-        expect(textarea).toHaveClass(`${UI_PREFIX}__form__field__textarea--invalid`);
+        const input = screen.getByTestId('input');
+        expect(input).toHaveClass(`${UI_PREFIX}__form__field__input--disabled`);
+        expect(input).toHaveClass(`${UI_PREFIX}__form__field__input--invalid`);
 
         // typing does not cause a change if disabled
-        await userEvent.type(textarea, 'this is the content');
+        await userEvent.type(input, 'this is the content');
 
         expect(screen.getByTestId('content')).toHaveTextContent('initial');
     });
