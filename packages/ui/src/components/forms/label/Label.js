@@ -35,12 +35,10 @@ export function Label({
     const alignmentClass = `${UI_PREFIX}__form__label--alignment-${alignment}`;
     const vAlignmentClass = `${UI_PREFIX}__form__label--valignment-${vAlignment}`;
 
+    const labelClass = `${LABEL_CLASS} ${layoutClass} ${alignmentClass} ${vAlignmentClass} ${className}`.trim();
+    const labelStyle = { ...labelWidthStyle, ...style };
     return (
-        <div
-            className={`${LABEL_CLASS} ${layoutClass} ${alignmentClass} ${vAlignmentClass} ${className}`.trim()}
-            style={{ ...labelWidthStyle, ...style }}
-            {...rest}
-        >
+        <div className={labelClass} style={labelStyle} {...rest}>
             {label} {required && <span className={LABEL_REQUIRED_CLASS}>*</span>}
         </div>
     );
