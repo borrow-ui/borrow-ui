@@ -47,7 +47,6 @@ export function DatePicker({
                 disabled={disabled}
                 className={`${inputClassName}`}
                 style={inputStyle}
-                onChange={() => {}}
                 {...restInputProps}
             />
         );
@@ -59,6 +58,7 @@ export function DatePicker({
             inputProps={{
                 className: inputClass,
                 style: inputStyle,
+                role: 'textbox',
                 ...restInputProps,
             }}
             format={format}
@@ -78,6 +78,7 @@ export function DatePicker({
 
                 // if onDayChange is set, pass the value accordingly to `onDayChangeFormat`
                 if (onDayChangeFormat === 'date') {
+                    if (date) date.setHours(12);
                     onDayChange(date, modifiers, dayPickerInput);
                 } else {
                     const parsed = dayjs(input.value, format, true);
