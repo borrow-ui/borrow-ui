@@ -41,7 +41,7 @@ describe('DatePicker', () => {
         const dateInput = screen.getByRole('textbox');
 
         await userEvent.type(dateInput, '2021-05-25');
-        expect(setDate).toHaveBeenLastCalledWith(new Date('2021-05-25T12:00:00.000+01:00'));
+        expect(setDate).toHaveBeenLastCalledWith(new Date('2021-05-25T12:00:00.000'));
     });
 
     test('uses a differnt format', async () => {
@@ -57,7 +57,7 @@ describe('DatePicker', () => {
         const dateInput = screen.getByRole('textbox');
 
         await userEvent.type(dateInput, '25-05-2021');
-        expect(setDate).toHaveBeenLastCalledWith(new Date('2021-05-25T12:00:00.000+01:00'));
+        expect(setDate).toHaveBeenLastCalledWith(new Date('2021-05-25T12:00:00.000'));
     });
 
     test('does not return partial values', async () => {
