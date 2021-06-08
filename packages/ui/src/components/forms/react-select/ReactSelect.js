@@ -21,7 +21,7 @@ export function ReactSelect({
 }) {
     const Tag = creatable ? CreatableSelect : Select;
     const invalidClass = invalid ? FORM_SELECT_INVALID_CLASS : '';
-    const selectClassName = `${FORM_SELECT_CLASS} ${invalidClass} ${className}`;
+    const selectClassName = `${FORM_SELECT_CLASS} ${invalidClass} ${className}`.trim();
 
     const mappedOptions = useMemo(
         () =>
