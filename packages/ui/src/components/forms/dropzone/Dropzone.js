@@ -26,6 +26,8 @@ export function Dropzone({
     disabled,
     disabledMessage = 'File upload is disabled',
     FileComponent,
+    dropAreaProps = {},
+    inputProps = {},
     ...rest
 }) {
     const [dropzoneState, setDropzoneState] = useState({
@@ -37,6 +39,7 @@ export function Dropzone({
         (acceptedFiles) => {
             const newState = {
                 ...dropzoneState,
+                lastChangeReason: 'add',
                 files: [...dropzoneState.files, ...acceptedFiles],
             };
             setDropzoneState(newState);
@@ -50,6 +53,7 @@ export function Dropzone({
             const removedFile = dropzoneState.files[removeIndex];
             const newState = {
                 ...dropzoneState,
+                lastChangeReason: 'remove',
                 files: dropzoneState.files.filter((f, i) => i !== removeIndex),
             };
             setDropzoneState(newState);
@@ -77,19 +81,23 @@ export function Dropzone({
             {dragInactiveMessage ? dragInactiveMessage : dragMessage}
         </div>
     );
-    const { rootPropsClassName = '', ...rootProps } = getRootProps();
 
-    const rootClassName = `${FORM_DROPZONE_DROP_AREA_CLASS} ${className} ${rootPropsClassName}`;
+    const dropzoneClass = `${FORM_DROPZONE_CLASS} ${className}`.trim();
 
-    const inputProps = getInputProps();
+    const { className: rootPropsClassName = '', ...rootProps } = getRootProps();
+    const { className: dropAreaClassName = '', ...restDropAreaProps } = dropAreaProps;
+
+    const dropAreaClass = `${FORM_DROPZONE_DROP_AREA_CLASS} ${dropAreaClassName} ${rootPropsClassName}`.trim();
+
+    const dropzoneInputProps = getInputProps();
 
     return (
-        <div className={FORM_DROPZONE_CLASS}>
-            <div {...rootProps} className={rootClassName} {...rest}>
+        <div className={dropzoneClass} {...rest}>
+            <div {...rootProps} className={dropAreaClass} {...restDropAreaProps}>
                 {disabled && disabledMessage}
                 {(!maxFiles || dropzoneState.files.length < maxFiles) && !disabled && (
                     <>
-                        <input {...inputProps} />
+                        <input {...dropzoneInputProps} {...inputProps} />
                         {isDragActive ? dragActive : dragInactive}
                     </>
                 )}
@@ -132,6 +140,10 @@ Dropzone.propTypes = {
     onFileRemove: PropTypes.func,
     /** Callback called when the list of file is changed (either for files added or removed) */
     onFilesChanges: PropTypes.func,
+    /** Props passed to the dropzone drop area, which contains also the input element */
+    dropAreaProps: PropTypes.object,
+    /** Props passed to the hidden input */
+    inputProps: PropTypes.object,
     /** Component used to replace the default File representation in the list of files (see `DropzoneFile` props) */
     FileComponent: propTypesChildren,
 };
