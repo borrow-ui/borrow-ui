@@ -21,8 +21,8 @@ export function Tooltip({
     className = '',
     ...rest
 }) {
-    const { className: tooltipPropsClass, ...restTooltipProps } = tooltipProps;
-    const { className: tooltipArrowPropsClass, ...restTooltipArrowProps } = tooltipArrowProps;
+    const { className: tooltipPropsClass = '', ...restTooltipProps } = tooltipProps;
+    const { className: tooltipArrowPropsClass = '', ...restTooltipArrowProps } = tooltipArrowProps;
 
     const tooltipClass = `${TOOLTIP_CLASS} ${tooltipPropsClass}`.trim();
 

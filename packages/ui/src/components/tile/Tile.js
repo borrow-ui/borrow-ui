@@ -10,11 +10,11 @@ const TILE_MAIN_CLASS = `${UI_PREFIX}__tile__main`;
 const TILE_DESCRIPTION_CLASS = `${UI_PREFIX}__tile__description`;
 
 export function Tile({
-    tag: Tag = 'div',
-    children,
     description,
-    className = '',
     withBackground = false,
+    tag: Tag = 'div',
+    className = '',
+    children,
     ...rest
 }) {
     const withBackgroundClass = withBackground ? TILE_WITH_BACKGROUND_CLASS : '';

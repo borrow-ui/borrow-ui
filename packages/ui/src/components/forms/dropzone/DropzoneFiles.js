@@ -11,11 +11,20 @@ const DROPZONE_FILES_FILE_NAME_CLASS = `${UI_PREFIX}__form__dropzone__files__fil
 const DROPZONE_FILES_FILE_REMOVE_CLASS = `${UI_PREFIX}__form__dropzone__files__file__remove`;
 const DROPZONE_FILES_FILE_REMOVE_DISABLED_CLASS = `${UI_PREFIX}__form__dropzone__files__file__remove--disabled`;
 
-export function DropzoneFiles({ dropzoneState, onRemove, FileComponent, disabled }) {
+export function DropzoneFiles({
+    dropzoneState,
+    onRemove,
+    FileComponent,
+    disabled,
+    className = '',
+    ...rest
+}) {
     const DropzoneFileComponent = FileComponent ? FileComponent : DropzoneFile;
 
+    const dropzoneClassName = `${DROPZONE_FILES_CLASS} ${className}`.trim();
+
     return (
-        <div className={DROPZONE_FILES_CLASS}>
+        <div className={dropzoneClassName} {...rest}>
             {dropzoneState.files.map((file, index) => {
                 return (
                     <DropzoneFileComponent
@@ -32,10 +41,13 @@ export function DropzoneFiles({ dropzoneState, onRemove, FileComponent, disabled
 }
 
 DropzoneFiles.propTypes = {
-    dropzoneState: PropTypes.object.isRequired,
+    dropzoneState: PropTypes.shape({
+        files: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired })).isRequired,
+    }).isRequired,
     onRemove: PropTypes.func,
     FileComponent: propTypesChildren,
     disabled: PropTypes.bool,
+    className: PropTypes.string,
 };
 
 export function DropzoneFile({ file, fileIndex, onRemove, disabled }) {
@@ -58,7 +70,7 @@ export function DropzoneFile({ file, fileIndex, onRemove, disabled }) {
 }
 
 DropzoneFile.propTypes = {
-    file: PropTypes.object.isRequired,
+    file: PropTypes.shape({ name: PropTypes.string.isRequired }).isRequired,
     fileIndex: PropTypes.number.isRequired,
     onRemove: PropTypes.func,
     disabled: PropTypes.bool,

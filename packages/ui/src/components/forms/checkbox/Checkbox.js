@@ -25,10 +25,10 @@ export function Checkbox({
     className = '',
     ...rest
 }) {
-    const checkboxContainerClass = `${FORM_CHECKBOX_CONTAINER_CLASS} ${className}`;
+    const checkboxContainerClass = `${FORM_CHECKBOX_CONTAINER_CLASS} ${className}`.trim();
     const checkedCheckboxClass = checked ? FORM_CHECKBOX_CHECKED_CLASS : '';
     const disabledCheckboxClass = disabled ? FORM_CHECKBOX_DISABLED_CLASS : '';
-    const checkboxClass = `${FORM_CHECKBOX_CLASS} ${checkedCheckboxClass} ${disabledCheckboxClass}`;
+    const checkboxClass = `${FORM_CHECKBOX_CLASS} ${checkedCheckboxClass} ${disabledCheckboxClass}`.trim();
     const checkedCheckboxIndicatorClass = checked ? FORM_CHECKBOX_INDICATOR_CHECKED_CLASS : '';
     const disabledCheckboxIndicatorClass = disabled ? FORM_CHECKBOX_INDICATOR_DISABLED_CLASS : '';
     const indicatorClass = `${FORM_CHECKBOX_INDICATOR_CLASS} ${checkedCheckboxIndicatorClass} ${disabledCheckboxIndicatorClass}`.trim();

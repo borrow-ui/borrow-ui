@@ -22,5 +22,9 @@ module.exports = {
         '!src/index.js',
         '!src/utils/types.js',
         '!src/**/*.stories.js',
+        '!src/**/SearchBarStory.js',
+        '!src/**/FormsStoryWrapper.js',
+        '!src/**/forms/index.js',
+        '!src/**/forms/constants.js',
     ],
 };

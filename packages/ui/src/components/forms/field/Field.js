@@ -42,10 +42,10 @@ export function Field({
             ? FIELD_CONTROLLER_VERTICAL_CLASS
             : FIELD_CONTROLLER_HORIZONTAL_CLASS;
     const { className: controllerClassName = '', ...cProps } = controllerProps;
-    const fieldControllerClass = `${FIELD_CONTROLLER_CLASS} ${fieldControllerLayoutClass} ${controllerClassName}`;
+    const fieldControllerClass = `${FIELD_CONTROLLER_CLASS} ${fieldControllerLayoutClass} ${controllerClassName}`.trim();
 
     const { className: descriptionClassName = '', ...dProps } = descriptionProps;
-    const fieldDescriptionClass = `${FIELD_DESCRIPTION_CLASS} ${descriptionClassName}`;
+    const fieldDescriptionClass = `${FIELD_DESCRIPTION_CLASS} ${descriptionClassName}`.trim();
 
     const descriptionContent = description && (
         <div className={FIELD_DESCRIPTION_CONTAINER_CLASS}>
@@ -56,28 +56,26 @@ export function Field({
     );
 
     return (
-        <>
-            <div className={fieldClass} {...rest}>
-                {label && (
-                    <Label
-                        label={label}
-                        width={labelWidth}
-                        alignment={labelAlignment}
-                        vAlignment={vAlignment}
-                        layout={layout}
-                        required={required}
-                        {...labelProps}
-                    />
-                )}
-                {((children && compact) || !compact) && (
-                    <div className={fieldControllerClass} {...cProps}>
-                        {children}
-                        {description && layout === LAYOUTS.HORIZONTAL && descriptionContent}
-                    </div>
-                )}
-                {description && layout === LAYOUTS.VERTICAL && descriptionContent}
-            </div>
-        </>
+        <div className={fieldClass} {...rest}>
+            {label && (
+                <Label
+                    label={label}
+                    width={labelWidth}
+                    alignment={labelAlignment}
+                    vAlignment={vAlignment}
+                    layout={layout}
+                    required={required}
+                    {...labelProps}
+                />
+            )}
+            {((children && compact) || !compact) && (
+                <div className={fieldControllerClass} {...cProps}>
+                    {children}
+                    {description && layout === LAYOUTS.HORIZONTAL && descriptionContent}
+                </div>
+            )}
+            {description && layout === LAYOUTS.VERTICAL && descriptionContent}
+        </div>
     );
 }
 

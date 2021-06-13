@@ -7,6 +7,8 @@ import { propTypesChildren } from '../../utils/types';
 import { TabHeader } from './TabHeader';
 import { TabBody } from './TabBody';
 
+export const FIRST_OPEN_LESS_EQUAL_TABS_NUMBER = `firstOpen should be less or equal to the total number of tabs`;
+
 const TABS_CLASS = `${UI_PREFIX}__tabs`;
 
 export function Tabs({
@@ -20,9 +22,7 @@ export function Tabs({
     ...rest
 }) {
     if (firstOpen > tabs.length) {
-        throw new Error(
-            `firstOpen (${firstOpen}) should be less or equal to the total number of tabs (${tabs.length})`
-        );
+        throw new Error(FIRST_OPEN_LESS_EQUAL_TABS_NUMBER);
     }
 
     const [selected, setSelected] = useState(firstOpen);

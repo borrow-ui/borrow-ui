@@ -7,15 +7,10 @@ const TEXT_CLASS = `${UI_PREFIX}__text`;
 const TEXT_BIG_CLASS = `${UI_PREFIX}__text--big`;
 const TEXT_SMALL_CLASS = `${UI_PREFIX}__text--small`;
 
-export function Text({ className, size = 'normal', tag: Tag = 'div', children, ...rest }) {
-    const sizeClassName = size
-        ? size === 'big'
-            ? TEXT_BIG_CLASS
-            : size === 'small'
-            ? TEXT_SMALL_CLASS
-            : ''
-        : '';
-    const textClassName = `${TEXT_CLASS} ${sizeClassName} ${className || ''}`;
+export function Text({ size = 'normal', tag: Tag = 'div', className = '', children, ...rest }) {
+    const sizeClassName =
+        size === 'big' ? TEXT_BIG_CLASS : size === 'small' ? TEXT_SMALL_CLASS : '';
+    const textClassName = `${TEXT_CLASS} ${sizeClassName} ${className}`.trim();
 
     return (
         <Tag className={textClassName} {...rest}>
