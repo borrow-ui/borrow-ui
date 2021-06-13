@@ -29,7 +29,6 @@ import { Page } from './components/page/Page';
 import { PageBody } from './components/page/PageBody';
 import { PageHeader } from './components/page/PageHeader';
 import { Panel } from './components/panel/Panel';
-import { Popover } from './components/popover/Popover';
 import { Responsive } from './components/responsive/Responsive';
 import { SearchBar } from './components/search-bar/SearchBar';
 import {
@@ -93,7 +92,6 @@ export {
     PageBody,
     PageHeader,
     Panel,
-    Popover,
     Responsive,
     Row,
     SearchBar,

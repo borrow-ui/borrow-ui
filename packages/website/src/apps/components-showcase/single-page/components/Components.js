@@ -10,7 +10,6 @@ import { Links } from './Links';
 import { Loaders } from './Loaders';
 import { Modals } from './Modals';
 import { Panels } from './Panels';
-import { Popovers } from './Popovers';
 import { TabsComponent } from './TabsComponent';
 
 export function Components() {
@@ -59,11 +58,6 @@ export function Components() {
                 Panels
             </Title>
             <Panels />
-
-            <Title tag="h2" anchor="components-popovers">
-                Popovers
-            </Title>
-            <Popovers />
 
             <Title tag="h2" anchor="components-tabs" className="m-b-0">
                 Tabs

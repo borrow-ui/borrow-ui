@@ -30,7 +30,7 @@ export function SinglePage() {
             readableContent={true}
         >
             <Responsive queries={{ minSize: '(max-width: 864px)' }}>
-                {matches => {
+                {(matches) => {
                     if (!matches.minSize)
                         return (
                             <Sidebar
@@ -101,7 +101,6 @@ function SidebarMenuNavigator() {
             <Entry href="#components-loaders">Loaders</Entry>
             <Entry href="#components-modals">Modals</Entry>
             <Entry href="#components-panels">Panels</Entry>
-            <Entry href="#components-popovers">Popovers</Entry>
             <Entry href="#components-tabs">Tabs</Entry>
 
             <SidebarMenu.Title href="#data-visualization">Data Visualization</SidebarMenu.Title>
