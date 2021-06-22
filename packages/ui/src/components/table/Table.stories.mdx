@@ -1,9 +1,14 @@
 import { Fragment } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 import { Button } from '../button/Button';
 
+import { SearchBar } from '../search-bar/SearchBar';
+import { SearchBarStoryWrapper } from '../search-bar/SearchBarStory';
+
 import { Table } from './Table';
+import { GroupLines } from './TableStory';
 
 <Meta title="Components/Table" component={Table} />
 
@@ -59,32 +64,226 @@ import { Table } from './Table';
     </Story>
 </Canvas>
 
-### Search bar
+### Customize cell properties and appearance
 
-A search bar is available through the `SearchBar` component. This will allow to narrow the list of entries.
+Table component can be customized in few ways:
 
-To make the search bar visible, set `searchBar` `visible` property to `true`:
+-   by using table's `config` prop;
+-   by using column definition `verticalAlign` and `align` props;
+-   by using `cellProps` (for cell - td or th) and `cellContentProps` (for the container flex div inside the cell).
+
+The priority is the reverse as listed, so `cellProps` will override the column definition,
+which will override the `config` ones (if they are the same).
+
+#### Vertical Alignment
+
+To change the vertical alignment of the rows content, set `config.verticalAlign` property.
+If you need to change one column only, a `verticalAlign` property can be added to the column definition:
+
+Vertical Aligment is added to the cell item (`th` or `td`), so it can be changed directly as well with `elementProps.cellProps`.
+
+The following example has:
+
+-   a global vertical alignment set with `config={{ verticalAlign: 'bottom' }}`
+-   a specific vertical alignment set on `name` column with `verticalAlign: 'top'` property on column definition.
 
 <Canvas>
-    <Story name="Search Bar">
+    <Story name="Vertical Alignment">
         <div className="p-b-20">
             <Table
-                searchBar={{ visible: true }}
+                config={{ verticalAlign: 'bottom' }}
+                columns={[
+                    { prop: 'id', title: 'ID', width: '100px' },
+                    { prop: 'name', title: 'Name', verticalAlign: 'top' },
+                    { prop: 'group', title: 'Group' },
+                ]}
+                entries={[
+                    {
+                        id: 1,
+                        name: 'first entry',
+                        group: <GroupLines />,
+                    },
+                    {
+                        id: 2,
+                        name: 'second entry',
+                        group: <GroupLines />,
+                    },
+                    {
+                        id: 3,
+                        name: 'third entry',
+                        group: <GroupLines />,
+                    },
+                ]}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+#### (Horizontal) Alignment
+
+In the same way, alignment can be changed by using `config.alignment` or `alignment` property in column definition,
+with priority to the latter.
+
+Aligment is added to the cell content item (`div` inside `th` or `td`), so it can be changed directly as well with `elementProps.cellContentProps`.
+The `div` has a flex display, so the alignment can be changed by leveraging `justify-content` property.
+
+The following example has:
+
+-   a global horizontal alignment set with `config={{ align: 'center' }}`
+-   a specific horizontal alignment set on `id` column with `align: 'right'` property on column definition;
+-   a specific horizontal alignment set on `name` column with `align: 'left'` property on column definition.
+
+<Canvas>
+    <Story name="Alignment">
+        <div className="p-b-20">
+            <Table
+                config={{ align: 'center', borderType: 'cell' }}
+                columns={[
+                    { prop: 'id', title: 'ID', width: '100px', align: 'right' },
+                    { prop: 'name', title: 'Name', align: 'left' },
+                    { prop: 'group', title: 'Group' },
+                ]}
+                entries={[
+                    {
+                        id: 1,
+                        name: 'first long entry',
+                        group: <GroupLines />,
+                    },
+                    {
+                        id: 2,
+                        name: 'second entry',
+                        group: <GroupLines />,
+                    },
+                    {
+                        id: 3,
+                        name: 'third very very long entry',
+                        group: <GroupLines />,
+                    },
+                ]}
+            />
+        </div>
+    </Story>
+</Canvas>
+
+### Controlling props with cellProps and cellContentProps
+
+The previous helpers (`align` and `verticalAlign`) are applied to both header and rows.
+If we want to apply them only to one specific row, or all rows but not headers we can do that by using `cellProps` and `cellContentProps`.
+
+Both accepts a `getProps` function as a property which takes two arguments:
+
+-   `column`: the column object that is rendered;
+-   `entry`: the entry of the row; if it's undefined, it's the header cell.
+
+With this method we can also apply an alignment based on content value, i.e. all numbers aligned right.
+
+The following example uses `cellContentProps` to align horizontally the numbers on the right only in the cell body.
+
+<Canvas>
+    <Story name="Header and rows different alignment">
+        <div className="p-b-20">
+            <Table
+                config={{ borderType: 'cell' }}
+                elementsProps={{
+                    cellContentProps: {
+                        getProps: (column, entry) => {
+                            return {
+                                align:
+                                    entry && typeof entry[column.prop] === 'number'
+                                        ? 'right'
+                                        : 'left',
+                            };
+                        },
+                    },
+                }}
                 columns={[
                     { prop: 'id', title: 'ID', width: '100px' },
                     { prop: 'name', title: 'Name' },
                     { prop: 'group', title: 'Group' },
                 ]}
                 entries={[
-                    { id: 1, name: 'first entry', group: 'group 1' },
-                    { id: 2, name: 'second entry', group: 'group 2' },
-                    { id: 3, name: 'third entry', group: 'group 1' },
-                    { id: 4, name: 'fourth entry', group: 'group 1' },
-                    { id: 5, name: 'fifth entry', group: 'group 3' },
-                    { id: 6, name: 'sixth entry', group: 'group 1' },
-                    { id: 7, name: 'seventh entry', group: 'group 2' },
+                    {
+                        id: 1,
+                        name: 'first long entry',
+                        group: <GroupLines />,
+                    },
+                    {
+                        id: 2,
+                        name: 'second entry',
+                        group: <GroupLines />,
+                    },
+                    {
+                        id: 3,
+                        name: 'third very very long entry',
+                        group: <GroupLines />,
+                    },
                 ]}
             />
+        </div>
+    </Story>
+</Canvas>
+
+## Search items with SearchBar
+
+`SearchBar` component can be combined with table to offer real time filtering.
+
+In the following example, the list of entries is defined before and passed to `SearchBar`, which will return a filtered list.
+The filtered list is then passed to `Table` component.
+The filtered list should be defined before both components, in the standard way with `useState`.
+
+NOTE: to see how filter the `group` JSX attribute, see [this `SearchBar` story](/docs/components-searchbar--default-story#jsx-content).
+
+<Canvas>
+    <Story name="SearchBar and Table">
+        <div className="p-b-20">
+            <SearchBarStoryWrapper
+                entries={[
+                    {
+                        id: 1,
+                        name: 'first',
+                        group: <GroupLines n={1} />,
+                    },
+                    {
+                        id: 2,
+                        name: 'second',
+                        group: <GroupLines n={2} />,
+                    },
+                    {
+                        id: 3,
+                        name: 'third',
+                        group: <GroupLines n={3} />,
+                    },
+                ]}
+                hideStoryOutput={true}
+            >
+                {({ entries, filteredEntries, setFilteredEntries }) => {
+                    console.log(filteredEntries);
+                    return (
+                        <div>
+                            <p>Filter the entries by text</p>
+                            <SearchBar
+                                entries={entries.map((e) => ({
+                                    ...e,
+                                    groupString: ReactDOMServer.renderToStaticMarkup(
+                                        e.group
+                                    ).replace('<br/>', ' '),
+                                }))}
+                                setFilteredEntries={setFilteredEntries}
+                                className="m-b-20"
+                                inputProps={{ placeholder: 'Filter elements...' }}
+                            />
+                            <Table
+                                columns={[
+                                    { prop: 'id', title: 'ID', width: '100px' },
+                                    { prop: 'name', title: 'Name' },
+                                    { prop: 'group', title: 'Group' },
+                                ]}
+                                entries={filteredEntries}
+                            />
+                        </div>
+                    );
+                }}
+            </SearchBarStoryWrapper>
         </div>
     </Story>
 </Canvas>

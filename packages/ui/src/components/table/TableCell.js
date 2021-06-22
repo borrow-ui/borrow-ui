@@ -5,10 +5,12 @@ import { UI_PREFIX } from '../../config';
 
 const TABLE_CELL_CLASS = `${UI_PREFIX}__table__cell`;
 const TABLE_CELL_CONTENT_CLASS = `${UI_PREFIX}__table__cell__content`;
-// const TABLE_CELL_VERTICAL_ALIGN_TOP_CLASS = `${UI_PREFIX}__table__cell--vertical-align-top`;
-// const TABLE_CELL_VERTICAL_ALIGN_BOTTOM_CLASS = `${UI_PREFIX}__table__cell--vertical-align-bottom`;
-// const TABLE_CELL_BORDER_ROW_CLASS = `${UI_PREFIX}__table__cell--border-row`;
-// const TABLE_CELL_BORDER_CELL_CLASS = `${UI_PREFIX}__table__cell--border-cell`;
+// verticalAlignClassName is computed by using column.verticalAlign or tableConfig.verticalAlign:
+//  `${UI_PREFIX}__table__cell--vertical-align-${tableConfig.verticalAlign}`;
+// borderClassName is computed by using tableConfig.borderType:
+//  `${UI_PREFIX}__table__cell--border-${tableConfig.borderType}`;
+// alignClassName is computed by using column.align or tableConfig.align:
+//  `${UI_PREFIX}__table__cell__content--align-${tableConfig.align}`;
 
 export function TableCell({
     children,
@@ -20,38 +22,39 @@ export function TableCell({
     entry,
     ...rest
 }) {
-    const verticalAlignClassName = tableConfig.verticalAlign
-        ? `${UI_PREFIX}__table__cell--vertical-align-${tableConfig.verticalAlign}`
+    const borderClassName = `${UI_PREFIX}__table__cell--border-${tableConfig.borderType}`;
+
+    const cellElementProps = getContainerProps(elementsProps, 'cellProps', column, entry);
+
+    const {
+        className: cellPropsClassName = '',
+        verticalAlign,
+        ...cellOtherProps
+    } = cellElementProps;
+    const alignV = verticalAlign || tableConfig.verticalAlign || '';
+    const verticalAlignClassName = alignV
+        ? `${UI_PREFIX}__table__cell--vertical-align-${alignV}`
         : '';
-    const borderClassName = tableConfig.borderType
-        ? `${UI_PREFIX}__table__cell--border-${tableConfig.borderType}`
-        : '';
 
-    const cellElementProps =
-        !elementsProps.cellProps && !column.cellProps
-            ? {}
-            : elementsProps.cellProps && elementsProps.cellProps.getProps
-            ? elementsProps.cellProps.getProps(column, entry)
-            : column.cellProps
-            ? column.cellProps
-            : elementsProps.cellProps;
+    const cellClassName = `${TABLE_CELL_CLASS} ${borderClassName} ${verticalAlignClassName} ${className} ${cellPropsClassName}`.trim();
 
-    const { className: cellPropsClassName = '', ...cellOtherProps } = cellElementProps || {};
-    const cellClassName = `${TABLE_CELL_CLASS} ${className} ${borderClassName} ${verticalAlignClassName} ${cellPropsClassName}`;
+    const cellContentElementProps = getContainerProps(
+        elementsProps,
+        'cellContentProps',
+        column,
+        entry
+    );
 
-    const cellContentElementProps =
-        !elementsProps.cellContentProps && !column.cellContentProps
-            ? {}
-            : elementsProps.cellContentProps && elementsProps.cellContentProps.getProps
-            ? elementsProps.cellContentProps.getProps(column, entry)
-            : column.cellContentProps
-            ? column.cellContentProps
-            : elementsProps.cellContentProps;
+    const {
+        className: cellContentPropsClassName = '',
+        align,
+        ...cellContentOtherProps
+    } = cellContentElementProps;
+    // align applies only to content
+    const alignH = entry !== undefined ? align || tableConfig.align || '' : '';
+    const alignClassName = alignH ? `${UI_PREFIX}__table__cell__content--align-${alignH}` : '';
 
-    const { className: cellContentPropsClassName = '', ...cellContentOtherProps } =
-        cellContentElementProps || {};
-
-    const cellContentClassName = `${TABLE_CELL_CONTENT_CLASS} ${cellContentPropsClassName}`;
+    const cellContentClassName = `${TABLE_CELL_CONTENT_CLASS} ${alignClassName} ${cellContentPropsClassName}`.trim();
 
     return (
         <Tag className={cellClassName} {...rest} {...cellOtherProps}>
@@ -71,3 +74,23 @@ TableCell.propTypes = {
     column: PropTypes.object,
     entry: PropTypes.object,
 };
+
+export function getContainerProps(elementsProps, containerProps, column, entry) {
+    const cProps = elementsProps[containerProps] || {};
+    const { align, verticalAlign } = column;
+    const { getProps, ...restElementsProps } = cProps;
+    const { align: cAlign, verticalAlign: cVerticalAlign, ...computedProps } = getProps
+        ? getProps(column, entry)
+        : {};
+    let props = { ...restElementsProps };
+    if (containerProps === 'cellProps') {
+        if (verticalAlign) props.verticalAlign = verticalAlign;
+        if (cVerticalAlign) props.verticalAlign = cVerticalAlign;
+    }
+    if (containerProps === 'cellContentProps') {
+        if (align) props.align = align;
+        if (cAlign) props.align = cAlign;
+    }
+    if (getProps) props = { ...props, ...computedProps };
+    return props;
+}

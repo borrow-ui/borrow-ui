@@ -12,18 +12,18 @@ export function TableWrapper({
     className = '',
     tableConfig,
     tableState,
-    setTableState,
     entries,
     elementsProps,
+    ...rest
 }) {
     const tableClassName = `${TABLE_CLASS} ${className}`;
 
-    const commonProps = { tableConfig, tableState, setTableState, entries, elementsProps };
+    const commonProps = { tableConfig, tableState, elementsProps };
 
     return (
-        <table className={tableClassName}>
+        <table className={tableClassName} {...rest}>
             <TableHead {...commonProps} />
-            <TableBody {...commonProps} />
+            <TableBody {...commonProps} entries={entries} />
         </table>
     );
 }
@@ -32,7 +32,6 @@ TableWrapper.propTypes = {
     className: PropTypes.string,
     tableConfig: PropTypes.object.isRequired,
     tableState: PropTypes.object.isRequired,
-    setTableState: PropTypes.func.isRequired,
     entries: PropTypes.array.isRequired,
     elementsProps: PropTypes.object,
 };

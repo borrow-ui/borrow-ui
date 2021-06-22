@@ -9,14 +9,7 @@ const TABLE_HEAD_CLASS = `${UI_PREFIX}__table__head`;
 const TABLE_HEAD_ROW_CLASS = `${UI_PREFIX}__table__head__row`;
 const TABLE_HEAD_CELL_CLASS = `${UI_PREFIX}__table__head__cell`;
 
-export function TableHead({
-    className,
-    tableConfig,
-    tableState,
-    setTableState,
-    elementsProps,
-    entries,
-}) {
+export function TableHead({ className = '', tableConfig, tableState, elementsProps }) {
     const theadClassName = `${TABLE_HEAD_CLASS} ${className}`;
     const theadRowClassName = `${TABLE_HEAD_ROW_CLASS} ${className}`;
 
@@ -25,7 +18,7 @@ export function TableHead({
     return (
         <thead className={theadClassName}>
             <tr className={theadRowClassName}>
-                {columns.map(col => {
+                {columns.map((col) => {
                     return (
                         <TableCell
                             Tag="th"
@@ -49,7 +42,5 @@ TableHead.propTypes = {
     className: PropTypes.string,
     tableConfig: PropTypes.object.isRequired,
     tableState: PropTypes.object.isRequired,
-    setTableState: PropTypes.func.isRequired,
-    entries: PropTypes.array.isRequired,
     elementsProps: PropTypes.object,
 };

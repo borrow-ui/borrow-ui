@@ -10,9 +10,6 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
     border: 1px solid $ui-table-border-color;
 }
 
-.#{$ui-prefix}__table__cell {
-}
-
 .#{$ui-prefix}__table__cell--vertical-align-top {
     vertical-align: top;
 }
@@ -35,6 +32,17 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
     display: flex;
     padding: 7px;
     width: 100%;
+    height: 100%;
+}
+
+.#{$ui-prefix}__table__cell__content--align-left {
+    justify-content: flex-start;
+}
+.#{$ui-prefix}__table__cell__content--align-center {
+    justify-content: center;
+}
+.#{$ui-prefix}__table__cell__content--align-right {
+    justify-content: flex-end;
 }
 
 .#{$ui-prefix}__table__head__row {
@@ -56,10 +64,6 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .#{$ui-prefix}__table__body__cell {
-}
-
-.#{$ui-prefix}__table__search-bar__container {
-    margin-bottom: 10px;
 }
 
 .#{$ui-prefix}__table__status-bar__container {
