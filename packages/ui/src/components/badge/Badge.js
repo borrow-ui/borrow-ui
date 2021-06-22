@@ -20,8 +20,8 @@ export function Badge({
     const colorClass = color ? `color-${color}-bg color-on-${color}` : '';
     const typeClass = type && type !== 'squared' ? `${BADGE_CLASS}--${type}` : '';
     const clickableClass = rest.onClick ? BADGE_CLICKABLE_CLASS : '';
-    const propsClasses = [colorClass, typeClass, clickableClass].join(' ');
-    const badgeClass = [BADGE_CLASS, propsClasses, className].join(' ');
+    const propsClasses = [colorClass, typeClass, clickableClass].join(' ').trim();
+    const badgeClass = [BADGE_CLASS, propsClasses, className].join(' ').trim();
 
     return (
         <Tag className={badgeClass} {...rest}>
