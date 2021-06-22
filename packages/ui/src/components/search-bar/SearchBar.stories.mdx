@@ -1,4 +1,7 @@
+import ReactDOMServer from 'react-dom/server';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import { Badge } from '../badge/Badge';
 
 import { SearchBar } from './SearchBar';
 
@@ -21,11 +24,14 @@ By default, all entries with a value that includes the search text are returned.
                 { id: 3, name: 'third entry' },
             ]}
         >
-            {({ entries, setFilteredEntries }) => {
+            {({ entries, setFilteredEntries, filteredEntries }) => {
                 return (
                     <div>
                         <p>Filter the entries by text</p>
                         <SearchBar entries={entries} setFilteredEntries={setFilteredEntries} />
+                        <p>
+                            {filteredEntries.length} filtered from {entries.length}
+                        </p>
                     </div>
                 );
             }}
@@ -46,7 +52,7 @@ To filter only entries with an exact match, set `stringIncludes` property to `fa
                 { id: 3, name: 'third entry', group: 'group 1' },
             ]}
         >
-            {({ entries, setFilteredEntries }) => {
+            {({ entries, setFilteredEntries, filteredEntries }) => {
                 return (
                     <div>
                         <p>Filter the entries by text</p>
@@ -55,6 +61,9 @@ To filter only entries with an exact match, set `stringIncludes` property to `fa
                             setFilteredEntries={setFilteredEntries}
                             stringIncludes={false}
                         />
+                        <p>
+                            {filteredEntries.length} filtered from {entries.length}
+                        </p>
                     </div>
                 );
             }}
@@ -75,7 +84,7 @@ The initial input value can be specified via `initialSearch` prop:
                 { id: 3, name: 'third entry', group: 'group 1' },
             ]}
         >
-            {({ entries, setFilteredEntries }) => {
+            {({ entries, setFilteredEntries, filteredEntries }) => {
                 return (
                     <div>
                         <p>Filter the entries by text</p>
@@ -84,6 +93,9 @@ The initial input value can be specified via `initialSearch` prop:
                             setFilteredEntries={setFilteredEntries}
                             initialSearch="second"
                         />
+                        <p>
+                            {filteredEntries.length} filtered from {entries.length}
+                        </p>
                     </div>
                 );
             }}
@@ -108,7 +120,7 @@ This can be done by setting the `globalSearch` and `setGlobalSearch` props:
             ]}
             withGlobalSearch={true}
         >
-            {({ entries, setFilteredEntries, globalSearch, setGlobalSearch }) => {
+            {({ entries, setFilteredEntries, globalSearch, setGlobalSearch, filteredEntries }) => {
                 return (
                     <div>
                         <p>Filter the entries by tags</p>
@@ -130,6 +142,63 @@ This can be done by setting the `globalSearch` and `setGlobalSearch` props:
                             globalSearch={globalSearch}
                             setGlobalSearch={setGlobalSearch}
                         />
+                        <p>
+                            {filteredEntries.length} filtered from {entries.length}
+                        </p>
+                    </div>
+                );
+            }}
+        </SearchBarStoryWrapper>
+    </Story>
+</Canvas>
+
+## JSX content
+
+By default, JSX content can't be filtered.
+There are two options to make JSX content available:
+
+-   the first is to use `renderToStaticMarkup` from `react-dom`'s `ReactDOMServer`;
+-   the second is create an additional field with the same content as text.
+
+For example, we want to add a list of badges with name initials, and we want to filter them.
+In the next snippet, we are using the first method for the full name attribute.
+The second method can be easily applied to any field as an "hidden" property.
+
+NOTE: this will render to string the entire component, tags and props included.
+In case this is unwanted and the structure of the component is known, the text can be
+further refined with a regex.
+In the example, the Badge component uses a `span` that can be removed with:
+`ReactDOMServer.renderToStaticMarkup(e.fullName).match(/\<span[^>]*>(.*)<\/span>/)[1]`
+
+<Canvas>
+    <Story name="JSX content">
+        <SearchBarStoryWrapper
+            entries={[
+                { id: 1, fullName: <Badge>Caio Mario</Badge> },
+                { id: 2, fullName: <Badge>Lucio Cornelio Silla</Badge> },
+                { id: 3, fullName: <Badge>Caio Giulio Cesare</Badge> },
+                { id: 4, fullName: <Badge>Marco Antonio</Badge> },
+            ]}
+            hideStoryOutput={true}
+        >
+            {({ entries, setFilteredEntries, filteredEntries }) => {
+                return (
+                    <div>
+                        <p>Filter the entries by text</p>
+                        <SearchBar
+                            entries={entries.map((e) => ({
+                                ...e,
+                                fullNameString: ReactDOMServer.renderToStaticMarkup(
+                                    e.fullName
+                                ).match(/\<span[^>]*>(.*)<\/span>/)[1],
+                            }))}
+                            setFilteredEntries={setFilteredEntries}
+                        />
+                        <ul>
+                            {filteredEntries.map((fe) => {
+                                return <li id={fe.id}>{fe.fullName}</li>;
+                            })}
+                        </ul>
                     </div>
                 );
             }}
