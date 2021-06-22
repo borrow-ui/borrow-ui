@@ -3,7 +3,8 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 import { Button } from '../button/Button';
 import { Lorem } from '../lorem/Lorem';
-import { Panel, PanelContent } from './Panel';
+import { Panel } from './Panel';
+import { PanelContentProps } from './PanelStory';
 
 <Meta title="Components/Panel" component={Panel} />
 
@@ -157,4 +158,4 @@ like `const [variableContent, setVariableContent] = useState(null);`.
 
 ## PanelContent Props
 
-<ArgsTable of={PanelContent} />
+<ArgsTable of={PanelContentProps} />

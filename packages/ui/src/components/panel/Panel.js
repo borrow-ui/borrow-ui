@@ -59,7 +59,7 @@ Panel.propTypes = {
     getPanelContentProps: PropTypes.func.isRequired,
 };
 
-function PanelContent({
+export function PanelContent({
     content,
     title,
     controls,
@@ -158,6 +158,8 @@ function PanelContent({
     );
 }
 
+// NOTE: remember to change props also in PanelStory, used to
+//       generate ArgsTable values in Storybook.
 PanelContent.propTypes = {
     /** Main content to be shown in the panel */
     content: propTypesChildren,
