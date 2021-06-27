@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Hooks/useLocationHash" />
+
+# useLocationHash
+
+`useLocationHash` hook is used to get the hash of the location from the window object.
+
+For example, if the location is `https://my.blog.com/page1#first-anchor?test=1&test2=2` it will return `first-anchor`.
+
+Note: it relies on query string to be after the hash.
+
+### Usage
+
+```jsx
+import { useLocationHash } from '@borrow-ui/ui';
+
+export function Page() {
+    // hooks and state
+    // ....
+    const locationHash = useLocationHash();
+
+    // other code
+    return (
+        <div>
+            <a
+                name="first-anchor"
+                href="#first-anchor"
+                className={locationHash === 'first-anchor' ? 'active' : ''}
+            >
+                Title
+            </a>
+            <Lorem />
+        </div>
+    );
+}
+```

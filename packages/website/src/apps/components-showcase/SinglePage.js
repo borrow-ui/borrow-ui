@@ -9,7 +9,6 @@ import {
     TextContainer,
     Sidebar,
     SidebarMenu,
-    useAnchor,
 } from '@borrow-ui/ui';
 
 import { Typography } from './single-page/typography/Typography';
@@ -21,8 +20,6 @@ import { FormsComponent } from './single-page/forms/Forms';
 import './single-page/single-page.scss';
 
 export function SinglePage() {
-    useAnchor();
-
     return (
         <Page
             title="Single Page Components Showcase"
