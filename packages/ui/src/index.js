@@ -50,8 +50,8 @@ import { TextContainer } from './components/text/TextContainer';
 import { Tooltip } from './components/tooltip/Tooltip';
 
 // hooks
-import { useAnchor, useRefHash } from './hooks/useAnchor';
 import { useHover } from './hooks/useHover';
+import { useLocationHash } from './hooks/useLocationHash';
 
 /*
 EXPORTS
@@ -111,7 +111,6 @@ export {
     Title,
     Tooltip,
     // hooks
-    useAnchor,
-    useRefHash,
     useHover,
+    useLocationHash,
 };

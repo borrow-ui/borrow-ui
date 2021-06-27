@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
-import { useRefHash } from '../../hooks/useAnchor';
+import { useLocationHash } from '../../hooks/useLocationHash';
 
 const TITLE_CLASS = `${UI_PREFIX}__title`;
 const TITLE_ANCHOR_CLASS = `${UI_PREFIX}__title__anchor`;
@@ -17,10 +17,10 @@ export function Title({
     className = '',
     ...rest
 }) {
-    const refHash = useRefHash();
+    const locationHash = useLocationHash();
     const titleClassName = `${TITLE_CLASS} ${className}`;
 
-    const anchorActiveClass = anchor === refHash && anchor ? TITLE_ANCHOR_ACTIVE_CLASS : '';
+    const anchorActiveClass = anchor === locationHash && anchor ? TITLE_ANCHOR_ACTIVE_CLASS : '';
     const anchorClass = `${TITLE_ANCHOR_CLASS} ${anchorClassName} ${anchorActiveClass}`;
     const content = anchor ? (
         <a className={anchorClass} name={anchor} href={`#${anchor}`}>
