@@ -1,18 +1,25 @@
 @import '../../style/vars/main';
 
 $ui-dashboard-header-height: 0 !default;
-
+$ui-sidebar-closed-width: 46px !default;
 $ui-sidebar-open-width: 275px !default;
 $ui-sidebar-trigger-height: $ui-sidebar-closed-width !default;
-
-$ui-sidebar-color: $ui-color-neutral-white;
+$ui-sidebar-color: $ui-color-on-neutral-white !default;
+$ui-sidebar-color-bg: $ui-color-neutral-white !default;
+$ui-sidebar-entry-height: 40px !default;
+$ui-sidebar-entry-hover-color: $ui-color-neutral !default;
+$ui-sidebar-entry-hover-color-bg: white !default;
+$ui-sidebar-entry-active-color: $ui-color-accent !default;
+$ui-sidebar-entry-active-color-bg: $ui-color-on-accent !default;
+$ui-sidebar-entry-content-toggle-color: $ui-color-on-neutral-light !default;
+$ui-sidebar-entry-content-toggle-color-bg: $ui-color-neutral-light !default;
 
 .#{$ui-prefix}__sidebar__container {
     flex: none;
     display: inline-block;
     width: $ui-sidebar-closed-width;
-    transition: all 0.4s;
-    background-color: $ui-sidebar-color;
+    transition: all 0.5s;
+    background-color: $ui-sidebar-color-bg;
     box-sizing: border-box;
 }
 
@@ -47,13 +54,13 @@ $ui-sidebar-color: $ui-color-neutral-white;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $ui-color-on-neutral-white;
+    color: $ui-sidebar-color;
     cursor: pointer;
 }
 
 %sidebar-icon {
     min-width: $ui-sidebar-closed-width;
-    height: $ui-sidebar-trigger-height;
+    height: $ui-sidebar-entry-height;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -72,41 +79,33 @@ $ui-sidebar-color: $ui-color-neutral-white;
     justify-content: space-between;
     display: flex;
     flex-direction: column;
+    transition: all 0.4s;
+    overflow-x: hidden;
 }
 .#{$ui-prefix}__sidebar__elements-container--with-trigger {
     height: calc(100% - #{$ui-sidebar-trigger-height});
 }
 
-.#{$ui-prefix}__sidebar__top-container {
-    flex-grow: 1;
-    transition: all 0.4s;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.#{$ui-prefix}__sidebar__top-container--closed {
-}
-
-.#{$ui-prefix}__sidebar__bottom-container {
-}
-
 .#{$ui-prefix}__sidebar__entry {
     min-width: $ui-sidebar-closed-width;
+    min-height: $ui-sidebar-entry-height;
     display: flex;
-    margin-bottom: $ui-sidebar-closed-width / 5;
-    color: lighten($ui-color-on-neutral-white, 12);
-    cursor: pointer;
+    align-items: center;
+    color: $ui-sidebar-color;
     text-decoration: none;
-}
-.#{$ui-prefix}__sidebar__entry:hover {
-    color: $ui-color-accent;
+
+    &:hover {
+        color: $ui-sidebar-entry-hover-color;
+        background-color: $ui-sidebar-entry-hover-color-bg;
+    }
 }
 
-.#{$ui-prefix}__sidebar__entry--active {
-    color: $ui-color-accent;
-    background-color: $ui-color-on-primary;
+.#{$ui-prefix}__sidebar__entry--clickable {
+    cursor: pointer;
 }
-.#{$ui-prefix}__sidebar__entry--active-open {
-    width: 100%;
+.#{$ui-prefix}__sidebar__entry--active {
+    color: $ui-sidebar-entry-active-color;
+    background-color: $ui-sidebar-entry-active-color-bg;
 }
 
 .#{$ui-prefix}__sidebar__entry__label {
@@ -117,6 +116,7 @@ $ui-sidebar-color: $ui-color-neutral-white;
     min-width: 150px;
     overflow: hidden;
     white-space: nowrap;
+    flex-grow: 1;
 }
 
 .#{$ui-prefix}__sidebar__entry__label--active {
@@ -129,20 +129,29 @@ $ui-sidebar-color: $ui-color-neutral-white;
     @extend %sidebar-icon;
 }
 
-.#{$ui-prefix}__sidebar__entry__details {
-    padding-left: 50px;
-    transition: all 0.6s;
-    display: none;
-    overflow: hidden;
-}
-.#{$ui-prefix}__sidebar__entry__details--active {
-    display: block;
-}
-/*
-.#{$ui-prefix}__sidebar__entry__details--open {
-}
-*/
+.#{$ui-prefix}__sidebar__entry__toggle {
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
 
-.#{$ui-prefix}__sidebar__entry__details--closed {
+    &:hover {
+        color: $ui-sidebar-entry-content-toggle-color;
+        background-color: $ui-sidebar-entry-content-toggle-color-bg;
+        border-radius: 50%;
+    }
+}
+
+.#{$ui-prefix}__sidebar__entry__content {
     max-height: 0;
+    padding-left: $ui-sidebar-closed-width;
+    transition: max-height 0.25s ease-out;
+    overflow: hidden;
+    color: $ui-sidebar-color;
+}
+.#{$ui-prefix}__sidebar__entry__content--visible {
+    max-height: 500px;
+    transition: max-height 0.35s ease-in;
 }

@@ -15,7 +15,7 @@ SidebarEntryLabelShortcut.propTypes = {
     label: PropTypes.string,
 };
 
-function getShortcut(label) {
+export function getShortcut(label) {
     if (typeof label !== 'string') return label;
 
     const chars =
