@@ -2,7 +2,7 @@
     "name": "@borrow-ui/ui",
     "repository": "git@github.com:borrow-ui/borrow-ui.git",
     "author": "borrow-ui <info@borrow-ui.dev>",
-    "version": "0.0.1-alpha.1",
+    "version": "0.0.2",
     "description": "Components of @borrow-ui",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
