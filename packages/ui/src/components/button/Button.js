@@ -46,15 +46,17 @@ export function Button({
 
     return (
         <Tag className={buttonClassName} disabled={disabled} {...rest}>
-            {icon && (
-                <Icon
-                    size={iconSize}
-                    name={icon}
-                    {...restIconProps}
-                    className={`${iconClassName} m-r-5`}
-                />
-            )}
-            <span>{children}</span>
+            <>
+                {icon && (
+                    <Icon
+                        size={iconSize}
+                        name={icon}
+                        {...restIconProps}
+                        className={`${iconClassName} m-r-5`}
+                    />
+                )}
+                <span>{children}</span>
+            </>
         </Tag>
     );
 }
