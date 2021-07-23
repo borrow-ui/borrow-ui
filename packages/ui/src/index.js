@@ -37,6 +37,7 @@ import { SidebarIcon } from './components/sidebar/SidebarIcon';
 import { SidebarTrigger } from './components/sidebar/SidebarTrigger';
 import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
 import { Subtitle } from './components/text/Subtitle';
+import { SyntaxHighlight } from './components/syntax-highlight/SyntaxHighlight';
 import { Table } from './components/table/Table';
 import { Tabs } from './components/tabs/Tabs';
 import { Text } from './components/text/Text';
@@ -99,6 +100,7 @@ export {
     SidebarTrigger,
     SidebarMenu,
     Subtitle,
+    SyntaxHighlight,
     Table,
     Tabs,
     Text,

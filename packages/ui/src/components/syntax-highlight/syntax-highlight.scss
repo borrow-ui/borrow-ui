@@ -1,0 +1,15 @@
+@import '../../style/vars/main';
+
+.#{$ui-prefix}__syntax-highlight .code-toolbar {
+    display: grid;
+}
+
+.#{$ui-prefix}__syntax-highlight {
+    font-size: 14px;
+}
+
+@media (max-width: 650px) {
+    .#{$ui-prefix}__syntax-highlight {
+        font-size: 12px;
+    }
+}

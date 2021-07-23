@@ -20,6 +20,7 @@ const externals = [
     'dayjs',
     'dayjs/plugin/customParseFormat',
     'lodash.debounce',
+    'prismjs',
     'prop-types',
     'react',
     'react-day-picker/DayPickerInput',
