@@ -1,0 +1,85 @@
+.home__page {
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.home__main-title {
+    font-size: 72px;
+    margin-bottom: 40px;
+
+    @media (min-width: 400px) and (max-width: 900px) {
+        font-size: 48px;
+    }
+    @media (max-width: 400px) {
+        font-size: 36px;
+    }
+}
+
+.home__action-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (max-width: 500px) {
+        justify-content: center;
+    }
+}
+
+.home__cards-container {
+    margin-top: 40px;
+    padding: 40px 0;
+
+    position: relative;
+    color: #718096;
+}
+
+.home__tiles-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 900px) {
+        justify-content: space-around;
+    }
+}
+
+.home__tile {
+    width: 200px;
+    min-width: 200px;
+
+    @media (min-width: 720px) and (max-width: 900px) {
+        width: 300px;
+        min-width: 300px;
+    }
+    @media (max-width: 502px) {
+        width: 140px;
+        min-width: 140px;
+    }
+
+    &:hover {
+        color: #2e79e0;
+    }
+}
+
+.home__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media (max-width: 1050px) {
+        flex-direction: column;
+    }
+}
+
+.home__column {
+    width: 100%;
+    @media (min-width: 1050px) {
+        width: 50%;
+    }
+}
+
+.home__get-started {
+    padding: 30px 20px;
+    background-color: #ef5b5b;
+}

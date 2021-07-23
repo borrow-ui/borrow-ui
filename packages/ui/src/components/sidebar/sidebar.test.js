@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -45,6 +45,35 @@ describe('Sidebar', () => {
         );
     });
 
+    test('is closed when an entry with autoCloseLink is clicked', async () => {
+        const { Sidebar, SidebarEntry } = useSidebar();
+        render(
+            <Sidebar data-testid="sidebar">
+                <div>
+                    <SidebarEntry iconName="dashboard" autoCloseLink>
+                        With AutoClose
+                    </SidebarEntry>
+                    <SidebarEntry>Without AutoClose</SidebarEntry>
+                </div>
+            </Sidebar>
+        );
+
+        const sidebar = screen.getByTestId('sidebar');
+        const sidebarTrigger = screen.getByTestId('sidebar-trigger');
+
+        expect(sidebar).toHaveClass(`${UI_PREFIX}__sidebar__container--closed`);
+
+        // opens from default close status
+        await userEvent.click(sidebarTrigger);
+        expect(screen.getByTestId('sidebar')).toHaveClass(`${UI_PREFIX}__sidebar__container--open`);
+
+        // closes from open status
+        await userEvent.click(screen.getByText('With AutoClose'));
+        expect(screen.getByTestId('sidebar')).toHaveClass(
+            `${UI_PREFIX}__sidebar__container--closed`
+        );
+    });
+
     test('renders a sticky Sidebar with a custom closed width', () => {
         const { Sidebar } = useSidebar();
         render(
@@ -71,16 +100,16 @@ describe('Sidebar', () => {
     });
 
     test('renders a Sidebar with context provider', async () => {
-        const { sidebarContext, getDefaultStatus, SidebarEntry, CustomTrigger } = useSidebar();
+        const { sidebarContext, getDefaultState, SidebarEntry, CustomTrigger } = useSidebar();
         function Layout() {
-            const contextValue = useState(getDefaultStatus());
+            const contextValue = useState(getDefaultState());
 
             return (
                 <sidebarContext.Provider value={contextValue}>
                     <div>
                         <CustomTrigger>
-                            {({ toggleStatus }) => {
-                                return <button onClick={toggleStatus}>OpenClose</button>;
+                            {({ toggleOpened }) => {
+                                return <button onClick={toggleOpened}>OpenClose</button>;
                             }}
                         </CustomTrigger>
                         <div>Header</div>
@@ -135,9 +164,9 @@ describe('Sidebar', () => {
     });
 
     test('renders a Sidebar with context provider and default Trigger', async () => {
-        const { sidebarContext, getDefaultStatus, SidebarEntry, SidebarTrigger } = useSidebar();
+        const { sidebarContext, getDefaultState, SidebarEntry, SidebarTrigger } = useSidebar();
         function Layout() {
-            const contextValue = useState(getDefaultStatus());
+            const contextValue = useState(getDefaultState());
 
             return (
                 <sidebarContext.Provider value={contextValue}>

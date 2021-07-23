@@ -1,15 +1,15 @@
-$ui-color-primary: #247ea3 !default;
+$ui-color-primary: #6322b8 !default;
 $ui-color-primary-over: lighten($ui-color-primary, 12) !default;
-$ui-color-primary-disabled: #7bb9c1 !default;
+$ui-color-primary-disabled: #9054df !default;
 $ui-color-on-primary: white !default;
 
-$ui-color-primary-light: rgba(36, 125, 163, 0.5) !default; /* primary 0.5 */
+$ui-color-primary-light: #7f28f1 !default; /* primary 0.5 */
 $ui-color-primary-light-over: lighten($ui-color-primary-light, 12) !default;
-$ui-color-on-primary-light: #565656 !default;
+$ui-color-on-primary-light: #ffffff !default;
 
-$ui-color-accent: #57ccd8 !default;
-$ui-color-accent-disabled: #8fd7de !default;
-$ui-color-accent-over: lighten($ui-color-accent, 12) !default;
+$ui-color-accent: #2e79e0 !default;
+$ui-color-accent-disabled: #92baf3 !default;
+$ui-color-accent-over: #428df5 !default;
 $ui-color-on-accent: white !default;
 
 $ui-color-secondary: #e8eddf !default;
@@ -56,3 +56,117 @@ $ui-color-warning: #f9b827 !default;
 $ui-color-warning-disabled: #ffd473 !default;
 $ui-color-warning-over: lighten($ui-color-warning, 12) !default;
 $ui-color-on-warning: white !default;
+
+/** Chromatic scale **/
+
+/*******************/
+/* Chromatic scale */
+/*******************/
+
+$ui-color-cyan-d2: #044e53;
+$ui-color-cyan-d1: #0a6c75;
+$ui-color-cyan: #0e7c86;
+$ui-color-cyan-l1: #149199;
+$ui-color-cyan-l2: #2caeba;
+
+$ui-color-cyan-light-d2: #37bcc8;
+$ui-color-cyan-light-d1: #52d1da;
+$ui-color-cyan-light: #88ebf2;
+$ui-color-cyan-light-l1: #bff8fd;
+$ui-color-cyan-light-l2: #e0fcff;
+
+$ui-color-blue-d2: #035287;
+$ui-color-blue-d1: #0b68a2;
+$ui-color-blue: #1280bf;
+$ui-color-blue-l1: #1991d2;
+$ui-color-blue-l2: #2cb0ed;
+
+$ui-color-blue-light-d2: #40c3f7;
+$ui-color-blue-light-d1: #5cd0fa;
+$ui-color-blue-light: #81defd;
+$ui-color-blue-light-l1: #b3ecff;
+$ui-color-blue-light-l2: #e5f9ff;
+
+$ui-color-grey-d2: #1f2933;
+$ui-color-grey-d1: #33404d;
+$ui-color-grey: #3f4d5a;
+$ui-color-grey-l1: #515f6c;
+$ui-color-grey-l2: #606d7b;
+
+$ui-color-grey-light-d2: #7b8793;
+$ui-color-grey-light-d1: #9aa5b1;
+$ui-color-grey-light: #cad1d8;
+$ui-color-grey-light-l1: #e5e8eb;
+$ui-color-grey-light-l2: #f5f7fa;
+
+$ui-color-pink-d2: #610041;
+$ui-color-pink-d1: #a20669;
+$ui-color-pink: #a20664;
+$ui-color-pink-l1: #bd0a6f;
+$ui-color-pink-l2: #d9127c;
+
+$ui-color-pink-light-d2: #e7368f;
+$ui-color-pink-light-d1: #f362a1;
+$ui-color-pink-light: #ff8ab9;
+$ui-color-pink-light-l1: #ffb8d2;
+$ui-color-pink-light-l2: #ffe5ee;
+
+$ui-color-red-d2: #630316;
+$ui-color-red-d1: #8b041b;
+$ui-color-red: #aa091e;
+$ui-color-red-l1: #d01124;
+$ui-color-red-l2: #e12d39;
+
+$ui-color-red-light-d2: #ef4e4e;
+$ui-color-red-light-d1: #f86868;
+$ui-color-red-light: #ff9999;
+$ui-color-red-light-l1: #ffbdbd;
+$ui-color-red-light-l2: #ffe5e5;
+
+$ui-color-yellow-d2: #8e2c0b;
+$ui-color-yellow-d1: #b54e12;
+$ui-color-yellow: #ca6d16;
+$ui-color-yellow-l1: #dd901d;
+$ui-color-yellow-l2: #f0b428;
+
+$ui-color-yellow-light-d2: #f7c94a;
+$ui-color-yellow-light-d1: #fadb61;
+$ui-color-yellow-light: #fce588;
+$ui-color-yellow-light-l1: #fff3c2;
+$ui-color-yellow-light-l2: #fffbeb;
+
+$ui-color-teal-d2: #014b3f;
+$ui-color-teal-d1: #0c6a57;
+$ui-color-teal: #147b63;
+$ui-color-teal-l1: #199473;
+$ui-color-teal-l2: #27aa83;
+
+$ui-color-teal-light-d2: #3dbd92;
+$ui-color-teal-light-d1: #66d6ad;
+$ui-color-teal-light: #8cedc6;
+$ui-color-teal-light-l1: #c5f7e1;
+$ui-color-teal-light-l2: #eefcf5;
+
+$ui-color-purple-d2: #250755;
+$ui-color-purple-d1: #34126e;
+$ui-color-purple: #411986;
+$ui-color-purple-l1: #51279b;
+$ui-color-purple-l2: #663dae;
+
+$ui-color-purple-light-d2: #744cb8;
+$ui-color-purple-light-d1: #8562c6;
+$ui-color-purple-light: #a081d9;
+$ui-color-purple-light-l1: #cebaf2;
+$ui-color-purple-light-l2: #eae2f8;
+
+$ui-color-green-d2: #05400a;
+$ui-color-green-d1: #0e5814;
+$ui-color-green: #207227;
+$ui-color-green-l1: #2f8132;
+$ui-color-green-l2: #3f9142;
+
+$ui-color-green-light-d2: #57ae5b;
+$ui-color-green-light-d1: #7bc47f;
+$ui-color-green-light: #a3d9a5;
+$ui-color-green-light-l1: #c1eac5;
+$ui-color-green-light-l2: #e3f9e5;

@@ -31,15 +31,13 @@ import { PageHeader } from './components/page/PageHeader';
 import { Panel } from './components/panel/Panel';
 import { Responsive } from './components/responsive/Responsive';
 import { SearchBar } from './components/search-bar/SearchBar';
-import {
-    Sidebar,
-    SidebarContext,
-    generateSidebarContextProvider,
-} from './components/sidebar/Sidebar';
+import { Sidebar, useSidebar } from './components/sidebar/Sidebar';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
+import { SidebarTrigger } from './components/sidebar/SidebarTrigger';
 import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
 import { Subtitle } from './components/text/Subtitle';
+import { SyntaxHighlight } from './components/syntax-highlight/SyntaxHighlight';
 import { Table } from './components/table/Table';
 import { Tabs } from './components/tabs/Tabs';
 import { Text } from './components/text/Text';
@@ -96,12 +94,13 @@ export {
     Row,
     SearchBar,
     Sidebar,
-    SidebarContext,
-    generateSidebarContextProvider,
+    useSidebar,
     SidebarEntry,
     SidebarIcon,
+    SidebarTrigger,
     SidebarMenu,
     Subtitle,
+    SyntaxHighlight,
     Table,
     Tabs,
     Text,

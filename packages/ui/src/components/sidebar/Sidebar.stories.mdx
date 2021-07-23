@@ -15,8 +15,9 @@ import { SidebarStory } from './SidebarStory';
 
 `Sidebar` component can be used to create sidebars or a side menu container.
 
-A sidebar usually has two statuses, `open` and `closed`. The status can be triggered by clicking an "expand"
-element (i.e. an icon with three lines).
+A sidebar usually has two statuses, opened or closed. The status can be triggered
+by clicking an "expand" element (i.e. an icon with three lines).
+By default the sidebar is closed.
 
 The elements inside the sidebar are `SidebarEntry` component instances.
 
@@ -110,8 +111,8 @@ will toggle the content to be shown/hidden.
 
 ### Global Sidebar with external trigger
 
-If you want to put the status trigger outside of the Sidebar, you need to use the same context of the sidebar.
-The `useSidebar` hook returns a `sidebarContext` prop, which can be used to add the provider outside.
+If you need to put the status trigger outside of the Sidebar, you need to use the same context of the sidebar.
+The `useSidebar` hook returns a set of props which can be used to add the provider outside.
 A `SidebarTrigger` prop then can be used to get the trigger. If you want to use a different trigger, you
 can still use the same context with the `useContext` hook.
 
@@ -121,20 +122,55 @@ For example, if you want to put the trigger in the page header,
 this needs to be wrapped in the sideber provider and the context passed to be used:
 
 ```jsx
-// App.js
+// MainSidebar.js
 
-import { useSidebar, Sidebar } from '@borrow-ui/ui';
+import React, { createContext } from 'react';
 
-export function App() {
-    const { sidebarContext, SidebarEntry } = useSidebar();
+import { Sidebar } from '@borrow-ui/ui';
+
+// The context will be shared and set in the provider
+export const sidebarContext = createContext();
+
+// The Sidebar instance, consuming the context above
+// and a contextualized SidebarEntry
+export function MainSidebar({ SidebarEntry }) {
     return (
-        <div className="main-app">
-            <sidebarContext.Provider>
-                <Header sidebarContext={sidebarContext} />
-                <Sidebar sidebarContext={sidebarContext} hideTrigger={true}>
-                    <SidebarEntry iconName="dashboard">Dashboard</SidebarEntry>
-                </Sidebar>
-                <Content />
+        <Sidebar
+            sidebarContext={sidebarContext}
+            hideTrigger
+            shadowWhenOpen={false}
+            className="main-sidebar"
+            stickyTop={true}
+        >
+            <SidebarEntry iconName="home" href="/">
+                Home
+            </SidebarEntry>
+        </Sidebar>
+    );
+}
+```
+
+```jsx
+// Layout.js
+
+import React, { useState } from 'react';
+
+import { useSidebar } from '@borrow-ui/ui';
+
+import { MainSidebar, sidebarContext } from './MainSidebar';
+
+export function Layout({ Component, pageProps }) {
+    const { SidebarEntry, getDefaultState } = useSidebar({ context: sidebarContext });
+    const sidebarState = useState(getDefaultState());
+
+    return (
+        <div className="borrow-ui">
+            <sidebarContext.Provider value={sidebarState}>
+                <Header />
+                <div style={{ display: 'flex' }}>
+                    <MainSidebar SidebarEntry={SidebarEntry} />
+                    <Component {...pageProps} />
+                </div>
             </sidebarContext.Provider>
         </div>
     );
@@ -146,23 +182,28 @@ Then, in the `Header` component:
 ```jsx
 import React, { useContext } from 'react';
 
-export function Header({ sidebarContext }) {
-    const [sidebarState, setSidebarState] = useContext(sidebarContext);
+// Use a "contextless" trigger, will be passed
+import { Icon, Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
 
-    const sidebarOpen = sidebarState.status === 'open';
+// Import the same context
+import { sidebarContext } from './MainSidebar';
 
+export function Header() {
     return (
-        <div className="header">
-            <button
-                onClick={() =>
-                    setSidebarState({ ...sidebarState, status: sidebarOpen ? 'closed' : 'open' })
-                }
-            >
-                Toggle
-            </button>
-            <a href="/">Home</a>
-            <a href="/page1">Page 1</a>
-        </div>
+        <Navbar
+            left={[
+                <SidebarTrigger sidebarContext={sidebarContext} />,
+                {
+                    headerLabel: (
+                        <Link href="/">
+                            <NavbarLink>My Site</NavbarLink>
+                        </Link>
+                    ),
+                    name: 'home',
+                },
+            ]}
+            right={[<span>v 0.1</span>]}
+        />
     );
 }
 ```

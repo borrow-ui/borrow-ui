@@ -17,15 +17,17 @@ const SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS = `${UI_PREFIX}__sidebar__container--o
 const SIDEBAR_ELEMENTS_CONTAINER_CLASS = `${UI_PREFIX}__sidebar__elements-container`;
 const SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__elements-container--with-trigger`;
 
-export function useSidebar({ initialStatus = 'closed' } = {}) {
-    const sidebarContext = createContext([{}, null]);
-    const getDefaultStatus = () => ({
-        status: initialStatus,
+export function useSidebar({ opened = false, context } = {}) {
+    const defaultContext = createContext([{}, null]);
+    const sidebarContext = context || defaultContext;
+
+    const getDefaultState = () => ({
+        opened,
         openedEntrySubContent: {},
     });
 
     const ContextualizedSidebar = (props) => {
-        const contextValue = useState(getDefaultStatus());
+        const contextValue = useState(getDefaultState());
 
         return (
             <sidebarContext.Provider value={contextValue}>
@@ -47,11 +49,10 @@ export function useSidebar({ initialStatus = 'closed' } = {}) {
 
     const CustomTrigger = ({ children }) => {
         const [contextValue, setContextValue] = useContext(sidebarContext);
-        const toggleStatus = () => {
-            const newStatus = contextValue.status === 'open' ? 'closed' : 'open';
-            setContextValue({ ...contextValue, status: newStatus });
+        const toggleOpened = () => {
+            setContextValue({ ...contextValue, opened: !contextValue.opened });
         };
-        return <Fragment>{children({ toggleStatus })}</Fragment>;
+        return <Fragment>{children({ toggleOpened })}</Fragment>;
     };
     CustomTrigger.propTypes = {
         children: propTypesChildren,
@@ -59,7 +60,7 @@ export function useSidebar({ initialStatus = 'closed' } = {}) {
 
     return {
         sidebarContext,
-        getDefaultStatus,
+        getDefaultState,
         SidebarEntry: ContextualizedSidebarEntry,
         Sidebar: ContextualizedSidebar,
         SidebarTrigger: ContextualizedSidebarTrigger,
@@ -68,7 +69,6 @@ export function useSidebar({ initialStatus = 'closed' } = {}) {
 }
 
 export function Sidebar({
-    initialStatus = 'closed',
     hideTrigger = false,
     height,
     closedWidth,
@@ -82,17 +82,17 @@ export function Sidebar({
 }) {
     const state = useContext(sidebarContext)[0];
 
-    const statusClass = `${SIDEBAR_CONTAINER_CLASS}--${state.status}`;
-    const stickyClass = stickyTop !== undefined ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
+    const statusClass = `${SIDEBAR_CONTAINER_CLASS}--${state.opened ? 'open' : 'closed'}`;
+    const stickyClass = stickyTop ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
     const openShadowClass =
-        shadowWhenOpen && state.status === 'open' ? `${SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS}` : '';
+        shadowWhenOpen && state.opened ? `${SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS}` : '';
     const sidebarContainerClass = `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${openShadowClass} ${className}`.trim();
     const elementsContainerTriggerClass = !hideTrigger
         ? SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS
         : '';
     const elementsContainerClass = `${SIDEBAR_ELEMENTS_CONTAINER_CLASS} ${elementsContainerTriggerClass}`.trim();
 
-    const width = closedWidth !== undefined && state.status === 'closed' ? closedWidth : undefined;
+    const width = closedWidth !== undefined && !state.opened ? closedWidth : undefined;
     const sidebarContainerStyle = { height, top: stickyTop, width, ...style };
 
     return (
@@ -106,8 +106,6 @@ export function Sidebar({
 }
 
 export const SidebarPropTypes = {
-    /** Initial status of the sidebar. */
-    initialStatus: PropTypes.oneOf(['open', 'closed']),
     /** Hide the trigger to open/close the sidebar. */
     hideTrigger: PropTypes.bool,
     /** Make the sidebar sticky to the top. */
