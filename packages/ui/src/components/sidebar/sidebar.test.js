@@ -45,6 +45,35 @@ describe('Sidebar', () => {
         );
     });
 
+    test('is closed when an entry with autoCloseLink is clicked', async () => {
+        const { Sidebar, SidebarEntry } = useSidebar();
+        render(
+            <Sidebar data-testid="sidebar">
+                <div>
+                    <SidebarEntry iconName="dashboard" autoCloseLink>
+                        With AutoClose
+                    </SidebarEntry>
+                    <SidebarEntry>Without AutoClose</SidebarEntry>
+                </div>
+            </Sidebar>
+        );
+
+        const sidebar = screen.getByTestId('sidebar');
+        const sidebarTrigger = screen.getByTestId('sidebar-trigger');
+
+        expect(sidebar).toHaveClass(`${UI_PREFIX}__sidebar__container--closed`);
+
+        // opens from default close status
+        await userEvent.click(sidebarTrigger);
+        expect(screen.getByTestId('sidebar')).toHaveClass(`${UI_PREFIX}__sidebar__container--open`);
+
+        // closes from open status
+        await userEvent.click(screen.getByText('With AutoClose'));
+        expect(screen.getByTestId('sidebar')).toHaveClass(
+            `${UI_PREFIX}__sidebar__container--closed`
+        );
+    });
+
     test('renders a sticky Sidebar with a custom closed width', () => {
         const { Sidebar } = useSidebar();
         render(

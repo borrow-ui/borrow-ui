@@ -40,6 +40,7 @@ export function SidebarEntry({
     href,
     className = '',
     entryClickToggleContent = false,
+    autoCloseLink = true,
     ...rest
 }) {
     const [sidebarState, setSidebarState] = useContext(sidebarContext);
@@ -89,7 +90,10 @@ export function SidebarEntry({
     const toggleIcon = contentExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
     const clickableToggle =
         content && !entryClickToggleContent
-            ? a11yClickableElement({ onClick: entryContentToggleOnClick, role: 'navigation' })
+            ? a11yClickableElement({
+                  onClick: entryContentToggleOnClick,
+                  role: 'navigation',
+              })
             : {};
 
     const otherProps = {
@@ -101,7 +105,14 @@ export function SidebarEntry({
     return (
         <Fragment>
             <Tag className={entryClass} to={to} href={href} id={id} {...otherProps}>
-                <div className={entryGroupClass}>
+                <div
+                    className={entryGroupClass}
+                    onClick={() =>
+                        autoCloseLink &&
+                        !entryClickToggleContent &&
+                        setSidebarState((s) => ({ ...s, opened: false }))
+                    }
+                >
                     {iconName && (
                         <SidebarIcon
                             name={iconName}
