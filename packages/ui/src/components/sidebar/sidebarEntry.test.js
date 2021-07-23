@@ -163,26 +163,27 @@ describe('Sidebar', () => {
 
         const sidebar = (
             <Sidebar>
-                <SidebarEntry link="/" aria-label="home">
+                <SidebarEntry to="/" aria-label="home">
                     Home
                 </SidebarEntry>
-                <SidebarEntry link="/tutorials" aria-label="tutorials">
+                <SidebarEntry to="/tutorials" aria-label="tutorials">
                     Tutorials
                 </SidebarEntry>
             </Sidebar>
         );
         const { container } = render(sidebar);
-        expect(container.querySelector('a')).toHaveClass(`${UI_PREFIX}__sidebar__entry`);
+        expect(container.querySelectorAll('a')[0]).toHaveClass(`${UI_PREFIX}__sidebar__entry`);
+        expect(container.querySelectorAll('a')[1]).toHaveClass(`${UI_PREFIX}__sidebar__entry`);
     });
     test('activate based on flag', () => {
         const { Sidebar, SidebarEntry } = useSidebar();
 
         const sidebar = (
             <Sidebar>
-                <SidebarEntry link="/" aria-label="home">
+                <SidebarEntry to="/" aria-label="home">
                     Home
                 </SidebarEntry>
-                <SidebarEntry link="/tutorials" aria-label="tutorials" isActive={true}>
+                <SidebarEntry to="/tutorials" aria-label="tutorials" isActive={true}>
                     Tutorials
                 </SidebarEntry>
             </Sidebar>

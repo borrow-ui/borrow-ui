@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -71,16 +71,16 @@ describe('Sidebar', () => {
     });
 
     test('renders a Sidebar with context provider', async () => {
-        const { sidebarContext, getDefaultStatus, SidebarEntry, CustomTrigger } = useSidebar();
+        const { sidebarContext, getDefaultState, SidebarEntry, CustomTrigger } = useSidebar();
         function Layout() {
-            const contextValue = useState(getDefaultStatus());
+            const contextValue = useState(getDefaultState());
 
             return (
                 <sidebarContext.Provider value={contextValue}>
                     <div>
                         <CustomTrigger>
-                            {({ toggleStatus }) => {
-                                return <button onClick={toggleStatus}>OpenClose</button>;
+                            {({ toggleOpened }) => {
+                                return <button onClick={toggleOpened}>OpenClose</button>;
                             }}
                         </CustomTrigger>
                         <div>Header</div>
@@ -135,9 +135,9 @@ describe('Sidebar', () => {
     });
 
     test('renders a Sidebar with context provider and default Trigger', async () => {
-        const { sidebarContext, getDefaultStatus, SidebarEntry, SidebarTrigger } = useSidebar();
+        const { sidebarContext, getDefaultState, SidebarEntry, SidebarTrigger } = useSidebar();
         function Layout() {
-            const contextValue = useState(getDefaultStatus());
+            const contextValue = useState(getDefaultState());
 
             return (
                 <sidebarContext.Provider value={contextValue}>

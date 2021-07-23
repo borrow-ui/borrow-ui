@@ -13,7 +13,7 @@ export function SidebarTrigger({ sidebarContext, className = '', ...rest }) {
     const onClick = () => {
         setSidebarState((state) => ({
             ...state,
-            status: state.status === 'open' ? 'closed' : 'open',
+            opened: !state.opened,
         }));
     };
 
@@ -26,7 +26,7 @@ export function SidebarTrigger({ sidebarContext, className = '', ...rest }) {
             {...rest}
             data-testid="sidebar-trigger"
         >
-            {sidebarState.status === 'open' ? <Icon name="close" /> : <Icon name="menu" />}
+            {sidebarState.opened ? <Icon name="close" /> : <Icon name="menu" />}
         </div>
     );
 }

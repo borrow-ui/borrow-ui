@@ -16,8 +16,8 @@ export const CONTENT_REQUIRES_ID =
 
 const SIDEBAR_ENTRY_CLASS = `${UI_PREFIX}__sidebar__entry`;
 const SIDEBAR_ENTRY_ACTIVE_CLASS = `${UI_PREFIX}__sidebar__entry--active`;
-const SIDEBAR_ENTRY_ACTIVE_OPEN_CLASS = `${UI_PREFIX}__sidebar__entry--active-open`;
-const SIDEBAR_ENTRY_CLICKABLE_CLASS = `${UI_PREFIX}__sidebar__entry--clickable`;
+const SIDEBAR_ENTRY_GROUP_CLASS = `${UI_PREFIX}__sidebar__entry__group`;
+const SIDEBAR_ENTRY_GROUP_CLICKABLE_CLASS = `${UI_PREFIX}__sidebar__entry__group--clickable`;
 const SIDEBAR_ENTRY_LABEL_CLASS = `${UI_PREFIX}__sidebar__entry__label`;
 const SIDEBAR_ENTRY_LABEL_ACTIVE_CLASS = `${UI_PREFIX}__sidebar__entry__label--active`;
 
@@ -29,7 +29,6 @@ export function SidebarEntry({
     sidebarContext,
     iconName,
     shortcut,
-    link = '',
     id = '',
     onClick,
     children,
@@ -37,6 +36,9 @@ export function SidebarEntry({
     iconProps,
     tag,
     isActive,
+    to,
+    href,
+    className = '',
     entryClickToggleContent = false,
     ...rest
 }) {
@@ -46,13 +48,17 @@ export function SidebarEntry({
         throw new Error(CONTENT_REQUIRES_ID);
     }
 
-    const Tag = tag ? tag : link ? Link : 'div';
-    const isOpen = sidebarState.status === 'open';
+    const isLink = !!(to || href);
+    const Tag = tag ? tag : isLink ? Link : 'div';
 
     const activeClass = isActive ? SIDEBAR_ENTRY_ACTIVE_CLASS : '';
+    const entryClass = `${SIDEBAR_ENTRY_CLASS} ${activeClass} ${className}`.trim();
     const clickableClass =
-        onClick || (entryClickToggleContent && content) ? SIDEBAR_ENTRY_CLICKABLE_CLASS : '';
-    const entryClass = `${SIDEBAR_ENTRY_CLASS} ${activeClass} ${clickableClass}`.trim();
+        onClick || (entryClickToggleContent && content) || isLink
+            ? SIDEBAR_ENTRY_GROUP_CLICKABLE_CLASS
+            : '';
+    const entryGroupClass = `${SIDEBAR_ENTRY_GROUP_CLASS} ${clickableClass}`.trim();
+
     const entryLabelActiveClass = isActive ? SIDEBAR_ENTRY_LABEL_ACTIVE_CLASS : '';
     const entryLabelClass = `${SIDEBAR_ENTRY_LABEL_CLASS} ${entryLabelActiveClass}`;
     const entryContentStatusClass = `${SIDEBAR_ENTRY_CONTENT_CLASS}--${sidebarState.status}`;
@@ -90,28 +96,30 @@ export function SidebarEntry({
         ...clickableEntry,
         ...rest,
     };
-    if (!otherProps.role && link) otherProps.role = 'navigation';
+    if (!otherProps.role && isLink) otherProps.role = 'navigation';
 
     return (
         <Fragment>
-            <Tag className={entryClass} to={link} id={id} {...otherProps}>
-                {iconName && (
-                    <SidebarIcon
-                        name={iconName}
-                        isActive={isActive}
-                        isOpen={isOpen}
-                        {...iconProps}
-                    />
-                )}
-                {!iconName && shortcut !== undefined && (
-                    <SidebarEntryLabelShortcut label={shortcut} />
-                )}
-                <div className={entryLabelClass}>{children}</div>
-                {content && (
-                    <div className={SIDEBAR_ENTRY_CONTENT_TOGGLE_CLASS}>
-                        <Icon name={toggleIcon} size="small" {...clickableToggle} />
-                    </div>
-                )}
+            <Tag className={entryClass} to={to} href={href} id={id} {...otherProps}>
+                <div className={entryGroupClass}>
+                    {iconName && (
+                        <SidebarIcon
+                            name={iconName}
+                            isActive={isActive}
+                            isOpen={sidebarState.opened}
+                            {...iconProps}
+                        />
+                    )}
+                    {!iconName && shortcut !== undefined && (
+                        <SidebarEntryLabelShortcut label={shortcut} />
+                    )}
+                    <div className={entryLabelClass}>{children}</div>
+                    {content && (
+                        <div className={SIDEBAR_ENTRY_CONTENT_TOGGLE_CLASS}>
+                            <Icon name={toggleIcon} size="small" {...clickableToggle} />
+                        </div>
+                    )}
+                </div>
             </Tag>
             {content && (
                 <div className={entryContentClass} id={`${id}__content`}>
@@ -141,6 +149,10 @@ export const SidebarEntryPropTypes = {
     isActive: PropTypes.bool,
     /** Flag to determine if clicking the label will toggle the content */
     entryClickToggleContent: PropTypes.bool,
+    /** Link target for react-router */
+    to: PropTypes.string,
+    /** Link target for standard links or Next */
+    href: PropTypes.string,
     onClick: PropTypes.func,
     children: propTypesChildren,
 };
