@@ -34,6 +34,14 @@ body {
     margin-left: 10px;
 }
 
+.header__sidebar-trigger {
+    display: inline-block;
+
+    @media (min-width: 600px) {
+        display: none;
+    }
+}
+
 .website__content {
     display: inline-block;
     flex-grow: 1;
