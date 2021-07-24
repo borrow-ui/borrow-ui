@@ -90,6 +90,7 @@ This is the element that contains the entire menu, both header and body
 /* Block is an element within the header, that can contains many items */
 .#{$ui-prefix}__navbar__group {
     display: flex;
+    align-items: center;
 }
 
 .#{$ui-prefix}__navbar__group--left {

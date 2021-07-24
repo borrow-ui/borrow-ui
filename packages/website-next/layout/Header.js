@@ -22,7 +22,6 @@ export function Header({ isSmallScreen }) {
         <Navbar
             className="main-header"
             left={[
-                isSmallScreen && <SidebarTrigger sidebarContext={sidebarContext} key="trigger" />,
                 {
                     headerLabel: (
                         <Link href="/">
@@ -69,6 +68,9 @@ export function Header({ isSmallScreen }) {
                         v{packageJson.version}
                     </span>
                 ),
+                <div key="trigger" className="header__sidebar-trigger">
+                    <SidebarTrigger sidebarContext={sidebarContext} />
+                </div>,
             ].filter((v) => v)}
         />
     );
