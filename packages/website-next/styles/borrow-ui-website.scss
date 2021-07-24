@@ -51,18 +51,22 @@ body {
 
 .website__text {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 
     @media (max-width: 1200px) {
         padding-left: 15px;
         padding-right: 15px;
+    }
+    @media (min-width: 1200px) {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 .website__footer {
     background-color: #37404c;
     color: white;
+    display: flex;
+    flex-direction: column;
 
     .borrow-ui__link {
         color: #65ffa3;
@@ -73,8 +77,14 @@ body {
         }
     }
 
-    div {
-        margin-bottom: 10px;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 10px 0;
+
+        li {
+            margin-bottom: 5px;
+        }
     }
 }
 
@@ -105,6 +115,8 @@ body {
 .footer__copyright {
     font-size: 12px;
     padding: 20px 0;
+    margin-bottom: 20px;
+    display: flex;
 
     @media (max-width: 1200px) {
         padding: 20px 0 20px 15px;

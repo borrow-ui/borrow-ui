@@ -5,6 +5,7 @@ $ui-link-color-over: $ui-color-primary-over !default;
 
 .#{$ui-prefix}__link {
     color: $ui-link-color;
+    cursor: pointer;
 }
 .#{$ui-prefix}__link:hover {
     color: $ui-link-color-over;

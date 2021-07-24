@@ -1,43 +1,58 @@
-import { Link, NavbarMenu } from '@borrow-ui/ui';
+import NextLink from 'next/link';
+
+import { Link } from '@borrow-ui/ui';
 import React from 'react';
 
 export function Footer() {
     return (
         <div className="website__footer">
-            <div className="footer__container website__text">
-                <div className="footer__column">
-                    <h3 className="footer__title">borrow-ui</h3>
-                    <div>
-                        <Link tag="a" href="https://docs.borrow-ui.dev/">
-                            Take a tour
-                        </Link>
+            <div className="website__text">
+                <div className="footer__container">
+                    <div className="footer__column">
+                        <h3 className="footer__title">borrow-ui</h3>
+                        <ul>
+                            <li>
+                                <NextLink href="/tour">
+                                    <Link tag="a">Take a tour</Link>
+                                </NextLink>
+                            </li>
+                            <li>
+                                <Link tag="a" href="https://docs.borrow-ui.dev/">
+                                    Storybook Documentation
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
-                        <Link tag="a" href="https://docs.borrow-ui.dev/">
-                            Storybook Documentation
-                        </Link>
+                    <div className="footer__column">
+                        <h3 className="footer__title">Project</h3>
+                        <ul>
+                            <li>
+                                <Link tag="a" href="https://github.com/borrow-ui/borrow-ui">
+                                    View on GitHub
+                                </Link>
+                            </li>
+                            <li>
+                                <Link tag="a" href="https://github.com/borrow-ui/borrow-ui/issues">
+                                    Issues and Enhancements
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div className="footer__column">
-                    <h3 className="footer__title">Project</h3>
+                <div className="footer__container footer__copyright">
                     <div>
-                        <Link tag="a" href="https://github.com/borrow-ui/borrow-ui">
-                            View on GitHub
+                        Createdy by
+                        <Link
+                            tag="a"
+                            href="https://github.com/vittoriozamboni"
+                            className="m-r-5 m-l-5"
+                        >
+                            Vittorio Zamboni
                         </Link>
+                        as open source project.
                     </div>
-                    <div>
-                        <Link tag="a" href="https://github.com/borrow-ui/borrow-ui/issues">
-                            Issues and Enhancements
-                        </Link>
-                    </div>
+                    <div>Feel free to contribute and use it!</div>
                 </div>
-            </div>
-            <div className="footer__container website__text footer__copyright">
-                Createdy by
-                <Link tag="a" href="https://github.com/vittoriozamboni" className="m-r-5 m-l-5">
-                    Vittorio Zamboni
-                </Link>
-                as open source project. Feel free to contribute and use it!
             </div>
         </div>
     );
