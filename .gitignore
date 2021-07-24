@@ -107,3 +107,5 @@ dist
 
 # IDE
 .idea
+
+*.tmp
