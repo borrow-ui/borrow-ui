@@ -14,7 +14,7 @@
     "license": "MIT",
     "scripts": {
         "build": "rollup -c && yarn compile-css-min",
-        "dev": "yarn watch & yarn compile-css-min --watch",
+        "dev": "bash -c 'yarn watch & yarn compile-css-min --watch'",
         "watch": "yarn rollup --watch --watch.clearScreen",
         "rollup": "rollup -c",
         "compile-css": "sass src/style/ui.full.scss dist/ui.full.css",
@@ -27,6 +27,7 @@
     },
     "peerDependencies": {
         "material-design-icons-iconfont": ">=5.0.1",
+        "prop-types": ">=15.7.2",
         "react": ">=17.0.0",
         "react-dom": ">=17.0.0"
     },
@@ -54,6 +55,7 @@
         "@rollup/plugin-babel": "^5.3.0",
         "@rollup/plugin-commonjs": "^18.0.0",
         "@rollup/plugin-node-resolve": "^11.2.1",
+        "@testing-library/dom": "^8.1.0",
         "@testing-library/jest-dom": "^5.12.0",
         "@testing-library/react": "^11.2.6",
         "@testing-library/user-event": "^13.1.8",
@@ -66,8 +68,9 @@
         "prettier": "^2.1.1",
         "prettier-eslint": "^11.0.0",
         "prismjs": "^1.24.1",
-        "react": "^17.0.0",
-        "react-dom": "^17.0.0",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
         "react-is": "^17.0.0",
         "react-popper": ">=2.2.3",
         "react-test-renderer": "^17.0.0",
