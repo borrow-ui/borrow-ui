@@ -14,6 +14,7 @@
     "license": "MIT",
     "scripts": {
         "build": "rollup -c && yarn compile-css-min",
+        "dev": "yarn watch & yarn compile-css-min --watch",
         "watch": "yarn rollup --watch --watch.clearScreen",
         "rollup": "rollup -c",
         "compile-css": "sass src/style/ui.full.scss dist/ui.full.css",
