@@ -16,7 +16,7 @@ export function SyntaxHighlight({ code, plugins = [], language = 'jsx' }) {
     return (
         <div className="borrow-ui__syntax-highlight">
             <pre className={!plugins ? '' : plugins.join(' ')}>
-                <code ref={codeRef} className={`language-${language}`}>
+                <code ref={codeRef} className={`language-${language}`.trim()}>
                     {code}
                 </code>
             </pre>
