@@ -1,10 +1,18 @@
-import React, { createContext } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 
 import { Sidebar } from '@borrow-ui/ui';
 
 export const sidebarContext = createContext();
 
-export function MainSidebar({ SidebarEntry }) {
+export function MainSidebar({ isSmallScreen, SidebarEntry }) {
+    const [viewSidebar, setViewSidebar] = useState(false);
+
+    useEffect(() => {
+        setViewSidebar(isSmallScreen);
+    }, [isSmallScreen]);
+
+    if (!viewSidebar) return null;
+
     return (
         <Sidebar
             sidebarContext={sidebarContext}
@@ -17,8 +25,8 @@ export function MainSidebar({ SidebarEntry }) {
                 <SidebarEntry iconName="home" href="/">
                     Home
                 </SidebarEntry>
-                <SidebarEntry iconName="auto_stories" href="/tour">
-                    Tour
+                <SidebarEntry iconName="auto_stories" href="/tutorial/getting-started">
+                    Tutorial
                 </SidebarEntry>
                 <SidebarEntry iconName="apps" href="/components">
                     Components

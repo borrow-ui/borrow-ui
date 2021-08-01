@@ -1,7 +1,5 @@
 import Head from 'next/head';
 
-import { Block, Page, Link, Title, Text, Button, Icon } from '@borrow-ui/ui';
-
 import { Home } from '../components/home/Home';
 
 export default function Main() {

@@ -3,6 +3,10 @@ body {
     min-width: 320px;
 }
 
+p {
+    line-height: 2em;
+}
+
 .main-sidebar {
     height: calc(100vh - 46px);
     position: absolute;
@@ -49,7 +53,24 @@ body {
     overflow-y: auto;
 }
 
+.website__page {
+    min-height: calc(100% - 239px);
+}
+
 .website__text {
+    max-width: 900px;
+
+    @media (max-width: 900px) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media (min-width: 900px) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.website__text__columns {
     max-width: 1200px;
 
     @media (max-width: 1200px) {
@@ -106,9 +127,6 @@ body {
 
     h3 {
         font-size: 16px;
-    }
-
-    .borrow-ui__link {
     }
 }
 

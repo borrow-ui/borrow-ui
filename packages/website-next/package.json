@@ -11,7 +11,9 @@
     "dependencies": {
         "@borrow-ui/ui": "0.0.3-alpha.1",
         "@fontsource/poppins": "latest",
+        "gray-matter": "^4.0.3",
         "next": "11.0.1",
+        "next-mdx-remote": "^3.0.4",
         "prismjs": "1.24.1",
         "prop-types": "^15.7.2",
         "react": "^17.0.2",

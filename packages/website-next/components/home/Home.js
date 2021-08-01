@@ -11,7 +11,7 @@ export function Home() {
     return (
         <Page continuousScroll={true} pageBodyProps={{ className: styles['home__page'] }}>
             <Block padded={false}>
-                <main className="website__text">
+                <main className="website__text__columns">
                     <Title className={styles['home__main-title']}>
                         Welcome to{' '}
                         <Link tag="a" href="https://borrow-ui.dev">
@@ -50,7 +50,7 @@ export function Home() {
                 </main>
 
                 <div className={styles['home__cards-container']}>
-                    <div className="website__text">
+                    <div className="website__text__columns">
                         <div className={styles['home__tiles-container']}>
                             <Tile
                                 description="Small reusable components"
@@ -90,37 +90,19 @@ export function Home() {
                 </div>
             </Block>
 
-            <div className="website__text">
+            <div className="website__text__columns">
                 <Responsive>{(matches) => <GetTheCode isSmallScreen={matches.small} />}</Responsive>
             </div>
-            <div className="website__text">
+            <div className="website__text__columns">
                 <StructureProject />
             </div>
-            <div className="website__text">
+            <div className="website__text__columns">
                 <Rename />
             </div>
-            <div className="website__text">
+            <div className="website__text__columns">
                 <Responsive>
                     {(matches) => <ComponentExample isSmallScreen={matches.small} />}
                 </Responsive>
-            </div>
-            <div className={styles['home__get-started']}>
-                <div className="website__text">
-                    <div className="flex-center-center">
-                        <Link href="/tour">
-                            <a className="link__no-style">
-                                <Button
-                                    mean="accent"
-                                    size="huge"
-                                    icon="code"
-                                    iconProps={{ size: 'big' }}
-                                >
-                                    Get Started
-                                </Button>
-                            </a>
-                        </Link>
-                    </div>
-                </div>
             </div>
         </Page>
     );

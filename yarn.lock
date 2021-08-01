@@ -3501,7 +3501,9 @@ __metadata:
     "@fontsource/poppins": latest
     eslint: 7.30.0
     eslint-config-next: 11.0.1
+    gray-matter: ^4.0.3
     next: 11.0.1
+    next-mdx-remote: ^3.0.4
     prismjs: 1.24.1
     prop-types: ^15.7.2
     react: ^17.0.2
@@ -13325,6 +13327,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild@npm:^0.12.9":
+  version: 0.12.16
+  resolution: "esbuild@npm:0.12.16"
+  bin:
+    esbuild: bin/esbuild
+  checksum: 3fc788d3b9532b2168060e146fe3ef183504cfc98382e7de2526790789fd948e193719d1c6345fefeda887b8449187e75a56d81368f7a2b3f3c26aae0e83dfb7
+  languageName: node
+  linkType: hard
+
 "escalade@npm:^3.0.2, escalade@npm:^3.1.1":
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
@@ -15520,6 +15531,18 @@ fsevents@^1.2.7:
   version: 4.2.6
   resolution: "graceful-fs@npm:4.2.6"
   checksum: 84d39c7756892553da990a9db7e45f844b3309b37b5a00174cbb4748476f2250c54f24594d4d252f64f085c65c2fdac7c809419bf6d55f0e6e42eb07ac0f5bf2
+  languageName: node
+  linkType: hard
+
+"gray-matter@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "gray-matter@npm:4.0.3"
+  dependencies:
+    js-yaml: ^3.13.1
+    kind-of: ^6.0.2
+    section-matter: ^1.0.0
+    strip-bom-string: ^1.0.0
+  checksum: 78f1f3432c01b05035d02c3e259b9f73c794c88651692f4d12c489a9d1a386f6587c1319e9eb788e53d6cd47d6b8ec5b2d14df7cce25b973f68bb9934ccbaf4d
   languageName: node
   linkType: hard
 
@@ -20399,6 +20422,21 @@ fsevents@^1.2.7:
   version: 2.1.0
   resolution: "nested-error-stacks@npm:2.1.0"
   checksum: f3f930722ef2b02e6dd5d91662d3b39820d3fc1440e50174ee354f2744243587cabebdd659887b577a593684aa0caec428d0706a587455e3320e164a1ad5290d
+  languageName: node
+  linkType: hard
+
+"next-mdx-remote@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "next-mdx-remote@npm:3.0.4"
+  dependencies:
+    "@mdx-js/mdx": ^1.6.22
+    "@mdx-js/react": ^1.6.22
+    esbuild: ^0.12.9
+    pkg-dir: ^5.0.0
+  peerDependencies:
+    react: ">=16.x <=17.x"
+    react-dom: ">=16.x <=17.x"
+  checksum: aaa5eee457269964ab685d164da4cc09912e58fbb52248cc50533ccf6afd7a9fe7dd3844b74383ef3728e77fedd6df847cba9c546fda2f4da9e8f1a913445e21
   languageName: node
   linkType: hard
 
@@ -25300,7 +25338,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.32.10, sass@npm:^1.32.11":
+"sass@npm:^1.32.10":
   version: 1.32.11
   resolution: "sass@npm:1.32.11"
   dependencies:
@@ -25308,6 +25346,17 @@ resolve@^2.0.0-next.3:
   bin:
     sass: sass.js
   checksum: a56ca780febc1f4c5c015f2fbd5dacd780297371456197424bce7e48d54cef8ae564fb8927076ef61e6fcd34f69556d0a3dd8e157ff06081729066ad595e97bf
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.32.11":
+  version: 1.37.0
+  resolution: "sass@npm:1.37.0"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+  bin:
+    sass: sass.js
+  checksum: 967cdd4293d88b4c7165ca52e4dd89f123f15c821a15023a93e297acd43c18ea34773c93317e10df34d3bd44428b3cbcaab064f60e2df1a0811c5951d26689a1
   languageName: node
   linkType: hard
 
@@ -25397,6 +25446,16 @@ resolve@^2.0.0-next.3:
     ajv: ^6.12.5
     ajv-keywords: ^3.5.2
   checksum: a084f593f222560c412a4d8f40c92386c01c1c709f27c0672c2f02927a4d4d475f57f8b8e91198d0defb452add160476a03f07a05b26200a64b5124fa874e158
+  languageName: node
+  linkType: hard
+
+"section-matter@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "section-matter@npm:1.0.0"
+  dependencies:
+    extend-shallow: ^2.0.1
+    kind-of: ^6.0.0
+  checksum: 4c64ed0cf3fb58ab216a04185ee5b51790c8033bd121cf69bf74c9686d7100198606a63dbc05db336ebca28cd80a325d9b7ad564d7e0929ead8556eb3a38de65
   languageName: node
   linkType: hard
 
@@ -26587,6 +26646,13 @@ resolve@^2.0.0-next.3:
   dependencies:
     ansi-regex: ^4.1.0
   checksum: 44a0d0d354f5f7b15f83323879a9112ea746daae7bef0b68238a27626ee757d9a04ce6590433841e14b325e8e7c5d62b8442885e50497e21b7cbca6da40d54ea
+  languageName: node
+  linkType: hard
+
+"strip-bom-string@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "strip-bom-string@npm:1.0.0"
+  checksum: 63cf934fcf06551b5529af0cd20638568754b25fc1365356da028081c61ef6619388596800976f93c1d32731c8068cea6103eda025dedb6e68b5d0818103df2b
   languageName: node
   linkType: hard
 

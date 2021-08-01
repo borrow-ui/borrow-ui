@@ -17,17 +17,17 @@ export function Layout({ Component, pageProps }) {
 
                 <div style={{ display: 'flex' }}>
                     <Responsive>
-                        {(matches) =>
-                            matches.small && (
-                                <MainSidebar
-                                    isSmallScreen={matches.small}
-                                    SidebarEntry={SidebarEntry}
-                                />
-                            )
-                        }
+                        {(matches) => (
+                            <MainSidebar
+                                isSmallScreen={matches.small}
+                                SidebarEntry={SidebarEntry}
+                            />
+                        )}
                     </Responsive>
                     <div className="website__content">
-                        <Component {...pageProps} />
+                        <div className="website__page">
+                            <Component {...pageProps} />
+                        </div>
                         <Footer />
                     </div>
                 </div>

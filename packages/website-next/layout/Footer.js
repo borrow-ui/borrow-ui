@@ -12,8 +12,17 @@ export function Footer() {
                         <h3 className="footer__title">borrow-ui</h3>
                         <ul>
                             <li>
+                                <NextLink href="/tutorial/cool-page" passHref>
+                                    <a className="borrow-ui__link borrow-ui__link--underline">
+                                        Tutorial
+                                    </a>
+                                </NextLink>
+                            </li>
+                            <li>
                                 <NextLink href="/tour">
-                                    <Link tag="a">Take a tour</Link>
+                                    <a className="borrow-ui__link borrow-ui__link--underline">
+                                        Take a tour
+                                    </a>
                                 </NextLink>
                             </li>
                             <li>
