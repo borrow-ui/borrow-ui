@@ -20,6 +20,7 @@ describe('Block', () => {
                 padded={true}
                 rounded={true}
                 outstanding={true}
+                outstandingHover={true}
                 contentCentered={true}
             >
                 Content
@@ -31,6 +32,7 @@ describe('Block', () => {
         expect(content).toHaveClass(`${UI_PREFIX}__block--padded`);
         expect(content).toHaveClass(`${UI_PREFIX}__block--rounded`);
         expect(content).toHaveClass(`${UI_PREFIX}__block--outstanding`);
+        expect(content).toHaveClass(`${UI_PREFIX}__block--outstanding-hover`);
         expect(content).toHaveClass(`${UI_PREFIX}__block--content-centered`);
     });
 

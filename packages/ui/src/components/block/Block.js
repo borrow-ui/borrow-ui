@@ -8,6 +8,7 @@ const BLOCK_SEPARATED_CLASS = `${UI_PREFIX}__block--separated`;
 const BLOCK_PADDED_CLASS = `${UI_PREFIX}__block--padded`;
 const BLOCK_ROUNDED_CLASS = `${UI_PREFIX}__block--rounded`;
 const BLOCK_OUTSTANDING_CLASS = `${UI_PREFIX}__block--outstanding`;
+const BLOCK_OUTSTANDING_HOVER_CLASS = `${UI_PREFIX}__block--outstanding-hover`;
 const BLOCK_CONTENT_CENTERED_CLASS = `${UI_PREFIX}__block--content-centered`;
 const BLOCK_TITLE_CLASS = `${UI_PREFIX}__block__title`;
 
@@ -20,6 +21,7 @@ export function Block({
     padded = true,
     rounded = true,
     outstanding = false,
+    outstandingHover = false,
     contentCentered = false,
     blockRef,
     ...rest
@@ -28,8 +30,9 @@ export function Block({
     const paddedClass = padded ? BLOCK_PADDED_CLASS : '';
     const roundedClass = rounded ? BLOCK_ROUNDED_CLASS : '';
     const outstandingClass = outstanding ? BLOCK_OUTSTANDING_CLASS : '';
+    const outstandingHoverClass = outstandingHover ? BLOCK_OUTSTANDING_HOVER_CLASS : '';
     const contentCenteredClass = contentCentered ? BLOCK_CONTENT_CENTERED_CLASS : '';
-    const propertiesClass = `${separatedClass} ${paddedClass} ${roundedClass} ${outstandingClass} ${contentCenteredClass}`.trim();
+    const propertiesClass = `${separatedClass} ${paddedClass} ${roundedClass} ${outstandingClass} ${outstandingHoverClass} ${contentCenteredClass}`.trim();
     const blockClassName = `${BLOCK_CLASS} ${className} ${propertiesClass}`.trim();
 
     const { className: titleClassName = '', ...restTitleProps } = titleProps;
@@ -62,6 +65,8 @@ Block.propTypes = {
     rounded: PropTypes.bool,
     /** Adds a shadow to make block outstanding */
     outstanding: PropTypes.bool,
+    /** Adds a shadow to make block outstanding when mouse is hovered */
+    outstandingHover: PropTypes.bool,
     /** Centers the content */
     contentCentered: PropTypes.bool,
     /** Set the `ref` prop of the container */
