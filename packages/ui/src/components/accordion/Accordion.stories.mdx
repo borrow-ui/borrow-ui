@@ -1,7 +1,8 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
-import { Accordion } from './Accordion';
 import { Lorem } from '../lorem/Lorem';
+
+import { Accordion, AccordionGroup } from './Accordion';
 
 <Meta title="Components/Accordion" component={Accordion} />
 
@@ -26,9 +27,46 @@ It is set in the CSS, but in case the default value is not enough it can be over
     </Story>
 </Canvas>
 
+# AccordionGroup
+
+If you need to have multiple accordions and only one can be open at a time, you can use `AccordionGroup`.
+The `initialOpenTitle` prop allows to open an Accordion on the first render:
+
+<Canvas>
+    <Story name="Accordion Group">
+        <div>
+            <h3>First Accordion Group (all closed)</h3>
+            <AccordionGroup>
+                <Accordion title="Accordion 1">
+                    <Lorem />
+                </Accordion>
+                <Accordion title="Accordion 2">
+                    <Lorem />
+                </Accordion>
+                <Accordion title="Accordion 3">
+                    <Lorem />
+                </Accordion>
+            </AccordionGroup>
+            <h3>Second Accordion Group (with one initially open)</h3>
+            <AccordionGroup initialOpenTitle="Accordion 4">
+                <Accordion title="Accordion 1">
+                    <Lorem />
+                </Accordion>
+                <Accordion title="Accordion 4">
+                    <Lorem />
+                </Accordion>
+            </AccordionGroup>
+        </div>
+    </Story>
+</Canvas>
+
 ## Props
 
 <ArgsTable of={Accordion} />
+
+## AccordionGroup Props
+
+<ArgsTable of={AccordionGroup} />
 
 ---
 
