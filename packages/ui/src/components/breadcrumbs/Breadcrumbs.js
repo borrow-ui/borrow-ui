@@ -52,6 +52,7 @@ function Breadcrumb({ link, tag, onClick, isLast, className, children, ...rest }
             className={breadcrumbClass}
             onClick={onClick}
             to={link}
+            href={link}
             data-test-id="breadcrumb"
             {...rest}
         >

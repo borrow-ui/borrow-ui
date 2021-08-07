@@ -10,6 +10,10 @@
     text-decoration: none;
     display: inline-block;
 }
+.#{$ui-prefix}__breadcrumbs__breadcrumb:visited {
+    color: inherit;
+}
+
 .#{$ui-prefix}__breadcrumbs__breadcrumb--clickable {
     cursor: pointer;
 }
