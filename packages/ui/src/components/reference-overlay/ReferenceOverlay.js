@@ -25,7 +25,6 @@ export function ReferenceOverlay({
     className = '',
     placement = 'top',
     triggerMode = 'hover',
-    clickPersist = false,
     triggerProps = {},
     triggerTag: TriggerTag = 'div',
     overlayProps = {},
@@ -48,19 +47,6 @@ export function ReferenceOverlay({
         name: 'arrow',
         options: { element: arrowElement, ...arrowOverrideModifierOptions },
     };
-
-    useEffect(() => {
-        if (!referenceElement || triggerMode !== 'click') return;
-
-        const closeOverlay = (e) => {
-            isVisible && !clickPersist && setIsVisible(false);
-        };
-        document.addEventListener('click', closeOverlay);
-
-        return () => {
-            document.removeEventListener('click', closeOverlay);
-        };
-    });
 
     const { styles, attributes, update } = usePopper(referenceElement, popperElement, {
         placement,
@@ -119,10 +105,6 @@ ReferenceOverlay.propTypes = {
     placement: PropTypes.oneOf(PLACEMENTS),
     /** Which event will make the tooltip visible */
     triggerMode: PropTypes.oneOf(['hover', 'click']),
-    /** If the `triggerMode` is `click`, make the tooltip persist
-     * if a click is done outside of Trigger itself
-     * (so the tooltip is hidden only when clicking the trigger) */
-    clickPersist: PropTypes.bool,
     /** Props passed to the trigger container */
     triggerProps: PropTypes.shape({
         className: PropTypes.string,

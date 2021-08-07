@@ -48,21 +48,12 @@ The component is based on the great external library [Popper](https://popper.js.
             <Button mean="primary-reverse">Right placed</Button>
         </ReferenceOverlay>
         <ReferenceOverlay
-            overlayContent="You can click anywhere to close this!"
-            className="m-r-20"
-            triggerMode="click"
-            placement="bottom"
-        >
-            <IconControl name="settings" />
-        </ReferenceOverlay>
-        <ReferenceOverlay
-            overlayContent="You must click the trigger to close this message!"
+            overlayContent="You must click the trigger or this message to close me!"
             className="m-r-20"
             placement="bottom"
             triggerMode="click"
-            clickPersist={true}
         >
-            <Button mean="primary-reverse">Click Persist</Button>
+            <Button mean="primary-reverse">Click</Button>
         </ReferenceOverlay>
     </Story>
 </Canvas>
