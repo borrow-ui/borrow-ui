@@ -14,7 +14,7 @@
     "license": "MIT",
     "scripts": {
         "build": "rollup -c && yarn compile-css-min",
-        "dev": "bash -c 'yarn watch & yarn compile-css-min --watch'",
+        "dev": "yarn watch & yarn compile-css-min --watch",
         "watch": "yarn rollup --watch --watch.clearScreen",
         "rollup": "rollup -c",
         "compile-css": "sass src/style/ui.full.scss dist/ui.full.css",
@@ -63,6 +63,7 @@
         "coveralls": "^3.1.0",
         "dayjs": ">=1.8.x",
         "jest": "^26.6.3",
+        "jest-environment-jsdom": "^27.0.6",
         "lodash.debounce": ">=4.0.x",
         "material-design-icons-iconfont": ">=5.0.1",
         "prettier": "^2.1.1",
@@ -83,5 +84,8 @@
     "gitHead": "0f33f3a12c47027faac177fda1288947617e48fe",
     "publishConfig": {
         "access": "public"
+    },
+    "resolutions": {
+        "jest-environment-jsdom": "^27.0.6"
     }
 }
