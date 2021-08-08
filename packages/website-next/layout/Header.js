@@ -6,7 +6,6 @@ import { Icon, Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
 
 import logoColor from '../public/logo-color-192.png';
 import packageJson from '../package.json';
-import { sidebarContext } from './MainSidebar';
 
 export function Header({ isSmallScreen }) {
     // Required for Hydration, initial render should be the same as
@@ -44,9 +43,9 @@ export function Header({ isSmallScreen }) {
                 },
                 showLinks && {
                     headerLabel: (
-                        <Link href="/tutorial/getting-started">
+                        <Link href="/getting-started/getting-started" prefetch={false}>
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Tutorial</span>
+                                <span>Getting Started</span>
                             </a>
                         </Link>
                     ),
@@ -77,7 +76,7 @@ export function Header({ isSmallScreen }) {
                     </span>
                 ),
                 <div key="trigger" className="header__sidebar-trigger">
-                    <SidebarTrigger sidebarContext={sidebarContext} />
+                    <SidebarTrigger />
                 </div>,
             ].filter((v) => !!v)}
         />

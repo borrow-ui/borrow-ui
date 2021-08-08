@@ -67,9 +67,6 @@ export function Home() {
                             <Tile description="Easy to extend" className={styles['home__tile']}>
                                 <Icon name="extension" size="huge" />
                             </Tile>
-                            <Tile description="Dashboard oriented" className={styles['home__tile']}>
-                                <Icon name="view_compact" size="huge" />
-                            </Tile>
                         </div>
 
                         <div className={styles['home__tiles-container']}>
@@ -78,9 +75,6 @@ export function Home() {
                             </Tile>
                             <Tile description="Storybook" className={styles['home__tile']}>
                                 <Icon name="grid_view" size="huge" />
-                            </Tile>
-                            <Tile description="Lerna Monorepo" className={styles['home__tile']}>
-                                <Icon name="list_alt" size="huge" />
                             </Tile>
                             <Tile description="BEM SCSS" className={styles['home__tile']}>
                                 <Icon name="palette" size="huge" />

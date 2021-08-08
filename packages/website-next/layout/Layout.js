@@ -1,28 +1,22 @@
 import React, { useState } from 'react';
 
-import { useSidebar, Responsive } from '@borrow-ui/ui';
+import { SidebarContext, Responsive } from '@borrow-ui/ui';
 
 import { Header } from './Header';
-import { MainSidebar, sidebarContext } from './MainSidebar';
+import { MainSidebar } from './MainSidebar';
 import { Footer } from './Footer';
 
 export function Layout({ Component, pageProps }) {
-    const { SidebarEntry, getDefaultState } = useSidebar({ context: sidebarContext });
-    const sidebarState = useState(getDefaultState());
+    const sidebarState = useState(SidebarContext.getDefaultState({ autoCloseLink: true }));
 
     return (
         <div className="borrow-ui borrow-ui-website">
-            <sidebarContext.Provider value={sidebarState}>
+            <SidebarContext.Provider value={sidebarState}>
                 <Responsive>{(matches) => <Header isSmallScreen={matches.small} />}</Responsive>
 
                 <div style={{ display: 'flex' }}>
                     <Responsive>
-                        {(matches) => (
-                            <MainSidebar
-                                isSmallScreen={matches.small}
-                                SidebarEntry={SidebarEntry}
-                            />
-                        )}
+                        {(matches) => <MainSidebar isSmallScreen={matches.small} />}
                     </Responsive>
                     <div className="website__content">
                         <div className="website__page">
@@ -31,7 +25,7 @@ export function Layout({ Component, pageProps }) {
                         <Footer />
                     </div>
                 </div>
-            </sidebarContext.Provider>
+            </SidebarContext.Provider>
         </div>
     );
 }

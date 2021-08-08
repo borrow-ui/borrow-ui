@@ -22,11 +22,11 @@ LinkButton.propTypes = {
     mean: PropTypes.string,
 };
 
-export function PageNavigator({ back, next }) {
+export function PageNavigator({ back = [], next = [] }) {
     return (
         <div className="common__page-navigator">
             <div className="website__text__columns">
-                <div className="flex-center-center">
+                <div className="flex-center-center flex--wrap">
                     {back.map((backLink) => (
                         <LinkButton
                             key={backLink.href}

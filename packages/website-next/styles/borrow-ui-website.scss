@@ -10,7 +10,7 @@ p {
 .main-sidebar {
     height: calc(100vh - 46px);
     position: absolute;
-    z-index: 1;
+    z-index: 10;
 }
 
 @media (max-width: 600px) {
@@ -20,6 +20,10 @@ p {
 }
 
 .main-header {
+    .borrow-ui__navbar__header {
+        background-color: white;
+        border-bottom: none;
+    }
     .borrow-ui__navbar__group--right {
         padding: 0 10px;
     }
@@ -143,4 +147,15 @@ p {
 
 .link__no-style {
     text-decoration: none;
+}
+
+@media (max-width: 1299px) {
+    a.component-anchor::before {
+        content: '';
+        display: block;
+        height: 75px;
+        margin-top: -75px;
+        visibility: hidden;
+        width: 1px;
+    }
 }
