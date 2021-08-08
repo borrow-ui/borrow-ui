@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Block } from '../block/Block';
 import { Lorem } from '../lorem/Lorem';
@@ -35,49 +35,49 @@ if the links should close the sidebar when clicked.
 <Canvas>
     <Story name="Default">
         <div style={{ display: 'flex', width: '100%', height: 400 }}>
-        <Sidebar>
-            <div>
-                <SidebarEntry iconName="dashboard">Dashboard</SidebarEntry>
-                <SidebarEntry shortcut="SC">Shortcut</SidebarEntry>
-                <SidebarEntry isActive={true} shortcut="AE">
-                    Active Entry
-                </SidebarEntry>
-                <SidebarEntry
-                    id="entry-with-content-arrow"
-                    iconName="arrow_forward"
-                    content={
-                        <ul>
-                            <li>Row 1</li>
-                            <li>Row 2</li>
-                        </ul>
-                    }
-                >
-                    Click arrow to view content
-                </SidebarEntry>
-                <SidebarEntry
-                    id="entry-with-content"
-                    iconName="assignment"
-                    content={
-                        <ul>
-                            <li>Row 1</li>
-                            <li>Row 2</li>
-                        </ul>
-                    }
-                    entryClickToggleContent={true}
-                >
-                    Click me view content
-                </SidebarEntry>
-                <SidebarEntry>
-                    <span>No Icon or shortcut</span>
-                </SidebarEntry>
-                <SidebarEntry shortcut={null}>
+            <Sidebar>
+                <div>
+                    <SidebarEntry iconName="dashboard">Dashboard</SidebarEntry>
+                    <SidebarEntry shortcut="SC">Shortcut</SidebarEntry>
+                    <SidebarEntry isActive={true} shortcut="AE">
+                        Active Entry
+                    </SidebarEntry>
+                    <SidebarEntry
+                        id="entry-with-content-arrow"
+                        iconName="arrow_forward"
+                        content={
+                            <ul>
+                                <li>Row 1</li>
+                                <li>Row 2</li>
+                            </ul>
+                        }
+                    >
+                        Click arrow to view content
+                    </SidebarEntry>
+                    <SidebarEntry
+                        id="entry-with-content"
+                        iconName="assignment"
+                        content={
+                            <ul>
+                                <li>Row 1</li>
+                                <li>Row 2</li>
+                            </ul>
+                        }
+                        entryClickToggleContent={true}
+                    >
+                        Click me view content
+                    </SidebarEntry>
+                    <SidebarEntry>
+                        <span>No Icon or shortcut</span>
+                    </SidebarEntry>
+                    <SidebarEntry shortcut={null}>
                         <span>No Icon or shortcut w/ spacer</span>
-                </SidebarEntry>
-            </div>
-            <div>
-                <span>v 1.0</span>
-            </div>
-        </Sidebar>
+                    </SidebarEntry>
+                </div>
+                <div>
+                    <span>v 1.0</span>
+                </div>
+            </Sidebar>
             <div className="p-l-20 p-r-20 p-b-20">
                 <h2 className="m-t-10">Collapsible Sidebar</h2>
                 <Block className="overflow-auto">

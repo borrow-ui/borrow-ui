@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Button } from '../button/Button';
 import { Icon } from '../icon/Icon';
@@ -24,27 +24,27 @@ The component leverages `ReferenceOverlay` component that is based on the great 
 <Canvas>
     <Story name="Default">
         <div style={{ padding: 60 }}>
-        <Tooltip tooltip="This is a simple tooltip" className="m-r-20">
-            <Button mean="positive">Hover me!</Button>
-        </Tooltip>
-        <Tooltip tooltip="If you need help, read the docs!" className="m-r-20">
-            <Icon name="help" className="color-primary" />
-        </Tooltip>
-        <Tooltip
-            tooltip="This is a simple tooltip, shown on the right"
-            className="m-r-20"
-            placement="right"
-        >
-            <Button mean="primary-reverse">Right placed</Button>
-        </Tooltip>
-        <Tooltip
+            <Tooltip tooltip="This is a simple tooltip" className="m-r-20">
+                <Button mean="positive">Hover me!</Button>
+            </Tooltip>
+            <Tooltip tooltip="If you need help, read the docs!" className="m-r-20">
+                <Icon name="help" className="color-primary" />
+            </Tooltip>
+            <Tooltip
+                tooltip="This is a simple tooltip, shown on the right"
+                className="m-r-20"
+                placement="right"
+            >
+                <Button mean="primary-reverse">Right placed</Button>
+            </Tooltip>
+            <Tooltip
                 tooltip="You must click the trigger or the message to close this tooltip!"
-            className="m-r-20"
-            placement="bottom"
-            triggerMode="click"
-        >
+                className="m-r-20"
+                placement="bottom"
+                triggerMode="click"
+            >
                 <Button mean="primary-reverse">Click</Button>
-        </Tooltip>
+            </Tooltip>
         </div>
     </Story>
 </Canvas>
