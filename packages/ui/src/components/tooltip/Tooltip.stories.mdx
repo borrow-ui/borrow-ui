@@ -23,6 +23,7 @@ The component leverages `ReferenceOverlay` component that is based on the great 
 
 <Canvas>
     <Story name="Default">
+        <div style={{ padding: 60 }}>
         <Tooltip tooltip="This is a simple tooltip" className="m-r-20">
             <Button mean="positive">Hover me!</Button>
         </Tooltip>
@@ -37,22 +38,14 @@ The component leverages `ReferenceOverlay` component that is based on the great 
             <Button mean="primary-reverse">Right placed</Button>
         </Tooltip>
         <Tooltip
-            tooltip="You can click anywhere to close this!"
-            className="m-r-20"
-            triggerMode="click"
-            placement="bottom"
-        >
-            <IconControl name="settings" />
-        </Tooltip>
-        <Tooltip
-            tooltip="You must click the trigger to close this tooltip!"
+                tooltip="You must click the trigger or the message to close this tooltip!"
             className="m-r-20"
             placement="bottom"
             triggerMode="click"
-            clickPersist={true}
         >
-            <Button mean="primary-reverse">Click Persist</Button>
+                <Button mean="primary-reverse">Click</Button>
         </Tooltip>
+        </div>
     </Story>
 </Canvas>
 
@@ -69,7 +62,15 @@ The following demo allows to see this in action:
                 <div style={{ display: 'block', height: 160 }}></div>
                 <div style={{ display: 'flex' }}>
                     <div style={{ display: 'block', width: '45%' }}></div>
-                    <Tooltip tooltip={<Lorem paragraphs={1} />} triggerMode="click">
+                    <Tooltip
+                        tooltip={
+                            <div className="w-400">
+                                <Lorem paragraphs={1} />
+                            </div>
+                        }
+                        maxWidth={false}
+                        triggerMode="click"
+                    >
                         <Button mean="primary">Click me</Button>
                     </Tooltip>
                     <div style={{ display: 'block', width: '45%' }}></div>

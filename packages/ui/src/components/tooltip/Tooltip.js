@@ -7,6 +7,8 @@ import { propTypesChildren } from '../../utils/types';
 import { ReferenceOverlay, PLACEMENTS } from '../reference-overlay/ReferenceOverlay';
 
 const TOOLTIP_CLASS = `${UI_PREFIX}__tooltip`;
+const TOOLTIP_MIN_WIDTH_CLASS = `${UI_PREFIX}__tooltip--min-width`;
+const TOOLTIP_MAX_WIDTH_CLASS = `${UI_PREFIX}__tooltip--max-width`;
 const TOOLTIP_ARROW_CLASS = `${UI_PREFIX}__tooltip__arrow`;
 
 export function Tooltip({
@@ -14,7 +16,8 @@ export function Tooltip({
     children,
     placement = 'top',
     triggerMode = 'hover',
-    clickPersist = false,
+    minWidth = true,
+    maxWidth = true,
     tooltipProps = {},
     tooltipArrowProps = {},
     popperProps,
@@ -24,7 +27,10 @@ export function Tooltip({
     const { className: tooltipPropsClass = '', ...restTooltipProps } = tooltipProps;
     const { className: tooltipArrowPropsClass = '', ...restTooltipArrowProps } = tooltipArrowProps;
 
-    const tooltipClass = `${TOOLTIP_CLASS} ${tooltipPropsClass}`.trim();
+    const minWidthClass = minWidth ? TOOLTIP_MIN_WIDTH_CLASS : '';
+    const maxWidthClass = maxWidth ? TOOLTIP_MAX_WIDTH_CLASS : '';
+    const widthClasses = `${minWidthClass} ${maxWidthClass}`.trim();
+    const tooltipClass = `${TOOLTIP_CLASS} ${widthClasses} ${tooltipPropsClass}`.trim();
 
     const tooltipArrowClass = `${TOOLTIP_ARROW_CLASS} ${tooltipArrowPropsClass}`.trim();
 
@@ -34,7 +40,6 @@ export function Tooltip({
             className={className}
             triggerProps={rest}
             triggerMode={triggerMode}
-            clickPersist={clickPersist}
             overlayProps={{
                 className: tooltipClass,
                 ...restTooltipProps,
@@ -60,10 +65,10 @@ Tooltip.propTypes = {
     placement: PropTypes.oneOf(PLACEMENTS),
     /** Which event will make the tooltip visible */
     triggerMode: PropTypes.oneOf(['hover', 'click']),
-    /** If the `triggerMode` is `click`, make the tooltip persist
-     * if a click is done outside of Trigger itself
-     * (so the tooltip is hidden only when clicking the trigger) */
-    clickPersist: PropTypes.bool,
+    /** Applies a class with min-width (150px) */
+    minWidth: PropTypes.bool,
+    /** Applies a class with max-width (300px) */
+    maxWidth: PropTypes.bool,
     /** Props passed to the tooltip container */
     tooltipProps: PropTypes.shape({
         className: PropTypes.string,
