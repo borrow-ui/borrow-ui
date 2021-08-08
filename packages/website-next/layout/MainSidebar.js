@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { SidebarBody, SidebarEntry } from '@borrow-ui/ui';
 
+import packageJson from '../package.json';
+
 export function MainSidebar({ isSmallScreen }) {
     const [viewSidebar, setViewSidebar] = useState(false);
 
@@ -23,6 +25,11 @@ export function MainSidebar({ isSmallScreen }) {
                 <SidebarEntry iconName="apps" href="/components">
                     Components
                 </SidebarEntry>
+            </div>
+            <div>
+                <div className="flex-center-center p-5" style={{ fontSize: 12 }}>
+                    v{packageJson.version}
+                </div>
             </div>
         </SidebarBody>
     );

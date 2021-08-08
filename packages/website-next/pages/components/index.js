@@ -116,6 +116,34 @@ export default function Components() {
                 </div>
                 <div className="website__text">
                     <Title tag="h2" className="color-primary">
+                        Typography
+                    </Title>
+                    <p>A set of components to organize the pages and texts.</p>
+                    <p>
+                        Here you can find <Monospace>borrow-ui</Monospace> typography showcase.
+                        <br />
+                    </p>
+                    Dependencies:
+                    <ul>
+                        <li>
+                            <Monospace>flexboxgrid 2</Monospace>: CSS library to create flexible
+                            layouts
+                            <IconLink href="https://evgenyrodionov.github.io/flexboxgrid2/" />
+                        </li>
+                    </ul>
+                    <Block outstanding={true}>
+                        {TYPOGRAPHY.map((component) => {
+                            return (
+                                <DemoSection
+                                    Component={component.Component}
+                                    href={component.href}
+                                    key={component.href}
+                                />
+                            );
+                        })}
+                    </Block>
+                    <div className={styles['components-showcase__separator']} />
+                    <Title tag="h2" className="color-primary">
                         Components
                     </Title>
                     <p>
@@ -194,34 +222,6 @@ export default function Components() {
                     </ul>
                     <Block outstanding={true}>
                         {FORMS.map((component) => {
-                            return (
-                                <DemoSection
-                                    Component={component.Component}
-                                    href={component.href}
-                                    key={component.href}
-                                />
-                            );
-                        })}
-                    </Block>
-                    <div className={styles['components-showcase__separator']} />
-                    <Title tag="h2" className="color-primary">
-                        Typography
-                    </Title>
-                    <p>A set of components to organize the pages and texts.</p>
-                    <p>
-                        Here you can find <Monospace>borrow-ui</Monospace> typography showcase.
-                        <br />
-                    </p>
-                    Dependencies:
-                    <ul>
-                        <li>
-                            <Monospace>flexboxgrid 2</Monospace>: CSS library to create flexible
-                            layouts
-                            <IconLink href="https://evgenyrodionov.github.io/flexboxgrid2/" />
-                        </li>
-                    </ul>
-                    <Block outstanding={true}>
-                        {TYPOGRAPHY.map((component) => {
                             return (
                                 <DemoSection
                                     Component={component.Component}

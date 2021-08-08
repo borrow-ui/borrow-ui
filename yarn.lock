@@ -1918,7 +1918,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@borrow-ui/ui@0.0.3-alpha.1, @borrow-ui/ui@workspace:packages/ui":
+"@borrow-ui/ui@^0.0.3-alpha.2, @borrow-ui/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@borrow-ui/ui@workspace:packages/ui"
   dependencies:
@@ -2041,7 +2041,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@borrow-ui/website-next@workspace:packages/website-next"
   dependencies:
-    "@borrow-ui/ui": 0.0.3-alpha.1
+    "@borrow-ui/ui": ^0.0.3-alpha.2
     "@fontsource/poppins": latest
     critters: ^0.0.10
     eslint: 7.30.0

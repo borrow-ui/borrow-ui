@@ -1,6 +1,6 @@
 {
     "name": "@borrow-ui/website-next",
-    "version": "0.0.3",
+    "version": "0.0.3-alpha.2",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -9,7 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@borrow-ui/ui": "0.0.3-alpha.1",
+        "@borrow-ui/ui": "^0.0.3-alpha.2",
         "@fontsource/poppins": "latest",
         "critters": "^0.0.10",
         "gray-matter": "^4.0.3",

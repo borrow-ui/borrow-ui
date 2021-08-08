@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "yarn workspaces foreach -piv run dev",
     "build": "yarn run ui:build",
-    "ui:build": "yarn workspace @borrow-ui/ui run build",
     "ui:test": "yarn workspace @borrow-ui/ui run test",
+    "ui:build": "yarn workspace @borrow-ui/ui run build",
     "ui:coveralls": "yarn workspace @borrow-ui/ui run coveralls",
     "website-next:build": "yarn workspaces foreach -itR --from '@borrow-ui/(ui|website-next)' run build"
   }

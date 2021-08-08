@@ -8,10 +8,6 @@ branches:
   only:
     - master
 
-install:
-  - yarn global add lerna
-  - lerna bootstrap
-
 matrix:
   include:
     - name: "borrow-ui/ui"
