@@ -29,8 +29,8 @@ export function HorizontalFormDemo() {
     );
     const dropzoneProps = {
         dragMessage: dropzoneArea,
-        onFilesChanges: (files, { lastChangeReason }) => {
-            console.log('List of files has been changed: ', files, lastChangeReason);
+        onFilesChanges: (newState) => {
+            console.log('new dropzone state', newState);
         },
         initialFiles: [{ name: 'First file.pdf' }, { name: 'My profile picture.jpg' }],
     };
