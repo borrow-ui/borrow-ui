@@ -9,20 +9,24 @@ const SYNTAX_HIGHLIGHT_CLASS = `${UI_PREFIX}__syntax-highlight`;
 export function SyntaxHighlight({ code, plugins = [], language = 'jsx', className = '', ...rest }) {
     const codeRef = useRef(null);
     const [highlighted, setHighlighted] = useState(false);
+    const [codeClass, setCodeClass] = useState('');
 
     useEffect(() => {
-        if (codeRef && codeRef.current && !highlighted) {
-            Prism.highlightElement(codeRef.current);
-            setHighlighted(true);
-        }
-    }, [highlighted]);
+        setCodeClass(`language-${language}`.trim());
+    }, [language]);
+
+    useEffect(() => {
+        if (!codeRef || !codeRef.current || !codeClass || highlighted) return;
+        Prism.highlightElement(codeRef.current);
+        setHighlighted(true);
+    }, [highlighted, codeClass]);
 
     const syntaxHighlightClass = `${SYNTAX_HIGHLIGHT_CLASS} ${className}`.trim();
 
     return (
         <div className={syntaxHighlightClass} {...rest}>
             <pre className={!plugins ? '' : plugins.join(' ')}>
-                <code ref={codeRef} className={`language-${language}`}>
+                <code className={codeClass || undefined} ref={codeRef}>
                     {code}
                 </code>
             </pre>
