@@ -1,14 +1,13 @@
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { useSidebar } from './Sidebar';
-import { CONTENT_REQUIRES_ID } from './SidebarEntry';
+import { Sidebar } from './Sidebar';
+import { CONTENT_REQUIRES_ID, SidebarEntry } from './SidebarEntry';
 import { UI_PREFIX } from '../../config';
 
 describe('Sidebar', () => {
     test('renders a Sidebar with entries with content', async () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
         const { container } = render(
             <Sidebar data-testid="sidebar">
                 <SidebarEntry
@@ -34,14 +33,14 @@ describe('Sidebar', () => {
         expect(screen.getByTestId('with-content')).toHaveClass(`${UI_PREFIX}__sidebar__entry`);
         expect(screen.getByText('With content')).toHaveClass(`${UI_PREFIX}__sidebar__entry__label`);
 
+        // Open the sidebar
+        await userEvent.click(sidebarTrigger);
+
         // Expand "With content"
         await userEvent.click(screen.getByText('With content'));
         expect(container.querySelector('#with-content__content')).toHaveClass(
             `${UI_PREFIX}__sidebar__entry__content--visible`
         );
-
-        // Open the sidebar as well
-        await userEvent.click(sidebarTrigger);
 
         // Expand "Another content"
         await userEvent.click(screen.getByText('Another content'));
@@ -59,12 +58,18 @@ describe('Sidebar', () => {
         expect(container.querySelector('#another-content__content')).not.toHaveClass(
             `${UI_PREFIX}__sidebar__entry__content--visible`
         );
+
+        // Close the sidebar
+        await userEvent.click(sidebarTrigger);
+
+        // "With content" should be automatically closed
+        expect(container.querySelector('#with-content__content')).not.toHaveClass(
+            `${UI_PREFIX}__sidebar__entry__content--visible`
+        );
     });
     test('throws an error if content are passed without id', () => {
         const err = console.error;
         console.error = jest.fn();
-
-        const { Sidebar, SidebarEntry } = useSidebar();
 
         expect(() => {
             render(
@@ -78,8 +83,6 @@ describe('Sidebar', () => {
 
     test('preserve entry onClick if provided', async () => {
         const testOnClick = jest.fn();
-
-        const { Sidebar, SidebarEntry } = useSidebar();
 
         render(
             <Sidebar>
@@ -100,8 +103,6 @@ describe('Sidebar', () => {
     });
 
     test('reders with an entry with a shortcut', () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
-
         render(
             <Sidebar>
                 <SidebarEntry shortcut="SC">Has a shortcut</SidebarEntry>
@@ -111,8 +112,6 @@ describe('Sidebar', () => {
     });
 
     test('reders entry as with a custom tag', () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
-
         const { container } = render(
             <Sidebar>
                 <SidebarEntry tag="a">This is a link</SidebarEntry>
@@ -122,8 +121,6 @@ describe('Sidebar', () => {
     });
 
     test('reders a shortcut from a longer label', () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
-
         render(
             <Sidebar>
                 <SidebarEntry shortcut="Long Label">This is a link</SidebarEntry>
@@ -134,8 +131,6 @@ describe('Sidebar', () => {
 
     test('reders entry with entryClickToggleContent and onClick', async () => {
         const onClick = jest.fn();
-
-        const { Sidebar, SidebarEntry } = useSidebar();
 
         render(
             <Sidebar>
@@ -159,8 +154,6 @@ describe('Sidebar', () => {
     });
 
     test('reders entry with Link', () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
-
         const sidebar = (
             <Sidebar>
                 <SidebarEntry to="/" aria-label="home">
@@ -176,8 +169,6 @@ describe('Sidebar', () => {
         expect(container.querySelectorAll('a')[1]).toHaveClass(`${UI_PREFIX}__sidebar__entry`);
     });
     test('activate based on flag', () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
-
         const sidebar = (
             <Sidebar>
                 <SidebarEntry to="/" aria-label="home">

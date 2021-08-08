@@ -1,11 +1,11 @@
-import React, { Fragment, createContext, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
 
-import { SidebarEntry, SidebarEntryPropTypes } from './SidebarEntry';
-import { SidebarTrigger, SidebarTriggerPropTypes } from './SidebarTrigger';
+import { SidebarContext } from './SidebarContext';
+import { SidebarTrigger } from './SidebarTrigger';
 
 const SIDEBAR_CLASS = `${UI_PREFIX}__sidebar`;
 const SIDEBAR_CONTAINER_CLASS = `${UI_PREFIX}__sidebar__container`;
@@ -17,70 +17,57 @@ const SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS = `${UI_PREFIX}__sidebar__container--o
 const SIDEBAR_ELEMENTS_CONTAINER_CLASS = `${UI_PREFIX}__sidebar__elements-container`;
 const SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__elements-container--with-trigger`;
 
-export function useSidebar({ opened = false, context } = {}) {
-    const defaultContext = createContext([{}, null]);
-    const sidebarContext = context || defaultContext;
+const SidebarBodyPropTypes = {
+    /** Hide the trigger to open/close the sidebar. */
+    hideTrigger: PropTypes.bool,
+    /** Make the sidebar sticky to the top. */
+    stickyTop: PropTypes.bool,
+    /** Overrides the height of the container. */
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Width of the sidebar when is closed. */
+    closedWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Apply a shadow when the sidebar is open. */
+    shadowWhenOpen: PropTypes.bool,
+    /** If elements does not require sidebar's state, the content can be passed as children. */
+    children: propTypesChildren,
+    className: PropTypes.string,
+    style: PropTypes.object,
+};
 
-    const getDefaultState = () => ({
-        opened,
-        openedEntrySubContent: {},
-    });
+export function Sidebar({ initialState, ...sidebarProps }) {
+    const contextValue = useState(SidebarContext.getDefaultState(initialState));
 
-    const ContextualizedSidebar = (props) => {
-        const contextValue = useState(getDefaultState());
-
-        return (
-            <sidebarContext.Provider value={contextValue}>
-                <Sidebar sidebarContext={sidebarContext} {...props} />
-            </sidebarContext.Provider>
-        );
-    };
-    ContextualizedSidebar.propTypes = SidebarPropTypes;
-
-    const ContextualizedSidebarEntry = (props) => {
-        return <SidebarEntry sidebarContext={sidebarContext} {...props} />;
-    };
-    ContextualizedSidebarEntry.propTypes = SidebarEntryPropTypes;
-
-    const ContextualizedSidebarTrigger = (props) => {
-        return <SidebarTrigger sidebarContext={sidebarContext} {...props} />;
-    };
-    ContextualizedSidebarTrigger.propTypes = SidebarTriggerPropTypes;
-
-    const CustomTrigger = ({ children }) => {
-        const [contextValue, setContextValue] = useContext(sidebarContext);
-        const toggleOpened = () => {
-            setContextValue({ ...contextValue, opened: !contextValue.opened });
-        };
-        return <Fragment>{children({ toggleOpened })}</Fragment>;
-    };
-    CustomTrigger.propTypes = {
-        children: propTypesChildren,
-    };
-
-    return {
-        sidebarContext,
-        getDefaultState,
-        SidebarEntry: ContextualizedSidebarEntry,
-        Sidebar: ContextualizedSidebar,
-        SidebarTrigger: ContextualizedSidebarTrigger,
-        CustomTrigger,
-    };
+    return (
+        <SidebarContext.Provider value={contextValue}>
+            <SidebarBody {...sidebarProps} />
+        </SidebarContext.Provider>
+    );
 }
 
-export function Sidebar({
+Sidebar.propTypes = {
+    initialState: PropTypes.shape({
+        /** Sidebar initialize as opened */
+        opened: PropTypes.bool,
+        /** Object to determine which entry content is opened (id -> true) */
+        openedEntrySubContent: PropTypes.object,
+        /** Automatically close the Sidebar if a link is clicked */
+        autoCloseLink: PropTypes.bool,
+    }),
+    ...SidebarBodyPropTypes,
+};
+
+export function SidebarBody({
     hideTrigger = false,
     height,
     closedWidth,
     stickyTop,
     shadowWhenOpen = true,
-    sidebarContext,
     className = '',
     style = {},
     children,
     ...rest
 }) {
-    const state = useContext(sidebarContext)[0];
+    const state = useContext(SidebarContext)[0];
 
     const statusClass = `${SIDEBAR_CONTAINER_CLASS}--${state.opened ? 'open' : 'closed'}`;
     const stickyClass = stickyTop ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
@@ -98,33 +85,11 @@ export function Sidebar({
     return (
         <aside className={sidebarContainerClass} style={sidebarContainerStyle} {...rest}>
             <div className={SIDEBAR_CLASS}>
-                {!hideTrigger && <SidebarTrigger sidebarContext={sidebarContext} />}
+                {!hideTrigger && <SidebarTrigger />}
                 <div className={elementsContainerClass}>{children}</div>
             </div>
         </aside>
     );
 }
 
-export const SidebarPropTypes = {
-    /** Hide the trigger to open/close the sidebar. */
-    hideTrigger: PropTypes.bool,
-    /** Make the sidebar sticky to the top. */
-    stickyTop: PropTypes.bool,
-    /** Overrides the height of the container. */
-    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    /** Width of the sidebar when is closed. */
-    closedWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    /** Apply a shadow when the sidebar is open. */
-    shadowWhenOpen: PropTypes.bool,
-    /** If elements does not require sidebar's state, the content can be passed as children. */
-    children: propTypesChildren,
-    className: PropTypes.string,
-    style: PropTypes.object,
-};
-
-Sidebar.propTypes = {
-    /** It is possible to pass the `sidebarContext` if this is created outside
-     * (i.e. to use a trigger inside a page header or a menu bar). */
-    sidebarContext: PropTypes.object,
-    ...SidebarPropTypes,
-};
+SidebarBody.propTypes = SidebarBodyPropTypes;

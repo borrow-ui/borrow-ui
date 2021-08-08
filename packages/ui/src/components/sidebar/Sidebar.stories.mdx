@@ -7,7 +7,7 @@ import { SidebarMenu } from '../sidebar-menu/SidebarMenu';
 
 import { Sidebar, SidebarBody } from './Sidebar';
 import { SidebarEntry } from './SidebarEntry';
-import { SidebarStory } from './SidebarStory';
+import { SidebarTrigger } from './SidebarTrigger';
 
 <Meta title="Components/Sidebar" component={Sidebar} />
 
@@ -26,20 +26,16 @@ to group all the items on top they should be wrapped in a container.
 
 **Note**: to use sidebar, it must be wrapped with a flex container.
 
-### useSidebar
+### Sidebar
 
 The Sidebar component allows to create a sidebar to be placed in the page.
-Sidebar has it's own context to determine if it is open/closed and if any entry is expanded/collapsed.
+Sidebar has it's own context to determine if it is open/closed, if any entry is expanded/collapsed and
+if the links should close the sidebar when clicked.
 
-To create a sidebar, generate the context and components with `useSidebar` hook:
-
-```jsx
-export function MySidebar() {
-    const { Sidebar, SidebarEntry } = useSidebar();
-
-    return (
+<Canvas>
+    <Story name="Default">
+        <div style={{ display: 'flex', width: '100%', height: 400 }}>
         <Sidebar>
-            {/* Required to group elements on top */}
             <div>
                 <SidebarEntry iconName="dashboard">Dashboard</SidebarEntry>
                 <SidebarEntry shortcut="SC">Shortcut</SidebarEntry>
@@ -75,25 +71,16 @@ export function MySidebar() {
                     <span>No Icon or shortcut</span>
                 </SidebarEntry>
                 <SidebarEntry shortcut={null}>
-                    <span>No Icon or shortcut (with spacer)</span>
+                        <span>No Icon or shortcut w/ spacer</span>
                 </SidebarEntry>
             </div>
-            {/* Required to group elements on bottom */}
             <div>
                 <span>v 1.0</span>
             </div>
         </Sidebar>
-    );
-}
-```
-
-<Canvas>
-    <Story name="Default">
-        <div style={{ display: 'flex', width: '100%' }}>
-            <SidebarStory />
             <div className="p-l-20 p-r-20 p-b-20">
                 <h2 className="m-t-10">Collapsible Sidebar</h2>
-                <Block className="overflow-auto h-400">
+                <Block className="overflow-auto">
                     <Lorem />
                 </Block>
             </div>
@@ -112,11 +99,16 @@ will toggle the content to be shown/hidden.
 ### Global Sidebar with external trigger
 
 If you need to put the status trigger outside of the Sidebar, you need to use the same context of the sidebar.
-The `useSidebar` hook returns a set of props which can be used to add the provider outside.
-A `SidebarTrigger` prop then can be used to get the trigger. If you want to use a different trigger, you
-can still use the same context with the `useContext` hook.
+`SidebarContext` not only has the Provider, but also an helper `getDefaultState` function to help you to setup
+the context value.
+`SidebarTrigger` component then can be used to render the trigger. If you want to use a different trigger, you
+can use `SidebarCustomTrigger`, which accepts a function as children and it's called with three props:
 
-The `Sidebar` component needs to be imported because the one returned by the hook sets the provider itself.
+-   `toggleStatus`: a function that toggles the open/closed status when called;
+-   `sidebarState`: current value of the state;
+-   `setSidebarState`: state setter, to custom control the behavior.
+
+The `SidebarBody` component then can be used to generate the sidebar.
 
 For example, if you want to put the trigger in the page header,
 this needs to be wrapped in the sideber provider and the context passed to be used:
@@ -124,20 +116,16 @@ this needs to be wrapped in the sideber provider and the context passed to be us
 ```jsx
 // MainSidebar.js
 
-import React, { createContext } from 'react';
+import React from 'react';
 
-import { Sidebar } from '@borrow-ui/ui';
+import { SidebarBody, SidebarContext } from '@borrow-ui/ui';
 
-// The context will be shared and set in the provider
-export const sidebarContext = createContext();
-
-// The Sidebar instance, consuming the context above
+// The SidebarBody instance, consuming the context
 // and a contextualized SidebarEntry
 export function MainSidebar({ SidebarEntry }) {
     return (
-        <Sidebar
-            sidebarContext={sidebarContext}
-            hideTrigger
+        <SidebarBody
+            hideTrigger={true}
             shadowWhenOpen={false}
             className="main-sidebar"
             stickyTop={true}
@@ -145,7 +133,7 @@ export function MainSidebar({ SidebarEntry }) {
             <SidebarEntry iconName="home" href="/">
                 Home
             </SidebarEntry>
-        </Sidebar>
+        </SidebarBody>
     );
 }
 ```
@@ -155,23 +143,22 @@ export function MainSidebar({ SidebarEntry }) {
 
 import React, { useState } from 'react';
 
-import { useSidebar } from '@borrow-ui/ui';
+import { SidebarContext } from '@borrow-ui/ui';
 
-import { MainSidebar, sidebarContext } from './MainSidebar';
+import { MainSidebar } from './MainSidebar';
 
 export function Layout({ Component, pageProps }) {
-    const { SidebarEntry, getDefaultState } = useSidebar({ context: sidebarContext });
-    const sidebarState = useState(getDefaultState());
+    const sidebarState = useState(SidebarContext.getDefaultState());
 
     return (
         <div className="borrow-ui">
-            <sidebarContext.Provider value={sidebarState}>
+            <SidebarContext.Provider value={sidebarState}>
                 <Header />
                 <div style={{ display: 'flex' }}>
                     <MainSidebar SidebarEntry={SidebarEntry} />
                     <Component {...pageProps} />
                 </div>
-            </sidebarContext.Provider>
+            </SidebarContext.Provider>
         </div>
     );
 }
@@ -180,19 +167,16 @@ export function Layout({ Component, pageProps }) {
 Then, in the `Header` component:
 
 ```jsx
-import React, { useContext } from 'react';
+import React from 'react';
 
 // Use a "contextless" trigger, will be passed
-import { Icon, Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
-
-// Import the same context
-import { sidebarContext } from './MainSidebar';
+import { Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
 
 export function Header() {
     return (
         <Navbar
             left={[
-                <SidebarTrigger sidebarContext={sidebarContext} />,
+                <SidebarTrigger />,
                 {
                     headerLabel: (
                         <Link href="/">
@@ -214,12 +198,87 @@ Another way of using a sidebar is as a container for a side menu.
 This uses `SidebarMenu` component.
 
 The sidebar can be made non-collapsible, so the menu is always visible.
-Instead of using a `Sidebar` component, use `SidebarBody` directly:
+
+<Canvas>
+    <Story name="Sidebar with SidebarMenu">
+        <div style={{ display: 'flex', width: '100%', height: 400 }}>
+            <Sidebar hideTrigger={true} initialState={{ opened: true }}>
+                <SidebarMenu padded={true}>
+                    <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
+                    <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
+                    <SidebarMenu.Entry>Entry 2</SidebarMenu.Entry>
+                    <SidebarMenu.Entry>Entry 3</SidebarMenu.Entry>
+                    <SidebarMenu.Separator />
+                    <SidebarMenu.Title>Section Title 2</SidebarMenu.Title>
+                    <SidebarMenu.Entry>Entry 4</SidebarMenu.Entry>
+                    <SidebarMenu.Title>Section Title 3</SidebarMenu.Title>
+                    <SidebarMenu.Entry>Entry 5</SidebarMenu.Entry>
+                    <SidebarMenu.Entry>Entry 6</SidebarMenu.Entry>
+                </SidebarMenu>
+            </Sidebar>
+            <div className="p-l-20 p-r-20 p-b-20">
+                <h2 className="m-t-10">Collapsible Sidebar</h2>
+                <Block className="overflow-auto">
+                    <Lorem />
+                </Block>
+            </div>
+        </div>
+    </Story>
+</Canvas>
+
+Sidebar can also work on top of the content, instead of moving it.
+Few adjustments needs to be made:
+
+-   container should have `position: relative`;
+-   the "main page" element should have a `margin-left: 46px` (or bigger);
+-   sidebar should have `position: absolute` and a `z-index: 1` (or higher).
+
+<Canvas>
+    <Story name="Sidebar over content">
+        <div style={{ display: 'flex', width: '100%', height: 400, position: 'relative' }}>
+            <Sidebar style={{ position: 'absolute', zIndex: 1 }}>
+                <div>
+                    <SidebarEntry iconName="dashboard">Dashboard</SidebarEntry>
+                    <SidebarEntry shortcut="SC">Shortcut</SidebarEntry>
+                    <SidebarEntry isActive={true} shortcut="AE">
+                        Active Entry
+                    </SidebarEntry>
+                    <SidebarEntry
+                        id="entry-with-content-arrow"
+                        iconName="arrow_forward"
+                        content={
+                            <ul>
+                                <li>Row 1</li>
+                                <li>Row 2</li>
+                            </ul>
+                        }
+                    >
+                        Click arrow to view content
+                    </SidebarEntry>
+                </div>
+            </Sidebar>
+            <div className="p-l-20 p-r-20 p-b-20" style={{ marginLeft: 46 }}>
+                <h2 className="m-t-10">Collapsible Sidebar over content</h2>
+                <Block className="overflow-auto">
+                    <Lorem />
+                </Block>
+            </div>
+        </div>
+    </Story>
+</Canvas>
 
 ## Sidebar Props
 
 <ArgsTable of={Sidebar} />
 
+## SidebarBody Props
+
+<ArgsTable of={SidebarBody} />
+
 ## SidebarEntry Props
 
 <ArgsTable of={SidebarEntry} />
+
+## SidebarTrigger Props
+
+<ArgsTable of={SidebarTrigger} />

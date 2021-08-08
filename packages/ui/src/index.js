@@ -32,10 +32,11 @@ import { Panel } from './components/panel/Panel';
 import { ReferenceOverlay } from './components/reference-overlay/ReferenceOverlay';
 import { Responsive } from './components/responsive/Responsive';
 import { SearchBar } from './components/search-bar/SearchBar';
-import { Sidebar, useSidebar } from './components/sidebar/Sidebar';
+import { Sidebar, SidebarBody } from './components/sidebar/Sidebar';
+import { SidebarContext } from './components/sidebar/SidebarContext';
 import { SidebarEntry } from './components/sidebar/SidebarEntry';
 import { SidebarIcon } from './components/sidebar/SidebarIcon';
-import { SidebarTrigger } from './components/sidebar/SidebarTrigger';
+import { SidebarTrigger, SidebarCustomTrigger } from './components/sidebar/SidebarTrigger';
 import { SidebarMenu } from './components/sidebar-menu/SidebarMenu';
 import { Subtitle } from './components/text/Subtitle';
 import { SyntaxHighlight } from './components/syntax-highlight/SyntaxHighlight';
@@ -97,10 +98,12 @@ export {
     Row,
     SearchBar,
     Sidebar,
-    useSidebar,
+    SidebarBody,
+    SidebarContext,
     SidebarEntry,
     SidebarIcon,
     SidebarTrigger,
+    SidebarCustomTrigger,
     SidebarMenu,
     Subtitle,
     SyntaxHighlight,

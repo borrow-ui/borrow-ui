@@ -5,15 +5,19 @@ import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
 import { Icon } from '../icon/Icon';
 
+import { SidebarContext } from './SidebarContext';
+import { propTypesChildren } from '../../utils/types';
+
 const SIDEBAR_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__trigger`;
 
-export function SidebarTrigger({ sidebarContext, className = '', ...rest }) {
-    const [sidebarState, setSidebarState] = useContext(sidebarContext);
+export function SidebarTrigger({ className = '', ...rest }) {
+    const [sidebarState, setSidebarState] = useContext(SidebarContext);
 
     const onClick = () => {
         setSidebarState((state) => ({
             ...state,
             opened: !state.opened,
+            openedEntrySubContent: {},
         }));
     };
 
@@ -36,6 +40,21 @@ export const SidebarTriggerPropTypes = {
 };
 
 SidebarTrigger.propTypes = {
-    sidebarContext: PropTypes.object.isRequired,
     ...SidebarTriggerPropTypes,
+};
+
+export function SidebarCustomTrigger({ children }) {
+    const [sidebarState, setSidebarState] = useContext(SidebarContext);
+    const toggleStatus = () => {
+        setSidebarState({
+            ...sidebarState,
+            opened: !sidebarState.opened,
+            openedEntrySubContent: {},
+        });
+    };
+    return <>{children({ sidebarState, setSidebarState, toggleStatus })}</>;
+}
+
+SidebarCustomTrigger.propTypes = {
+    children: propTypesChildren,
 };
