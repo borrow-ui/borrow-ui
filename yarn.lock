@@ -2043,6 +2043,7 @@ __metadata:
   dependencies:
     "@borrow-ui/ui": 0.0.3-alpha.1
     "@fontsource/poppins": latest
+    critters: ^0.0.10
     eslint: 7.30.0
     eslint-config-next: 11.0.1
     gray-matter: ^4.0.3
@@ -8080,6 +8081,19 @@ __metadata:
     prop-types: ^15.0.0
     react: ^0.14.0 || ^15.0.0 || ^16.0.0
   checksum: e59b7a65671e59f5b11e06f67faadf0733ab6c33247d5631331aeb05450d180b8ae44d73817b9c02f1527654ba490ea3d3dd7320f8d6debb36776f10b0ae6a47
+  languageName: node
+  linkType: hard
+
+"critters@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "critters@npm:0.0.10"
+  dependencies:
+    chalk: ^4.1.0
+    css: ^3.0.0
+    parse5: ^6.0.1
+    parse5-htmlparser2-tree-adapter: ^6.0.1
+    pretty-bytes: ^5.3.0
+  checksum: bd93269cf76ab0b9ccbcb15fee584c06b9cfe52a528db9aff2e139830cd1ac49153ff7b7223ce923a7724b0bc0728b3736d0fabfc91237ca6a787f7cc3443a28
   languageName: node
   linkType: hard
 
@@ -16462,6 +16476,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"parse5-htmlparser2-tree-adapter@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "parse5-htmlparser2-tree-adapter@npm:6.0.1"
+  dependencies:
+    parse5: ^6.0.1
+  checksum: 1848378b355d027915645c13f13f982e60502d201f53bc2067a508bf2dba4aac08219fc781dcd160167f5f50f0c73f58d20fa4fb3d90ee46762c20234fa90a6d
+  languageName: node
+  linkType: hard
+
 "parse5@npm:4.0.0":
   version: 4.0.0
   resolution: "parse5@npm:4.0.0"
@@ -16469,7 +16492,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"parse5@npm:6.0.1, parse5@npm:^6.0.0":
+"parse5@npm:6.0.1, parse5@npm:^6.0.0, parse5@npm:^6.0.1":
   version: 6.0.1
   resolution: "parse5@npm:6.0.1"
   checksum: 7d569a176c5460897f7c8f3377eff640d54132b9be51ae8a8fa4979af940830b2b0c296ce75e5bd8f4041520aadde13170dbdec44889975f906098ea0002f4bd
