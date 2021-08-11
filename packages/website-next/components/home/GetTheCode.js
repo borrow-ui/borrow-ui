@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Block, Link, Title, Text, SyntaxHighlight } from '@borrow-ui/ui';
@@ -6,8 +6,13 @@ import { Block, Link, Title, Text, SyntaxHighlight } from '@borrow-ui/ui';
 import styles from './home.module.scss';
 
 export function GetTheCode({ isSmallScreen }) {
+    const [isOutstanding, setIsOutstanding] = useState(true);
+    useEffect(() => {
+        setIsOutstanding(!isSmallScreen);
+    }, [isSmallScreen]);
+
     return (
-        <Block outstanding={!isSmallScreen}>
+        <Block outstanding={isOutstanding}>
             <Title tag="h2" className="m-t-0 m-r-10 color-primary">
                 Get the code
             </Title>
