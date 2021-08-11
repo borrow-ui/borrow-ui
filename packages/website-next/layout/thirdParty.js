@@ -13,4 +13,6 @@ import 'prismjs/components/prism-markdown.min';
 import 'prismjs/components/prism-scss.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import 'prismjs/plugins/toolbar/prism-toolbar.min';
+import 'prismjs/plugins/toolbar/prism-toolbar.css';
 import 'prismjs/plugins/show-language/prism-show-language';
