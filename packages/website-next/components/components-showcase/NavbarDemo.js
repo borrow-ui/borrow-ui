@@ -10,7 +10,7 @@ export function NavbarDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="navbars" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Navbars
                 </Title>
             </a>

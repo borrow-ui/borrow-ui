@@ -10,7 +10,7 @@ export function NavbarMenuDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="navbarmenus" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Navbar Menus
                 </Title>
             </a>

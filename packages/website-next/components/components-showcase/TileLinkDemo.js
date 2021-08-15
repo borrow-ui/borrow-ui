@@ -10,7 +10,7 @@ export function TileLinkDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="tilelinks" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Tile Links
                 </Title>
             </a>

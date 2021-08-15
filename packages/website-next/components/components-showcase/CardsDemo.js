@@ -10,7 +10,7 @@ export function CardsDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="cards" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Cards
                 </Title>
             </a>
@@ -33,7 +33,7 @@ export function CardsDemo() {
                             <>
                                 <div>Controls Content</div>
                                 <div>
-                                    <Button size="small" mean="regular-reverse" className="m-r-5">
+                                    <Button size="small" mean="neutral-reverse" className="m-r-5">
                                         Secondary
                                     </Button>
                                     <Button

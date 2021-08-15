@@ -10,7 +10,7 @@ export function AccordionDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="accordions" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Accordions
                 </Title>
             </a>

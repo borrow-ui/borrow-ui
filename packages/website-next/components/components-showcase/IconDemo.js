@@ -10,7 +10,7 @@ export function IconDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="icons" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Icons
                 </Title>
             </a>

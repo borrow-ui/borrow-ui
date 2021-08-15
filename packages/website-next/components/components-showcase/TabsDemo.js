@@ -10,7 +10,7 @@ export function TabsDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="tabs" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Tabs
                 </Title>
             </a>

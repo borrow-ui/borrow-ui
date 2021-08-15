@@ -10,7 +10,7 @@ export function TitleDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="titles" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Titles and Subtitles
                 </Title>
             </a>

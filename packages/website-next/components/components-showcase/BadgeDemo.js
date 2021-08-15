@@ -10,7 +10,7 @@ export function BadgeDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="badges" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Badges
                 </Title>
             </a>

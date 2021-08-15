@@ -10,7 +10,7 @@ export function ModalDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="modals" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Modals
                 </Title>
             </a>

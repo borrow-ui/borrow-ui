@@ -10,7 +10,7 @@ export function TextsDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="texts" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Texts
                 </Title>
             </a>

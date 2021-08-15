@@ -10,7 +10,7 @@ export function ButtonsDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="buttons" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Buttons
                 </Title>
             </a>
@@ -20,7 +20,7 @@ export function ButtonsDemo() {
             />
             <div>
                 <div className="flex-start-center flex--wrap m-b-20">
-                    <Button onClick={() => window.alert('test')}>Regular</Button>
+                    <Button onClick={() => window.alert('test')}>Neutral</Button>
                     <Button disabled={true} onClick={() => window.alert('test')}>
                         Disabled
                     </Button>
@@ -31,6 +31,16 @@ export function ButtonsDemo() {
                         mean="primary"
                         disabled={true}
                         onClick={() => window.alert('primary disabled')}
+                    >
+                        Disabled
+                    </Button>
+                    <Button mean="secondary" onClick={() => window.alert('secondary')}>
+                        Secondary
+                    </Button>
+                    <Button
+                        mean="secondary"
+                        disabled={true}
+                        onClick={() => window.alert('secondary disabled')}
                     >
                         Disabled
                     </Button>
@@ -80,11 +90,17 @@ export function ButtonsDemo() {
 
                 <Title tag="h3">Reverse</Title>
                 <div className="flex-start-center flex--wrap m-b-20">
-                    <Button onClick={() => window.alert('test')} mean="regular-reverse">
-                        Regular
+                    <Button onClick={() => window.alert('test')} mean="neutral-reverse">
+                        Neutral
                     </Button>
                     <Button mean="primary-reverse" onClick={() => window.alert('primary-reverse')}>
                         Primary
+                    </Button>
+                    <Button
+                        mean="secondary-reverse"
+                        onClick={() => window.alert('secondary-reverse')}
+                    >
+                        Secondary
                     </Button>
                     <Button mean="accent-reverse" onClick={() => window.alert('accent-reverse')}>
                         Accent

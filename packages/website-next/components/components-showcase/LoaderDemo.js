@@ -10,7 +10,7 @@ export function LoaderDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="loaders" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Loaders
                 </Title>
             </a>
@@ -25,7 +25,7 @@ export function LoaderDemo() {
                     </div>
                     <div className="w-300">
                         <Loader type="inline" className="m-r-10" />
-                        <Button disabled={true} mean="regular-reverse">
+                        <Button disabled={true} mean="neutral-reverse">
                             <Loader type="inline" />
                             Loading
                         </Button>

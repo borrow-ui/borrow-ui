@@ -38,7 +38,7 @@ export function VerticalFormDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="verticalform" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Vertical Layout Form
                 </Title>
             </a>

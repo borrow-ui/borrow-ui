@@ -10,7 +10,7 @@ export function ReferenceOverlayDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="referenceoverlays" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Reference Overlays
                 </Title>
             </a>

@@ -10,7 +10,7 @@ export function PanelDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="panels" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Panels
                 </Title>
             </a>

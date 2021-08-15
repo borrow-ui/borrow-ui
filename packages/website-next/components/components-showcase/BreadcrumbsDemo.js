@@ -10,7 +10,7 @@ export function BreadcrumbsDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="breadcrumbs" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Breadcrumbs
                 </Title>
             </a>

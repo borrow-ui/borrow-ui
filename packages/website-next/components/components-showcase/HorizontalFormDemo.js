@@ -38,7 +38,7 @@ export function HorizontalFormDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="horizontalform" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Horizontal Layout Form
                 </Title>
             </a>

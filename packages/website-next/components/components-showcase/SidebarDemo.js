@@ -10,7 +10,7 @@ export function SidebarDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="sidebars" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Sidebars
                 </Title>
             </a>

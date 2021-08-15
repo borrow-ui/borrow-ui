@@ -10,7 +10,7 @@ export function LinkDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="links" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Links
                 </Title>
             </a>

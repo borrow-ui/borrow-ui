@@ -10,7 +10,7 @@ export function GridDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="grid" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Grid
                 </Title>
             </a>

@@ -10,7 +10,7 @@ export function TooltipDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="tooltips" className="component-anchor">
-                <Title tag="h2" className="color-accent">
+                <Title tag="h2" className="color-secondary">
                     Tooltips
                 </Title>
             </a>
