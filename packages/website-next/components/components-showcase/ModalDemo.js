@@ -52,7 +52,7 @@ export function ModalDemo() {
                     )}
                     getModalWindowProps={({ setVisible }) => {
                         return {
-                            title: 'Something to work about',
+                            title: 'A very long title for mobile',
                             content: (
                                 <div className={styles['components-showcase__modal-content']}>
                                     <Lorem />

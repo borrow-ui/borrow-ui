@@ -12,5 +12,5 @@ export function IconLink({ href }) {
 }
 
 IconLink.propTypes = {
-    link: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
 };

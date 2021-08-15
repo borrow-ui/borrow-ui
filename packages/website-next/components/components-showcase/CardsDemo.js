@@ -32,7 +32,7 @@ export function CardsDemo() {
                         controls={
                             <>
                                 <div>Controls Content</div>
-                                <div>
+                                <div className="flex-end-center flex--wrap">
                                     <Button size="small" mean="neutral-reverse" className="m-r-5">
                                         Secondary
                                     </Button>

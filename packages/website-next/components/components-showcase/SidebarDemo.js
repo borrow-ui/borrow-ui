@@ -62,7 +62,7 @@ export function SidebarDemo() {
                         <span className="flex-center-center p-b-5">v1.0</span>
                     </div>
                 </Sidebar>
-                <div style={{ flexGrow: 1, padding: 20 }}>
+                <div style={{ flexGrow: 1, padding: 20, overflow: 'auto', height: '100%' }}>
                     <Lorem />
                 </div>
             </div>

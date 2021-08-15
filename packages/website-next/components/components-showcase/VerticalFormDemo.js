@@ -98,7 +98,7 @@ export function VerticalFormDemo() {
                             <Checkbox checked={checkbox} onClick={() => setCheckbox(!checkbox)} />
                         </Field>
                         <Field label="Some Date" labelWidth={120}>
-                            <DatePicker value="2020-04-25" />
+                            <DatePicker value="2021-05-25" />
                         </Field>
                     </Col>
                 </Row>

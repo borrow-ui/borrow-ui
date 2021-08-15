@@ -30,14 +30,14 @@ export function NavbarDemo() {
                     <Navbar
                         sticky={false}
                         left={[
-                            'String item',
+                            'String',
                             <span style={{ color: 'green' }} className="flex-center-center" key="1">
-                                Node item
+                                Span
                             </span>,
                         ]}
                         center={[
                             {
-                                headerLabel: 'Item with menu',
+                                headerLabel: 'Menu',
                                 bodyItem: function Body() {
                                     return (
                                         <Block>
@@ -47,7 +47,7 @@ export function NavbarDemo() {
                                 },
                             },
                             {
-                                headerLabel: 'Item with query',
+                                headerLabel: 'Menu + Query',
                                 bodyItem: function Body({ query }) {
                                     return (
                                         <Block>
