@@ -43,13 +43,13 @@ $ui-navbar-body-query-focus-border-color: $ui-color-accent;
     }
 }
 
-/* DashboardMenu container:
+/* Container:
 This is the element that contains the entire menu, both header and body
 
 */
 .#{$ui-prefix}__navbar {
     height: $ui-navbar-height;
-    z-index: 1;
+    z-index: 10;
 }
 
 .#{$ui-prefix}__navbar--sticky {
@@ -67,7 +67,7 @@ This is the element that contains the entire menu, both header and body
     margin-top: $ui-navbar-height;
 }
 
-/* DashboardMenu header, the always visible part */
+/* Header, the always visible part */
 .#{$ui-prefix}__navbar__header {
     /* Position and dimension */
     position: absolute;
@@ -129,7 +129,7 @@ This is the element that contains the entire menu, both header and body
     background-color: $ui-navbar-header-bg-color-light;
 }
 
-/* DashboardMenu body */
+/* Navbar Body */
 .#{$ui-prefix}__navbar__body {
     position: absolute;
     z-index: 10;
@@ -162,7 +162,8 @@ This is the element that contains the entire menu, both header and body
 .#{$ui-prefix}__navbar__body__query__input {
     width: 98%;
     border: 0;
-    border-bottom: 2px solid $ui-navbar-body-bg-color; /* assign a border bottom to not change spacing on focus */
+    /* assign a border bottom to not change spacing on focus */
+    border-bottom: 2px solid $ui-navbar-body-bg-color;
     font-size: 1.1em;
     color: $ui-navbar-body-query-color;
     padding: 5px;
