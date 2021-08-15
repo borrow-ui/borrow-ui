@@ -19,9 +19,9 @@ export function Footer() {
                                 </NextLink>
                             </li>
                             <li>
-                                <NextLink href="/tour">
+                                <NextLink href="/components">
                                     <a className="borrow-ui__link borrow-ui__link--underline">
-                                        Take a tour
+                                        Components Showcase
                                     </a>
                                 </NextLink>
                             </li>
