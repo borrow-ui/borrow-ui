@@ -25,6 +25,9 @@ export function MainSidebar({ isSmallScreen }) {
                 <SidebarEntry iconName="apps" href="/components">
                     Components
                 </SidebarEntry>
+                <SidebarEntry iconName="palette" href="/styles">
+                    Styles
+                </SidebarEntry>
             </div>
             <div>
                 <div className="flex-center-center p-5" style={{ fontSize: 12 }}>

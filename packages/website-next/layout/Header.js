@@ -59,6 +59,15 @@ export function Header({ isSmallScreen }) {
                         </Link>
                     ),
                 },
+                showLinks && {
+                    headerLabel: (
+                        <Link href="/styles">
+                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
+                                <span>Styles</span>
+                            </a>
+                        </Link>
+                    ),
+                },
             ].filter((v) => !!v)}
             right={[
                 <NavbarLink

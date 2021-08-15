@@ -1,0 +1,12 @@
+.styles-showcase {
+    @media (max-width: 1299px) {
+        margin-top: 80px;
+    }
+    @media (min-width: 1300px) {
+    }
+}
+
+.styles-showcase__separator {
+    padding: 20px 0;
+    display: block;
+}
