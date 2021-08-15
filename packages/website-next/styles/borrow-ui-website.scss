@@ -14,7 +14,7 @@ p {
 }
 
 @media (max-width: 600px) {
-    .borrow-ui__sidebar__container--closed {
+    .main-sidebar.borrow-ui__sidebar__container--closed {
         width: 0;
     }
 }

@@ -3,9 +3,7 @@ import { setConfig } from '@borrow-ui/ui';
 
 import '../layout/thirdParty';
 
-import '@borrow-ui/ui/dist/ui.full.min.css';
-
-import '../styles/borrow-ui-overrides.scss';
+import '../styles/borrow-ui.scss';
 import '../styles/borrow-ui-website.scss';
 import '../styles/components-common.scss';
 
