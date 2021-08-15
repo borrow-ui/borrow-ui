@@ -42,7 +42,7 @@ export function Home() {
                             size="huge"
                             icon="fa-github"
                             iconProps={{ size: 'big', family: 'fab' }}
-                            mean="regular-reverse"
+                            mean="neutral-reverse"
                         >
                             GitHub
                         </Button>

@@ -11,6 +11,8 @@ import 'prismjs/components/prism-json.min';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-markdown.min';
 import 'prismjs/components/prism-scss.min';
+import 'prismjs/plugins/line-highlight/prism-line-highlight.min';
+import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/plugins/toolbar/prism-toolbar.min';
