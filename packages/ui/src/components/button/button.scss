@@ -1,5 +1,3 @@
-@import '../../style/vars/main';
-
 .#{$ui-prefix}__button {
     color: $ui-color-on-neutral;
     background-color: $ui-color-neutral;
@@ -73,6 +71,23 @@
     height: 60px;
 }
 
+.#{$ui-prefix}__button--neutral-reverse {
+    color: $ui-color-neutral;
+    border: 1px solid $ui-color-neutral;
+    background-color: $ui-color-on-neutral;
+}
+.#{$ui-prefix}__button--neutral-reverse:hover {
+    color: $ui-color-neutral-over;
+    border-color: $ui-color-neutral-over;
+    background-color: $ui-color-on-neutral;
+}
+.#{$ui-prefix}__button--neutral-reverse:disabled,
+.#{$ui-prefix}__button--neutral-reverse:disabled:hover {
+    color: $ui-color-neutral-disabled;
+    border-color: $ui-color-neutral-disabled;
+    background-color: $ui-color-on-neutral;
+}
+
 .#{$ui-prefix}__button--primary {
     color: $ui-color-on-primary;
     background-color: $ui-color-primary;
@@ -84,84 +99,6 @@
 .#{$ui-prefix}__button--primary:disabled:hover {
     background-color: $ui-color-primary-disabled;
 }
-
-.#{$ui-prefix}__button--accent {
-    color: $ui-color-on-accent;
-    background-color: $ui-color-accent;
-}
-.#{$ui-prefix}__button--accent:hover {
-    background-color: $ui-color-accent-over;
-}
-.#{$ui-prefix}__button--accent:disabled,
-.#{$ui-prefix}__button--accent:disabled:hover {
-    background-color: $ui-color-accent-disabled;
-}
-
-.#{$ui-prefix}__button--neutral-light {
-    color: $ui-color-on-neutral-light;
-    background-color: $ui-color-neutral-light;
-}
-.#{$ui-prefix}__button--neutral-light:hover {
-    background-color: $ui-color-neutral-light-over;
-}
-.#{$ui-prefix}__button--neutral-light:disabled,
-.#{$ui-prefix}__button--neutral-light:disabled:hover {
-    background-color: $ui-color-neutral-light-disabled;
-}
-
-.#{$ui-prefix}__button--positive {
-    color: $ui-color-on-positive;
-    background-color: $ui-color-positive;
-}
-.#{$ui-prefix}__button--positive:hover {
-    background-color: $ui-color-positive-over;
-}
-.#{$ui-prefix}__button--positive:disabled,
-.#{$ui-prefix}__button--positive:disabled:hover {
-    background-color: $ui-color-positive-disabled;
-}
-
-.#{$ui-prefix}__button--negative {
-    color: $ui-color-on-negative;
-    background-color: $ui-color-negative;
-}
-.#{$ui-prefix}__button--negative:hover {
-    background-color: $ui-color-negative-over;
-}
-.#{$ui-prefix}__button--negative:disabled,
-.#{$ui-prefix}__button--negative:disabled:hover {
-    background-color: $ui-color-negative-disabled;
-}
-
-.#{$ui-prefix}__button--warning {
-    color: $ui-color-on-warning;
-    background-color: $ui-color-warning;
-}
-.#{$ui-prefix}__button--warning:hover {
-    background-color: $ui-color-warning-over;
-}
-.#{$ui-prefix}__button--warning:disabled,
-.#{$ui-prefix}__button--warning:disabled:hover {
-    background-color: $ui-color-warning-disabled;
-}
-
-.#{$ui-prefix}__button--regular-reverse {
-    color: $ui-color-neutral;
-    border: 1px solid $ui-color-neutral;
-    background-color: $ui-color-on-neutral;
-}
-.#{$ui-prefix}__button--regular-reverse:hover {
-    color: $ui-color-neutral-over;
-    border-color: $ui-color-neutral-over;
-    background-color: $ui-color-on-neutral;
-}
-.#{$ui-prefix}__button--regular-reverse:disabled,
-.#{$ui-prefix}__button--regular-reverse:disabled:hover {
-    color: $ui-color-neutral-disabled;
-    border-color: $ui-color-neutral-disabled;
-    background-color: $ui-color-on-neutral;
-}
-
 .#{$ui-prefix}__button--primary-reverse {
     color: $ui-color-primary;
     border: 1px solid $ui-color-primary;
@@ -175,10 +112,49 @@
 .#{$ui-prefix}__button--primary-reverse:disabled,
 .#{$ui-prefix}__button--primary-reverse:disabled:hover {
     color: $ui-color-primary-disabled;
-    color: $ui-color-on-primary;
     border-color: $ui-color-primary-disabled;
+    background-color: $ui-color-on-primary;
 }
 
+.#{$ui-prefix}__button--secondary {
+    color: $ui-color-on-secondary;
+    background-color: $ui-color-secondary;
+}
+.#{$ui-prefix}__button--secondary:hover {
+    background-color: $ui-color-secondary-over;
+}
+.#{$ui-prefix}__button--secondary:disabled,
+.#{$ui-prefix}__button--secondary:disabled:hover {
+    background-color: $ui-color-secondary-disabled;
+}
+.#{$ui-prefix}__button--secondary-reverse {
+    color: $ui-color-secondary;
+    border: 1px solid $ui-color-secondary;
+    background-color: $ui-color-on-secondary;
+}
+.#{$ui-prefix}__button--secondary-reverse:hover {
+    color: $ui-color-secondary-over;
+    border-color: $ui-color-secondary-over;
+    background-color: $ui-color-on-secondary;
+}
+.#{$ui-prefix}__button--secondary-reverse:disabled,
+.#{$ui-prefix}__button--secondary-reverse:disabled:hover {
+    color: $ui-color-secondary-disabled;
+    border-color: $ui-color-secondary-disabled;
+    background-color: $ui-color-on-secondary;
+}
+
+.#{$ui-prefix}__button--accent {
+    color: $ui-color-on-accent;
+    background-color: $ui-color-accent;
+}
+.#{$ui-prefix}__button--accent:hover {
+    background-color: $ui-color-accent-over;
+}
+.#{$ui-prefix}__button--accent:disabled,
+.#{$ui-prefix}__button--accent:disabled:hover {
+    background-color: $ui-color-accent-disabled;
+}
 .#{$ui-prefix}__button--accent-reverse {
     color: $ui-color-accent;
     border: 1px solid $ui-color-accent;
@@ -193,24 +169,21 @@
 .#{$ui-prefix}__button--accent-reverse:disabled:hover {
     color: $ui-color-accent-disabled;
     border-color: $ui-color-accent-disabled;
+    background-color: $ui-color-on-accent;
 }
 
-.#{$ui-prefix}__button--neutral-light-reverse {
-    color: $ui-color-neutral-light;
-    border: 1px solid $ui-color-neutral-light;
-    background-color: $ui-color-on-neutral-light;
+/* POSITIVE */
+.#{$ui-prefix}__button--positive {
+    color: $ui-color-on-positive;
+    background-color: $ui-color-positive;
 }
-.#{$ui-prefix}__button--neutral-light-reverse:hover {
-    color: $ui-color-neutral-light-over;
-    border-color: $ui-color-neutral-light-over;
-    background-color: $ui-color-on-neutral-light;
+.#{$ui-prefix}__button--positive:hover {
+    background-color: $ui-color-positive-over;
 }
-.#{$ui-prefix}__button--neutral-light-reverse:disabled,
-.#{$ui-prefix}__button--neutral-light-reverse:disabled:hover {
-    color: $ui-color-neutral-light-disabled;
-    border-color: $ui-color-neutral-light-disabled;
+.#{$ui-prefix}__button--positive:disabled,
+.#{$ui-prefix}__button--positive:disabled:hover {
+    background-color: $ui-color-positive-disabled;
 }
-
 .#{$ui-prefix}__button--positive-reverse {
     color: $ui-color-positive;
     border: 1px solid $ui-color-positive;
@@ -228,22 +201,18 @@
     background-color: $ui-color-on-positive;
 }
 
-.#{$ui-prefix}__button--negative-reverse {
-    color: $ui-color-negative;
-    border: 1px solid $ui-color-negative;
-    background-color: $ui-color-on-negative;
+/* WARNING */
+.#{$ui-prefix}__button--warning {
+    color: $ui-color-on-warning;
+    background-color: $ui-color-warning;
 }
-.#{$ui-prefix}__button--negative-reverse:hover {
-    color: $ui-color-negative-over;
-    border-color: $ui-color-negative-over;
-    background-color: $ui-color-on-negative;
+.#{$ui-prefix}__button--warning:hover {
+    background-color: $ui-color-warning-over;
 }
-.#{$ui-prefix}__button--negative-reverse:disabled,
-.#{$ui-prefix}__button--negative-reverse:disabled:hover {
-    color: $ui-color-negative-disabled;
-    border-color: $ui-color-negative-disabled;
+.#{$ui-prefix}__button--warning:disabled,
+.#{$ui-prefix}__button--warning:disabled:hover {
+    background-color: $ui-color-warning-disabled;
 }
-
 .#{$ui-prefix}__button--warning-reverse {
     color: $ui-color-warning;
     border: 1px solid $ui-color-warning;
@@ -258,4 +227,90 @@
 .#{$ui-prefix}__button--warning-reverse:disabled:hover {
     color: $ui-color-warning-disabled;
     border-color: $ui-color-warning-disabled;
+    background-color: $ui-color-on-warning;
+}
+
+/* NEGATIVE */
+.#{$ui-prefix}__button--negative {
+    color: $ui-color-on-negative;
+    background-color: $ui-color-negative;
+}
+.#{$ui-prefix}__button--negative:hover {
+    background-color: $ui-color-negative-over;
+}
+.#{$ui-prefix}__button--negative:disabled,
+.#{$ui-prefix}__button--negative:disabled:hover {
+    background-color: $ui-color-negative-disabled;
+}
+.#{$ui-prefix}__button--negative-reverse {
+    color: $ui-color-negative;
+    border: 1px solid $ui-color-negative;
+    background-color: $ui-color-on-negative;
+}
+.#{$ui-prefix}__button--negative-reverse:hover {
+    color: $ui-color-negative-over;
+    border-color: $ui-color-negative-over;
+    background-color: $ui-color-on-negative;
+}
+.#{$ui-prefix}__button--negative-reverse:disabled,
+.#{$ui-prefix}__button--negative-reverse:disabled:hover {
+    color: $ui-color-negative-disabled;
+    border-color: $ui-color-negative-disabled;
+    background-color: $ui-color-on-negative;
+}
+
+.#{$ui-prefix}__button--neutral-dark {
+    color: $ui-color-on-neutral-dark;
+    background-color: $ui-color-neutral-dark;
+}
+.#{$ui-prefix}__button--neutral-dark:hover {
+    background-color: $ui-color-neutral-dark-over;
+}
+.#{$ui-prefix}__button--neutral-dark:disabled,
+.#{$ui-prefix}__button--neutral-dark:disabled:hover {
+    background-color: $ui-color-neutral-dark-disabled;
+}
+.#{$ui-prefix}__button--neutral-dark-reverse {
+    color: $ui-color-neutral-dark;
+    border: 1px solid $ui-color-neutral-dark;
+    background-color: $ui-color-on-neutral-dark;
+}
+.#{$ui-prefix}__button--neutral-dark-reverse:hover {
+    color: $ui-color-neutral-dark-over;
+    border-color: $ui-color-neutral-dark-over;
+    background-color: $ui-color-on-neutral-dark;
+}
+.#{$ui-prefix}__button--neutral-dark-reverse:disabled,
+.#{$ui-prefix}__button--neutral-dark-reverse:disabled:hover {
+    color: $ui-color-neutral-dark-disabled;
+    border-color: $ui-color-neutral-dark-disabled;
+    background-color: $ui-color-on-neutral-dark;
+}
+
+.#{$ui-prefix}__button--neutral-light {
+    color: $ui-color-on-neutral-light;
+    background-color: $ui-color-neutral-light;
+}
+.#{$ui-prefix}__button--neutral-light:hover {
+    background-color: $ui-color-neutral-light-over;
+}
+.#{$ui-prefix}__button--neutral-light:disabled,
+.#{$ui-prefix}__button--neutral-light:disabled:hover {
+    background-color: $ui-color-neutral-light-disabled;
+}
+.#{$ui-prefix}__button--neutral-light-reverse {
+    color: $ui-color-neutral-light;
+    border: 1px solid $ui-color-neutral-light;
+    background-color: $ui-color-on-neutral-light;
+}
+.#{$ui-prefix}__button--neutral-light-reverse:hover {
+    color: $ui-color-neutral-light-over;
+    border-color: $ui-color-neutral-light-over;
+    background-color: $ui-color-on-neutral-light;
+}
+.#{$ui-prefix}__button--neutral-light-reverse:disabled,
+.#{$ui-prefix}__button--neutral-light-reverse:disabled:hover {
+    color: $ui-color-neutral-light-disabled;
+    border-color: $ui-color-neutral-light-disabled;
+    background-color: $ui-color-on-neutral-light;
 }

@@ -11,7 +11,7 @@ describe('Button', () => {
 
         const button = screen.getByRole('button');
         expect(button).toHaveClass(`${UI_PREFIX}__button`);
-        expect(button).toHaveClass(`${UI_PREFIX}__button--regular`);
+        expect(button).toHaveClass(`${UI_PREFIX}__button--neutral`);
         expect(button).toHaveClass(`${UI_PREFIX}__button--normal`);
         expect(button).toHaveClass(`${UI_PREFIX}__button--separated`);
         expect(button).toHaveClass(`${UI_PREFIX}__button--shadowed`);

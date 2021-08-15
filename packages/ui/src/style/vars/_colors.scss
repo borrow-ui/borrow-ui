@@ -1,20 +1,21 @@
 $ui-color-primary: #6322b8 !default;
 $ui-color-primary-over: lighten($ui-color-primary, 12) !default;
-$ui-color-primary-disabled: #9054df !default;
+$ui-color-primary-disabled: lighten($ui-color-primary, 22) !default;
 $ui-color-on-primary: white !default;
 
 $ui-color-primary-light: #7f28f1 !default; /* primary 0.5 */
 $ui-color-primary-light-over: lighten($ui-color-primary-light, 12) !default;
 $ui-color-on-primary-light: #ffffff !default;
 
-$ui-color-accent: #2e79e0 !default;
-$ui-color-accent-disabled: #92baf3 !default;
-$ui-color-accent-over: #428df5 !default;
-$ui-color-on-accent: white !default;
+$ui-color-secondary: #2e79e0 !default;
+$ui-color-secondary-over: #428df5 !default;
+$ui-color-secondary-disabled: #92baf3 !default;
+$ui-color-on-secondary: white !default;
 
-$ui-color-secondary: #e8eddf !default;
-$ui-color-secondary-over: lighten($ui-color-secondary, 12) !default;
-$ui-color-on-secondary: black !default;
+$ui-color-accent: #43d4d4 !default;
+$ui-color-accent-over: lighten($ui-color-accent, 12) !default;
+$ui-color-accent-disabled: lighten($ui-color-accent, 22) !default;
+$ui-color-on-accent: white !default;
 
 $ui-color-neutral: #718096 !default;
 $ui-color-neutral-disabled: #aabad2 !default;
@@ -28,6 +29,7 @@ $ui-color-on-neutral-light: white !default;
 
 $ui-color-neutral-dark: #5a6168 !default;
 $ui-color-neutral-dark-over: lighten($ui-color-neutral-dark, 12) !default;
+$ui-color-neutral-dark-disabled: lighten($ui-color-neutral-dark, 22) !default;
 $ui-color-on-neutral-dark: white !default;
 
 $ui-color-neutral-white: #fafafb !default;
@@ -100,7 +102,7 @@ $ui-color-gray-light-l1: #e5e8eb;
 $ui-color-gray-light-l2: #f5f7fa;
 
 $ui-color-pink-d2: #610041;
-$ui-color-pink-d1: #a20669;
+$ui-color-pink-d1: #800653;
 $ui-color-pink: #a20664;
 $ui-color-pink-l1: #bd0a6f;
 $ui-color-pink-l2: #d9127c;
