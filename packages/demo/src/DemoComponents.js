@@ -8,12 +8,12 @@ export function DemoComponents() {
       <Title tag="h3">Demo Components</Title>
       <div className="flex-center-center">
         <Tooltip tooltip="Can you see me?" className="m-r-10">
-          <Button mean="regular-reverse">Tooltip</Button>
+          <Button mean="neutral-reverse">Tooltip</Button>
         </Tooltip>
         <div className="m-r-10">
           <Panel
             Trigger={({ setVisible }) => (
-              <Button onClick={() => setVisible(true)} mean="regular-reverse">
+              <Button onClick={() => setVisible(true)} mean="neutral-reverse">
                 Panel
               </Button>
             )}
@@ -24,7 +24,7 @@ export function DemoComponents() {
           />
           <Modal
             Trigger={({ setVisible }) => (
-              <Button onClick={() => setVisible(true)} mean="regular-reverse">
+              <Button onClick={() => setVisible(true)} mean="neutral-reverse">
                 Modal
               </Button>
             )}
