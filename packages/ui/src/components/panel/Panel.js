@@ -81,7 +81,8 @@ export function PanelContent({
     const panelWrapper = getPanelWrapper();
 
     lastSetVisible = setVisible;
-    const styleWidth = typeof width === 'number' ? `${width}px` : width;
+    const pageWidth = typeof document !== 'undefined' ? document.body.clientWidth : width;
+    const styleWidth = typeof width === 'number' ? `${Math.min(width, pageWidth)}px` : width;
     const innerContainerStyleWidth = innerContainerWidth || styleWidth;
 
     useEffect(() => {
