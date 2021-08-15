@@ -27,6 +27,8 @@ export function Header({ isSmallScreen }) {
 
     return (
         <Navbar
+            sticky={false}
+            fixed={true}
             className="main-header"
             left={[
                 {

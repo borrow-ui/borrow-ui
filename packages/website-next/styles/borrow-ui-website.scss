@@ -8,12 +8,12 @@ p {
 }
 
 .main-sidebar {
-    height: calc(100vh - 46px);
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     z-index: 10;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .main-sidebar.borrow-ui__sidebar__container--closed {
         width: 0;
     }
@@ -45,7 +45,7 @@ p {
 .header__sidebar-trigger {
     display: inline-block;
 
-    @media (min-width: 600px) {
+    @media (min-width: 700px) {
         display: none;
     }
 }
@@ -53,8 +53,7 @@ p {
 .website__content {
     display: inline-block;
     flex-grow: 1;
-    height: calc(100vh - 46px);
-    overflow-y: auto;
+    padding-top: 46px;
 }
 
 .website__page {
@@ -64,7 +63,7 @@ p {
 .website__text {
     max-width: 900px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
         padding-left: 15px;
         padding-right: 15px;
     }

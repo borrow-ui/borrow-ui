@@ -8,8 +8,8 @@
         max-height: calc(100% - 100px);
         overflow: auto;
         background-color: white;
-        position: absolute;
-        left: calc(100% / 2 + 450px);
+        position: fixed;
+        left: calc(100% / 2 + 460px);
         top: 60px;
         border-radius: 15px;
         box-shadow: 3px 1px 6px -1px rgb(255 255 255 / 25%), 2px 5px 4px -1px rgb(255 255 255 / 15%);
@@ -21,7 +21,7 @@
         width: calc(100% - 20px);
         margin-right: auto;
         margin-left: auto;
-        position: absolute;
+        position: fixed;
         top: 46px;
         padding: 15px;
         background-color: white;
