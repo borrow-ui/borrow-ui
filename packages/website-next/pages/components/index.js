@@ -1,9 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { Block, Icon, Monospace, Title } from '@borrow-ui/ui';
+import { Block, Monospace, Title } from '@borrow-ui/ui';
 
 import { ItemsNavigator, ItemsNavigatorSelect } from '../../components/common/ItemsNavigator';
+import { IconLink } from '../../components/common/IconLink';
 
 import { AccordionDemo } from '../../components/components-showcase/AccordionDemo';
 import { BadgeDemo } from '../../components/components-showcase/BadgeDemo';
@@ -83,18 +84,9 @@ function DemoSection({ Component, href }) {
     );
 }
 
-function IconLink({ href }) {
-    return (
-        <a href={href} target="_blank" rel="noopener noreferrer" className="color-gray-l2 m-l-10">
-            <Icon name="transit_enterexit" size="small" modifiers={['180deg']} />
-        </a>
-    );
-}
-
 export default function Components() {
     return (
         <>
-            {' '}
             <Head>
                 <title>Components</title>
                 <meta property="og:title" content="Components" key="title" />

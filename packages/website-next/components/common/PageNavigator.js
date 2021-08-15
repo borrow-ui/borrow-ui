@@ -31,7 +31,7 @@ export function PageNavigator({ back = [], next = [] }) {
                         <LinkButton
                             key={backLink.href}
                             icon="arrow_back_ios"
-                            mean="regular"
+                            mean="neutral"
                             {...backLink}
                         />
                     ))}
