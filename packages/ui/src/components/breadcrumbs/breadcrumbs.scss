@@ -1,14 +1,18 @@
-@import '../../style/vars/colors';
+/* VARIABLES */
+$ui-breadcrumbs-color: $ui-color-neutral-light !default;
+$ui-breadcrumbs-color-over: $ui-color-neutral !default;
 
+/* CLASSES */
 .#{$ui-prefix}__breadcrumbs {
     font-size: 0.7rem;
-    color: $ui-color-neutral-light;
+    color: $ui-breadcrumbs-color;
     padding: 5px 0;
 }
 
 .#{$ui-prefix}__breadcrumbs__breadcrumb {
     text-decoration: none;
     display: inline-block;
+    color: inherit;
 }
 .#{$ui-prefix}__breadcrumbs__breadcrumb:visited {
     color: inherit;
@@ -18,7 +22,7 @@
     cursor: pointer;
 }
 .#{$ui-prefix}__breadcrumbs__breadcrumb--clickable:hover {
-    color: $ui-color-neutral;
+    color: $ui-breadcrumbs-color-over;
     text-decoration: underline;
 }
 .#{$ui-prefix}__breadcrumbs__breadcrumb--clickable:visited {
@@ -26,7 +30,7 @@
 }
 
 .#{$ui-prefix}__breadcrumbs__separator {
-    color: $ui-color-neutral;
+    color: $ui-breadcrumbs-color-over;
     display: inline-block;
     margin: 0 5px;
 }

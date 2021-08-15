@@ -1,8 +1,9 @@
-@import '../../style/vars/main';
-
+/* VARIABLES */
 $ui-link-color: $ui-color-primary !default;
 $ui-link-color-over: $ui-color-primary-over !default;
+$ui-link-color-underline: $ui-color-primary-light !default;
 
+/* CLASSES */
 .#{$ui-prefix}__link {
     color: $ui-link-color;
     cursor: pointer;
@@ -16,10 +17,10 @@ $ui-link-color-over: $ui-color-primary-over !default;
     -webkit-text-underline-position: under;
     -ms-text-underline-position: below;
     text-underline-position: under;
-    text-decoration-color: lighten($ui-color-primary-light, 15);
+    text-decoration-color: lighten($ui-link-color-underline, 15);
 }
 .#{$ui-prefix}__link--underline:hover {
-    text-decoration-color: $ui-color-primary-light;
+    text-decoration-color: $ui-link-color-underline;
 }
 
 .#{$ui-prefix}__link--no-underline {
