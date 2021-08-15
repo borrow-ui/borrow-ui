@@ -13,12 +13,16 @@
     ],
     "license": "MIT",
     "scripts": {
-        "build": "rollup -c && yarn compile-css-min",
+        "build": "yarn build-js && yarn build-styles",
+        "build-js": "rollup -c",
+        "build-styles": "yarn compile-css-min && yarn bundle-scss-all && yarn bundle-scss-vars",
         "dev": "yarn watch & yarn compile-css-min --watch",
         "watch": "yarn rollup --watch --watch.clearScreen",
         "rollup": "rollup -c",
         "compile-css": "sass src/style/ui.full.scss dist/ui.full.css",
         "compile-css-min": "sass src/style/ui.full.scss dist/ui.full.min.css --style=compressed",
+        "bundle-scss-all": "scss-bundle -e src/style/ui.full.scss -o dist/ui.full.scss -p ../../ --dedupeGlobs **/vars/_*.scss",
+        "bundle-scss-vars": "yarn run scss-bundle -e src/style/vars/_main.scss -o dist/_vars.scss",
         "test": "jest",
         "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
     },
@@ -79,7 +83,8 @@
         "rollup-plugin-cleaner": "^1.0.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-visualizer": "^5.4.1",
-        "sass": "^1.32.10"
+        "sass": "^1.32.10",
+        "scss-bundle": "^3.1.2"
     },
     "gitHead": "0f33f3a12c47027faac177fda1288947617e48fe",
     "publishConfig": {
