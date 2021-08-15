@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Link, Button } from '@borrow-ui/ui';
 
-function LinkButton({ href, icon, label, mean = 'accent' }) {
+function LinkButton({ href, icon, label, mean = 'secondary' }) {
     return (
         <Link href={href}>
             <a className="link__no-style">
