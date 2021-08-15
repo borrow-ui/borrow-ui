@@ -108,7 +108,7 @@ export function HorizontalFormDemo() {
                             <Checkbox checked={checkbox} onClick={() => setCheckbox(!checkbox)} />
                         </HField>
                         <HField label="Some Date" labelWidth={120}>
-                            <DatePicker value="2020-04-25" />
+                            <DatePicker value="2021-05-25" overlayRightAlign={true} />
                         </HField>
                     </Col>
                 </Row>

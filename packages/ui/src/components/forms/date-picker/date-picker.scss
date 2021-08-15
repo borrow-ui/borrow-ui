@@ -6,3 +6,12 @@
 .DayPicker-Day:not(.DayPicker-Day--today) {
     color: $ui-color-neutral-dark;
 }
+
+.DayPicker-Day {
+    min-width: 42px;
+}
+
+.#{$ui-prefix}__form__datepikcer__overlay--right-align {
+    right: 0;
+    left: initial;
+}
