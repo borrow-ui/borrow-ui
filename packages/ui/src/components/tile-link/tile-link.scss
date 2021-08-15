@@ -1,11 +1,11 @@
 .#{$ui-prefix}__tile-link {
     display: inline-block;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .#{$ui-prefix}__tile-link__link {
     margin-bottom: 20px;
-    margin-right: 15px;
     display: inline-flex;
     text-decoration: none;
 
@@ -22,11 +22,11 @@
 }
 
 .#{$ui-prefix}__tile-link__entry--big {
-    width: 200px;
+    max-width: 200px;
 }
 
 .#{$ui-prefix}__tile-link__entry--small {
-    width: 140px;
+    max-width: 140px;
 }
 
 .#{$ui-prefix}__tile-link__entry__icon-container {
