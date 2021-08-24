@@ -20,7 +20,7 @@ export function Home() {
                         !
                     </Title>
                     <Text size="big">
-                        Bootstrap your React Component Library with Lerna, Rollup and Storybook
+                        Bootstrap your React Component Library with yarn 3, Rollup and Storybook
                     </Text>
                     <div className={styles['home__action-buttons']}>
                         <Button

@@ -11,8 +11,7 @@ next:
 `borrow-ui` can be used as a monorepo project base. It is already configured to
 use the `ui` package inside the other packages.
 
-This project is setup to work with [lerna](https://github.com/lerna/lerna)
-and [yarn workspaces](https://yarnpkg.com/features/workspaces).
+This project is setup to work with [yarn workspaces](https://yarnpkg.com/features/workspaces).
 
 The following packages are included:
 
@@ -21,9 +20,7 @@ The following packages are included:
 -   `website-next`: public website presenting the project;
 -   `dashboard-backbone`: a dashboard backbone example; [TODO #4](https://github.com/borrow-ui/borrow-ui/issues/4)
 
-To understand how a monorepo works, you can read the official documentation on
-[lerna home page](https://github.com/lerna/lerna),
-or one of the [many tutorials](https://www.google.com/search?q=lerna+yarn+workspaces).
+`yarn` manages all the cross references between different packages through the workspaces functionality.
 
 ## Step by step
 
@@ -49,12 +46,12 @@ find . -type f -print0 | xargs -0 sed -i 's/borrow-ui/my-ui-name/g'
 From the main folder, run:
 
 ```bash
-yarn # this will install lerna and all the dependencies
+yarn # this will install all the dependencies
 ```
 
-#### Initialize the git repository
+#### Initialize the git repository (optional)
 
-Advice: initialize the folder as a repository and set a remote origin; if you are using github, you
+As a good practice, initialize the folder as a repository and set a remote origin; if you are using GitHub, you
 can create an empty repository directly on the website and the run the following command:
 
 ```bash

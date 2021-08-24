@@ -1961,7 +1961,7 @@ __metadata:
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-visualizer: ^5.4.1
-    sass: ^1.32.10
+    sass: 1.32.x
     scss-bundle: ^3.1.2
   peerDependencies:
     material-design-icons-iconfont: ">=5.0.1"
@@ -19729,6 +19729,17 @@ resolve@^2.0.0-next.3:
     sass:
       optional: true
   checksum: d53212e5d199cdd221a67046ab4276c352d56b50ca64347115b36e8ebbb2c68ec396a14d6cf5a08853c830a6b0ec1fd2b016cdc53cbe90a0332a908f50ec2043
+  languageName: node
+  linkType: hard
+
+"sass@npm:1.32.x":
+  version: 1.32.13
+  resolution: "sass@npm:1.32.13"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+  bin:
+    sass: sass.js
+  checksum: 51b798280bd96c8e8d580592bcd40947075e9e55109bbc5e21037427ac2a78e58d3c3cf4b8b33ac9d592758376597d15cd28ddde1cda2885d19791d6321989d4
   languageName: node
   linkType: hard
 

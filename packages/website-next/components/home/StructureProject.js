@@ -12,8 +12,8 @@ export function StructureProject() {
                 <Col colClassName="col-sm-12 col-md-6">
                     <div style={{ display: 'inline-block' }}>
                         <Text className="m-t-10">
-                            The repository is a Monorepo made with <Monospace>lerna</Monospace>
-                            and <Monospace>yarn workspaces</Monospace>.
+                            The repository is a Monorepo made with
+                            <Monospace>yarn workspaces</Monospace>.
                         </Text>
                         <Text>
                             If you {"don't"} want to use a Monorepo, just copy the{' '}

@@ -46,9 +46,10 @@ You can check which are the "dependencies", "optionalDependencies" and "peerDepe
 file and install them or launch the following command:
 
 ```bash
-yarn add -D "sass<1.33"
+yarn add -D "sass@<1.33"
+# For main components
 yarn add flexboxgrid2 react-media material-design-icons-iconfont @popperjs/core react-popper lodash.debounce prismjs
-# if you want to use forms:
+# For forms components:
 yarn add dayjs react-select react-day-picker react-dropzone
 ```
 
@@ -83,4 +84,52 @@ Congratulations! You should be able now to import components from `@borrow-ui/ui
 
 ```jsx
 import { Text } from '@borrow-ui/ui';
+```
+
+## Storybook
+
+If your project is not running Storybook and you want to start using it
+(with all the stories already available) you can install it now.
+From the root folder run:
+
+```bash
+npx -p @storybook/cli sb init
+yarn add -D @storybook/addon-docs
+```
+
+This will install Storybook and all the dependencies.
+Before running it, we need to configure the addon for documentation and import the css.
+
+In `.storybook/main.js` add the following addon:
+
+```js
+addons: [
+    ...
+    {
+        name: "@storybook/addon-docs",
+        options: {
+        configureJSX: true,
+        },
+    },
+    ...
+],
+```
+
+Create a file to load the styles, `.storybook/scss-loader.scss`:
+
+```scss
+@import '~material-design-icons-iconfont/dist/material-design-icons.css';
+@import '../src/@borrow-ui/ui/style/ui.full.scss';
+```
+
+In `.storybook/preview.js`, import this file with the following:
+
+```js
+import '!style-loader!css-loader!sass-loader!./scss-loader.scss';
+```
+
+And finally, run Storybook!
+
+```bash
+yarn storybook
 ```

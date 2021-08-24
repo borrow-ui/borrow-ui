@@ -8,9 +8,8 @@ next:
       label: 'Project Structure: UI Package'
 ---
 
-This project is based on [lerna](https://github.com/lerna/lerna) and
-[yarn workspaces](https://yarnpkg.com/features/workspaces).
-This two tools allows to organise the project as a monorepo, have a minimal
+This project is based on [yarn workspaces](https://yarnpkg.com/features/workspaces).
+This tool allows to organise the project as a monorepo, have a minimal
 impact on installed dependencies and link the packages inside the project
 with a minimal effort, without the need to publish them.
 
@@ -25,7 +24,6 @@ This monorepo has the following structure:
 
 ```
 borrow-ui/
-  lerna.json
   package.json
   packages/
     ui/
@@ -43,8 +41,7 @@ You can notice that there are different `package.json` files, on two levels:
 -   the ones inside the packages folders are the "standard" `package.json` files, with the commands and dependencies
     valid for the related package.
 
-Inside the packages you can add other packages as dependencies and `yarn` and `lerna` will be smart enough to link them.
-In this scenario, `lerna` will be useful as a publishing tool, to optimize packages management and to run commands in parallel.
+Inside the packages you can add other packages as dependencies and `yarn` will be smart enough to link them.
 The main package of this project is the `ui` package (it's full path is `borrow-ui/packages/ui`).
 
 Go to the [next section](/project-structure-ui-package) to see how it is organised.

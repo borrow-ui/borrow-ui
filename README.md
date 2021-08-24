@@ -10,7 +10,7 @@ Welcome to borrow-ui repository. borrow-ui is a simple React component library, 
 
 You can find the [documentation here](https://docs.borrow-ui.dev/).
 
-This repository uses [`lerna`](https://github.com/lerna/lerna) to organize the code in different packages.
+This repository uses [`yarn 3`](https://yarnpkg.com/) to organize the code in different packages.
 
 The following packages are available:
 
