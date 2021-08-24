@@ -73,10 +73,13 @@ describe('SearchBar', () => {
             <SearchBar debounceDelay={10} globalSearch={'test'} setGlobalSearch={setGlobalSearch} />
         );
 
+        // initial call
+        expect(setGlobalSearch).toHaveBeenCalledTimes(1);
+
         // do not call setGlobalSearch as the text is the same of globalSearch
         await userEvent.clear(screen.getByRole('textbox'));
         await userEvent.type(screen.getByRole('textbox'), 'test', { delay: 1 });
-        expect(setGlobalSearch).toHaveBeenCalledTimes(0);
+        expect(setGlobalSearch).toHaveBeenCalledTimes(1);
         // call setGlobalSearch as the text is different of globalSearch
         await userEvent.clear(screen.getByRole('textbox'));
         await userEvent.type(screen.getByRole('textbox'), 'trigger', { delay: 1 });
