@@ -2,7 +2,7 @@
     "name": "@borrow-ui/ui",
     "repository": "git@github.com:borrow-ui/borrow-ui.git",
     "author": "borrow-ui <info@borrow-ui.dev>",
-    "version": "0.0.3-alpha.2",
+    "version": "0.0.3-alpha.3",
     "description": "Components of @borrow-ui",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
@@ -83,7 +83,7 @@
         "rollup-plugin-cleaner": "^1.0.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-visualizer": "^5.4.1",
-        "sass": "^1.32.10",
+        "sass": "1.32.x",
         "scss-bundle": "^3.1.2"
     },
     "gitHead": "0f33f3a12c47027faac177fda1288947617e48fe",
