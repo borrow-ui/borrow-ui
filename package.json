@@ -7,14 +7,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "devDependencies": {
-    "lerna": "^3.22.1"
-  },
   "scripts": {
-    "bootstrap": "lerna bootstrap --use-workspaces",
-    "ui:build": "cd packages/ui && yarn build",
-    "ui:test": "cd packages/ui && yarn test",
-    "ui:coveralls": "cd packages/ui && yarn coveralls",
-    "website:build": "cd packages/website && yarn build"
+    "dev": "yarn workspaces foreach -piv run dev",
+    "build": "yarn run ui:build",
+    "ui:test": "yarn workspace @borrow-ui/ui run test",
+    "ui:build": "yarn workspace @borrow-ui/ui run build",
+    "ui:coveralls": "yarn workspace @borrow-ui/ui run coveralls",
+    "website-next:build": "yarn workspaces foreach -itR --from '@borrow-ui/(ui|website-next)' run build"
   }
 }

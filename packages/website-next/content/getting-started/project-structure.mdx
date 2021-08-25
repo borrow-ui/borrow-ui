@@ -1,0 +1,47 @@
+---
+title: Project Structure
+back:
+    - href: '/getting-started/getting-started'
+      label: 'Getting Started'
+next:
+    - href: '/getting-started/project-structure-ui-package'
+      label: 'Project Structure: UI Package'
+---
+
+This project is based on [yarn workspaces](https://yarnpkg.com/features/workspaces).
+This tool allows to organise the project as a monorepo, have a minimal
+impact on installed dependencies and link the packages inside the project
+with a minimal effort, without the need to publish them.
+
+Having different packages allows to re-use the same compnent library in
+different projects, or be ready to do so in the future.
+
+If you do not plan to expand your project with different packages, you might
+want to [include](/getting-started/getting-started-include-in-an-existing-project)
+this component library instead of using this repository as a base.
+
+This monorepo has the following structure:
+
+```
+borrow-ui/
+  package.json
+  packages/
+    ui/
+      package.json
+    documentation/
+      package.json
+    website-next/
+      package.json
+```
+
+You can notice that there are different `package.json` files, on two levels:
+
+-   the one at the top level tells to `yarn` where to find the packages and define the main folder as a private package,
+    to prevent accidental pushes to a registry;
+-   the ones inside the packages folders are the "standard" `package.json` files, with the commands and dependencies
+    valid for the related package.
+
+Inside the packages you can add other packages as dependencies and `yarn` will be smart enough to link them.
+The main package of this project is the `ui` package (it's full path is `borrow-ui/packages/ui`).
+
+Go to the [next section](/project-structure-ui-package) to see how it is organised.

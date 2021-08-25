@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Block } from './Block';
 import { Lorem } from '../lorem/Lorem';
@@ -29,7 +29,8 @@ The `Block` container can be customized with different properties:
 -   `separated` adds a margin;
 -   `padded` adds padding;
 -   `rounded` makes border rounded;
--   `outstanding` adds a shadow to make the block outstading from the background.
+-   `outstanding` adds a shadow to make the block outstading from the background;
+-   `outstandingHover` use outstanding class when the block is hovered.
 
 <Canvas>
     <Story name="Outstanding Squared">

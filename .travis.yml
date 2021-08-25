@@ -1,22 +1,36 @@
+# yarn2 gist: https://gist.github.com/dennisreimann/c2a6ef58544861f7e13762e06e146dac
+
 language: node_js
 node_js:
   - "14.16.1"
 
-cache: yarn
+cache:
+  # Yarn > 1 caches to the local .yarn directory, not the Travis default `$HOME/.yarn`
+  directories:
+    - ./.yarn/cache
+
+git:
+  lfs_skip_smudge: true
 
 branches:
   only:
     - master
-
-install:
-  - yarn global add lerna
-  - lerna bootstrap
+    - next
+    - travis
 
 matrix:
   include:
     - name: "borrow-ui/ui"
-      env: PACKAGE_LOCATION=packages/ui
+
+before_install:
+  # Upgrade Yarn 1.x: https://classic.yarnpkg.com/en/docs/install
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  # Then the local Yarn > 1 should be available and get used
+  - yarn -v
+
+# Use custom install step as Travis by default uses the --frozen-lockfile flag, which is deprecated
+install: yarn
 
 script:
-  - cd $PACKAGE_LOCATION
-  - yarn coveralls
+  - yarn workspace @borrow-ui/ui coveralls

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import { UI_PREFIX } from '../../config';
 
-import { Accordion } from './Accordion';
+import { Accordion, AccordionGroup } from './Accordion';
 
 describe('Accordion', () => {
     test('renders title and content', () => {
@@ -61,9 +61,9 @@ describe('Accordion', () => {
         expect(content).toHaveStyle(`max-height: 200px`);
     });
 
-    test('initialStatus is open', async () => {
+    test('initialOpen is true', async () => {
         render(
-            <Accordion title="Test Title" initialStatus="open">
+            <Accordion title="Test Title" initialOpen={true}>
                 Mighty Content
             </Accordion>
         );
@@ -73,5 +73,51 @@ describe('Accordion', () => {
         await userEvent.click(title);
 
         expect(title).toHaveClass(`${UI_PREFIX}__accordion__title--closed`);
+    });
+});
+
+describe('AccordionGroup', () => {
+    test('renders multiple accordions and only one is open', async () => {
+        render(
+            <AccordionGroup initialOpenTitle="Accordion 2">
+                <Accordion title="Accordion 1">Content 1</Accordion>
+                <Accordion title="Accordion 2">Content 2</Accordion>
+                <Accordion title="Accordion 3">Content 3</Accordion>
+            </AccordionGroup>
+        );
+
+        expect(screen.getByText('Accordion 1')).toHaveClass(
+            `${UI_PREFIX}__accordion__title--closed`
+        );
+        expect(screen.getByText('Content 1')).toHaveClass(
+            `${UI_PREFIX}__accordion__content--closed`
+        );
+        expect(screen.getByText('Accordion 2')).toHaveClass(`${UI_PREFIX}__accordion__title--open`);
+        expect(screen.getByText('Content 2')).toHaveClass(`${UI_PREFIX}__accordion__content--open`);
+        expect(screen.getByText('Accordion 3')).toHaveClass(
+            `${UI_PREFIX}__accordion__title--closed`
+        );
+        expect(screen.getByText('Content 3')).toHaveClass(
+            `${UI_PREFIX}__accordion__content--closed`
+        );
+
+        await userEvent.click(screen.getByText('Accordion 1'));
+        expect(screen.getByText('Accordion 1')).toHaveClass(`${UI_PREFIX}__accordion__title--open`);
+        expect(screen.getByText('Content 1')).toHaveClass(`${UI_PREFIX}__accordion__content--open`);
+        expect(screen.getByText('Accordion 2')).toHaveClass(
+            `${UI_PREFIX}__accordion__title--closed`
+        );
+        expect(screen.getByText('Content 2')).toHaveClass(
+            `${UI_PREFIX}__accordion__content--closed`
+        );
+
+        // Clicking the open one should close it
+        await userEvent.click(screen.getByText('Accordion 1'));
+        expect(screen.getByText('Accordion 1')).toHaveClass(
+            `${UI_PREFIX}__accordion__title--closed`
+        );
+        expect(screen.getByText('Content 1')).toHaveClass(
+            `${UI_PREFIX}__accordion__content--closed`
+        );
     });
 });

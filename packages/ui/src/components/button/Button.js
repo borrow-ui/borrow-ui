@@ -10,7 +10,17 @@ const BUTTON_CLASS = `${UI_PREFIX}__button`;
 // Mean and modifiers classes are calculated:
 // primary => `${BUTTON_CLASS}--primary`
 
-const MEANS_REGULAR = ['regular', 'primary', 'positive', 'negative', 'warning', 'accent'];
+const MEANS_REGULAR = [
+    'primary',
+    'secondary',
+    'positive',
+    'negative',
+    'warning',
+    'accent',
+    'neutral',
+    'neutral-dark',
+    'neutral-light',
+];
 const MEANS_REVERSE = MEANS_REGULAR.map((m) => `${m}-reverse`);
 export const MEANS = [...MEANS_REGULAR, ...MEANS_REVERSE];
 export const MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES];
@@ -18,7 +28,7 @@ export const MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES];
 export function Button({
     className = '',
     disabled,
-    mean = 'regular',
+    mean = 'neutral',
     size = 'normal',
     flat = false,
     separated = true,

@@ -1,5 +1,5 @@
 import ReactDOMServer from 'react-dom/server';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Badge } from '../badge/Badge';
 
@@ -196,7 +196,11 @@ In the example, the Badge component uses a `span` that can be removed with:
                         />
                         <ul>
                             {filteredEntries.map((fe) => {
-                                return <li id={fe.id}>{fe.fullName}</li>;
+                                return (
+                                    <li key={fe.id} id={fe.id}>
+                                        {fe.fullName}
+                                    </li>
+                                );
                             })}
                         </ul>
                     </div>

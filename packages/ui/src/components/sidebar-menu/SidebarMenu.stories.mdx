@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Block } from '../block/Block';
 import { Lorem } from '../lorem/Lorem';
-import { Sidebar } from '../sidebar/Sidebar';
 
 import { SidebarMenu, SidebarMenuTitle, SidebarMenuEntry } from './SidebarMenu';
 
@@ -19,7 +18,7 @@ Entry can be set active via `isActive` prop.
 <Canvas>
     <Story name="Default">
         <div style={{ display: 'flex', width: '100%' }}>
-            <Sidebar initialStatus="open" disableTrigger={true} shadowWhenOpen={false}>
+            <div style={{ minWidth: 300, height: '100%' }}>
                 <SidebarMenu padded={true}>
                     <SidebarMenu.Title>Section Title 1</SidebarMenu.Title>
                     <SidebarMenu.Entry isActive={true}>Active entry</SidebarMenu.Entry>
@@ -32,9 +31,9 @@ Entry can be set active via `isActive` prop.
                     <SidebarMenu.Entry>Entry 5</SidebarMenu.Entry>
                     <SidebarMenu.Entry>Entry 6</SidebarMenu.Entry>
                 </SidebarMenu>
-            </Sidebar>
+            </div>
             <div className="p-l-20 p-r-20 p-b-20">
-                <h2 className="m-t-10">Non-Collapsible Sidebar</h2>
+                <h2 className="m-t-10">With a Sidebar Menu</h2>
                 <Block className="overflow-auto h-400">
                     <Lorem />
                 </Block>

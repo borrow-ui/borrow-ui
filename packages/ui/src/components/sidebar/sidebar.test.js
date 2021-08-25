@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { useSidebar, Sidebar } from './Sidebar';
+import { Sidebar, SidebarBody } from './Sidebar';
+import { SidebarEntry } from './SidebarEntry';
+import { SidebarContext } from './SidebarContext';
 import { getShortcut } from './SidebarEntryLabelShortcut';
+import { SidebarTrigger, SidebarCustomTrigger } from './SidebarTrigger';
 import { UI_PREFIX } from '../../config';
 
 describe('Sidebar', () => {
     test('renders a Sidebar', async () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
         render(
             <Sidebar data-testid="sidebar">
                 <div>
@@ -46,14 +48,12 @@ describe('Sidebar', () => {
     });
 
     test('is closed when an entry with autoCloseLink is clicked', async () => {
-        const { Sidebar, SidebarEntry } = useSidebar();
         render(
-            <Sidebar data-testid="sidebar">
+            <Sidebar initialState={{ autoCloseLink: true }} data-testid="sidebar">
                 <div>
-                    <SidebarEntry iconName="dashboard" autoCloseLink>
+                    <SidebarEntry iconName="dashboard" href="/">
                         With AutoClose
                     </SidebarEntry>
-                    <SidebarEntry>Without AutoClose</SidebarEntry>
                 </div>
             </Sidebar>
         );
@@ -75,7 +75,6 @@ describe('Sidebar', () => {
     });
 
     test('renders a sticky Sidebar with a custom closed width', () => {
-        const { Sidebar } = useSidebar();
         render(
             <Sidebar data-testid="sidebar" stickyTop={true} closedWidth={200}>
                 <span>Top</span>
@@ -88,8 +87,6 @@ describe('Sidebar', () => {
     });
 
     test('renders a Sidebar with no trigger', () => {
-        const { Sidebar } = useSidebar();
-
         render(
             <Sidebar hideTrigger={true}>
                 <span>Top</span>
@@ -99,27 +96,22 @@ describe('Sidebar', () => {
         expect(screen.queryByTestId('sidebar-trigger')).not.toBeInTheDocument();
     });
 
-    test('renders a Sidebar with context provider', async () => {
-        const { sidebarContext, getDefaultState, SidebarEntry, CustomTrigger } = useSidebar();
+    test('renders a SidebarBody with context provider', async () => {
         function Layout() {
-            const contextValue = useState(getDefaultState());
+            const contextValue = useState(SidebarContext.getDefaultState());
 
             return (
-                <sidebarContext.Provider value={contextValue}>
+                <SidebarContext.Provider value={contextValue}>
                     <div>
-                        <CustomTrigger>
-                            {({ toggleOpened }) => {
-                                return <button onClick={toggleOpened}>OpenClose</button>;
+                        <SidebarCustomTrigger>
+                            {({ toggleStatus }) => {
+                                return <button onClick={toggleStatus}>OpenClose</button>;
                             }}
-                        </CustomTrigger>
+                        </SidebarCustomTrigger>
                         <div>Header</div>
                     </div>
                     <div>
-                        <Sidebar
-                            sidebarContext={sidebarContext}
-                            data-testid="sidebar"
-                            hideTrigger={true}
-                        >
+                        <SidebarBody data-testid="sidebar" hideTrigger={true}>
                             <SidebarEntry
                                 content="Extra content"
                                 id="1"
@@ -127,10 +119,10 @@ describe('Sidebar', () => {
                             >
                                 Top
                             </SidebarEntry>
-                        </Sidebar>
+                        </SidebarBody>
                         <div>Content</div>
                     </div>
-                </sidebarContext.Provider>
+                </SidebarContext.Provider>
             );
         }
 
@@ -163,28 +155,23 @@ describe('Sidebar', () => {
         );
     });
 
-    test('renders a Sidebar with context provider and default Trigger', async () => {
-        const { sidebarContext, getDefaultState, SidebarEntry, SidebarTrigger } = useSidebar();
+    test('renders a SidebarBody with context provider and default Trigger', async () => {
         function Layout() {
-            const contextValue = useState(getDefaultState());
+            const contextValue = useState(SidebarContext.getDefaultState());
 
             return (
-                <sidebarContext.Provider value={contextValue}>
+                <SidebarContext.Provider value={contextValue}>
                     <div>
                         <SidebarTrigger />
                         <div>Header</div>
                     </div>
                     <div>
-                        <Sidebar
-                            sidebarContext={sidebarContext}
-                            data-testid="sidebar"
-                            hideTrigger={true}
-                        >
+                        <SidebarBody data-testid="sidebar" hideTrigger={true}>
                             <SidebarEntry>Top</SidebarEntry>
-                        </Sidebar>
+                        </SidebarBody>
                         <div>Content</div>
                     </div>
-                </sidebarContext.Provider>
+                </SidebarContext.Provider>
             );
         }
 

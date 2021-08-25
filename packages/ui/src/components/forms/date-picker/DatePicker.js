@@ -4,13 +4,15 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
+import { UI_PREFIX } from '../../../config';
 import { FORM_INPUT_CLASS, FORM_INPUT_INVALID_CLASS, Input } from '../input/Input';
 
 dayjs.extend(customParseFormat);
 
+const DATEPICKER_OVERLAY_RIGHT_ALIGN = `${UI_PREFIX}__form__datepikcer__overlay--right-align`;
+
 export function DatePicker({
     inputProps = {},
-    overlayWrapperProps,
     onDayChange,
     onDayChangeFormat = 'string',
     format = 'YYYY-MM-DD',
@@ -19,6 +21,9 @@ export function DatePicker({
     returnPartial = true,
     disabled,
     invalid = false,
+    overlayWrapperProps,
+    overlayProps,
+    overlayRightAlign = false,
     ...rest
 }) {
     const initialValueDate = useMemo(
@@ -54,7 +59,14 @@ export function DatePicker({
 
     return (
         <DayPickerInput
-            overlayComponent={(props) => OverlayComponent({ ...props, ...overlayWrapperProps })}
+            overlayComponent={(props) =>
+                OverlayComponent({
+                    ...props,
+                    overlayProps,
+                    rightAlign: overlayRightAlign,
+                    ...overlayWrapperProps,
+                })
+            }
             inputProps={{
                 className: inputClass,
                 style: inputStyle,
@@ -120,12 +132,30 @@ DatePicker.propTypes = {
      * [documentation](https://react-day-picker.js.org/api/DayPickerInput#overlayComponent)
      */
     overlayWrapperProps: PropTypes.object,
+    /** Props passed to the overlay */
+    overlayProps: PropTypes.object,
+    /** Align the overlay on the right side of the input */
+    overlayRightAlign: PropTypes.bool,
 };
 
-function OverlayComponent({ children, classNames, selectedDay, ...props }) {
+function OverlayComponent({
+    children,
+    classNames,
+    selectedDay,
+    overlayProps = {},
+    rightAlign = false,
+    className,
+    ...props
+}) {
+    const { className: overlayPropsClass = '', ...restOverlayProps } = overlayProps;
+    const rightAlignClass = rightAlign ? DATEPICKER_OVERLAY_RIGHT_ALIGN : '';
+    const overlayClass = `${classNames.overlay} ${overlayPropsClass} ${rightAlignClass}`;
+
     return (
-        <div className={classNames.overlayWrapper} {...props}>
-            <div className={classNames.overlay}>{children}</div>
+        <div className={`${classNames.overlayWrapper} ${className}`.trim()} {...props}>
+            <div className={`${classNames.overlay} ${overlayClass}`.trim()} {...restOverlayProps}>
+                {children}
+            </div>
         </div>
     );
 }
@@ -134,6 +164,10 @@ OverlayComponent.propTypes = {
     classNames: PropTypes.object.isRequired,
     selectedDay: PropTypes.instanceOf(Date),
     children: PropTypes.node.isRequired,
+    overlayProps: PropTypes.object,
+    /** Show the input overlay aligned on the right side of input */
+    rightAlign: PropTypes.bool,
+    className: PropTypes.string,
 };
 
 export function parseDate(str, format) {

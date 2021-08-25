@@ -39,6 +39,9 @@ $ui-modal-footer-height: 65px !default;
 
 .#{$ui-prefix}__modal__controls {
     padding: $ui-page-padding;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .#{$ui-prefix}__modal__content {

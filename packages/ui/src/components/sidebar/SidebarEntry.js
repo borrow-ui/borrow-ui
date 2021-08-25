@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
@@ -8,6 +8,7 @@ import { propTypesChildren } from '../../utils/types';
 import { Icon } from '../icon/Icon';
 import { Link } from '../link/Link';
 
+import { SidebarContext } from './SidebarContext';
 import { SidebarIcon } from './SidebarIcon';
 import { SidebarEntryLabelShortcut } from './SidebarEntryLabelShortcut';
 
@@ -26,7 +27,6 @@ const SIDEBAR_ENTRY_CONTENT_CLASS = `${UI_PREFIX}__sidebar__entry__content`;
 const SIDEBAR_ENTRY_CONTENT_VISIBLE_CLASS = `${UI_PREFIX}__sidebar__entry__content--visible`;
 
 export function SidebarEntry({
-    sidebarContext,
     iconName,
     shortcut,
     id = '',
@@ -40,15 +40,15 @@ export function SidebarEntry({
     href,
     className = '',
     entryClickToggleContent = false,
-    autoCloseLink = true,
     ...rest
 }) {
-    const [sidebarState, setSidebarState] = useContext(sidebarContext);
+    const [sidebarState, setSidebarState] = useContext(SidebarContext);
 
     if (content && !id) {
         throw new Error(CONTENT_REQUIRES_ID);
     }
 
+    const autoCloseLink = sidebarState && sidebarState.autoCloseLink;
     const isLink = !!(to || href);
     const Tag = tag ? tag : isLink ? Link : 'div';
 
@@ -72,8 +72,13 @@ export function SidebarEntry({
             content &&
             setSidebarState((state) => {
                 const { openedEntrySubContent } = state;
-                openedEntrySubContent[id] = Boolean(!openedEntrySubContent[id]);
-                return { ...state, openedEntrySubContent };
+                return {
+                    ...state,
+                    openedEntrySubContent: {
+                        ...openedEntrySubContent,
+                        [id]: !Boolean(openedEntrySubContent[id]),
+                    },
+                };
             });
         entryClickToggleContent && onClick && onClick();
     };
@@ -85,7 +90,7 @@ export function SidebarEntry({
                   role: 'navigation',
               })
             : {};
-    const contentExpanded = id && sidebarState.openedEntrySubContent[id];
+    const contentExpanded = id && !!sidebarState.openedEntrySubContent[id];
 
     const toggleIcon = contentExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
     const clickableToggle =
@@ -103,12 +108,13 @@ export function SidebarEntry({
     if (!otherProps.role && isLink) otherProps.role = 'navigation';
 
     return (
-        <Fragment>
+        <>
             <Tag className={entryClass} to={to} href={href} id={id} {...otherProps}>
                 <div
                     className={entryGroupClass}
                     onClick={() =>
                         autoCloseLink &&
+                        isLink &&
                         !entryClickToggleContent &&
                         setSidebarState((s) => ({ ...s, opened: false }))
                     }
@@ -137,11 +143,11 @@ export function SidebarEntry({
                     {content}
                 </div>
             )}
-        </Fragment>
+        </>
     );
 }
 
-export const SidebarEntryPropTypes = {
+SidebarEntry.propTypes = {
     /** Name of the icon */
     iconName: PropTypes.string,
     /** Shortcut alternative to the icon */
@@ -164,12 +170,7 @@ export const SidebarEntryPropTypes = {
     to: PropTypes.string,
     /** Link target for standard links or Next */
     href: PropTypes.string,
+    className: PropTypes.string,
     onClick: PropTypes.func,
     children: propTypesChildren,
-};
-
-SidebarEntry.propTypes = {
-    /** `Sidebar` context */
-    sidebarContext: PropTypes.object.isRequired,
-    ...SidebarEntryPropTypes,
 };

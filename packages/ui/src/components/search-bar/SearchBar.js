@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
@@ -30,26 +30,29 @@ export function SearchBar({
 
     const searchBarClassName = `${SEARCH_BAR_CLASS} ${className}`.trim();
 
-    const doSearch = (value, currentEntries) => {
-        if (setFilteredEntries) {
-            if (value) {
-                // filter the entries based on value and options
-                const filteredEntries = filterEntriesFunction(currentEntries, [value], {
-                    stringIncludes,
-                });
-                setFilteredEntries(filteredEntries);
-            } else {
-                // if a value is not specified, all entries should be seen
-                setFilteredEntries(entries);
+    const doSearch = useCallback(
+        (value, currentEntries) => {
+            if (setFilteredEntries) {
+                if (value) {
+                    // filter the entries based on value and options
+                    const filteredEntries = filterEntriesFunction(currentEntries, [value], {
+                        stringIncludes,
+                    });
+                    setFilteredEntries(filteredEntries);
+                } else {
+                    // if a value is not specified, all entries should be seen
+                    setFilteredEntries(entries);
+                }
             }
-        }
-        // in case a callback to set the search value is passed, call it
-        setGlobalSearch && setGlobalSearch(value);
-    };
+            // in case a callback to set the search value is passed, call it
+            setGlobalSearch && setGlobalSearch(value);
+        },
+        [entries, filterEntriesFunction, stringIncludes, setFilteredEntries, setGlobalSearch]
+    );
 
-    const debouncedSearch = useCallback(
-        debounce((value) => doSearch(value, entries), debounceDelay),
-        [entries, debounceDelay] // Debounce the actual search
+    const debouncedSearch = useMemo(
+        () => debounce((value) => doSearch(value, entries), debounceDelay),
+        [entries, debounceDelay, doSearch] // Debounce the actual search
     );
 
     const changeSearch = (value) => {
@@ -65,7 +68,7 @@ export function SearchBar({
     // If search value is stored outside the component,
     // update the search box and execute search when it changes outside as well
     useEffect(() => {
-        if (setGlobalSearch && globalSearch !== search && search !== undefined) {
+        if (setGlobalSearch && globalSearch !== search) {
             setSearch(globalSearch);
             doSearch(globalSearch, entries);
         }

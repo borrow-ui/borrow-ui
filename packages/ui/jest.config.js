@@ -24,7 +24,6 @@ module.exports = {
         '!src/**/*.stories.js',
         '!src/**/PanelStory.js',
         '!src/**/SearchBarStory.js',
-        '!src/**/SidebarStory.js',
         '!src/**/TableStory.js',
         '!src/**/FormsStoryWrapper.js',
         '!src/**/forms/index.js',

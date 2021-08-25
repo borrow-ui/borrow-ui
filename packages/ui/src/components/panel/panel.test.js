@@ -155,7 +155,9 @@ describe('Panel', () => {
             expect(screen.queryByText('Panel Content')).toBeInTheDocument();
         });
 
-        await userEvent.click(panelWrapper);
+        await act(async () => {
+            await userEvent.click(panelWrapper);
+        });
 
         expect(screen.queryByText('Panel Content')).not.toBeInTheDocument();
     });

@@ -3,6 +3,7 @@
 A simple component library made with React.
 
 [![Coverage Status](https://coveralls.io/repos/github/borrow-ui/borrow-ui/badge.svg)](https://coveralls.io/github/borrow-ui/borrow-ui)
+[![Build](https://app.travis-ci.com/borrow-ui/borrow-ui.svg?branch=master)](https://app.travis-ci.com/github/borrow-ui/borrow-ui)
 
 ## Project description
 
@@ -10,7 +11,7 @@ Welcome to borrow-ui repository. borrow-ui is a simple React component library, 
 
 You can find the [documentation here](https://docs.borrow-ui.dev/).
 
-This repository uses [`lerna`](https://github.com/lerna/lerna) to organize the code in different packages.
+This repository uses [`yarn 3`](https://yarnpkg.com/) to organize the code in different packages.
 
 The following packages are available:
 

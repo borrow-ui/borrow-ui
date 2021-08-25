@@ -1,29 +1,45 @@
-import React, { createContext } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { Sidebar } from '@borrow-ui/ui';
+import { SidebarBody, SidebarEntry } from '@borrow-ui/ui';
 
-export const sidebarContext = createContext();
+import packageJson from '../package.json';
 
-export function MainSidebar({ SidebarEntry }) {
+export function MainSidebar({ isSmallScreen }) {
+    const [viewSidebar, setViewSidebar] = useState(false);
+
+    useEffect(() => {
+        setViewSidebar(isSmallScreen);
+    }, [isSmallScreen]);
+
+    if (!viewSidebar) return null;
+
     return (
-        <Sidebar
-            sidebarContext={sidebarContext}
-            hideTrigger
-            shadowWhenOpen={false}
-            className="main-sidebar"
-            stickyTop={true}
-        >
+        <SidebarBody hideTrigger shadowWhenOpen={false} className="main-sidebar" stickyTop={true}>
             <div>
                 <SidebarEntry iconName="home" href="/">
                     Home
                 </SidebarEntry>
-                <SidebarEntry iconName="auto_stories" href="/tour">
-                    Tour
+                <SidebarEntry iconName="auto_stories" href="/getting-started/getting-started">
+                    Getting Started
                 </SidebarEntry>
                 <SidebarEntry iconName="apps" href="/components">
                     Components
                 </SidebarEntry>
+                <SidebarEntry iconName="palette" href="/styles">
+                    Styles
+                </SidebarEntry>
+                <SidebarEntry iconName="format_list_numbered" href="/workflow">
+                    Workflow
+                </SidebarEntry>
+                <SidebarEntry iconName="follow_the_signs" href="/roadmap">
+                    Roadmap
+                </SidebarEntry>
             </div>
-        </Sidebar>
+            <div>
+                <div className="flex-center-center p-5" style={{ fontSize: 12 }}>
+                    v{packageJson.version}
+                </div>
+            </div>
+        </SidebarBody>
     );
 }

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Block, Row, Col, Monospace, Text, Title, Link, SyntaxHighlight } from '@borrow-ui/ui';
 
 export function ComponentExample({ isSmallScreen }) {
+    const [isOutstanding, setIsOutstanding] = useState(true);
+    useEffect(() => {
+        setIsOutstanding(!isSmallScreen);
+    }, [isSmallScreen]);
+
     return (
-        <Block outstanding={!isSmallScreen}>
+        <Block outstanding={isOutstanding}>
             <Title tag="h2" className="m-t-0 m-r-10 color-primary">
                 Example - Link component
             </Title>

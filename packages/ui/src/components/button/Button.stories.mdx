@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Button } from './Button';
 
@@ -11,7 +11,7 @@ The `Button` renders a button.
 
 With the `mean` property we can define the style:
 
--   `regular`
+-   `neutral`
 -   `primary`
 -   `positive`
 -   `negative`
@@ -23,8 +23,8 @@ With the `mean` property we can define the style:
     <Story name="Default">
         <div>
             <div>
-                <Button mean="regular">Regular</Button>
-                <Button mean="regular-reverse">Regular Reverse</Button>
+                <Button mean="neutral">Neutral</Button>
+                <Button mean="neutral-reverse">Neutral Reverse</Button>
                 <Button mean="primary">Primary</Button>
                 <Button mean="primary-reverse">Primary Reverse</Button>
                 <Button mean="accent">Accent</Button>
@@ -98,7 +98,7 @@ Showcase of other props using `flat` and `icon`; If you want to put aside button
 
 ## React Tutorial
 
-Button component allows to create consistent buttons with basic meanings: regular, primary,
+Button component allows to create consistent buttons with basic meanings: neutral, primary,
 semaphore (positive/negative/warning) and accentuated.
 
 To start, we can define some CSS classes (one for each mean) and associate a `mean` prop:
@@ -106,7 +106,7 @@ To start, we can define some CSS classes (one for each mean) and associate a `me
 ```jsx
 import React from 'react';
 
-export function Button({ mean='regular', children, ...rest }) {
+export function Button({ mean='neutral', children, ...rest }) {
     const className = `button button--${mean}`;
 
     return (
@@ -121,7 +121,7 @@ such as size or separated (with margins) and apply all these modifiers at once:
 ```jsx
 import React from 'react';
 
-export function Button({ mean='regular', size='normal', separated=false, children, ...rest }) {
+export function Button({ mean='neutral', size='normal', separated=false, children, ...rest }) {
     const mods = [ // set values if prop is not undefined,
         mean && mean,
         size && size,
@@ -144,7 +144,7 @@ the built one so we need to take that into consideration as well:
 ```jsx
 import React from 'react';
 
-export function Button({ mean='regular', size='normal', separated=false, className='', children, ...rest }) {
+export function Button({ mean='neutral', size='normal', separated=false, className='', children, ...rest }) {
     // ... same as before
 
     const buttonClassName = `button ${className} ${modifiersClass}`.trim();
@@ -161,7 +161,7 @@ Like other components, we can customize the tag as well:
 import React from 'react';
 
 export function Button({
-    mean = 'regular',
+    mean = 'neutral',
     size = 'normal',
     separated = false,
 +     tag: Tag = 'button',
@@ -192,7 +192,7 @@ import React from 'react';
 +import { Icon } from '../icon/Icon';
 
 export function Button({
-    mean = 'regular',
+    mean = 'neutral',
     size = 'normal',
     separated = false,
     tag: Tag = 'button',

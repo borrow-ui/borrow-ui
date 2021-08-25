@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,9 +6,16 @@ import { Icon, Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
 
 import logoColor from '../public/logo-color-192.png';
 import packageJson from '../package.json';
-import { sidebarContext } from './MainSidebar';
 
 export function Header({ isSmallScreen }) {
+    // Required for Hydration, initial render should be the same as
+    // server. "Logic" should be placed in effects.
+    const [showLinks, setShowLinks] = useState(false);
+
+    useEffect(() => {
+        setShowLinks(!isSmallScreen);
+    }, [isSmallScreen]);
+
     const logo = (
         <Image
             src={logoColor || '/logo-color-192.png'}
@@ -20,6 +27,8 @@ export function Header({ isSmallScreen }) {
 
     return (
         <Navbar
+            sticky={false}
+            fixed={true}
             className="main-header"
             left={[
                 {
@@ -34,16 +43,16 @@ export function Header({ isSmallScreen }) {
                         </Link>
                     ),
                 },
-                !isSmallScreen && {
+                showLinks && {
                     headerLabel: (
-                        <Link href="/tour">
+                        <Link href="/getting-started/getting-started" prefetch={false}>
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Tour</span>
+                                <span>Getting Started</span>
                             </a>
                         </Link>
                     ),
                 },
-                !isSmallScreen && {
+                showLinks && {
                     headerLabel: (
                         <Link href="/components">
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
@@ -52,7 +61,34 @@ export function Header({ isSmallScreen }) {
                         </Link>
                     ),
                 },
-            ].filter((v) => v)}
+                showLinks && {
+                    headerLabel: (
+                        <Link href="/styles">
+                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
+                                <span>Styles</span>
+                            </a>
+                        </Link>
+                    ),
+                },
+                showLinks && {
+                    headerLabel: (
+                        <Link href="/workflow">
+                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
+                                <span>Workflow</span>
+                            </a>
+                        </Link>
+                    ),
+                },
+                showLinks && {
+                    headerLabel: (
+                        <Link href="/roadmap">
+                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
+                                <span>Roadmap</span>
+                            </a>
+                        </Link>
+                    ),
+                },
+            ].filter((v) => !!v)}
             right={[
                 <NavbarLink
                     tag="a"
@@ -63,15 +99,15 @@ export function Header({ isSmallScreen }) {
                 >
                     <Icon family="fab" name="fa-github" size="small" />
                 </NavbarLink>,
-                !isSmallScreen && (
+                showLinks && (
                     <span className="header__version" key="version">
                         v{packageJson.version}
                     </span>
                 ),
                 <div key="trigger" className="header__sidebar-trigger">
-                    <SidebarTrigger sidebarContext={sidebarContext} />
+                    <SidebarTrigger />
                 </div>,
-            ].filter((v) => v)}
+            ].filter((v) => !!v)}
         />
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { UI_PREFIX } from '../../../config';
@@ -57,6 +57,8 @@ describe('Dropzone', () => {
         const delete1 = screen.getAllByText('×')[0];
         userEvent.click(delete1);
 
+        expect(await screen.queryByText('test.txt')).not.toBeInTheDocument();
+
         // onFileRemove should have been called once with right arguments
         expect(onFileRemove.mock.calls[0][0]).toBe(file1);
         expect(onFileRemove.mock.calls[0][1].files.length).toBe(1);
@@ -64,10 +66,9 @@ describe('Dropzone', () => {
         expect(onFileRemove.mock.calls[0][1].lastChangeReason).toBe('remove');
 
         // onFilesChanged is called again
-        expect(onFilesChanges).toBeCalledTimes(3);
+        await waitFor(() => expect(onFilesChanges).toBeCalledTimes(3));
         expect(onFilesChanges.mock.calls[2][0].lastChangeReason).toBe('remove');
     });
-
     test('renders with appropriate classes', () => {
         render(
             <Dropzone

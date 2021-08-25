@@ -34,8 +34,8 @@ const externals = [
     'react-select/creatable',
 ];
 
-export default {
-    input: 'src/index.js', // "src/index.ts" for TS
+const configuration = {
+    input: 'src/index.js',
     output: [
         {
             file: packageJson.main,
@@ -70,3 +70,5 @@ export default {
     // suggested in docs.
     external: (id) => id.includes('@babel/runtime') || externals.includes(id),
 };
+
+export default configuration;

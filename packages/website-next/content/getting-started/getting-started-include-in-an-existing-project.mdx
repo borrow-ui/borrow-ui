@@ -1,0 +1,135 @@
+---
+title: Include in an existing project
+back:
+    - href: '/getting-started/getting-started'
+      label: 'Getting Started'
+next:
+    - href: '/getting-started/project-structure'
+      label: 'Project Structure'
+---
+
+`borrow-ui` can be used directly in your React project by including the
+`ui/src` folder of this project directly in your `src` folder.
+
+For example, if you are using [CRA](https://create-react-app.dev/):
+
+1. copy the `borrow-ui/packages/ui/src` folder inside CRA's' `src` folder with the desired name
+   (i.e. `@borrow-ui/ui`);
+2. install the dependencies;
+3. start the application!
+
+## Step by step
+
+### Download and include in your project
+
+Download the latest zip [here](https://github.com/borrow-ui/borrow-ui/archive/master.zip)
+and extract the content, for example in `~/Downloads/borrow-ui-master`.
+
+Copy the `packages/ui/src` folder inside your project:
+
+```bash
+# You probably did this before:
+# npx create-react-app my-react-app
+# Navigate inside your project src
+cd my-react-app/src;
+# create a @borrow-ui container folder
+mkdir @borrow-ui
+# copy the src folder inside the packages here
+cp -r ~/Downloads/borrow-ui-master/packages/ui/src @borrow-ui/ui
+```
+
+### Install dependencies
+
+Now, before starting the React app, the required dependencies needs to be installed.
+You can check which are the "dependencies", "optionalDependencies" and "peerDependencies" from the source
+[package.json](https://github.com/borrow-ui/borrow-ui/blob/master/packages/ui/package.json)
+file and install them or launch the following command:
+
+```bash
+yarn add -D "sass@<1.33"
+# For main components
+yarn add flexboxgrid2 react-media material-design-icons-iconfont @popperjs/core react-popper lodash.debounce prismjs
+# For forms components:
+yarn add dayjs react-select react-day-picker react-dropzone
+```
+
+If you don't want to use forms components, you need to remove the import and export
+from `borrow-ui`'s `index.js` file, located in the index file `src/@borrow-ui/ui/index.js`,
+and from `ui.full.scss` file, located in the SCSS index file `src/@borrow-ui/ui/styles/ui.full.scss`.
+
+Import in your application the required dependencies, for example in your main `src/index.js`:
+
+```jsx
+import '@borrow-ui/ui/style/ui.full.scss';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
+```
+
+To make imports work properly, create a `jsconfig.json`
+file on your root folder (same folder as `package.json`) to enable imports from `src` folder:
+
+```json
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "*": ["src/*"]
+        }
+    }
+}
+```
+
+### Import components in your project
+
+Congratulations! You should be able now to import components from `@borrow-ui/ui`!
+
+```jsx
+import { Text } from '@borrow-ui/ui';
+```
+
+## Storybook
+
+If your project is not running Storybook and you want to start using it
+(with all the stories already available) you can install it now.
+From the root folder run:
+
+```bash
+npx -p @storybook/cli sb init
+yarn add -D @storybook/addon-docs
+```
+
+This will install Storybook and all the dependencies.
+Before running it, we need to configure the addon for documentation and import the css.
+
+In `.storybook/main.js` add the following addon:
+
+```js
+addons: [
+    ...
+    {
+        name: "@storybook/addon-docs",
+        options: {
+        configureJSX: true,
+        },
+    },
+    ...
+],
+```
+
+Create a file to load the styles, `.storybook/scss-loader.scss`:
+
+```scss
+@import '~material-design-icons-iconfont/dist/material-design-icons.css';
+@import '../src/@borrow-ui/ui/style/ui.full.scss';
+```
+
+In `.storybook/preview.js`, import this file with the following:
+
+```js
+import '!style-loader!css-loader!sass-loader!./scss-loader.scss';
+```
+
+And finally, run Storybook!
+
+```bash
+yarn storybook
+```

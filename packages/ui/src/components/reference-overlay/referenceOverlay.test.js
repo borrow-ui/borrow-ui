@@ -66,42 +66,6 @@ describe('ReferenceOverlay', () => {
         expect(screen.getByTestId('click-me-overlay')).toHaveClass(
             `${UI_PREFIX}__reference-overlay--visible`
         );
-        // closes if click outside
-        await act(async () => {
-            await userEvent.click(page);
-        });
-        expect(screen.getByTestId('click-me-overlay')).not.toHaveClass(
-            `${UI_PREFIX}__reference-overlay--visible`
-        );
-    });
-
-    test('renders trigger and content: click persists', async () => {
-        render(
-            <div>
-                <div>Page</div>
-                <ReferenceOverlay
-                    triggerMode="click"
-                    clickPersist={true}
-                    overlayContent="click visible"
-                    overlayProps={{ 'data-testid': 'click-me-overlay' }}
-                >
-                    Click me
-                </ReferenceOverlay>
-            </div>
-        );
-
-        const page = screen.getByText('Page');
-        const clickMe = screen.getByText('Click me');
-        expect(screen.getByTestId('click-me-overlay')).not.toHaveClass(
-            `${UI_PREFIX}__reference-overlay--visible`
-        );
-        // Normal click
-        await act(async () => {
-            await userEvent.click(clickMe);
-        });
-        expect(screen.getByTestId('click-me-overlay')).toHaveClass(
-            `${UI_PREFIX}__reference-overlay--visible`
-        );
         // do not closes if click outside
         await act(async () => {
             await userEvent.click(page);

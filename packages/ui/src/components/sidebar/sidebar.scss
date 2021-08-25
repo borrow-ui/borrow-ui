@@ -1,5 +1,3 @@
-@import '../../style/vars/main';
-
 $ui-dashboard-header-height: 0 !default;
 $ui-sidebar-closed-width: 46px !default;
 $ui-sidebar-open-width: 275px !default;
@@ -21,6 +19,7 @@ $ui-sidebar-entry-content-toggle-color-bg: $ui-color-neutral-light !default;
     transition: all 0.5s;
     background-color: $ui-sidebar-color-bg;
     box-sizing: border-box;
+    height: 100%;
 }
 
 .#{$ui-prefix}__sidebar__container--open {
@@ -43,6 +42,7 @@ $ui-sidebar-entry-content-toggle-color-bg: $ui-color-neutral-light !default;
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 100%;
     height: 100%;
     box-sizing: content-box;
     width: 100%;
@@ -103,6 +103,7 @@ $ui-sidebar-entry-content-toggle-color-bg: $ui-color-neutral-light !default;
     align-items: center;
     color: $ui-sidebar-color;
     text-decoration: none;
+    width: 100%;
 
     &:hover {
         color: $ui-sidebar-entry-hover-color;

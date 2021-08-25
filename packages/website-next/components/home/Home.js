@@ -11,7 +11,7 @@ export function Home() {
     return (
         <Page continuousScroll={true} pageBodyProps={{ className: styles['home__page'] }}>
             <Block padded={false}>
-                <main className="website__text">
+                <main className="website__text__columns">
                     <Title className={styles['home__main-title']}>
                         Welcome to{' '}
                         <Link tag="a" href="https://borrow-ui.dev">
@@ -20,7 +20,7 @@ export function Home() {
                         !
                     </Title>
                     <Text size="big">
-                        Bootstrap your React Component Library with Lerna, Rollup and Storybook
+                        Bootstrap your React Component Library with yarn 3, Rollup and Storybook
                     </Text>
                     <div className={styles['home__action-buttons']}>
                         <Button
@@ -42,7 +42,7 @@ export function Home() {
                             size="huge"
                             icon="fa-github"
                             iconProps={{ size: 'big', family: 'fab' }}
-                            mean="regular-reverse"
+                            mean="neutral-reverse"
                         >
                             GitHub
                         </Button>
@@ -50,7 +50,7 @@ export function Home() {
                 </main>
 
                 <div className={styles['home__cards-container']}>
-                    <div className="website__text">
+                    <div className="website__text__columns">
                         <div className={styles['home__tiles-container']}>
                             <Tile
                                 description="Small reusable components"
@@ -67,9 +67,6 @@ export function Home() {
                             <Tile description="Easy to extend" className={styles['home__tile']}>
                                 <Icon name="extension" size="huge" />
                             </Tile>
-                            <Tile description="Dashboard oriented" className={styles['home__tile']}>
-                                <Icon name="view_compact" size="huge" />
-                            </Tile>
                         </div>
 
                         <div className={styles['home__tiles-container']}>
@@ -79,9 +76,6 @@ export function Home() {
                             <Tile description="Storybook" className={styles['home__tile']}>
                                 <Icon name="grid_view" size="huge" />
                             </Tile>
-                            <Tile description="Lerna Monorepo" className={styles['home__tile']}>
-                                <Icon name="list_alt" size="huge" />
-                            </Tile>
                             <Tile description="BEM SCSS" className={styles['home__tile']}>
                                 <Icon name="palette" size="huge" />
                             </Tile>
@@ -90,37 +84,19 @@ export function Home() {
                 </div>
             </Block>
 
-            <div className="website__text">
+            <div className="website__text__columns">
                 <Responsive>{(matches) => <GetTheCode isSmallScreen={matches.small} />}</Responsive>
             </div>
-            <div className="website__text">
+            <div className="website__text__columns">
                 <StructureProject />
             </div>
-            <div className="website__text">
+            <div className="website__text__columns">
                 <Rename />
             </div>
-            <div className="website__text">
+            <div className="website__text__columns">
                 <Responsive>
                     {(matches) => <ComponentExample isSmallScreen={matches.small} />}
                 </Responsive>
-            </div>
-            <div className={styles['home__get-started']}>
-                <div className="website__text">
-                    <div className="flex-center-center">
-                        <Link href="/tour">
-                            <a className="link__no-style">
-                                <Button
-                                    mean="accent"
-                                    size="huge"
-                                    icon="code"
-                                    iconProps={{ size: 'big' }}
-                                >
-                                    Get Started
-                                </Button>
-                            </a>
-                        </Link>
-                    </div>
-                </div>
             </div>
         </Page>
     );

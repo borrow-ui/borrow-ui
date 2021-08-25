@@ -2,7 +2,7 @@
     "name": "@borrow-ui/ui",
     "repository": "git@github.com:borrow-ui/borrow-ui.git",
     "author": "borrow-ui <info@borrow-ui.dev>",
-    "version": "0.0.3-alpha.1",
+    "version": "0.0.3-alpha.3",
     "description": "Components of @borrow-ui",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
@@ -13,12 +13,16 @@
     ],
     "license": "MIT",
     "scripts": {
-        "build": "rollup -c && yarn compile-css-min",
-        "dev": "bash -c 'yarn watch & yarn compile-css-min --watch'",
+        "build": "yarn build-js && yarn build-styles",
+        "build-js": "rollup -c",
+        "build-styles": "yarn compile-css-min && yarn bundle-scss-all && yarn bundle-scss-vars",
+        "dev": "yarn watch & yarn compile-css-min --watch",
         "watch": "yarn rollup --watch --watch.clearScreen",
         "rollup": "rollup -c",
         "compile-css": "sass src/style/ui.full.scss dist/ui.full.css",
         "compile-css-min": "sass src/style/ui.full.scss dist/ui.full.min.css --style=compressed",
+        "bundle-scss-all": "scss-bundle -e src/style/ui.full.scss -o dist/ui.full.scss -p ../../ --dedupeGlobs **/vars/_*.scss",
+        "bundle-scss-vars": "yarn run scss-bundle -e src/style/vars/_main.scss -o dist/_vars.scss",
         "test": "jest",
         "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
     },
@@ -63,6 +67,7 @@
         "coveralls": "^3.1.0",
         "dayjs": ">=1.8.x",
         "jest": "^26.6.3",
+        "jest-environment-jsdom": "^27.0.6",
         "lodash.debounce": ">=4.0.x",
         "material-design-icons-iconfont": ">=5.0.1",
         "prettier": "^2.1.1",
@@ -78,10 +83,14 @@
         "rollup-plugin-cleaner": "^1.0.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-visualizer": "^5.4.1",
-        "sass": "^1.32.10"
+        "sass": "1.32.x",
+        "scss-bundle": "^3.1.2"
     },
     "gitHead": "0f33f3a12c47027faac177fda1288947617e48fe",
     "publishConfig": {
         "access": "public"
+    },
+    "resolutions": {
+        "jest-environment-jsdom": "^27.0.6"
     }
 }
