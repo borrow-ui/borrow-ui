@@ -1,6 +1,6 @@
 {
   "name": "@borrow-ui/documentation",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.3",
   "description": "Borrow-UI documentation based on Docz",
   "author": "borrow-ui",
   "private": true,
@@ -33,7 +33,7 @@
     "css-loader": "^5.2.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.32.11",
+    "sass": "<1.33",
     "sass-loader": "^10",
     "style-loader": "^2.0.0",
     "webpack": "^4.0.0"
