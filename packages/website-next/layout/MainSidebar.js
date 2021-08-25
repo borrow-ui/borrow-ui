@@ -28,6 +28,9 @@ export function MainSidebar({ isSmallScreen }) {
                 <SidebarEntry iconName="palette" href="/styles">
                     Styles
                 </SidebarEntry>
+                <SidebarEntry iconName="format_list_numbered" href="/workflow">
+                    Workflow
+                </SidebarEntry>
             </div>
             <div>
                 <div className="flex-center-center p-5" style={{ fontSize: 12 }}>

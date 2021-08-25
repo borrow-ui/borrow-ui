@@ -26,6 +26,13 @@ export function Footer() {
                                 </NextLink>
                             </li>
                             <li>
+                                <NextLink href="/workflow">
+                                    <a className="borrow-ui__link borrow-ui__link--underline">
+                                        Workflow to follow
+                                    </a>
+                                </NextLink>
+                            </li>
+                            <li>
                                 <Link tag="a" href="https://docs.borrow-ui.dev/">
                                     Storybook Documentation
                                 </Link>

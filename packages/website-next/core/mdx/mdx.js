@@ -45,8 +45,8 @@ export const getSingleContent = async (sourcePath, slug) => {
 };
 
 export function generateGetStaticProps(sourcePaths) {
-    return async ({ params }) => {
-        const content = await getSingleContent(sourcePaths, params.slug);
+    return async ({ params = {} }) => {
+        const content = await getSingleContent(sourcePaths, params.slug || 'index');
 
         return {
             props: { ...content },
