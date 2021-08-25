@@ -1,3 +1,5 @@
+# yarn2 gist: https://gist.github.com/dennisreimann/c2a6ef58544861f7e13762e06e146dac
+
 language: node_js
 node_js:
   - "14.16.1"
@@ -7,10 +9,14 @@ cache:
   directories:
     - ./.yarn/cache
 
+git:
+  lfs_skip_smudge: true
+
 branches:
   only:
     - master
     - next
+    - travis
 
 matrix:
   include:
