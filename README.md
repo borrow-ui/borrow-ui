@@ -3,6 +3,7 @@
 A simple component library made with React.
 
 [![Coverage Status](https://coveralls.io/repos/github/borrow-ui/borrow-ui/badge.svg)](https://coveralls.io/github/borrow-ui/borrow-ui)
+[![Build](https://app.travis-ci.com/borrow-ui/borrow-ui.svg?branch=master)](https://app.travis-ci.com/github/borrow-ui/borrow-ui)
 
 ## Project description
 

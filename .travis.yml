@@ -1,3 +1,5 @@
+# yarn2 gist: https://gist.github.com/dennisreimann/c2a6ef58544861f7e13762e06e146dac
+
 language: node_js
 node_js:
   - "14.16.1"
@@ -7,15 +9,18 @@ cache:
   directories:
     - ./.yarn/cache
 
+git:
+  lfs_skip_smudge: true
+
 branches:
   only:
     - master
     - next
+    - travis
 
 matrix:
   include:
     - name: "borrow-ui/ui"
-      env: PACKAGE_LOCATION=packages/ui
 
 before_install:
   # Upgrade Yarn 1.x: https://classic.yarnpkg.com/en/docs/install
@@ -28,5 +33,4 @@ before_install:
 install: yarn
 
 script:
-  - cd $PACKAGE_LOCATION
-  - yarn coveralls
+  - yarn workspace @borrow-ui/ui coveralls
