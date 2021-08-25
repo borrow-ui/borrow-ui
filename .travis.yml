@@ -21,7 +21,6 @@ branches:
 matrix:
   include:
     - name: "borrow-ui/ui"
-      env: PACKAGE_LOCATION=packages/ui
 
 before_install:
   # Upgrade Yarn 1.x: https://classic.yarnpkg.com/en/docs/install
@@ -34,5 +33,4 @@ before_install:
 install: yarn
 
 script:
-  - cd $PACKAGE_LOCATION
-  - yarn coveralls
+  - yarn workspace @borrow-ui/ui coveralls
