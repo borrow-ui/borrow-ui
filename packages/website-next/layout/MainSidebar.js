@@ -31,6 +31,9 @@ export function MainSidebar({ isSmallScreen }) {
                 <SidebarEntry iconName="format_list_numbered" href="/workflow">
                     Workflow
                 </SidebarEntry>
+                <SidebarEntry iconName="follow_the_signs" href="/roadmap">
+                    Roadmap
+                </SidebarEntry>
             </div>
             <div>
                 <div className="flex-center-center p-5" style={{ fontSize: 12 }}>

@@ -79,6 +79,15 @@ export function Header({ isSmallScreen }) {
                         </Link>
                     ),
                 },
+                showLinks && {
+                    headerLabel: (
+                        <Link href="/roadmap">
+                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
+                                <span>Roadmap</span>
+                            </a>
+                        </Link>
+                    ),
+                },
             ].filter((v) => !!v)}
             right={[
                 <NavbarLink

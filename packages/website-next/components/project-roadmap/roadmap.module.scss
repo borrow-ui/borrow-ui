@@ -1,0 +1,114 @@
+@import '../../styles/vars';
+
+.roadmap {
+    padding-left: 15px;
+}
+.roadmap__item {
+    padding-left: 20px;
+    padding-right: 10px;
+    &:not(:last-child) {
+        padding-bottom: 15px;
+    }
+    &:not(:first-child) {
+        padding-top: 15px;
+    }
+
+    border-left: 1px solid $ui-color-grey-light;
+
+    &::before {
+        content: '';
+        position: absolute;
+        margin-top: 5px;
+        margin-left: -25px;
+        width: 10px;
+        height: 10px;
+        background-color: $ui-color-grey-light-over;
+        border-radius: 50%;
+    }
+
+    &:not(.roadmap__item__done) {
+        .roadmap__item__title {
+            color: $ui-color-secondary;
+        }
+    }
+}
+
+.roadmap__done-icon {
+    margin-right: 5px;
+}
+
+.roadmap__item__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roadmap__item__title {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.roadmap__item__controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.roadmap__item__milestone,
+.roadmap__item__milestone a {
+    color: $ui-color-neutral-light;
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.roadmap__item__done {
+    color: $ui-color-neutral-light;
+}
+
+.roadmap__item__collapsed {
+    .roadmap__item__children {
+        max-height: 0;
+        margin-top: 0;
+    }
+}
+
+.roadmap__item__description {
+    font-size: 12px;
+    color: $ui-color-neutral;
+}
+
+.roadmap__item__children {
+    margin-top: 10px;
+    padding-left: 25px;
+    height: auto;
+    max-height: 250px;
+    transition: 0.5s ease-in-out;
+    display: block;
+    overflow: auto;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+}
+
+.roadmap__item__child {
+    font-size: 13px;
+    padding: 3px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.roadmap__item__child__done {
+    color: $ui-color-neutral-light;
+}
