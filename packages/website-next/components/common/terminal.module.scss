@@ -1,0 +1,50 @@
+@import '../../styles/vars';
+
+$terminal-padding: 15px;
+
+.terminal {
+    border: 1px solid $ui-color-grey-light;
+}
+
+.terminal__head,
+.terminal__head__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+}
+
+.terminal__head {
+    border-bottom: 1px solid $ui-color-grey-light;
+}
+
+.terminal__head__title {
+    color: $ui-color-neutral-light;
+    padding: 0 $terminal-padding;
+}
+
+.terminal__head__close,
+.terminal__head__maximize,
+.terminal__head__minimize {
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.terminal__head__close {
+    background-color: $ui-color-red-l2;
+}
+
+.terminal__head__maximize {
+    background-color: $ui-color-green-l2;
+}
+
+.terminal__head__minimize {
+    background-color: $ui-color-yellow-l2;
+}
+
+.terminal__body {
+    padding: $terminal-padding;
+}
