@@ -65,6 +65,7 @@ export default function ProjectRoadmap() {
                                 title: 'Presentation Website with Next',
                                 description:
                                     'Update the old website and create a new project based on Next.js',
+                                done: true,
                                 milestone: (
                                     <Link
                                         href="https://github.com/borrow-ui/borrow-ui/milestone/3"
@@ -78,7 +79,6 @@ export default function ProjectRoadmap() {
                                     {
                                         title:
                                             'initialize a package with Next.js and make it work with borrow-ui',
-                                        done: true,
                                     },
                                     {
                                         title: 'publish the website',
