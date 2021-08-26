@@ -1,7 +1,7 @@
 {
   "name": "@borrow-ui/documentation",
   "version": "0.0.1-alpha.3",
-  "description": "Borrow-UI documentation based on Docz",
+  "description": "borrow-ui documentation based on Storybook",
   "author": "borrow-ui",
   "private": true,
   "scripts": {
