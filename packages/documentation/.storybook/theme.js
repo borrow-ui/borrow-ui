@@ -1,6 +1,6 @@
 import { create } from "@storybook/theming";
 
-import brandImage from "../public/borrow-ui.png";
+import brandImage from "../public/ui-logo.png";
 
 export default create({
   base: "light",
