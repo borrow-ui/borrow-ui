@@ -140,7 +140,6 @@ export default function ProjectRoadmap() {
                                 title: 'Tutorials',
                                 description:
                                     'Add and publish a tutorial section explaining how this project has been organized, started and how the main components have been written',
-                                milestone: 'anytime',
                                 children: [
                                     {
                                         title: 'add a Tutorial section',
