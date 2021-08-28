@@ -13,7 +13,7 @@ export function ImportStatement({ importStatement, docs }) {
             </div>
             <div className="flex-end-center">
                 <a href={`${STORYBOOK_BASE_URL}${docs}`} className="color-primary">
-                    <Icon size="big" name="article" />
+                    <Icon name="help_outline" />
                 </a>
             </div>
         </div>
