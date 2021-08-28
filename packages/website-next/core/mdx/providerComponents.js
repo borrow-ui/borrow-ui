@@ -7,16 +7,16 @@ const titles = {
         return <Title tag="h1" className="color-primary" {...props} />;
     },
     h2: function H2(props) {
-        return <Title tag="h2" className="color-primary" {...props} />;
+        return <Title tag="h2" {...props} />;
     },
     h3: function H3(props) {
-        return <Title tag="h3" className="color-primary" {...props} />;
+        return <Title tag="h3" {...props} />;
     },
     h4: function H4(props) {
-        return <Title tag="h4" className="color-primary" {...props} />;
+        return <Title tag="h4" {...props} />;
     },
     h5: function H5(props) {
-        return <Title tag="h5" className="color-primary" {...props} />;
+        return <Title tag="h5" {...props} />;
     },
 };
 

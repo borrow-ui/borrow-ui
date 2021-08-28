@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import styles from './terminal.module.scss';
 import { SyntaxHighlight } from '@borrow-ui/ui';
 
-export function Terminal({ title = '', className = '', containerProps = {}, ...rest }) {
+export function Terminal({
+    title = '',
+    language = 'bash',
+    className = '',
+    containerProps = {},
+    ...rest
+}) {
     return (
         <div className={`${styles['terminal']} ${className}`.trim()} {...containerProps}>
             <div className={styles['terminal__head']}>
@@ -16,13 +22,15 @@ export function Terminal({ title = '', className = '', containerProps = {}, ...r
                 <div className={styles['terminal__head__title']}>{title}</div>
             </div>
             <div className={styles['terminal__body']}>
-                <SyntaxHighlight {...rest} />
+                <SyntaxHighlight language={language} {...rest} />
             </div>
         </div>
     );
 }
 
 Terminal.propTypes = {
+    title: PropTypes.string,
+    language: PropTypes.string,
     className: PropTypes.string,
     containerProps: PropTypes.object,
 };

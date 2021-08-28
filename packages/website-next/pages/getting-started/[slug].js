@@ -7,6 +7,8 @@ import { MDXProvider } from '@mdx-js/react';
 
 import * as borrowUi from '@borrow-ui/ui';
 
+import { Terminal } from '../../components/common/Terminal';
+
 import { PageNavigator } from '../../components/common/PageNavigator';
 
 import { generateGetStaticPaths, generateGetStaticProps } from '../../core/mdx/mdx';
@@ -17,6 +19,7 @@ const { Title } = borrowUi;
 
 const mdxComponents = {
     ...borrowUi,
+    Terminal,
 };
 
 const Content = ({ code, metadata }) => {
@@ -29,7 +32,7 @@ const Content = ({ code, metadata }) => {
             </Head>
             <MDXProvider components={providerComponents}>
                 <>
-                    <div className="website__text">
+                    <div className="website__text m-b-20">
                         <Title className="color-primary">{metadata.title}</Title>
                         <MDXRemote {...code} components={mdxComponents} />
                     </div>

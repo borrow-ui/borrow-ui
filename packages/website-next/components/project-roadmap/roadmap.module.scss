@@ -18,7 +18,7 @@
     &::before {
         content: '';
         position: absolute;
-        margin-top: 5px;
+        margin-top: 7px;
         margin-left: -25px;
         width: 10px;
         height: 10px;
@@ -57,12 +57,21 @@
     justify-content: flex-start;
 }
 
+.roadmap__item__issue,
 .roadmap__item__milestone,
 .roadmap__item__milestone a {
     color: $ui-color-neutral-light;
     text-decoration: none;
     font-size: 12px;
     margin-right: 5px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.roadmap__item__issue {
+    margin-left: 10px;
 }
 
 .roadmap__item__done {

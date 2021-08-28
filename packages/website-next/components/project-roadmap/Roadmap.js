@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, IconControl } from '@borrow-ui/ui';
+import { Icon, IconControl, Link } from '@borrow-ui/ui';
 
 import styles from './roadmap.module.scss';
 
@@ -27,11 +27,25 @@ export function Roadmap({ items }) {
                             <div className={styles['roadmap__item__title']}>
                                 <RoadmapDoneIcon done={item.done} />
                                 {item.title}
+                                {item.issue && (
+                                    <Link
+                                        tag="a"
+                                        href={`https://github.com/borrow-ui/borrow-ui/issues/${item.issue}`}
+                                        className={styles['roadmap__item__issue']}
+                                    >
+                                        #{item.issue}
+                                    </Link>
+                                )}
                             </div>
                             <div className={styles['roadmap__item__controls']}>
                                 {item.milestone && (
                                     <div className={styles['roadmap__item__milestone']}>
-                                        {item.milestone}
+                                        <Link
+                                            tag="a"
+                                            href={`https://github.com/borrow-ui/borrow-ui/milestone/${item.milestone[0]}`}
+                                        >
+                                            {item.milestone[1]}
+                                        </Link>
                                     </div>
                                 )}
                                 {collapsed[index] ? (
@@ -84,7 +98,8 @@ Roadmap.propTypes = {
         PropTypes.shape({
             title: PropTypes.node.isRequired,
             description: PropTypes.node,
-            milestone: PropTypes.node,
+            issue: PropTypes.number,
+            milestone: PropTypes.array,
             done: PropTypes.bool,
             children: PropTypes.arrayOf(
                 PropTypes.shape({
