@@ -66,15 +66,7 @@ export default function ProjectRoadmap() {
                                 description:
                                     'Update the old website and create a new project based on Next.js',
                                 done: true,
-                                milestone: (
-                                    <Link
-                                        href="https://github.com/borrow-ui/borrow-ui/milestone/3"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        0.3
-                                    </Link>
-                                ),
+                                milestone: [3, '0.3'],
                                 children: [
                                     {
                                         title:
@@ -88,15 +80,8 @@ export default function ProjectRoadmap() {
                             {
                                 title: 'Dashboard Example',
                                 description: 'Create a Dashboard backbone using borrow-ui',
-                                milestone: (
-                                    <Link
-                                        href="https://github.com/borrow-ui/borrow-ui/milestone/3"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        0.3
-                                    </Link>
-                                ),
+                                issue: 4,
+                                milestone: [3, '0.3'],
                                 children: [
                                     {
                                         title: 'include borrow-ui in the CRA app',
@@ -110,17 +95,29 @@ export default function ProjectRoadmap() {
                                 ],
                             },
                             {
+                                title: 'Dark mode',
+                                description:
+                                    'Identify and parametrize properties that are needed to create a dark mode style',
+                                issue: 63,
+                                milestone: [4, '0.4'],
+                                children: [
+                                    {
+                                        title:
+                                            'determine the possible strategies to create variable names',
+                                    },
+                                    {
+                                        title: 'implement for each component a dark mode',
+                                    },
+                                    {
+                                        title: 'make it generic as "themes"',
+                                    },
+                                ],
+                            },
+                            {
                                 title: 'Node script to rename the project',
                                 description: 'Create a small node script to rename the project',
-                                milestone: (
-                                    <Link
-                                        href="https://github.com/borrow-ui/borrow-ui/milestone/4"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        0.4
-                                    </Link>
-                                ),
+                                issue: 5,
+                                milestone: [4, '0.4'],
                                 children: [
                                     {
                                         title:
@@ -131,15 +128,8 @@ export default function ProjectRoadmap() {
                             {
                                 title: 'Convert to Typescript',
                                 description: 'Convert the ui package to Typescript',
-                                milestone: (
-                                    <Link
-                                        href="https://github.com/borrow-ui/borrow-ui/milestone/5"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        1.0
-                                    </Link>
-                                ),
+                                issue: 59,
+                                milestone: [5, '1.0'],
                                 children: [
                                     {
                                         title: 'convert each component and tests to Typescript',
