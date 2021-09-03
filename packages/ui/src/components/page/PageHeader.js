@@ -60,7 +60,7 @@ export function PageHeader({
 
     const pageHeaderHeaderContainerClass = `${PAGE_HEADER_HEADER_CONTAINER_CLASS}`;
 
-    const TitleTag = titleTag || (typeof children === 'string' ? 'h2' : 'div');
+    const TitleTag = titleTag || 'h2';
 
     return (
         <div className={headerClass} {...rest}>
