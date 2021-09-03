@@ -20,8 +20,8 @@ const SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS = `${UI_PREFIX}__sidebar__el
 const SidebarBodyPropTypes = {
     /** Hide the trigger to open/close the sidebar. */
     hideTrigger: PropTypes.bool,
-    /** Make the sidebar sticky to the top. */
-    stickyTop: PropTypes.bool,
+    /** Make the sidebar sticky to the top; expects pixel value. */
+    stickyTop: PropTypes.number,
     /** Overrides the height of the container. */
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Width of the sidebar when is closed. */
@@ -70,7 +70,7 @@ export function SidebarBody({
     const state = useContext(SidebarContext)[0];
 
     const statusClass = `${SIDEBAR_CONTAINER_CLASS}--${state.opened ? 'open' : 'closed'}`;
-    const stickyClass = stickyTop ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
+    const stickyClass = stickyTop !== undefined ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
     const openShadowClass =
         shadowWhenOpen && state.opened ? `${SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS}` : '';
     const sidebarContainerClass = `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${openShadowClass} ${className}`.trim();
