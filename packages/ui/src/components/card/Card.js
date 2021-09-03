@@ -9,6 +9,7 @@ const CARD_SHADOWED_CLASS = `${UI_PREFIX}__card--shadowed`;
 const CARD_MARGIN_BETWEEN_CLASS = `${UI_PREFIX}__card--margin-between`;
 const CARD_STANDING_HOVER_CLASS = `${UI_PREFIX}__card--standing-hover`;
 const CARD_SIDE_CLASS = `${UI_PREFIX}__card__side`;
+const CARD_SIDE_WITH_SIDE_CONTENT_CLASS = `${UI_PREFIX}__card__side--with-side-content`;
 const CARD_SIDE_ICON_CONTAINER_CLASS = `${UI_PREFIX}__card__side__icon-container`;
 const CARD_MAIN_CLASS = `${UI_PREFIX}__card__main`;
 const CARD_MAIN_WITH_SIDE_CLASS = `${UI_PREFIX}__card__main--with-side`;
@@ -22,6 +23,7 @@ const CARD_CONTROLS_CLASS = `${UI_PREFIX}__card__controls`;
 
 export function Card({
     icon,
+    sideContent,
     title,
     subtitle,
     description,
@@ -47,7 +49,8 @@ export function Card({
     const cardClass = `${CARD_CLASS} ${propsClasses} ${className}`;
 
     const { className: sidePropsClassName = '', ...restSideProps } = sideProps;
-    const sideClassName = `${CARD_SIDE_CLASS} ${sidePropsClassName}`;
+    const sideContentClass = sideContent ? CARD_SIDE_WITH_SIDE_CONTENT_CLASS : '';
+    const sideClassName = `${CARD_SIDE_CLASS} ${sideContentClass} ${sidePropsClassName}`;
 
     const {
         className: iconContainerPropsClassName = '',
@@ -56,7 +59,8 @@ export function Card({
     const iconContainerClassName = `${CARD_SIDE_ICON_CONTAINER_CLASS} ${iconContainerPropsClassName}`;
 
     const { className: mainPropsClassName = '', ...restMainProps } = mainProps;
-    const cardMainSideClassName = icon ? CARD_MAIN_WITH_SIDE_CLASS : CARD_MAIN_WITHOUT_SIDE_CLASS;
+    const cardMainSideClassName =
+        icon || sideContent ? CARD_MAIN_WITH_SIDE_CLASS : CARD_MAIN_WITHOUT_SIDE_CLASS;
     const mainClassName = `${CARD_MAIN_CLASS} ${cardMainSideClassName} ${mainPropsClassName}`.trim();
 
     const { className: bodyPropsClassName = '', ...restBodyProps } = bodyProps;
@@ -77,11 +81,14 @@ export function Card({
 
     return (
         <div className={cardClass} {...rest}>
-            {icon && (
+            {(icon || sideContent) && (
                 <div className={sideClassName} {...restSideProps}>
-                    <div className={iconContainerClassName} {...restIconContainerProps}>
-                        {icon}
-                    </div>
+                    {icon && (
+                        <div className={iconContainerClassName} {...restIconContainerProps}>
+                            {icon}
+                        </div>
+                    )}
+                    {sideContent && sideContent}
                 </div>
             )}
             <div className={mainClassName} {...restMainProps}>
@@ -115,6 +122,8 @@ export function Card({
 Card.propTypes = {
     /** Icon component to render on the side */
     icon: propTypesChildren,
+    /** Content to render instead of icon (i.e. an image) */
+    sideContent: propTypesChildren,
     /** Card title  */
     title: propTypesChildren,
     /** Subtitle rendered below the title */

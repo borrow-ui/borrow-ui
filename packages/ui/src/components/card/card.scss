@@ -28,6 +28,11 @@ $ui-card-side-width: 128px !default;
     border-right: 0;
 }
 
+.#{$ui-prefix}__card__side--with-side-content {
+    border: 1px solid $ui-color-grey-light;
+    border-right: none;
+}
+
 .#{$ui-prefix}__card__side__icon-container {
     border-radius: 32px;
     background-color: white;

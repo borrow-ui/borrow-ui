@@ -59,8 +59,22 @@ A card can be rendered without icon and controls as well:
             title="Card sample"
             subtitle="Example of a card"
             description="This card has only the main elements: title, subtitle and description. It also has fixed width."
-            className="m-b-20"
-            style={{ width: 300 }}
+            className="m-b-20 w-400"
+        />
+    </Story>
+</Canvas>
+
+or with a custom side content (different from an icon) through `sideContent` prop:
+
+<Canvas>
+    <Story name="Side Content">
+        <Card
+            title="Card sample"
+            subtitle="Example of a card"
+            sideContent={<div className="flex-center-center">Hello :)</div>}
+            sideProps={{ style: { backgroundColor: '#eee' } }}
+            description="This card has only the main elements: title, subtitle and description. It also has fixed width."
+            className="m-b-20 w-400"
         />
     </Story>
 </Canvas>

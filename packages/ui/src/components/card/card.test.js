@@ -87,6 +87,22 @@ describe('Card', () => {
         expect(main).toHaveClass(`${UI_PREFIX}__card__main--with-side`);
     });
 
+    test('renders a custom content on the side', () => {
+        render(
+            <Card
+                sideContent="I am on the side"
+                title="Home"
+                description="Content"
+                sideProps={{ 'data-testid': 'side-container' }}
+            />
+        );
+
+        const side = screen.getByTestId('side-container');
+        expect(side).toHaveClass(`${UI_PREFIX}__card__side`);
+        const sideContent = screen.getByText('I am on the side');
+        expect(sideContent).toBeInTheDocument();
+    });
+
     test('renders with controls', () => {
         render(
             <Card
