@@ -1,0 +1,7 @@
+@import './vars';
+
+// include this if this is a third-party project
+// @import '@borrow-ui/ui/dist/ui.full.scss';
+
+// include this if this is part of a monorepo
+@import '../../../ui/src/style/ui.full.scss';

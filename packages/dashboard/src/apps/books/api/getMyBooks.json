@@ -1,0 +1,87 @@
+{
+    "error": "0",
+    "total": "157",
+    "page": "1",
+    "books": [
+        {
+            "title": "Reintroducing React",
+            "subtitle": "Modern React with Every React Update Since v16 Demystified (includes advanced hooks)",
+            "isbn13": "1001592396277",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001592396277.png",
+            "url": "https://itbook.store/books/1001592396277"
+        },
+        {
+            "title": "Learning React, 2nd Edition",
+            "subtitle": "A Hands-On Guide to Building Web Applications Using React and Redux",
+            "isbn13": "9780134843551",
+            "price": "$21.63",
+            "image": "https://itbook.store/img/books/9780134843551.png",
+            "url": "https://itbook.store/books/9780134843551"
+        },
+        {
+            "title": "Pro React",
+            "subtitle": "Build complex front-end applications in a composable way with React",
+            "isbn13": "9781484212615",
+            "price": "$13.77",
+            "image": "https://itbook.store/img/books/9781484212615.png",
+            "url": "https://itbook.store/books/9781484212615"
+        },
+        {
+            "title": "React Native for iOS Development",
+            "subtitle": "Harness the power of React and JavaScript to build stunning iOS applications",
+            "isbn13": "9781484213964",
+            "price": "$33.26",
+            "image": "https://itbook.store/img/books/9781484213964.png",
+            "url": "https://itbook.store/books/9781484213964"
+        },
+        {
+            "title": "Front-End Reactive Architectures",
+            "subtitle": "Explore the Future of the Front-End using Reactive JavaScript Frameworks and Libraries",
+            "isbn13": "9781484231791",
+            "price": "$26.32",
+            "image": "https://itbook.store/img/books/9781484231791.png",
+            "url": "https://itbook.store/books/9781484231791"
+        },
+        {
+            "title": "Practical React Native",
+            "subtitle": "Build Two Full Projects and One Full Game using React Native",
+            "isbn13": "9781484239384",
+            "price": "$26.09",
+            "image": "https://itbook.store/img/books/9781484239384.png",
+            "url": "https://itbook.store/books/9781484239384"
+        },
+        {
+            "title": "Reactive Streams in Java",
+            "subtitle": "Concurrency with RxJava, Reactor, and Akka Streams",
+            "isbn13": "9781484241752",
+            "price": "$26.03",
+            "image": "https://itbook.store/img/books/9781484241752.png",
+            "url": "https://itbook.store/books/9781484241752"
+        },
+        {
+            "title": "Building React Apps with Server-Side Rendering",
+            "subtitle": "Use React, Redux, and Next to Build Full Server-Side Rendering Applications",
+            "isbn13": "9781484258682",
+            "price": "$27.75",
+            "image": "https://itbook.store/img/books/9781484258682.png",
+            "url": "https://itbook.store/books/9781484258682"
+        },
+        {
+            "title": "React and Libraries",
+            "subtitle": "Your Complete Guide to the React Ecosystem",
+            "isbn13": "9781484266953",
+            "price": "$30.24",
+            "image": "https://itbook.store/img/books/9781484266953.png",
+            "url": "https://itbook.store/books/9781484266953"
+        },
+        {
+            "title": "Learning React",
+            "subtitle": "Functional Web Development with React and Redux",
+            "isbn13": "9781491954621",
+            "price": "$19.95",
+            "image": "https://itbook.store/img/books/9781491954621.png",
+            "url": "https://itbook.store/books/9781491954621"
+        }
+    ]
+}

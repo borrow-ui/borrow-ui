@@ -1,0 +1,51 @@
+body {
+    font-family: 'poppins';
+    min-width: 320px;
+
+    height: 100vh;
+}
+
+.borrow-ui {
+    padding-top: 46px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 400;
+}
+
+.header__version {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.header__sidebar-trigger {
+    display: inline-block;
+
+    @media (min-width: 700px) {
+        display: none;
+    }
+}
+
+.main-sidebar {
+    background-color: #464646;
+    color: #fff;
+    padding-top: 3px;
+
+    .borrow-ui__sidebar__entry {
+        height: 46px;
+    }
+
+    .borrow-ui__sidebar__entry__group {
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+            background-color: #202020;
+        }
+    }
+}
