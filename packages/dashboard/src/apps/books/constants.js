@@ -1,8 +1,8 @@
 export const BOOKS_BASE_URL = '/books';
 
 export const BOOKS_BREADCRUMBS = [
-    { path: '/', label: 'Home' },
-    { path: BOOKS_BASE_URL, label: 'Books' },
+    { link: '/', label: 'Home' },
+    { link: BOOKS_BASE_URL, label: 'Books' },
 ];
 
 /* BOOK DETAIL */

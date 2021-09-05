@@ -3,9 +3,11 @@ import { useContext } from 'react';
 import { Breadcrumbs, Page } from '@borrow-ui/ui';
 
 import { storeContext } from 'store';
+import { BooksList } from '../../components/BooksList';
+import { booksModel } from '../../models/book';
 
 export function BooksHomePage() {
-    const { store } = useContext(storeContext);
+    const { store, setStore } = useContext(storeContext);
 
     return (
         <Page
@@ -16,7 +18,10 @@ export function BooksHomePage() {
                 </>
             }
         >
-            Books home will be here, with all your {Object.keys(store).length} books!
+            <BooksList
+                books={Object.values(store.books)}
+                deleteBook={(isbn13) => booksModel.delete(setStore, isbn13)}
+            />
         </Page>
     );
 }

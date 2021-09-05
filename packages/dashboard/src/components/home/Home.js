@@ -12,7 +12,7 @@ export function Home() {
     return (
         <Page title="Dashboard Home">
             <div>
-                <Title tag="h3" className="color-secondary">
+                <Title tag="h3" className="color-secondary m-t-0">
                     Welcome {store.user.first_name}!
                 </Title>
                 <Text>
@@ -40,7 +40,7 @@ export function Home() {
                 <div className="dashboard-home__latest-items">
                     <Title tag="h3">Latest books</Title>
                     <div className="m-b-20">
-                        {books.slice(0, 3).map((book) => (
+                        {books.slice(0, 2).map((book) => (
                             <BookCard key={book.isbn13} book={book} />
                         ))}
                     </div>

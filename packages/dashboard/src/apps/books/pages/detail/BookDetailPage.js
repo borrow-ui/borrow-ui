@@ -1,14 +1,18 @@
 import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { Breadcrumbs, Page } from '@borrow-ui/ui';
 
 import { storeContext } from 'store';
 
-import { BOOKS_BREADCRUMBS } from '../../constants';
+import { BOOKS_BASE_URL, BOOKS_BREADCRUMBS } from 'apps/books/constants';
+import { booksModel } from 'apps/books/models/book';
+import { DeleteBookButton } from 'apps/books/components/DeleteBookButton';
+import { BookDetail } from 'apps/books/components/BookDetail';
 
 export function BookDetailPage() {
-    const { store } = useContext(storeContext);
+    const { store, setStore } = useContext(storeContext);
+    const history = useHistory();
 
     const params = useParams();
     const isbn13 = +params.isbn13;
@@ -20,11 +24,20 @@ export function BookDetailPage() {
             title={
                 <>
                     <Breadcrumbs breadcrumbs={BOOKS_BREADCRUMBS} />
-                    {book.title}
+                    {book ? book.title : `Book ${isbn13}`}
                 </>
             }
+            pageHeaderProps={{
+                controls: (
+                    <DeleteBookButton
+                        book={book || {}}
+                        deleteBook={(isbn13) => booksModel.delete(setStore, isbn13)}
+                        onDelete={() => history.push(BOOKS_BASE_URL)}
+                    />
+                ),
+            }}
         >
-            Book details will be here.
+            {book && <BookDetail book={book} />}
         </Page>
     );
 }
