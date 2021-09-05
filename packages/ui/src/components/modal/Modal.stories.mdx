@@ -167,6 +167,38 @@ By default, if Escape key is pressed the modal visibilty will be set to `false`.
     </Story>
 </Canvas>
 
+## Disable Close icon
+
+In some circumstances the modal should not be closed, for example when calling an API.
+The buttons can be disabled manually, but the close icon is always visibile.
+
+To hide the icon, set the `showCloseIcon` prop to `false`:
+
+<Canvas>
+    <Story name="Without close icon">
+        <div>
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="primary">
+                        Open Modal
+                    </Button>
+                )}
+                getModalWindowProps={({ setVisible }) => ({
+                    title: 'Modal demo title',
+                    content: <Lorem paragraphs={3} />,
+                    footer: (
+                        <>
+                            <span />
+                            <Button onClick={() => setVisible(false)}>Close</Button>
+                        </>
+                    ),
+                    showCloseIcon: false,
+                })}
+            />
+        </div>
+    </Story>
+</Canvas>
+
 ## Modal Props
 
 <ArgsTable of={Modal} />

@@ -234,6 +234,34 @@ describe('Modal', () => {
         expect(screen.queryByTestId('wrapper')).not.toBeInTheDocument();
     });
 
+    test('do not show close icon', async () => {
+        render(
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <span onClick={() => setVisible((v) => !v)} data-testid="trigger">
+                        Click to open
+                    </span>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal Title',
+                    content: 'Modal Content',
+                    showCloseIcon: false,
+                })}
+            />
+        );
+
+        const trigger = screen.getByText('Click to open');
+        await act(async () => {
+            await userEvent.click(trigger);
+        });
+
+        await waitFor(() => {
+            expect(screen.queryByText('Modal Content')).toBeInTheDocument();
+        });
+
+        expect(screen.queryByTestId('modal-close-icon')).not.toBeInTheDocument();
+    });
+
     test('does something on close with closeModal', async () => {
         const doSomething = jest.fn();
 

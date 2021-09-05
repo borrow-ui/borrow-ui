@@ -61,6 +61,7 @@ export function ModalWindow({
     startWidth = '70%',
     startHeight = 400,
     hooks = {},
+    showCloseIcon = true,
     canMaximize = true,
     closeOnEscape = true,
     wrapperProps = {},
@@ -155,6 +156,7 @@ export function ModalWindow({
             footer={footer}
             classes={{ modalContainerStatusClass, modalContentSizeClass }}
             styles={{ modalContentStyle }}
+            showCloseIcon={showCloseIcon}
             canMaximize={canMaximize}
             setIsMaximized={setIsMaximized}
             closeModalWindow={closeModalWindow}
@@ -179,6 +181,8 @@ ModalWindow.propTypes = {
     closeModal: PropTypes.func,
     /** setVisible callback, coming from Modal's Trigger */
     setVisible: PropTypes.func,
+    /** Render a close Icon on the top right to close the modal */
+    showCloseIcon: PropTypes.bool,
     /** Set the modal maximized on open */
     maximized: PropTypes.bool,
     /** If the modal can maximize to full screen, show icons to trigger the status */
@@ -209,6 +213,7 @@ function ModalWindowPortal({
     footer,
     classes,
     styles,
+    showCloseIcon = true,
     canMaximize,
     setIsMaximized,
     closeModalWindow,
@@ -259,10 +264,12 @@ function ModalWindowPortal({
                                         data-testid="modal-minimize-icon"
                                     />
                                 )}
-                                <IconClose
-                                    closeModalWindow={closeModalWindow}
-                                    data-testid="modal-close-icon"
-                                />
+                                {showCloseIcon && (
+                                    <IconClose
+                                        closeModalWindow={closeModalWindow}
+                                        data-testid="modal-close-icon"
+                                    />
+                                )}
                             </Fragment>
                         )}
                     </div>
@@ -306,7 +313,7 @@ function IconClose({ closeModalWindow, ...rest }) {
     return (
         <ModalIcon
             name="close"
-            onClick={() => closeModalWindow({ source: 'closeIcon' })}
+            onClick={() => closeModalWindow({ source: 'showCloseIcon' })}
             {...rest}
         />
     );
