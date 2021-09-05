@@ -1,8 +1,5 @@
-$ui-page-padding: 15px !default;
-
-/*
-.#{$ui-prefix}__tabs {}
-*/
+.#{$ui-prefix}__tabs {
+}
 
 .#{$ui-prefix}__tabs__header {
     display: flex;
@@ -31,9 +28,8 @@ $ui-page-padding: 15px !default;
     flex-grow: 1;
 }
 
-/*
-.#{$ui-prefix}__tabs__body__container {}
-*/
+.#{$ui-prefix}__tabs__body__container {
+}
 
 .#{$ui-prefix}__tabs__body {
     display: none;
@@ -44,8 +40,8 @@ $ui-page-padding: 15px !default;
 }
 
 .#{$ui-prefix}__tabs__body--padded {
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
 }
 .#{$ui-prefix}__tabs__body--padded-top {
-    padding-top: $ui-page-padding;
+    padding-top: $ui-content-padding;
 }

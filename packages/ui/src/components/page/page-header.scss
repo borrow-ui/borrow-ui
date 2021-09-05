@@ -1,4 +1,4 @@
-$ui-page-padding: 15px !default;
+$ui-page-padding: $ui-content-padding !default;
 $ui-page-header-margin-bottom: 4px !default;
 
 .#{$ui-prefix}__page__header {
