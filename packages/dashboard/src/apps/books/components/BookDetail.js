@@ -8,13 +8,13 @@ export function BookDetail({ book }) {
     return (
         <>
             <Row>
-                <Col>
+                <Col colClassName="col-xs-12 col-sm-12 col-md-7">
                     <Field label="ISBN 13">{book.isbn13}</Field>
                     <Field label="Price">{book.price}</Field>
                     <Field label="Subtitle">{book.subtitle}</Field>
                 </Col>
-                <Col>
-                    <div className="flex-end-start p-r-20">
+                <Col colClassName="col-xs-12 col-sm-12 col-md-5 first-xs last-md">
+                    <div className="flex-center-start p-r-20">
                         <img
                             src={book.image}
                             alt={`${book.isbn13} Cover`}
