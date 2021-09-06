@@ -6,9 +6,9 @@ import { Loader } from '@borrow-ui/ui';
 import { storeContext } from 'store';
 
 import { BooksHomePage } from './pages/home/BooksHomePage';
-import { BookDetailPage } from './pages/detail/BookDetailPage';
-import { AddBookPage } from './pages/forms/AddBookPage';
-import { EditBookPage } from './pages/forms/EditBookPage';
+import { BookDetailPage } from './pages/books/detail/BookDetailPage';
+import { AddBookPage } from './pages/books/forms/AddBookPage';
+import { EditBookPage } from './pages/books/forms/EditBookPage';
 
 import { BOOKS_BASE_URL, BOOKS_BOOK_BASE_URL } from './constants';
 
