@@ -7,6 +7,8 @@ import { storeContext } from 'store';
 
 import { BooksHomePage } from './pages/home/BooksHomePage';
 import { BookDetailPage } from './pages/detail/BookDetailPage';
+import { AddBookPage } from './pages/forms/AddBookPage';
+import { EditBookPage } from './pages/forms/EditBookPage';
 
 import { BOOKS_BASE_URL, BOOKS_BOOK_BASE_URL } from './constants';
 
@@ -20,6 +22,8 @@ export function BooksRoutes() {
     return (
         <Switch>
             <Route exact path={BOOKS_BASE_URL} component={BooksHomePage} />
+            <Route exact path={`${BOOKS_BOOK_BASE_URL}/add`} component={AddBookPage} />
+            <Route exact path={`${BOOKS_BOOK_BASE_URL}/:isbn13/edit`} component={EditBookPage} />
             <Route exact path={`${BOOKS_BOOK_BASE_URL}/:isbn13`} component={BookDetailPage} />
         </Switch>
     );

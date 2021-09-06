@@ -1,10 +1,13 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Breadcrumbs, Page } from '@borrow-ui/ui';
+import { Breadcrumbs, Button, Page } from '@borrow-ui/ui';
 
 import { storeContext } from 'store';
-import { BooksList } from '../../components/BooksList';
-import { booksModel } from '../../models/book';
+
+import { BOOKS_BOOK_BASE_URL } from 'apps/books/constants';
+import { booksModel } from 'apps/books/models/book';
+import { BooksList } from 'apps/books/components/BooksList';
 
 export function BooksHomePage() {
     const { store, setStore } = useContext(storeContext);
@@ -17,6 +20,13 @@ export function BooksHomePage() {
                     Books Home
                 </>
             }
+            pageHeaderProps={{
+                controls: (
+                    <Button mean="primary" tag={Link} to={`${BOOKS_BOOK_BASE_URL}/add`}>
+                        Add Book
+                    </Button>
+                ),
+            }}
         >
             <BooksList
                 books={Object.values(store.books)}
