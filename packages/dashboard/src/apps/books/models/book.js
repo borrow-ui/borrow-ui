@@ -1,18 +1,4 @@
 export class BookModel {
-    delete(setStore, isbn13) {
-        return new Promise((resolve) => {
-            // Simulate some delay
-            setTimeout(() => {
-                setStore((store) => {
-                    const books = { ...store.books };
-                    delete books[isbn13];
-                    return { ...store, books };
-                });
-                resolve();
-            }, 1000);
-        });
-    }
-
     newBook() {
         return {
             title: '',
@@ -29,9 +15,9 @@ export class BookModel {
             // Simulate some delay
             setTimeout(() => {
                 setStore((store) => {
-                    const books = { ...store.books };
+                    const books = { ...store.books.books };
                     books[book.isbn13] = book;
-                    return { ...store, books };
+                    return { ...store, books: { ...store.books, books } };
                 });
                 resolve();
             }, 1000);
@@ -43,12 +29,26 @@ export class BookModel {
             // Simulate some delay
             setTimeout(() => {
                 setStore((store) => {
-                    const books = { ...store.books };
+                    const books = { ...store.books.books };
                     books[book.isbn13] = book;
                     if (book._old_isbn13 !== book.isbn13 && books[book._old_isbn13])
                         delete books[book._old_isbn13];
                     delete book._old_isbn13;
-                    return { ...store, books };
+                    return { ...store, books: { ...store.books, books } };
+                });
+                resolve();
+            }, 1000);
+        });
+    }
+
+    delete(setStore, isbn13) {
+        return new Promise((resolve) => {
+            // Simulate some delay
+            setTimeout(() => {
+                setStore((store) => {
+                    const books = { ...store.books.books };
+                    delete books[isbn13];
+                    return { ...store, books: { ...store.books, books } };
                 });
                 resolve();
             }, 1000);

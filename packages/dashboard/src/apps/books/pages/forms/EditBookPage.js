@@ -16,7 +16,7 @@ export function EditBookPage() {
     const params = useParams();
     const isbn13 = params.isbn13;
 
-    const book = store.books[isbn13];
+    const book = store.books.books[isbn13];
 
     const onSubmit = (changedBook) => {
         return booksModel.save(setStore, changedBook).then(() => {

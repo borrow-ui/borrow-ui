@@ -7,7 +7,7 @@ import { BookCard } from 'apps/books/components/BookCard';
 
 export function Home() {
     const { store } = useContext(storeContext);
-    const books = store.books ? Object.values(store.books) : [];
+    const books = store.books && store.books.books ? Object.values(store.books.books) : [];
 
     return (
         <Page title="Dashboard Home">

@@ -17,7 +17,9 @@ export { BOOKS_BASE_URL };
 export function BooksRoutes() {
     const { store } = useContext(storeContext);
 
-    if (!store.books) return <Loader />;
+    // if books are not loaded yet, show a Loader
+    // in this way we can avoid to put this check around
+    if (!store.books || !store.books.books) return <Loader />;
 
     return (
         <Switch>

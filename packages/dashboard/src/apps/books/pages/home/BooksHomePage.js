@@ -29,7 +29,7 @@ export function BooksHomePage() {
             }}
         >
             <BooksList
-                books={Object.values(store.books)}
+                books={Object.values(store.books.books)}
                 deleteBook={(isbn13) => booksModel.delete(setStore, isbn13)}
             />
         </Page>
