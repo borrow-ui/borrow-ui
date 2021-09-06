@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Card, Button } from '@borrow-ui/ui';
 
-import { BOOKS_BOOK_BASE_URL } from '../constants';
+import { BOOKS_BOOK_BASE_URL } from 'apps/books/constants';
 
 export function BookCard({ book, sideWidth = 100 }) {
     return (

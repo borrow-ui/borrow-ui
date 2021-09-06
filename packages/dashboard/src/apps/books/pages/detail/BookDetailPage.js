@@ -7,8 +7,8 @@ import { storeContext } from 'store';
 
 import { BOOKS_BASE_URL, BOOKS_BREADCRUMBS, BOOKS_BOOK_BASE_URL } from 'apps/books/constants';
 import { booksModel } from 'apps/books/models/book';
-import { DeleteBookButton } from 'apps/books/components/DeleteBookButton';
-import { BookDetail } from 'apps/books/components/BookDetail';
+import { DeleteBookButton } from 'apps/books/components/books/DeleteBookButton';
+import { BookDetail } from 'apps/books/components/books/BookDetail';
 
 export function BookDetailPage() {
     const { store, setStore } = useContext(storeContext);

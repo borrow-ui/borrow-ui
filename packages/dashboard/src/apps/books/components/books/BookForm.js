@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Forms, Button, Icon, ReferenceOverlay, Loader } from '@borrow-ui/ui';
 
-import { booksModel } from '../models/book';
+import { booksModel } from 'apps/books/models/book';
 
 const { Field, Textarea, Input, Dropzone } = Forms;
 

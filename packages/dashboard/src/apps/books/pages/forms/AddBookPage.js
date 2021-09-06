@@ -7,7 +7,7 @@ import { storeContext } from 'store';
 
 import { BOOKS_BOOK_BASE_URL, BOOKS_BASE_URL } from 'apps/books/constants';
 import { booksModel } from 'apps/books/models/book';
-import { BookForm } from 'apps/books/components/BookForm';
+import { BookForm } from 'apps/books/components/books/BookForm';
 
 export function AddBookPage() {
     const history = useHistory();

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Page, Title, TileLink, Text } from '@borrow-ui/ui';
 
 import { storeContext } from 'store';
-import { BookCard } from 'apps/books/components/BookCard';
+import { BookCard } from 'apps/books/components/books/BookCard';
 
 export function Home() {
     const { store } = useContext(storeContext);

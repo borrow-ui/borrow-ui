@@ -7,7 +7,7 @@ import { storeContext } from 'store';
 
 import { BOOKS_BOOK_BASE_URL } from 'apps/books/constants';
 import { booksModel } from 'apps/books/models/book';
-import { BooksList } from 'apps/books/components/BooksList';
+import { BooksList } from 'apps/books/components/books/BooksList';
 
 export function BooksHomePage() {
     const { store, setStore } = useContext(storeContext);

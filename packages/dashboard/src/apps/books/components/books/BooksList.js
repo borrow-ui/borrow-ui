@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Link, Loader, Table } from '@borrow-ui/ui';
 
-import { BOOKS_BOOK_BASE_URL } from '../constants';
+import { BOOKS_BOOK_BASE_URL } from 'apps/books/constants';
 
 import { DeleteBookButton } from './DeleteBookButton';
 
