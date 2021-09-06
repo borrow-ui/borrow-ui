@@ -19,6 +19,8 @@ export function Label({
     className = '',
     layout = LAYOUTS.DEFAULT,
     width,
+    tag: Tag = 'label',
+    htmlFor,
     alignment = ALIGNMENTS.DEFAULT,
     vAlignment = VALIGNMENTS.DEFAULT,
     style,
@@ -38,9 +40,9 @@ export function Label({
     const labelClass = `${LABEL_CLASS} ${layoutClass} ${alignmentClass} ${vAlignmentClass} ${className}`.trim();
     const labelStyle = { ...labelWidthStyle, ...style };
     return (
-        <div className={labelClass} style={labelStyle} {...rest}>
+        <label className={labelClass} style={labelStyle} htmlFor={htmlFor} {...rest}>
             {label} {required && <span className={LABEL_REQUIRED_CLASS}>*</span>}
-        </div>
+        </label>
     );
 }
 
@@ -49,6 +51,8 @@ Label.propTypes = {
     required: PropTypes.bool,
     layout: PropTypes.oneOf([LAYOUTS.HORIZONTAL, LAYOUTS.VERTICAL]),
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    tag: propTypesChildren,
+    htmlFor: PropTypes.string,
     alignment: PropTypes.oneOf([ALIGNMENTS.LEFT, ALIGNMENTS.CENTER, ALIGNMENTS.RIGHT]),
     vAlignment: PropTypes.oneOf([VALIGNMENTS.TOP, VALIGNMENTS.MIDDLE, VALIGNMENTS.BOTTOM]),
     className: PropTypes.string,
