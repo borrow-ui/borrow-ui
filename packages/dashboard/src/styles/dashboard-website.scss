@@ -1,8 +1,14 @@
 body {
     font-family: 'poppins';
     min-width: 320px;
-
+    font-size: 12px;
     height: 100vh;
+}
+
+@media screen and (max-width: $dashboard-small-screen-max-width) {
+    .borrow-ui__page__body {
+        padding-bottom: 80px;
+    }
 }
 
 .borrow-ui {
@@ -18,7 +24,7 @@ h5 {
 }
 
 .header__version {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     margin-left: 10px;
 }
@@ -48,4 +54,16 @@ h5 {
             background-color: #202020;
         }
     }
+
+    @media (max-width: 650px) {
+        &.borrow-ui__sidebar__container--closed {
+            width: 0;
+        }
+        position: fixed;
+        z-index: 10;
+    }
+}
+
+.dashboard__readable-content {
+    max-width: $dashboard-readable-content-width;
 }

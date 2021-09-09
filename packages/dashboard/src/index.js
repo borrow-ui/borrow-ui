@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './thirdParty';
 import './styles/dashboard.scss';
-import './styles/dashboard-website.scss';
 
 import App from './App';
 
