@@ -64,6 +64,7 @@ export function ModalWindow({
     showCloseIcon = true,
     canMaximize = true,
     closeOnEscape = true,
+    stopClickPropagation = true,
     wrapperProps = {},
     containerProps = {},
     contentProps = {},
@@ -160,6 +161,7 @@ export function ModalWindow({
             canMaximize={canMaximize}
             setIsMaximized={setIsMaximized}
             closeModalWindow={closeModalWindow}
+            stopClickPropagation={stopClickPropagation}
             modalState={modalState}
             modalContainer={modalContainer}
             wrapperProps={wrapperProps}
@@ -189,6 +191,8 @@ ModalWindow.propTypes = {
     canMaximize: PropTypes.bool,
     /** Close the modal if Escape key is pressed */
     closeOnEscape: PropTypes.bool,
+    /** Stop click event to be propagated outside the modal window */
+    stopClickPropagation: PropTypes.bool,
     /** Initial modal height */
     startHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Initial modal width */
@@ -213,21 +217,26 @@ function ModalWindowPortal({
     footer,
     classes,
     styles,
-    showCloseIcon = true,
+    showCloseIcon,
     canMaximize,
     setIsMaximized,
     closeModalWindow,
+    stopClickPropagation,
     modalState,
     modalContainer,
-    wrapperProps = {},
-    containerProps = {},
-    contentProps = {},
-    footerProps = {},
+    wrapperProps,
+    containerProps,
+    contentProps,
+    footerProps,
 }) {
     const { modalContainerStatusClass, modalContentSizeClass } = classes;
     const { modalContentStyle } = styles;
 
-    const { className: wrapperClass = '', ...restWrapperProps } = wrapperProps;
+    const {
+        className: wrapperClass = '',
+        onClick: onWrapperClick,
+        ...restWrapperProps
+    } = wrapperProps;
     const wrapperClassName = `${MODAL_WRAPPER_CLASS} ${wrapperClass}`.trim();
 
     const {
@@ -235,17 +244,26 @@ function ModalWindowPortal({
         style: containerStyleProp,
         ...restContainerProps
     } = containerProps;
-    const containerClassName = `${MODAL_CONTAINER_CLASS} ${modalContainerStatusClass} ${containerClass}`.trim();
+    const containerClassName =
+        `${MODAL_CONTAINER_CLASS} ${modalContainerStatusClass} ${containerClass}`.trim();
     const containerStyle = { ...modalState.modalContainerStyle, ...containerStyleProp };
 
     const { className: contentClass = '', ...restContentProps } = contentProps;
-    const contentClassName = `${MODAL_CONTENT_CLASS} ${modalContentSizeClass} ${contentClass}`.trim();
+    const contentClassName =
+        `${MODAL_CONTENT_CLASS} ${modalContentSizeClass} ${contentClass}`.trim();
 
     const { className: footerClass = '', ...restFooterProps } = footerProps;
     const footerClassName = `${MODAL_FOOTER_CLASS} ${footerClass}`.trim();
 
+    const onClick = (e) => {
+        // This cannot be tested with react-testing-library,
+        // see https://github.com/testing-library/react-testing-library/issues/487
+        stopClickPropagation && e.stopPropagation();
+        onWrapperClick && onWrapperClick();
+    };
+
     return createPortal(
-        <div className={wrapperClassName} {...restWrapperProps}>
+        <div className={wrapperClassName} onClick={onClick} {...restWrapperProps}>
             <div className={containerClassName} style={containerStyle} {...restContainerProps}>
                 <div className={MODAL_HEADER_CLASS}>
                     <div className={MODAL_TITLE_CLASS}>{title}</div>

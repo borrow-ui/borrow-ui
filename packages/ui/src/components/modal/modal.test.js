@@ -329,4 +329,41 @@ describe('Modal', () => {
 
         expect(doSomething).toHaveBeenCalledTimes(1);
     });
+
+    test('calls onWrapperClick', async () => {
+        const onClick = jest.fn();
+
+        render(
+            <Modal
+                Trigger={({ setVisible }) => (
+                    <span
+                        onClick={() => {
+                            setVisible((v) => !v);
+                        }}
+                        data-testid="trigger"
+                    >
+                        Click to open
+                    </span>
+                )}
+                getModalWindowProps={() => ({
+                    title: 'Modal Title',
+                    content: 'Modal Content',
+                    wrapperProps: { 'data-testid': 'wrapper', onClick },
+                })}
+            />
+        );
+
+        const trigger = screen.getByText('Click to open');
+        await act(async () => {
+            await userEvent.click(trigger);
+        });
+
+        await waitFor(() => {
+            expect(screen.queryByTestId('wrapper')).toBeInTheDocument();
+        });
+
+        await userEvent.click(screen.queryByTestId('wrapper'));
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+    });
 });
