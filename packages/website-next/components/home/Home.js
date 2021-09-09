@@ -1,5 +1,6 @@
 import { Page, Block, Link, Title, Text, Tile, Button, Icon, Responsive } from '@borrow-ui/ui';
 
+import { Technologies } from './Technologies';
 import { GetTheCode } from './GetTheCode';
 import { StructureProject } from './StructureProject';
 import { Rename } from './Rename';
@@ -14,7 +15,11 @@ export function Home() {
                 <main className="website__text__columns">
                     <Title className={styles['home__main-title']}>
                         Welcome to{' '}
-                        <Link tag="a" href="https://borrow-ui.dev">
+                        <Link
+                            tag="a"
+                            href="https://borrow-ui.dev"
+                            className={styles['home__main-link']}
+                        >
                             borrow-ui
                         </Link>
                         !
@@ -49,38 +54,8 @@ export function Home() {
                     </div>
                 </main>
 
-                <div className={styles['home__cards-container']}>
-                    <div className="website__text__columns">
-                        <div className={styles['home__tiles-container']}>
-                            <Tile
-                                description="Small reusable components"
-                                className={styles['home__tile']}
-                            >
-                                <Icon name="compress" size="huge" />
-                            </Tile>
-                            <Tile
-                                description="Documented and tested"
-                                className={styles['home__tile']}
-                            >
-                                <Icon name="format_align_left" size="huge" />
-                            </Tile>
-                            <Tile description="Easy to extend" className={styles['home__tile']}>
-                                <Icon name="extension" size="huge" />
-                            </Tile>
-                        </div>
-
-                        <div className={styles['home__tiles-container']}>
-                            <Tile description="Rollup" className={styles['home__tile']}>
-                                <Icon name="view_in_ar" size="huge" />
-                            </Tile>
-                            <Tile description="Storybook" className={styles['home__tile']}>
-                                <Icon name="grid_view" size="huge" />
-                            </Tile>
-                            <Tile description="BEM SCSS" className={styles['home__tile']}>
-                                <Icon name="palette" size="huge" />
-                            </Tile>
-                        </div>
-                    </div>
+                <div className="website__text__columns">
+                    <Technologies />
                 </div>
             </Block>
 

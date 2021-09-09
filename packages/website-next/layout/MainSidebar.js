@@ -14,7 +14,7 @@ export function MainSidebar({ isSmallScreen }) {
     if (!viewSidebar) return null;
 
     return (
-        <SidebarBody hideTrigger shadowWhenOpen={false} className="main-sidebar" stickyTop={true}>
+        <SidebarBody hideTrigger shadowWhenOpen={false} className="main-sidebar" stickyTop={46}>
             <div>
                 <SidebarEntry iconName="home" href="/">
                     Home
