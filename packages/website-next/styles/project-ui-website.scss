@@ -76,11 +76,11 @@ p {
 .website__text__columns {
     max-width: 1200px;
 
-    @media (max-width: 1200px) {
-        padding-left: 15px;
-        padding-right: 15px;
+    @media (max-width: 1260px) {
+        padding-left: 30px;
+        padding-right: 30px;
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 1260px) {
         margin-left: auto;
         margin-right: auto;
     }
