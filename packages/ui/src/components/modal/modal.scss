@@ -33,12 +33,12 @@ $ui-modal-footer-height: 65px !default;
 
 .#{$ui-prefix}__modal__title {
     color: $ui-color-neutral;
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
     font-size: $ui-font-size-big;
 }
 
 .#{$ui-prefix}__modal__controls {
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -46,7 +46,7 @@ $ui-modal-footer-height: 65px !default;
 
 .#{$ui-prefix}__modal__content {
     overflow: auto;
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
     box-sizing: border-box;
 }
 
@@ -67,6 +67,6 @@ $ui-modal-footer-height: 65px !default;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
     box-sizing: border-box;
 }

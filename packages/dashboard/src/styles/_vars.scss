@@ -1,0 +1,14 @@
+$ui-font: 'poppins';
+
+// include this if this is a third-party project
+// @import '~@borrow-ui/ui/dist/vars';
+
+// include this if this is part of a monorepo
+@import '../../../ui/src/style/vars/main';
+
+// Used to limit the width of main contents (i.e. a long text)
+$dashboard-readable-content-width: 750px;
+
+// Used to trigger responsiveness
+// This is also set in JS (config.js) (for Responsive component)
+$dashboard-small-screen-max-width: 650px;

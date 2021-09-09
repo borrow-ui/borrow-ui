@@ -7,7 +7,7 @@
 }
 
 .#{$ui-prefix}__form__dropzone__message {
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@
 
 .#{$ui-prefix}__form__dropzone__files {
     width: 100%;
-    padding: $ui-page-padding / 2 0;
+    padding: $ui-content-padding / 2 0;
 }
 
 .#{$ui-prefix}__form__dropzone__files__file {

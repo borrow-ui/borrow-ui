@@ -106,6 +106,7 @@ export function SidebarEntry({
         ...rest,
     };
     if (!otherProps.role && isLink) otherProps.role = 'navigation';
+    if (isLink && Tag === Link) otherProps.underline = false;
 
     return (
         <>

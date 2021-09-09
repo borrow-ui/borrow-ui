@@ -2,7 +2,7 @@
     border: 1px solid $ui-color-grey-light;
 }
 .#{$ui-prefix}__accordion__title {
-    padding: 7px $ui-page-padding;
+    padding: 7px $ui-content-padding;
     transition: 0.5s;
     cursor: pointer;
 }

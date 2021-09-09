@@ -5,7 +5,8 @@
  */
 
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { act, render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { Page } from './Page';
 import { UI_PREFIX } from '../../config';
@@ -34,6 +35,16 @@ describe('Page', () => {
     });
 
     test('renders with readableContent and Header controls', () => {
+        const originalMatchMedia = global.matchMedia;
+
+        global.matchMedia = (media) => {
+            return {
+                addListener: () => {},
+                removeListener: () => {},
+                matches: media === '(min-width: 600px)',
+            };
+        };
+
         const followMeRef = {
             current: {
                 getBoundingClientRect: () => ({
@@ -102,6 +113,51 @@ describe('Page', () => {
         expect(screen.getByTestId('header')).toHaveClass(
             `${UI_PREFIX}__page__header--tracker-is-not-visible`
         );
+
+        global.matchMedia = originalMatchMedia;
+    });
+
+    test('renders Header controls as overlay on small screen', async () => {
+        const originalMatchMedia = global.matchMedia;
+
+        global.matchMedia = (media) => {
+            return {
+                addListener: () => {},
+                removeListener: () => {},
+                matches: media === '(max-width: 599px)',
+            };
+        };
+
+        const { container } = render(
+            <Page
+                title="My Page"
+                pageHeaderProps={{
+                    controls: <button>Add something</button>,
+                    'data-testid': 'header',
+                }}
+                pageBodyProps={{
+                    'data-testid': 'body',
+                }}
+                data-testid="page"
+            >
+                The Content
+            </Page>
+        );
+
+        expect(container.querySelector(`.${UI_PREFIX}__reference-overlay`)).not.toHaveClass(
+            `${UI_PREFIX}__reference-overlay--visible`
+        );
+
+        // Click on the icon to show the controls
+        await act(async () => {
+            await userEvent.click(screen.queryAllByRole('button')[0]);
+        });
+
+        expect(container.querySelector(`.${UI_PREFIX}__reference-overlay`)).toHaveClass(
+            `${UI_PREFIX}__reference-overlay--visible`
+        );
+
+        global.matchMedia = originalMatchMedia;
     });
 
     test('renders title and children without page body and continuousScroll ', () => {

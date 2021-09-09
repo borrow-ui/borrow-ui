@@ -1,0 +1,6 @@
+export const DASHBOARD_SMALL_SCREEN_MAX_WIDTH = 650;
+
+export const DASHBOARD_SMALL_SCREEN_MEDIA_QUERIES = {
+    small: { maxWidth: DASHBOARD_SMALL_SCREEN_MAX_WIDTH - 1 },
+    normal: { minWidth: DASHBOARD_SMALL_SCREEN_MAX_WIDTH },
+};

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { UI_PREFIX } from '../../config';
+import { config, UI_PREFIX } from '../../config';
 import { propTypesChildren } from '../../utils/types';
+
+import { Responsive } from '../responsive/Responsive';
+import { ReferenceOverlay } from '../reference-overlay/ReferenceOverlay';
+import { IconControl } from '../icon/IconControl';
 
 const PAGE_HEADER_CONTAINER_CLASS = `${UI_PREFIX}__page__header`;
 const PAGE_HEADER_CONTAINER_TRACKER_IS_VISIBLE = `${UI_PREFIX}__page__header--tracker-is-visible`;
@@ -12,6 +16,7 @@ const PAGE_HEADER_TITLE_CLASS = `${UI_PREFIX}__page__header__title`;
 const PAGE_HEADER_READABLE_CONTENT_CLASS = `${UI_PREFIX}__page__header--readable-content`;
 const PAGE_HEADER_HEADER_CONTAINER_CLASS = `${UI_PREFIX}__page__header__header-container`;
 const PAGE_HEADER_CONTROLS_CONTAINER_CLASS = `${UI_PREFIX}__page__header__controls-container`;
+const PAGE_HEADER_CONTROLS_CONTAINER_OVERLAY_CLASS = `${UI_PREFIX}__page__header__controls-container--overlay`;
 
 export function PageHeader({
     children,
@@ -21,6 +26,7 @@ export function PageHeader({
     headerVisibleFollowRef,
     headerVisibleFollowOffset = 0,
     readableContent = false,
+    responsiveControls = true,
     className = '',
     ...rest
 }) {
@@ -60,14 +66,16 @@ export function PageHeader({
 
     const pageHeaderHeaderContainerClass = `${PAGE_HEADER_HEADER_CONTAINER_CLASS}`;
 
-    const TitleTag = titleTag || (typeof children === 'string' ? 'h2' : 'div');
+    const TitleTag = titleTag || 'h2';
 
     return (
         <div className={headerClass} {...rest}>
             <div className={pageHeaderHeaderContainerClass}>
                 <TitleTag className={PAGE_HEADER_TITLE_CLASS}>{children}</TitleTag>
             </div>
-            <div className={PAGE_HEADER_CONTROLS_CONTAINER_CLASS}>{controls && controls}</div>
+            {controls && (
+                <ResponsiveControls controls={controls} responsiveControls={responsiveControls} />
+            )}
         </div>
     );
 }
@@ -87,6 +95,44 @@ PageHeader.propTypes = {
     headerVisibleFollowOffset: PropTypes.number,
     /** Tag used for the title */
     titleTag: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.node]),
+    /** If true, controls are hidden on small screens and an icon is shown, which will trigger an overlay with controls */
+    responsiveControls: PropTypes.bool,
     className: PropTypes.string,
     children: propTypesChildren.isRequired,
+};
+
+function ResponsiveControls({ controls, responsiveControls }) {
+    if (!responsiveControls) return controls;
+
+    return (
+        <Responsive queries={{ small: { maxWidth: config.smallScreenMaxWidth } }}>
+            {({ small }) => (
+                <>
+                    {small && (
+                        <ReferenceOverlay
+                            triggerMode="click"
+                            placement="bottom-end"
+                            overlayContent={
+                                <div
+                                    className={`${PAGE_HEADER_CONTROLS_CONTAINER_CLASS} ${PAGE_HEADER_CONTROLS_CONTAINER_OVERLAY_CLASS}`}
+                                >
+                                    {controls}
+                                </div>
+                            }
+                        >
+                            <IconControl name="more_horiz" role="button" />
+                        </ReferenceOverlay>
+                    )}
+                    {!small && (
+                        <div className={PAGE_HEADER_CONTROLS_CONTAINER_CLASS}>{controls}</div>
+                    )}
+                </>
+            )}
+        </Responsive>
+    );
+}
+
+ResponsiveControls.propTypes = {
+    controls: propTypesChildren,
+    responsiveControls: PropTypes.bool,
 };

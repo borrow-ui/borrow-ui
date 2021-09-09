@@ -1,4 +1,4 @@
-$ui-page-padding: 15px !default;
+$ui-page-padding: $ui-content-padding !default;
 $ui-page-header-margin-bottom: 4px !default;
 
 .#{$ui-prefix}__page__header {
@@ -42,6 +42,13 @@ $ui-page-header-margin-bottom: 4px !default;
 .#{$ui-prefix}__page__header__controls-container {
     display: flex;
     align-items: center;
+}
+
+.#{$ui-prefix}__page__header__controls-container--overlay {
+    justify-content: flex-end;
+    background-color: $ui-color-neutral-white;
+    box-shadow: $ui-shadow-small;
+    padding: $ui-page-padding / 2;
 }
 
 @media (min-width: $ui-readable-content-min-width) {

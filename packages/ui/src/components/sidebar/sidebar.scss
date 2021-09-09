@@ -1,5 +1,6 @@
-$ui-dashboard-header-height: 0 !default;
-$ui-sidebar-closed-width: 46px !default;
+// defined in styles/vars/_main:
+// $ui-sidebar-closed-width
+
 $ui-sidebar-open-width: 275px !default;
 $ui-sidebar-trigger-height: $ui-sidebar-closed-width !default;
 $ui-sidebar-color: $ui-color-on-neutral-white !default;

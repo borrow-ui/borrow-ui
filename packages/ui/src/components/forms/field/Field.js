@@ -24,6 +24,7 @@ export function Field({
     description = '',
     required = false,
     layout = LAYOUTS.DEFAULT,
+    htmlFor,
     vAlignment = VALIGNMENTS.DEFAULT,
     labelProps = {},
     labelWidth,
@@ -65,6 +66,7 @@ export function Field({
                     vAlignment={vAlignment}
                     layout={layout}
                     required={required}
+                    htmlFor={htmlFor}
                     {...labelProps}
                 />
             )}
@@ -90,6 +92,8 @@ Field.propTypes = {
      * as well as `DEFAULT`, to create other types of layout.
      */
     layout: PropTypes.oneOf([LAYOUTS.VERTICAL, LAYOUTS.HORIZONTAL]),
+    /** ID of input element */
+    htmlFor: PropTypes.string,
     /** Label and Field vertical alignment. Default vertical alignment is `'middle'` */
     vAlignment: PropTypes.oneOf([VALIGNMENTS.TOP, VALIGNMENTS.MIDDLE, VALIGNMENTS.BOTTOM]),
     labelWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

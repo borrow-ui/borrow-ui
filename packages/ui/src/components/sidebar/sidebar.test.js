@@ -76,7 +76,7 @@ describe('Sidebar', () => {
 
     test('renders a sticky Sidebar with a custom closed width', () => {
         render(
-            <Sidebar data-testid="sidebar" stickyTop={true} closedWidth={200}>
+            <Sidebar data-testid="sidebar" stickyTop={5} closedWidth={200}>
                 <span>Top</span>
             </Sidebar>
         );

@@ -1,11 +1,9 @@
-$ui-page-padding: 15px !default;
-
 .#{$ui-prefix}__sidebar-menu {
     width: 100%;
     box-sizing: border-box;
 }
 .#{$ui-prefix}__sidebar-menu--padded {
-    padding: $ui-page-padding;
+    padding: $ui-content-padding;
 }
 
 .#{$ui-prefix}__sidebar-menu__title {

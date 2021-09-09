@@ -1,5 +1,7 @@
+// defined in styles/vars/_main:
+// $ui-navbar-height
+
 /* General variables */
-$ui-navbar-height: 46px !default;
 $ui-navbar-padding: 15px !default;
 $ui-navbar-padding-small: 7px !default;
 
@@ -11,12 +13,12 @@ $ui-navbar-header-color-light: darken($ui-navbar-header-color, 2) !default;
 $ui-navbar-header-border-color: darken($ui-navbar-header-bg-color, 3) !default;
 
 /* Body */
-$ui-navbar-body-header-bg-color: #ececec;
-$ui-navbar-body-border-color: #fcfcfc;
-$ui-navbar-body-bg-color: #fcfcfc;
-$ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color;
-$ui-navbar-body-query-color: #898989;
-$ui-navbar-body-query-focus-border-color: $ui-color-accent;
+$ui-navbar-body-header-bg-color: #ececec !default;
+$ui-navbar-body-border-color: #fcfcfc !default;
+$ui-navbar-body-bg-color: #fcfcfc !default;
+$ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color !default;
+$ui-navbar-body-query-color: #898989 !default;
+$ui-navbar-body-query-focus-border-color: $ui-color-accent !default;
 
 /* Utils */
 @mixin optional-at-root($sel) {

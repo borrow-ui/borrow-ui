@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "*": ["*", "src/*"]
+        }
+    },
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "typeAcquisition": {
+        "include": ["jest"]
+    }
+}

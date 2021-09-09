@@ -1,7 +1,7 @@
 /* VARIABLES */
-$ui-link-color: $ui-color-primary !default;
-$ui-link-color-over: $ui-color-primary-over !default;
-$ui-link-color-underline: $ui-color-primary-light !default;
+$ui-link-color: #0e5df0 !default;
+$ui-link-color-over: lighten($ui-link-color, 12) !default;
+$ui-link-color-underline: $ui-link-color-over !default;
 
 /* CLASSES */
 .#{$ui-prefix}__link {
