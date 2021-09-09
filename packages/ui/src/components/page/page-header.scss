@@ -44,6 +44,13 @@ $ui-page-header-margin-bottom: 4px !default;
     align-items: center;
 }
 
+.#{$ui-prefix}__page__header__controls-container--overlay {
+    justify-content: flex-end;
+    background-color: $ui-color-neutral-white;
+    box-shadow: $ui-shadow-small;
+    padding: $ui-page-padding / 2;
+}
+
 @media (min-width: $ui-readable-content-min-width) {
     .#{$ui-prefix}__page__header--readable-content {
         padding: 0 calc((100% - 1300px) / 2 + #{$ui-sidebar-closed-width});

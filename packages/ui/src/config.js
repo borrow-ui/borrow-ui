@@ -5,6 +5,7 @@ export const SIZES = ['smaller', 'small', 'normal', 'big', 'bigger', 'huge'];
 export const config = {
     getLocation: () => {},
     getLinkComponent: () => 'a',
+    smallScreenMaxWidth: 599,
 };
 
 export const setConfig = (setting, value) => {
@@ -15,4 +16,4 @@ export const setConfig = (setting, value) => {
     return false;
 };
 
-export const getConfig = setting => config[setting];
+export const getConfig = (setting) => config[setting];
