@@ -14,10 +14,11 @@ const TABLE_COLUMNS = [
     { prop: 'controls', title: '' },
 ];
 
-export function BooksList({ books, deleteBook }) {
-    const columns = deleteBook
+export function BooksList({ books, deleteBook, showSubtitle = true }) {
+    let columns = deleteBook
         ? TABLE_COLUMNS
         : TABLE_COLUMNS.filter((col) => col.prop !== 'controls');
+    if (!showSubtitle) columns = columns.filter((col) => col.prop !== 'subtitle');
 
     const booksList = useMemo(() => {
         if (!books) return null;
@@ -30,7 +31,7 @@ export function BooksList({ books, deleteBook }) {
                     <DeleteBookButton
                         book={book}
                         deleteBook={deleteBook}
-                        buttonProps={{ size: 'smaller' }}
+                        buttonProps={{ size: 'smaller', flat: true }}
                     />
                 </>
             ) : null,

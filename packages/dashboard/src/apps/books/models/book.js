@@ -1,3 +1,5 @@
+import { getMyBooks } from '../api/getMyBooks';
+
 export class BookModel {
     newBook() {
         return {
@@ -8,6 +10,10 @@ export class BookModel {
             image: '',
             url: '',
         };
+    }
+
+    getList() {
+        return getMyBooks();
     }
 
     add(setStore, book) {

@@ -5,5 +5,10 @@ export const BOOKS_BREADCRUMBS = [
     { link: BOOKS_BASE_URL, label: 'Books' },
 ];
 
-/* BOOK DETAIL */
+export const TOPICS = ['react', 'es6', 'django', 'python', 'front-end', 'back-end'];
+
+/* BOOKS */
 export const BOOKS_BOOK_BASE_URL = `${BOOKS_BASE_URL}/book`;
+
+/* REVIEWS */
+export const BOOKS_REVIEW_BASE_URL = `${BOOKS_BASE_URL}/review`;

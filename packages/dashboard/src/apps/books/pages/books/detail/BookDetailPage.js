@@ -5,11 +5,19 @@ import { Breadcrumbs, Page, Button, Title, Block } from '@borrow-ui/ui';
 
 import { storeContext } from 'store';
 
-import { BOOKS_BASE_URL, BOOKS_BREADCRUMBS, BOOKS_BOOK_BASE_URL } from 'apps/books/constants';
+import {
+    BOOKS_BASE_URL,
+    BOOKS_BREADCRUMBS,
+    BOOKS_BOOK_BASE_URL,
+    BOOKS_REVIEW_BASE_URL,
+} from 'apps/books/constants';
 import { booksModel } from 'apps/books/models/book';
+import { reviewsModel } from 'apps/books/models/review';
 import { ReviewDetail } from 'apps/books/components/reviews/ReviewDetail';
 import { DeleteBookButton } from 'apps/books/components/books/DeleteBookButton';
 import { BookDetail } from 'apps/books/components/books/BookDetail';
+
+import './bookDetailPage.scss';
 
 export function BookDetailPage() {
     const { store, setStore } = useContext(storeContext);
@@ -55,16 +63,34 @@ export function BookDetailPage() {
             {book && (
                 <>
                     <BookDetail book={book} />
-                    {reviews.length > 0 && (
-                        <>
-                            <Title tag="h3">Reviews</Title>
-                            {reviews.map((review) => (
-                                <Block outstanding={true} key={review.id}>
-                                    <ReviewDetail review={review} />
-                                </Block>
-                            ))}
-                        </>
-                    )}
+                    <div className="book__reviews">
+                        {reviews.length === 0 && (
+                            <Button
+                                mean="positive"
+                                tag={Link}
+                                to={`${BOOKS_REVIEW_BASE_URL}/add/${isbn13}`}
+                            >
+                                Add Review
+                            </Button>
+                        )}
+                        {reviews.length > 0 && (
+                            <>
+                                <Title tag="h3">Reviews</Title>
+                                {reviews.map((review) => (
+                                    <Block
+                                        outstanding={true}
+                                        key={review.id}
+                                        className="dashboard__readable-content"
+                                    >
+                                        <ReviewDetail
+                                            review={review}
+                                            deleteReview={(id) => reviewsModel.delete(setStore, id)}
+                                        />
+                                    </Block>
+                                ))}
+                            </>
+                        )}
+                    </div>
                 </>
             )}
         </Page>

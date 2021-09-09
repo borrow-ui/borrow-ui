@@ -1,4 +1,17 @@
+@import '../../../../styles/vars';
+
 .review {
-    max-width: 800px;
-    font-size: 14px;
+    max-width: $dashboard-readable-content-width;
+}
+
+.review__controls {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.review__info:not(:last-of-type) {
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid $ui-color-gray-light;
 }

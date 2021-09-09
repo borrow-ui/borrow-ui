@@ -1870,6 +1870,7 @@ __metadata:
     babel-loader: 8.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-hook-form: ^7.15.0
     react-router-dom: ^5.2.1
     react-scripts: 4.0.3
     web-vitals: ^1.0.1
@@ -17512,6 +17513,15 @@ fsevents@^1.2.7:
     react: ^16.6.0 || ^17.0.0
     react-dom: ^16.6.0 || ^17.0.0
   checksum: 8db5d875bb681dabc5f277ee3b0debe96d58f4b6d33cb2e9c72a026f4fd22e44722d2a7164a21b51a4002a6cd40d716195731ba37cc1d73167adf85e56441c1c
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.15.0":
+  version: 7.15.0
+  resolution: "react-hook-form@npm:7.15.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17
+  checksum: 604b84e59e963bb842ae670fc9c67411c8d24a72f8d01b7b9e7352e6c3ab08c6e355d985e58485d1400e4039530c7ae147cd48e54eb9beae8efbbec34dc1feda
   languageName: node
   linkType: hard
 

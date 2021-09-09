@@ -14,10 +14,10 @@ export async function getReviews() {
             title: 'Good introduction',
             description: `This book is a great guide to start learning React again.
 
-Probably as good as the tutorial!
-        `,
-            positive_opinion: true,
+Probably as good as the tutorial!`,
             started_on: '2021-05-25',
+            completed: true,
+            recommend_to_friends: true,
             topics: ['react', 'front-end'],
         },
     };
