@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { Title, Icon, Forms, Row, Col } from '@borrow-ui/ui';
+// Form components can be imported via Forms object
+import { Title, Icon, Forms, Row, Col, Monospace, Text } from '@borrow-ui/ui';
 
 import { ImportStatement } from './ImportStatement';
 
@@ -42,6 +43,11 @@ export function VerticalFormDemo() {
                     Vertical Layout Form
                 </Title>
             </a>
+            <Text>
+                Components can be imported directly from the main index file but also grouped with
+                the <Monospace>Forms</Monospace> object, and extracted with destructuring, i.e.
+                <Monospace>{'const { Checkbox } = Forms;'}</Monospace>
+            </Text>
             <ImportStatement
                 importStatement="import { Forms } from '@borrow-ui/ui';"
                 docs="?path=/docs/forms-introduction--page"

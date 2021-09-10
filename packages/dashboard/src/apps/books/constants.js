@@ -1,3 +1,10 @@
+/**
+ * Defines constants used in pages and components.
+ *
+ * Base urls are built by extension of the app base url,
+ * and breadcrumbs too.
+ */
+
 export const BOOKS_BASE_URL = '/books';
 
 export const BOOKS_BREADCRUMBS = [

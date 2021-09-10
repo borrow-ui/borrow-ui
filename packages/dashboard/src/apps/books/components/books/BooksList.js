@@ -1,3 +1,9 @@
+/**
+ * Shows the list of books in a tabular format, by using the
+ * simple Table components.
+ *
+ */
+
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,11 @@
+/**
+ * Dashboard home page.
+ *
+ * This page:
+ * - shows the links to the apps by using tiles;
+ * - connects to the store and shows the latest books.
+ */
+
 import { useContext } from 'react';
 
 import { Page, Title, TileLink, Text } from '@borrow-ui/ui';

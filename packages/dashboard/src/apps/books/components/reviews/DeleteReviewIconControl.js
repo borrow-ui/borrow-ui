@@ -1,9 +1,16 @@
+/**
+ * Similarly to DeleteBookButton, use an IconControl to open a modal
+ * for confirmation.
+ *
+ * While the promise is loading, the modal will not be closable.
+ */
+
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button, Modal, Loader, IconControl } from '@borrow-ui/ui';
 
-export function DeleteReviewIconControl({ reviewId, deleteReview, onDelete }) {
+export function DeleteReviewIconControl({ reviewId, deleteReview }) {
     const [loading, setLoading] = useState(false);
 
     const deleteReviewFn = (id) => {
@@ -59,6 +66,4 @@ DeleteReviewIconControl.propTypes = {
     reviewId: PropTypes.number.isRequired,
     /** Function to call when Delete confirmation button is pressed */
     deleteReview: PropTypes.func.isRequired,
-    /** Function to call when a review has been deleted */
-    onDelete: PropTypes.func,
 };

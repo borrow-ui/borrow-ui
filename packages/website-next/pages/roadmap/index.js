@@ -41,8 +41,7 @@ export default function ProjectRoadmap() {
                                 children: [
                                     { title: 'configure rollup to look over the project folders' },
                                     {
-                                        title:
-                                            'configure sass to compile the SCSS and generate a minified version',
+                                        title: 'configure sass to compile the SCSS and generate a minified version',
                                     },
                                 ],
                             },
@@ -52,12 +51,10 @@ export default function ProjectRoadmap() {
                                 done: true,
                                 children: [
                                     {
-                                        title:
-                                            'configure Storybook to work with package in monorepo',
+                                        title: 'configure Storybook to work with package in monorepo',
                                     },
                                     {
-                                        title:
-                                            'use addon-docs to generate components documentation',
+                                        title: 'use addon-docs to generate components documentation',
                                     },
                                 ],
                             },
@@ -69,8 +66,7 @@ export default function ProjectRoadmap() {
                                 milestone: [3, '0.3'],
                                 children: [
                                     {
-                                        title:
-                                            'initialize a package with Next.js and make it work with borrow-ui',
+                                        title: 'initialize a package with Next.js and make it work with borrow-ui',
                                     },
                                     {
                                         title: 'publish the website',
@@ -82,6 +78,7 @@ export default function ProjectRoadmap() {
                                 description: 'Create a Dashboard backbone using borrow-ui',
                                 issue: 4,
                                 milestone: [3, '0.3'],
+                                done: true,
                                 children: [
                                     {
                                         title: 'include borrow-ui in the CRA app',
@@ -102,8 +99,7 @@ export default function ProjectRoadmap() {
                                 milestone: [4, '0.4'],
                                 children: [
                                     {
-                                        title:
-                                            'determine the possible strategies to create variable names',
+                                        title: 'determine the possible strategies to create variable names',
                                     },
                                     {
                                         title: 'implement for each component a dark mode',
@@ -120,8 +116,7 @@ export default function ProjectRoadmap() {
                                 milestone: [4, '0.4'],
                                 children: [
                                     {
-                                        title:
-                                            'accept a new name as input and rename all occurrencies and folders',
+                                        title: 'accept a new name as input and rename all occurrencies and folders',
                                     },
                                 ],
                             },

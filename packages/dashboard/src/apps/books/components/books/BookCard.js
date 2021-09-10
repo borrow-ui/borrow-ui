@@ -1,3 +1,8 @@
+/**
+ * Represents a book with a Card component,
+ * to highlight the cover, title and subtitle.
+ */
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 

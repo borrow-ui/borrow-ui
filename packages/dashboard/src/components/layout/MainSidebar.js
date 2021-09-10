@@ -1,3 +1,15 @@
+/**
+ * Dashboard sidebar, created with SidebarBody and SidebarEntry
+ * components.
+ *
+ * Instead of using a Sidebar component which has the trigger within it,
+ * it uses the context defined in App.js and delegates the trigger to
+ * the Header component.
+ *
+ * Ideally, the links here shuold be different from the Header, but the
+ * purpose of this demo is to show components and their usage.
+ */
+
 import { Icon, SidebarBody, SidebarEntry } from '@borrow-ui/ui';
 
 export function MainSidebar() {

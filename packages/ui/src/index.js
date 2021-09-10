@@ -119,3 +119,21 @@ export {
     useHover,
     useLocationHash,
 };
+
+/**
+ * The following exports are redundant with Forms,
+ * but allows for auto discovery and import directly
+ * with editor's autocomplete.
+ */
+
+export { Checkbox } from './components/forms/checkbox/Checkbox';
+export { DatePicker } from './components/forms/date-picker/DatePicker';
+export { Dropzone } from './components/forms/dropzone/Dropzone';
+export { DropzoneFiles, DropzoneFile } from './components/forms/dropzone/DropzoneFiles';
+export { Field, VField, HField } from './components/forms/field/Field';
+export { Input } from './components/forms/input/Input';
+export { Label } from './components/forms/label/Label';
+export { ReactSelect } from './components/forms/react-select/ReactSelect';
+export { ReactSelect as Select } from './components/forms/react-select/ReactSelect';
+export { Textarea } from './components/forms/textarea/Textarea';
+export { Toggle } from './components/forms/toggle/Toggle';

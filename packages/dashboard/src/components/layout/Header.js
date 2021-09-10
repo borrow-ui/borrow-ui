@@ -1,3 +1,13 @@
+/**
+ * Dashboard main header uses Navbar component.
+ * Ideally this shuold not have the same link of the sidebar,
+ * but the purpose of this demo is to demonstrate the usage
+ * of main components.
+ *
+ * The first component of the Navbar is the SidebarTrigger,
+ * which controls the main sidebar.
+ */
+
 import { Link, Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
 
 import packageJson from '../../../package.json';

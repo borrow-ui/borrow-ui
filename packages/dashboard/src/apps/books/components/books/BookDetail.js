@@ -1,3 +1,7 @@
+/**
+ * Shows the detail of a book, including the cover as image.
+ */
+
 import PropTypes from 'prop-types';
 
 import { Col, Row, Forms } from '@borrow-ui/ui';

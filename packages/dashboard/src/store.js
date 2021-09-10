@@ -1,3 +1,7 @@
+/**
+ * Initialize the dashboard store.
+ */
+
 import { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 

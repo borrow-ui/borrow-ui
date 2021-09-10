@@ -1,3 +1,16 @@
+/**
+ * Entry point component for the `books` application.
+ * In this component store content can be initialized, or
+ * at least related/mandatory entities can be fetched.
+ *
+ * For example, categories of books can be preloaded from the
+ * database to be used without fetching them in every component.
+ *
+ * In this demo, the books are loaded when the apps store is
+ * initialized so they might not be loaded yet.
+ * For this reason, a Loader is shown until the store is filled.
+ */
+
 import { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -21,7 +34,12 @@ export function BooksRoutes() {
 
     // if books are not loaded yet, show a Loader
     // in this way we can avoid to put this check around
-    if (!store.books || !store.books.books) return <Loader />;
+    if (!store.books || !store.books.books)
+        return (
+            <div className="w-100 h-100 flex-center-center">
+                <Loader />
+            </div>
+        );
 
     return (
         <Switch>
