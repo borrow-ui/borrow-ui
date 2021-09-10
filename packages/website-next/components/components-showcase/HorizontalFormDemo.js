@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 
-import { Title, Icon, Forms, Row, Col } from '@borrow-ui/ui';
+// Forms components can be imported directly
+import {
+    Title,
+    Icon,
+    Row,
+    Col,
+    Checkbox,
+    DatePicker,
+    Dropzone,
+    HField,
+    Input,
+    Textarea,
+    Toggle,
+    ReactSelect,
+} from '@borrow-ui/ui';
 
 import { ImportStatement } from './ImportStatement';
 
 import styles from './components-styles.module.scss';
-
-const { Checkbox, DatePicker, Dropzone, HField, Input, Textarea, Toggle, ReactSelect } = Forms;
 
 const AGE_RANGES = [
     { value: 1, label: '1-10' },
@@ -43,7 +55,7 @@ export function HorizontalFormDemo() {
                 </Title>
             </a>
             <ImportStatement
-                importStatement="import { Forms } from '@borrow-ui/ui';"
+                importStatement="import { Checkbox, DatePicker, Dropzone, HField, Input, Textarea, Toggle, ReactSelect } from '@borrow-ui/ui';"
                 docs="?path=/docs/forms-introduction--page"
             />
             <div style={{ fontSize: 14 }}>
