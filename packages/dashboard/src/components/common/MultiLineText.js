@@ -1,3 +1,11 @@
+/**
+ * A simple example of a shared component between all
+ * applications.
+ *
+ * This components splits a text into lines and adds <br />
+ * to make them spaced like in the raw text.
+ */
+
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 

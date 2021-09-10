@@ -1,3 +1,10 @@
+/**
+ * Similarly to AddBookPage, this page has the logic to connect
+ * the edit form to the store.
+ *
+ * The book to edit is retrieved from the store and the values
+ * are passed down to BookForm.
+ */
 import { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 

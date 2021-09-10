@@ -1,3 +1,13 @@
+/**
+SCSS entry point file.
+
+Vars are imported here, then borrow-ui styles and components
+and finally the scss of this dashboard.
+
+In this order, we can override variables and pass them to
+the dashboard styles.
+*/
+
 @import './vars';
 
 // include this if this is a third-party project

@@ -1,14 +1,44 @@
+/**
+ * Creates an "uncontrolled" form using form components.
+ * The components are imported directly from the library,
+ * as opposed as BookForm.
+ * Both ways are fine.
+ *
+ * The uncontrolled form is managed with react-hook-form.
+ * Some components can be registered directly (text input and textarea)
+ * while others needs to be wrapped with rhf's Controller.
+ *
+ * This forms shows also how to use watch to create a custom components
+ * specific for this form (for the 'stars').
+ *
+ * The result is a much more verbose form but with better performances
+ * and less re-rendering.
+ *
+ * As other parts of this demo, there is no need for validation or catches,
+ * they are out of scope.
+ */
+
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm, Controller } from 'react-hook-form';
 
-import { Forms, Button, Loader, Icon } from '@borrow-ui/ui';
+import {
+    Button,
+    Loader,
+    Icon,
+    Field,
+    Textarea,
+    Input,
+    Toggle,
+    Select,
+    DatePicker,
+    Dropzone,
+    Checkbox,
+} from '@borrow-ui/ui';
 
 import { beautify } from 'utils/strings';
 
 import { TOPICS } from 'apps/books/constants';
-
-const { Field, Textarea, Input, Toggle, Select, DatePicker, Dropzone, Checkbox } = Forms;
 
 const topicsOptions = TOPICS.map((cat) => ({ value: cat, label: beautify(cat) }));
 

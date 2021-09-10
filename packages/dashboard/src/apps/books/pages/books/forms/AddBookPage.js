@@ -1,3 +1,9 @@
+/**
+ * This page shows an empty book form and has the logic to connect
+ * the form with the store.
+ *
+ * The actions are passed down, so the BookForm is store independent.
+ */
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 

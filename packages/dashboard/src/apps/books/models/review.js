@@ -1,3 +1,7 @@
+/**
+ * See book model for a brief explanation.
+ */
+
 import { getReviews } from '../api/getReviews';
 
 export class ReviewModel {

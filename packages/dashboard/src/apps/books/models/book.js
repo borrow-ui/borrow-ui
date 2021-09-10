@@ -1,3 +1,16 @@
+/**
+ * A class and a main instance to control the life of books.
+ *
+ * Ideally, this class can be extended by a base model that manages
+ * the store consistently (i.e. using Redux, dispatching actions,
+ * registering middlewares, etc).
+ * The base model would also remember the order of elements retrieved
+ * by getters, get one item only, passing filters to fetch/axios,
+ * handle custom calls, and so on.
+ *
+ * For the purpose of this demo, everything is done in-place.
+ */
+
 import { getMyBooks } from '../api/getMyBooks';
 
 export class BookModel {

@@ -1,3 +1,9 @@
+/**
+ * Initialize the app store.
+ * When initialized, the books are loaded with the models
+ * `getList` method, and added to the store.
+ */
+
 import { booksModel } from './models/book';
 import { reviewsModel } from './models/review';
 

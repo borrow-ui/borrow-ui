@@ -1,3 +1,11 @@
+/**
+ * This page gets the review by the ID and pass the review
+ * down to the ReviewForm.
+ *
+ * The logic to connect the store is defined here, and passed with
+ * onSubmit and onCancel.
+ */
+
 import { useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 

@@ -1,3 +1,13 @@
+/**
+ * The home page of the books app.
+ *
+ * This page uses the store (context) to retrieve the books
+ * and to show them as a list.
+ *
+ * This component could definitely use more creativity and reprents books
+ * in different ways (i.e. with shelves!), but for this demo a table
+ * is more straightforward to keep the code compact.
+ */
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 

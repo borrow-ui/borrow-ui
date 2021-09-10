@@ -1,3 +1,11 @@
+/**
+ * Shows one review.
+ *
+ * Instead of being a simple field/value, this component tries to
+ * represent the data with icons for boolean values and a
+ * multi-line text component for the main description.
+ */
+
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 

@@ -1,3 +1,12 @@
+/**
+ * The delete button opens a modal for confirmation.
+ *
+ * The modal can not be closed while book is being deleted.
+ *
+ * As other forms in this demo, there is no need for a
+ * catch in the promise action.
+ */
+
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 

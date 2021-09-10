@@ -1,3 +1,18 @@
+/**
+ * Page component that holds the logic to show the details of a book.
+ * In this page the book is loaded from the store directly.
+ *
+ * Ideally, it should be retrieved from the database if not in the store
+ * (or if a cached value is not reliable).
+ *
+ * The page component also retrieves the reviews for the book.
+ * Technically can have more reviews, but for simplicity the add button
+ * is shown only if no reviews are visible.
+ *
+ * The control buttons are added to the page header using the `pageHeader`
+ * - `controls` attribute,
+ */
+
 import { useContext, useMemo } from 'react';
 import { useParams, useHistory, Link } from 'react-router-dom';
 

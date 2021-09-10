@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Loads third-party requirements
 import './thirdParty';
+
+// Includes the dashboard style
 import './styles/dashboard.scss';
 
 import App from './App';
