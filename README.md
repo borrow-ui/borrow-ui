@@ -60,6 +60,16 @@
         </tr>
         <tr>
             <td>
+                <a href="https://dashboard.borrow-ui.dev/">Dashboard demo</a>
+            </td>
+            <td>
+                <img
+                    src="https://api.netlify.com/api/v1/badges/5b80574a-c68a-4616-b599-9610ae3c7fa9/deploy-status" alt="Netlify Status"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <a href="https://next.borrow-ui.dev/">Next branch</a>
             </td>
             <td>
