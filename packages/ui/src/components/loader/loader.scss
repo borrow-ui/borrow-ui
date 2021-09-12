@@ -1,109 +1,140 @@
-.#{$ui-prefix}__loader__container--full-section {
+/**
+* CREDITS: inspired by https://codepen.io/CKH4/pen/ZGNyep
+*/
+
+@import '../../style/mixins/keyframes-vendors';
+
+.#{$ui-prefix}__loader {
+    position: relative;
+}
+
+.#{$ui-prefix}__loader-container--triangle,
+.#{$ui-prefix}__loader-container--line {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
+}
+
+.#{$ui-prefix}__loader--triangle {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
 }
 
-.#{$ui-prefix}__loader--full-section {
-    display: block;
-    position: relative;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: $ui-color-primary;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-    width: 145px;
-    height: 145px;
+.#{$ui-prefix}__loader__circle--triangle {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 100%;
+    display: inline-block;
+    animation: slide 1s infinite;
 
-    &:before {
-        content: '';
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        border-top-color: $ui-color-primary-light;
-        -webkit-animation: spin 3s linear infinite;
-        animation: spin 3s linear infinite;
+    &:nth-child(3) {
+        animation-delay: 0s;
+        left: calc(50% - 25px);
+        top: 9px;
+        background: $ui-color-primary;
     }
-    &:after {
-        content: '';
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-        border-radius: 50%;
-        border: 3px solid transparent;
-        border-top-color: $ui-color-accent;
-        -webkit-animation: spin 1.5s linear infinite;
-        animation: spin 1.5s linear infinite;
+    &:nth-child(2) {
+        animation-delay: 0.3s;
+        left: 9px;
+        bottom: 9px;
+        background: $ui-color-secondary;
+    }
+    &:nth-child(1) {
+        animation-delay: 0.6s;
+        right: 9px;
+        bottom: 9px;
+        background: $ui-color-accent;
     }
 }
 
-.#{$ui-prefix}__loader__container--inline {
+.#{$ui-prefix}__loader--line {
+    display: inline-flex;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.#{$ui-prefix}__loader__circle--line {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 100%;
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    animation: slide 1s infinite;
+
+    &:nth-child(1) {
+        animation-delay: 0.1s;
+        background: $ui-color-primary;
+        left: 8px;
+    }
+    &:nth-child(2) {
+        animation-delay: 0.2s;
+        background: $ui-color-secondary;
+        left: 34px;
+    }
+    &:nth-child(3) {
+        animation-delay: 0.3s;
+        background: $ui-color-accent;
+        left: 58px;
+    }
+}
+
+.#{$ui-prefix}__loader-container--inline {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
 }
 
 .#{$ui-prefix}__loader--inline {
-    width: 15px;
-    height: 15px;
-    margin: 6px 0 0 0;
-    display: block;
-    position: relative;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    border-top-color: $ui-color-primary;
-    border-bottom-color: $ui-color-primary;
-    -webkit-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    top: 6px;
+}
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 1px;
-        left: 1px;
-        right: 1px;
-        bottom: 1px;
-        border-radius: 50%;
-        border: 1px solid transparent;
-        border-left-color: $ui-color-accent;
-        border-right-color: $ui-color-accent;
-        -webkit-animation: spin 4s linear infinite;
-        animation: spin 4s linear infinite;
+.#{$ui-prefix}__loader__circle--inline {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    border-radius: 100%;
+    display: inline-block;
+    animation-delay: 0s;
+    left: 2px;
+    top: 0;
+    animation: slideCenter 1s infinite;
+    border: 1px solid white;
+}
+
+@include keyframes-vendors(slide) {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
-.#{$ui-prefix}__loader {
-    @-webkit-keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
+@include keyframes-vendors(slideCenter) {
+    0% {
+        background: $ui-color-primary;
+        transform: scale(1);
     }
-    @keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
+    50% {
+        opacity: 0.7;
+        background: $ui-color-secondary;
+        transform: scale(1.2);
+    }
+    100% {
+        background: $ui-color-primary;
+        transform: scale(1);
     }
 }

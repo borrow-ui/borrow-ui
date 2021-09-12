@@ -6,26 +6,26 @@ import { UI_PREFIX } from '../../config';
 import { Loader } from './Loader';
 
 describe('Loader', () => {
-    test('renders main laoder', () => {
-        render(<Loader data-testid="loader-container" />);
-        const loaderContainer = screen.getByTestId('loader-container');
+    test('renders triangle laoder', () => {
+        render(<Loader data-testid="loader" />);
 
-        expect(loaderContainer).toHaveClass(`${UI_PREFIX}__loader__container`);
-        expect(loaderContainer).toHaveClass(`${UI_PREFIX}__loader__container--full-section`);
-
-        const loader = loaderContainer.querySelector('div');
+        const loader = screen.getByTestId('loader');
         expect(loader).toHaveClass(`${UI_PREFIX}__loader`);
-        expect(loader).toHaveClass(`${UI_PREFIX}__loader--full-section`);
+        expect(loader).toHaveClass(`${UI_PREFIX}__loader--triangle`);
+    });
+
+    test('renders line laoder', () => {
+        render(<Loader tyle="line" data-testid="loader" />);
+
+        const loader = screen.getByTestId('loader');
+        expect(loader).toHaveClass(`${UI_PREFIX}__loader`);
+        expect(loader).toHaveClass(`${UI_PREFIX}__loader--line`);
     });
 
     test('renders inline laoder', () => {
-        render(<Loader type="inline" data-testid="inline-loader-container" />);
-        const loaderContainer = screen.getByTestId('inline-loader-container');
+        render(<Loader type="inline" data-testid="loader" />);
 
-        expect(loaderContainer).toHaveClass(`${UI_PREFIX}__loader__container`);
-        expect(loaderContainer).toHaveClass(`${UI_PREFIX}__loader__container--inline`);
-
-        const loader = loaderContainer.querySelector('div');
+        const loader = screen.getByTestId('loader');
         expect(loader).toHaveClass(`${UI_PREFIX}__loader`);
         expect(loader).toHaveClass(`${UI_PREFIX}__loader--inline`);
     });

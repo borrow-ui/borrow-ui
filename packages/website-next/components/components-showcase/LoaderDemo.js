@@ -20,15 +20,22 @@ export function LoaderDemo() {
             />
             <div>
                 <div className="flex-spacebetween-center flex--wrap">
-                    <div className="w-300">
+                    <div>
                         <Loader />
                     </div>
-                    <div className="w-300">
-                        <Loader type="inline" className="m-r-10" />
-                        <Button disabled={true} mean="neutral-reverse">
-                            <Loader type="inline" />
-                            Loading
-                        </Button>
+                    <div>
+                        <Loader type="line" />
+                    </div>
+                    <div className="">
+                        <div>
+                            Can be between <Loader type="inline" /> text
+                        </div>
+                        <div className="flex-center-center">
+                            <Button disabled={true} mean="neutral-reverse">
+                                <Loader type="inline" className="m-r-5" />
+                                Loading
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
