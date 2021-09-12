@@ -1,10 +1,11 @@
-import { Page, Block, Link, Title, Text, Tile, Button, Icon, Responsive } from '@borrow-ui/ui';
+import { Page, Block, Link, Title, Text, Button, Responsive, Monospace } from '@borrow-ui/ui';
 
 import { Technologies } from './Technologies';
 import { GetTheCode } from './GetTheCode';
 import { StructureProject } from './StructureProject';
 import { Rename } from './Rename';
 import { ComponentExample } from './ComponentExample';
+import { DashboardExample } from './DashboardExample';
 
 import styles from './home.module.scss';
 
@@ -42,7 +43,7 @@ export function Home() {
                         </Button>
                         <Button
                             tag="a"
-                            href="https://github.com/borrow-ui/borrow-ui/archive/master.zip"
+                            href="https://github.com/borrow-ui/borrow-ui"
                             target="_blank"
                             size="huge"
                             icon="fa-github"
@@ -52,6 +53,13 @@ export function Home() {
                             GitHub
                         </Button>
                     </div>
+                    <Text style={{ marginTop: 20 }}>
+                        Or try{' '}
+                        <Link tag="a" href="https://docs.borrow-ui.dev">
+                            the components
+                        </Link>{' '}
+                        with <Monospace>yarn add @borrow-ui/ui</Monospace>
+                    </Text>
                 </main>
 
                 <div className="website__text__columns">
@@ -59,19 +67,22 @@ export function Home() {
                 </div>
             </Block>
 
-            <div className="website__text__columns">
+            <div className="website__text__columns" style={{ marginTop: 50 }}>
                 <Responsive>{(matches) => <GetTheCode isSmallScreen={matches.small} />}</Responsive>
             </div>
-            <div className="website__text__columns">
+            <div className="website__text__columns" style={{ marginTop: 50 }}>
                 <StructureProject />
             </div>
-            <div className="website__text__columns">
+            <div className="website__text__columns" style={{ marginTop: 50 }}>
                 <Rename />
             </div>
-            <div className="website__text__columns">
+            <div className="website__text__columns" style={{ marginTop: 50 }}>
                 <Responsive>
                     {(matches) => <ComponentExample isSmallScreen={matches.small} />}
                 </Responsive>
+            </div>
+            <div className="website__text__columns" style={{ marginTop: 50 }}>
+                <DashboardExample />
             </div>
         </Page>
     );

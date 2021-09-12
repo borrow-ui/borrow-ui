@@ -50,7 +50,7 @@ export function HorizontalFormDemo() {
     return (
         <div className={styles['components-showcase__component']}>
             <a name="horizontalform" className="component-anchor">
-                <Title tag="h2" className="color-secondary">
+                <Title tag="h2" className="color-secondary m-t-0">
                     Horizontal Layout Form
                 </Title>
             </a>
@@ -61,7 +61,13 @@ export function HorizontalFormDemo() {
             <div style={{ fontSize: 14 }}>
                 <Row>
                     <Col size={5}>
-                        <HField label="Name" required={true} labelWidth={120}>
+                        <HField
+                            label="Name"
+                            required={true}
+                            labelWidth={120}
+                            description="Insert your name here"
+                            vAlignment="top"
+                        >
                             <Input placeholder="Input your name" />
                         </HField>
                     </Col>

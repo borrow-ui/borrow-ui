@@ -44,6 +44,11 @@ export function Footer() {
                                     Storybook Documentation
                                 </Link>
                             </li>
+                            <li>
+                                <Link tag="a" href="https://dashboard.borrow-ui.dev">
+                                    Dashboard Demo
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="footer__column">
@@ -63,7 +68,8 @@ export function Footer() {
                     </div>
                 </div>
                 <div className="footer__container footer__copyright">
-                    <div>
+                    <div className="m-r-10">Copyright © 2021 borrow-ui.</div>
+                    <div className="m-r-10">
                         Createdy by
                         <Link
                             tag="a"

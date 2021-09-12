@@ -56,12 +56,20 @@ export function ComponentExample({ isSmallScreen }) {
                         <Monospace>ui/src/components/link/Link.js</Monospace>
                     </Title>
                     <SyntaxHighlight language="jsx" code={linkJSXExample} />
+                    <Title tag="h4" className="m-t-20">
+                        <Monospace>ui/src/components/link/link.test.js</Monospace>
+                    </Title>
+                    <SyntaxHighlight language="jsx" code={linkTestExample} />
                 </Col>
                 <Col colClassName="col-sm-12 col-md-12 col-lg-6">
                     <Title tag="h4">
-                        <Monospace>ui/src/style/link/link.scss</Monospace>
+                        <Monospace>ui/src/components/link/link.scss</Monospace>
                     </Title>
                     <SyntaxHighlight language="scss" code={linkSCSSExample} />
+                    <Title tag="h4" className="m-t-20">
+                        <Monospace>ui/src/components/link/Link.stories.mdx</Monospace>
+                    </Title>
+                    <SyntaxHighlight language="jsx" code={linkStoryExample} />
                 </Col>
             </Row>
         </Block>
@@ -107,4 +115,41 @@ let linkSCSSExample = `
 .#{$ui-prefix}__link:hover {
     color: $ui-color-accent-over;
 }
+`;
+
+let linkStoryExample = `
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Link } from './Link';
+
+<Meta title="Components/Link" component={Link} />
+
+# Link
+Links are used to create connections.
+
+<Canvas>
+    <Story name="Default">
+        <div>
+            A normal link with "a" tag <Link>looks like this</Link>.
+        </div>
+    </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={Link} />
+`;
+
+let linkTestExample = `
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { UI_PREFIX } from '../../config';
+import { Link } from './Link';
+
+describe('Link', () => {
+    test('renders the link with proper class', () => {
+        render(<Link href="/app">App</Link>);
+
+        const link = screen.getByText('App');
+        expect(link).toHaveClass(UI_PREFIX + '__link');
+    });
+});
 `;
