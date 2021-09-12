@@ -3,29 +3,36 @@ import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 
+const LOADER_CONTAINER_CLASS = `${UI_PREFIX}__loader-container`;
 const LOADER_CLASS = `${UI_PREFIX}__loader`;
-const LOADER_FULL_SECTION_CLASS = `${UI_PREFIX}__loader--full-section`;
-const LOADER_INLINE_CLASS = `${UI_PREFIX}__loader--inline`;
-const LOADER_CONTAINER_CLASS = `${UI_PREFIX}__loader__container`;
-const LOADER_CONTAINER_FULL_SECTION_CLASS = `${UI_PREFIX}__loader__container--full-section`;
-const LOADER_CONTAINER_INLINE_CLASS = `${UI_PREFIX}__loader__container--inline`;
+const LOADER_CIRCLE_CLASS = `${UI_PREFIX}__loader__circle`;
+// loaderType defines the type class, calculated as
+// triangle => `${LOADER_CONTAINER_CLASS}--triangle`
+// triangle => `${LOADER_CLASS}--triangle`
+// triangle => `${LOADER_CIRCLE_CLASS}--triangle`
 
-export function Loader({ type = 'full-section', className = '', ...rest }) {
-    const typeClassName = type === 'inline' ? LOADER_INLINE_CLASS : LOADER_FULL_SECTION_CLASS;
-    const loaderClassName = `${LOADER_CLASS} ${typeClassName}`;
-
-    const typeContainerClassName =
-        type === 'inline' ? LOADER_CONTAINER_INLINE_CLASS : LOADER_CONTAINER_FULL_SECTION_CLASS;
-    const loaderContainerClassName = `${LOADER_CONTAINER_CLASS} ${typeContainerClassName} ${className}`.trim();
+export function Loader({ type: loaderType = 'triangle', className = '', ...rest }) {
+    const loaderContainerClassName =
+        `${LOADER_CONTAINER_CLASS} ${LOADER_CONTAINER_CLASS}--${loaderType} ${className}`.trim();
+    const loaderClassName = `${LOADER_CLASS} ${LOADER_CLASS}--${loaderType}`;
+    const loaderCircleClassName = `${LOADER_CIRCLE_CLASS} ${LOADER_CIRCLE_CLASS}--${loaderType}`;
 
     return (
         <div className={loaderContainerClassName} {...rest}>
-            <div className={loaderClassName} />
+            <div className={loaderClassName}>
+                <div className={loaderCircleClassName} />
+                {loaderType !== 'inline' && (
+                    <>
+                        <div className={loaderCircleClassName} />
+                        <div className={loaderCircleClassName} />
+                    </>
+                )}
+            </div>
         </div>
     );
 }
 
 Loader.propTypes = {
-    type: PropTypes.oneOf(['full-section', 'inline']),
+    type: PropTypes.oneOf(['triangle', 'line', 'inline']),
     className: PropTypes.string,
 };

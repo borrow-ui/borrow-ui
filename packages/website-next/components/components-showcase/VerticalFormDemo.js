@@ -55,7 +55,12 @@ export function VerticalFormDemo() {
             <div style={{ fontSize: 14 }}>
                 <Row>
                     <Col size={5}>
-                        <Field label="Name" required={true} labelWidth={120}>
+                        <Field
+                            label="Name"
+                            required={true}
+                            labelWidth={120}
+                            description="Insert your name here"
+                        >
                             <Input placeholder="Input your name" />
                         </Field>
                     </Col>

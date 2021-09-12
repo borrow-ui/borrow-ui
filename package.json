@@ -13,6 +13,8 @@
     "ui:test": "yarn workspace @borrow-ui/ui run test",
     "ui:build": "yarn workspace @borrow-ui/ui run build",
     "ui:coveralls": "yarn workspace @borrow-ui/ui run coveralls",
+    "storybook:dev": "yarn workspace @borrow-ui/documentation run storybook",
+    "storybook:build": "yarn workspace @borrow-ui/documentation run build-storybook",
     "dashboard:dev": "yarn workspaces foreach -pivR --from '@borrow-ui/(ui|dashboard)' run dev",
     "dashboard:build": "yarn workspaces foreach -itR --from '@borrow-ui/(ui|dashboard)' run build",
     "dashboard:test": "yarn workspace @borrow-ui/dashboard run test",

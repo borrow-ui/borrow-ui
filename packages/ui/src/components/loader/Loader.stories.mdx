@@ -10,12 +10,24 @@ import { Loader } from './Loader';
 Loaders are usually used when some content is not available and a
 process needs to be completed.
 
-There are two loader types available: `full-section` and `inline`.
+There are three loader types available: `triangle`, `line` and `inline`.
+
+The default loader is `triangle`:
 
 <Canvas>
     <Story name="Default">
         <div>
             <Loader />
+        </div>
+    </Story>
+</Canvas>
+
+The `line` loader extends horizontally:
+
+<Canvas>
+    <Story name="Line">
+        <div>
+            <Loader type="line" />
         </div>
     </Story>
 </Canvas>
@@ -31,7 +43,7 @@ The inline one can be put within other content:
             <div>
                 It can also be used inside a button:
                 <Button disabled={true} mean="neutral-reverse">
-                    <Loader type="inline" />
+                    <Loader type="inline" className="m-r-5" />
                     Loading
                 </Button>
             </div>

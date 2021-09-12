@@ -1,6 +1,6 @@
 {
   "name": "@borrow-ui/documentation",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "borrow-ui documentation based on Storybook",
   "author": "borrow-ui",
   "private": true,

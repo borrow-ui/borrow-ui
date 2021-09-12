@@ -87,7 +87,7 @@
 
 Welcome to borrow-ui repository! borrow-ui is a simple React component library, which you can extend and/or use as a starting project.
 
-You can navigate the [presentation site](https://www.borrow-ui.dev/).
+You can navigate the [presentation site](https://www.borrow-ui.dev/) or the [dashboard example](https://dashboard.borrow-ui.dev/).
 You can find the [Storybook documentation here](https://docs.borrow-ui.dev/).
 
 This repository uses [`yarn 3`](https://yarnpkg.com/) to organize the code in different packages.

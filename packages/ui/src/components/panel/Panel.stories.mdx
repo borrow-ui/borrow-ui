@@ -81,40 +81,42 @@ The `Panel` width can be set via `width` prop, and the content width via `innerC
 
 <Canvas>
     <Story name="Width">
-        <Panel
-            Trigger={({ setVisible }) => (
-                <Button onClick={() => setVisible(true)}>Open Panel (400px - 300px)</Button>
-            )}
-            getPanelContentProps={() => ({
-                title: 'Panel demo title',
-                content: <Lorem paragraphs={3} />,
-                width: 400,
-                innerContainerWidth: 300,
-            })}
-        />
-        <Panel
-            Trigger={({ setVisible }) => (
-                <Button onClick={() => setVisible(true)} mean="neutral-reverse">
-                    Open Panel (75% - 300px)
-                </Button>
-            )}
-            getPanelContentProps={() => ({
-                title: 'Panel demo title',
-                content: <Lorem paragraphs={3} />,
-                width: '75%',
-                innerContainerWidth: 300,
-            })}
-        />
-        <Panel
-            Trigger={({ setVisible }) => (
-                <Button onClick={() => setVisible(true)}>Open Panel (75% - auto)</Button>
-            )}
-            getPanelContentProps={() => ({
-                title: 'Panel demo title',
-                content: <Lorem paragraphs={3} />,
-                width: '75%',
-            })}
-        />
+        <Fragment>
+            <Panel
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)}>Open Panel (400px - 300px)</Button>
+                )}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                    width: 400,
+                    innerContainerWidth: 300,
+                })}
+            />
+            <Panel
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)} mean="neutral-reverse">
+                        Open Panel (75% - 300px)
+                    </Button>
+                )}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                    width: '75%',
+                    innerContainerWidth: 300,
+                })}
+            />
+            <Panel
+                Trigger={({ setVisible }) => (
+                    <Button onClick={() => setVisible(true)}>Open Panel (75% - auto)</Button>
+                )}
+                getPanelContentProps={() => ({
+                    title: 'Panel demo title',
+                    content: <Lorem paragraphs={3} />,
+                    width: '75%',
+                })}
+            />
+        </Fragment>
     </Story>
 </Canvas>
 

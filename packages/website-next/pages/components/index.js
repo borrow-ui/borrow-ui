@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { Block, Monospace, Title } from '@borrow-ui/ui';
+import { Block, Monospace, Title, Text } from '@borrow-ui/ui';
 
 import { ItemsNavigator, ItemsNavigatorSelect } from '../../components/common/ItemsNavigator';
 import { IconLink } from '../../components/common/IconLink';
@@ -78,7 +78,7 @@ const ITEMS_GROUPS = [
 
 function DemoSection({ Component, href }) {
     return (
-        <div data-href={href}>
+        <div data-href={href} style={{ marginBottom: 50 }}>
             <Component />
         </div>
     );
@@ -98,13 +98,13 @@ export default function Components() {
                     <ItemsNavigator itemsGroups={ITEMS_GROUPS} />
                 </div>
                 <div className="website__text m-b-20">
-                    <div>
+                    <Text>
                         In this page you can find a quick demonstration of the available components.
-                    </div>
-                    <div>
+                    </Text>
+                    <Text>
                         Each component description and documentation is available on the respective
                         docs page, created with Storybook.
-                    </div>
+                    </Text>
                 </div>
                 <div className="website__text">
                     <Title tag="h2" className="color-primary">
@@ -123,7 +123,7 @@ export default function Components() {
                             <IconLink href="https://evgenyrodionov.github.io/flexboxgrid2/" />
                         </li>
                     </ul>
-                    <Block outstanding={true}>
+                    <Block outstanding={true} style={{ marginTop: 40 }}>
                         {TYPOGRAPHY.map((component) => {
                             return (
                                 <DemoSection
@@ -170,7 +170,7 @@ export default function Components() {
                             <IconLink href="https://github.com/ReactTraining/react-media" />
                         </li>
                     </ul>
-                    <Block outstanding={true}>
+                    <Block outstanding={true} style={{ marginTop: 40 }}>
                         {COMPONENTS.map((component) => {
                             return (
                                 <DemoSection
@@ -212,7 +212,7 @@ export default function Components() {
                             <IconLink href="https://react-select.com/home" />
                         </li>
                     </ul>
-                    <Block outstanding={true}>
+                    <Block outstanding={true} style={{ marginTop: 40 }}>
                         {FORMS.map((component) => {
                             return (
                                 <DemoSection
