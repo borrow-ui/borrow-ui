@@ -40,16 +40,6 @@
     <table>
         <tr>
             <td>
-                <a href="https://www.borrow-ui.dev/">Website</a>
-            </td>
-            <td>
-                <img
-                    src="https://api.netlify.com/api/v1/badges/b864dbfe-a246-474b-9ee9-a036cb13423e/deploy-status" alt="Netlify Status"
-                />
-            </td>
-        </tr>
-        <tr>
-            <td>
             <a href="https://docs.borrow-ui.dev/">Storybook</a>
             </td>
             <td>
@@ -70,7 +60,7 @@
         </tr>
         <tr>
             <td>
-                <a href="https://next.borrow-ui.dev/">Next branch</a>
+                <a href="https://next.borrow-ui.dev/">Website Next.js demo</a>
             </td>
             <td>
                 <img
@@ -96,7 +86,8 @@ The following packages are available:
 
 - `ui`: the main package, contains the componenty library. It uses `sass` as a CSS preprocessor, `rollup` to build the code and `jest` and `@testing-library/react` for the tests;
 - `documentation`: source code of the documentation, based on `storybook`;
-- `website-next`: source code of the presentation project website, based on Next.js.
+- `dashboard`: source code of the dashboard demonstration, based on CRA;
+- `website-next`: source code of a static website based on Next.js.
 
 ## Why this project?
 
