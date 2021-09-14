@@ -1,0 +1,25 @@
+---
+title: Another Post
+isPublished: true
+postDate: '2021-09-01'
+author: borrow-ui
+description: Another blog post, with one component
+---
+
+This is another blog post loaded from an mdx file.
+
+As well as the other posts, we can use our component library!
+
+<Tabs
+    tabs={[
+        { label: 'First tab', content: `This is JSX content, not MDX` },
+        { label: 'Second tab', content: `Again, not an MDX content here` },
+    ]}
+/>
+
+<div className="m-t-20">
+    This content is in JSX inside a div, and we can use other components too, link a{' '}
+    <Button mean="neutral-reverse" onClick={() => alert('clicked')}>
+        Button
+    </Button>
+</div>

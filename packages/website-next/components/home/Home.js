@@ -1,11 +1,9 @@
-import { Page, Block, Link, Title, Text, Button, Responsive, Monospace } from '@borrow-ui/ui';
+import NextLink from 'next/link';
+import { Page, Block, Link, Title, Text, Monospace } from '@borrow-ui/ui';
 
-import { Technologies } from './Technologies';
-import { GetTheCode } from './GetTheCode';
-import { StructureProject } from './StructureProject';
-import { Rename } from './Rename';
-import { ComponentExample } from './ComponentExample';
-import { DashboardExample } from './DashboardExample';
+import { Features } from './Features';
+import { PageExample } from './PageExample';
+import { GetStarted } from './GetStarted';
 
 import styles from './home.module.scss';
 
@@ -22,67 +20,37 @@ export function Home() {
                             className={styles['home__main-link']}
                         >
                             borrow-ui
-                        </Link>
-                        !
-                    </Title>
-                    <Text size="big">
-                        Bootstrap your React Component Library with yarn 3, Rollup and Storybook
-                    </Text>
-                    <div className={styles['home__action-buttons']}>
-                        <Button
-                            className="m-l-0"
-                            mean="primary"
-                            tag="a"
-                            href="https://github.com/borrow-ui/borrow-ui/archive/master.zip"
-                            target="_blank"
-                            size="huge"
-                            icon="arrow_downward"
-                            iconProps={{ size: 'big' }}
-                        >
-                            Download
-                        </Button>
-                        <Button
-                            tag="a"
-                            href="https://github.com/borrow-ui/borrow-ui"
-                            target="_blank"
-                            size="huge"
-                            icon="fa-github"
-                            iconProps={{ size: 'big', family: 'fab' }}
-                            mean="neutral-reverse"
-                        >
-                            GitHub
-                        </Button>
-                    </div>
-                    <Text style={{ marginTop: 20 }}>
-                        Or try{' '}
-                        <Link tag="a" href="https://docs.borrow-ui.dev">
-                            the components
                         </Link>{' '}
-                        with <Monospace>yarn add @borrow-ui/ui</Monospace>
+                        demo!
+                    </Title>
+                    <Text size="big">You can read the subtitle here, made with Text component</Text>
+                    <Text style={{ marginTop: 20 }}>
+                        This is a demo site made with <Monospace>@borrow-ui/ui</Monospace>
                     </Text>
                 </main>
 
                 <div className="website__text__columns">
-                    <Technologies />
+                    <Features />
                 </div>
             </Block>
 
-            <div className="website__text__columns" style={{ marginTop: 50 }}>
-                <Responsive>{(matches) => <GetTheCode isSmallScreen={matches.small} />}</Responsive>
+            <div className={styles['home__page-example__container']}>
+                <div className="website__text__columns">
+                    <PageExample />
+                </div>
             </div>
-            <div className="website__text__columns" style={{ marginTop: 50 }}>
-                <StructureProject />
+
+            <div className="website__text__columns">
+                <GetStarted />
             </div>
-            <div className="website__text__columns" style={{ marginTop: 50 }}>
-                <Rename />
-            </div>
-            <div className="website__text__columns" style={{ marginTop: 50 }}>
-                <Responsive>
-                    {(matches) => <ComponentExample isSmallScreen={matches.small} />}
-                </Responsive>
-            </div>
-            <div className="website__text__columns" style={{ marginTop: 50 }}>
-                <DashboardExample />
+
+            <div className={styles['home__guide__container']}>
+                <div className="website__text__columns">
+                    Read the quick guide in the{' '}
+                    <Link tag={NextLink} href="/blog">
+                        Blog section
+                    </Link>
+                </div>
             </div>
         </Page>
     );

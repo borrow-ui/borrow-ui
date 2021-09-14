@@ -1,0 +1,18 @@
+---
+title: Blog home
+---
+
+This section is built using two JS files:
+
+-   `index.js`: loads this file and then renders the list of posts;
+-   `[slug].js`: the main slug manager, which loads the correspondent file from the content folder.
+
+The content of each page is written in MDX and is loaded from `content/blog` folder.
+
+If you want to create a new section with a simpler index file that just loads mdx,
+a slug file needs to be created, and the `index.js` file
+has to import the necessary function and component from the slug file.
+In this scenario, the index page should be treated as a special case of slug,
+otherwise Next.js would consider it literally (i.e. `/blog/index`).
+
+An example can be found in the "Project" section.

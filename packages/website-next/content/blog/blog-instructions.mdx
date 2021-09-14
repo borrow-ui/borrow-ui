@@ -1,0 +1,49 @@
+---
+title: Blog Instructions
+isPublished: true
+postDate: '2021-08-01'
+author: borrow-ui
+description: How does this section work?
+iconName: auto_stories
+---
+
+The first post of this blog!
+
+Each blog post file can have few attributes:
+
+-   `isPublished`: a boolean that determines if the post will show up in the list;
+-   `postDate`: the date of the post;
+-   `author`: the author of the post;
+-   `description`: a brief description shown in the home page.
+
+You can extend the basic tags just by adding them in the `.mdx` files and then
+handling them in the `[slug].js`.
+
+All the logic can be placed there, for example to show author and date only if the name
+of the file is different from `index`.
+
+Each slug then must correspond to the `.mdx` file (usually) placed in `content/section`
+folder. All the blog entries, for example, are placed inside `content/blog` folder and each
+file name will be used as URL slug.
+
+The slug file has three important exports:
+
+-   the `getStaticProps` function, which will generate the props for the content component,
+    by reading the correspondent `.mdx` file;
+-   the `getStaticPaths` function, which generates a list of possible slugs
+    from the content folder;
+-   the main component, exported as `default`, which consumes the generated props.
+
+The two functions are "generated" by passing a content folder.
+
+The `core/mdx` folder contains two files used to facilitate the generation of multiple slug pages
+and a list of components used to override the basic HTML ones (for example, to use
+the library `Title` component instead of `h*`).
+
+And of course, you can use the library components and styles as well!
+
+<div className="p-20 m-20 flex-center-center">
+    <Loader />
+</div>
+
+<Text size="small">Just a random loader, don't wait for it to stop!</Text>

@@ -26,17 +26,7 @@
     }
 }
 
-.home__action-buttons {
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-
-    @media (max-width: 500px) {
-        justify-content: center;
-    }
-}
-
-.home__technologies {
+.home__features {
     margin-top: 40px;
     padding: 40px 0;
 
@@ -47,7 +37,7 @@
     flex-wrap: wrap;
 }
 
-.home__technologies__entry {
+.home__features__entry {
     max-width: 30%;
     margin: 10px;
     padding: 10px;
@@ -61,7 +51,7 @@
     }
 }
 
-.home__technologies__entry__title {
+.home__features__entry__title {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -76,29 +66,21 @@
     }
 }
 
-.home__technologies__entry__description {
+.home__features__entry__description {
     padding: 5px 5px 5px 2px;
     line-height: 24px;
 }
 
-.home__row {
+.home__page-example__container {
+    background-color: $ui-color-gray-d2;
+    color: $ui-color-neutral-white;
+    padding: 50px 0;
+    margin: 50px 0;
+}
+.home__guide__container {
+    padding: 50px;
+    background-color: $ui-color-gray-light-l2;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-
-    @media (max-width: 1050px) {
-        flex-direction: column;
-    }
-}
-
-.home__column {
-    width: 100%;
-    @media (min-width: 1050px) {
-        width: 50%;
-    }
-}
-
-.home__get-started {
-    padding: 30px 20px;
-    background-color: #ef5b5b;
+    justify-content: center;
+    align-items: center;
 }

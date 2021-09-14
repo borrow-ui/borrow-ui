@@ -19,20 +19,11 @@ export function MainSidebar({ isSmallScreen }) {
                 <SidebarEntry iconName="home" href="/">
                     Home
                 </SidebarEntry>
-                <SidebarEntry iconName="auto_stories" href="/getting-started/getting-started">
-                    Getting Started
+                <SidebarEntry iconName="auto_stories" href="/blog">
+                    Blog
                 </SidebarEntry>
-                <SidebarEntry iconName="apps" href="/components">
-                    Components
-                </SidebarEntry>
-                <SidebarEntry iconName="palette" href="/styles">
-                    Styles
-                </SidebarEntry>
-                <SidebarEntry iconName="format_list_numbered" href="/workflow">
-                    Workflow
-                </SidebarEntry>
-                <SidebarEntry iconName="follow_the_signs" href="/roadmap">
-                    Roadmap
+                <SidebarEntry iconName="insights" href="/project">
+                    Project
                 </SidebarEntry>
             </div>
             <div>

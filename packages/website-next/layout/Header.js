@@ -37,7 +37,7 @@ export function Header({ isSmallScreen }) {
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
                                 <div className="flex-center-center">
                                     {logo}
-                                    <span className="header__title">borrow-ui</span>
+                                    <span className="header__title">Home</span>
                                 </div>
                             </a>
                         </Link>
@@ -45,45 +45,18 @@ export function Header({ isSmallScreen }) {
                 },
                 showLinks && {
                     headerLabel: (
-                        <Link href="/getting-started/getting-started" prefetch={false}>
+                        <Link href="/blog" prefetch={false}>
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Getting Started</span>
+                                <span>Blog</span>
                             </a>
                         </Link>
                     ),
                 },
                 showLinks && {
                     headerLabel: (
-                        <Link href="/components">
+                        <Link href="/project" prefetch={false}>
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Components</span>
-                            </a>
-                        </Link>
-                    ),
-                },
-                showLinks && {
-                    headerLabel: (
-                        <Link href="/styles">
-                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Styles</span>
-                            </a>
-                        </Link>
-                    ),
-                },
-                showLinks && {
-                    headerLabel: (
-                        <Link href="/workflow">
-                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Workflow</span>
-                            </a>
-                        </Link>
-                    ),
-                },
-                showLinks && {
-                    headerLabel: (
-                        <Link href="/roadmap">
-                            <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
-                                <span>Roadmap</span>
+                                <span>Project</span>
                             </a>
                         </Link>
                     ),
@@ -92,7 +65,7 @@ export function Header({ isSmallScreen }) {
             right={[
                 <NavbarLink
                     tag="a"
-                    href="https://github.com/borrow-ui/borrow-ui"
+                    href="https://github.com/borrow-ui/borrow-ui/tree/master/packages/website-next"
                     target="_blank"
                     rel="noopener noreferrer"
                     key="github"

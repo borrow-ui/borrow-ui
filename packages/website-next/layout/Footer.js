@@ -12,42 +12,18 @@ export function Footer() {
                         <h3 className="footer__title">borrow-ui</h3>
                         <ul>
                             <li>
-                                <NextLink href="/getting-started/getting-started" passHref>
+                                <NextLink href="/">
                                     <a className="borrow-ui__link borrow-ui__link--underline">
-                                        Getting Started
+                                        Back to home
                                     </a>
                                 </NextLink>
                             </li>
                             <li>
-                                <NextLink href="/components">
+                                <NextLink href="/blog">
                                     <a className="borrow-ui__link borrow-ui__link--underline">
-                                        Components Showcase
+                                        Blog example
                                     </a>
                                 </NextLink>
-                            </li>
-                            <li>
-                                <NextLink href="/workflow">
-                                    <a className="borrow-ui__link borrow-ui__link--underline">
-                                        Workflow to follow
-                                    </a>
-                                </NextLink>
-                            </li>
-                            <li>
-                                <NextLink href="/workflow">
-                                    <a className="borrow-ui__link borrow-ui__link--underline">
-                                        Roadmap of next developments
-                                    </a>
-                                </NextLink>
-                            </li>
-                            <li>
-                                <Link tag="a" href="https://docs.borrow-ui.dev/">
-                                    Storybook Documentation
-                                </Link>
-                            </li>
-                            <li>
-                                <Link tag="a" href="https://dashboard.borrow-ui.dev">
-                                    Dashboard Demo
-                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -70,7 +46,7 @@ export function Footer() {
                 <div className="footer__container footer__copyright">
                     <div className="m-r-10">Copyright © 2021 borrow-ui.</div>
                     <div className="m-r-10">
-                        Createdy by
+                        Created by
                         <Link
                             tag="a"
                             href="https://github.com/vittoriozamboni"

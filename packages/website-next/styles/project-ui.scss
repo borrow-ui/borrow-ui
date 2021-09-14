@@ -5,3 +5,10 @@
 
 // include this if this is part of a monorepo
 @import '../../ui/src/style/ui.full.scss';
+
+// overrides
+.borrow-ui__syntax-highlight {
+    pre {
+        border-radius: 5px;
+    }
+}
