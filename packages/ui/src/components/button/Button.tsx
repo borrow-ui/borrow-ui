@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { UI_PREFIX, SIZES } from '../../config';
-import { propTypesChildren } from '../../utils/types';
 
 import { Icon } from '../icon/Icon';
+
+import { ButtonProps } from './Button.types';
 
 const BUTTON_CLASS = `${UI_PREFIX}__button`;
 // Mean and modifiers classes are calculated:
@@ -38,7 +38,7 @@ export function Button({
     children,
     tag: Tag = 'button',
     ...rest
-}) {
+}: ButtonProps): JSX.Element {
     const mods = [
         ...modifiers,
         size && size,
@@ -49,9 +49,9 @@ export function Button({
         icon && 'icon',
     ].filter((m) => m);
     const modifiersClass = mods.map((m) => `${BUTTON_CLASS}--${m}`).join(' ');
-    const buttonClassName = `${BUTTON_CLASS} ${modifiersClass} ${className}`.trim();
+    const buttonClassName: string = `${BUTTON_CLASS} ${modifiersClass} ${className}`.trim();
 
-    const iconSize = icon && SIZES[Math.max(SIZES.indexOf(size) - 1, 0)];
+    const iconSize = (icon && SIZES[Math.max(SIZES.indexOf(size) - 1, 0)]) || undefined;
     const { className: iconClassName = '', ...restIconProps } = iconProps;
 
     return (
@@ -70,26 +70,3 @@ export function Button({
         </Tag>
     );
 }
-
-Button.propTypes = {
-    className: PropTypes.string,
-    /** Disable the button. */
-    disabled: PropTypes.bool,
-    /** Defines the mean of the button. */
-    mean: PropTypes.oneOf(MEANS),
-    /** Controls the size of the button. */
-    size: PropTypes.oneOf(SIZES),
-    /** Removes the shadow to make the button looks flat. */
-    flat: PropTypes.bool,
-    /** Adds a margin. */
-    separated: PropTypes.bool,
-    /** Reserved prop, can override behaviour of the other flags. */
-    modifiers: PropTypes.arrayOf(PropTypes.oneOf(MODIFIERS)),
-    /** Icon to be rendered. */
-    icon: PropTypes.string,
-    /** Props for the icon Component. */
-    iconProps: PropTypes.object,
-    /** Use a different tag from `button`. */
-    tag: propTypesChildren,
-    children: propTypesChildren,
-};

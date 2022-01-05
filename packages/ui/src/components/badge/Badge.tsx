@@ -2,43 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { propTypesChildren } from '../../utils/types';
+import { BadgeProps } from './Badge.types';
 
 const BADGE_CLASS = `${UI_PREFIX}__badge`;
 const BADGE_CLICKABLE_CLASS = `${UI_PREFIX}__badge--clickable`;
 // type class is calculated, i.e. `${UI_PREFIX}__badge--rounded`
 // color classes are added for bg and color, i.e. `color-on-primary color-primary-bg`
 
-export function Badge({
+export const Badge = ({
     className = '',
     color = 'neutral',
     type = 'rounded',
     tag: Tag = 'span',
+    onClick,
     children,
     ...rest
-}) {
+}: BadgeProps): JSX.Element => {
     const colorClass = color ? `color-${color}-bg color-on-${color}` : '';
     const typeClass = type && type !== 'squared' ? `${BADGE_CLASS}--${type}` : '';
-    const clickableClass = rest.onClick ? BADGE_CLICKABLE_CLASS : '';
+    const clickableClass = onClick ? BADGE_CLICKABLE_CLASS : '';
     const propsClasses = [colorClass, typeClass, clickableClass].join(' ').trim();
     const badgeClass = [BADGE_CLASS, propsClasses, className].join(' ').trim();
 
     return (
-        <Tag className={badgeClass} {...rest}>
+        <Tag className={badgeClass} onClick={onClick} {...rest}>
             {children}
         </Tag>
     );
-}
-
-Badge.propTypes = {
-    className: PropTypes.string,
-    /** Adds a color with `color-on-<COLOR>` class */
-    color: PropTypes.string,
-    /** Adds a background color with `color-<COLOR>-bg` class */
-    backgroundColor: PropTypes.string,
-    /** Change the badge type */
-    type: PropTypes.oneOf(['rounded', 'circular', 'squared']),
-    /** Specify which tag has to be used for the badge */
-    tag: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    children: propTypesChildren,
 };

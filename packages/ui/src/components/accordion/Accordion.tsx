@@ -1,9 +1,13 @@
 import React, { useState, createContext, useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
-import { propTypesChildren } from '../../utils/types';
 import { a11yClickableElement } from '../../utils/a11y';
+import {
+    AccordionGroupProps,
+    AccordionProps,
+    IAccordionGroupState,
+    AccordionContextType,
+} from './Accordion.types';
 
 const ACCORDION_CLASS = `${UI_PREFIX}__accordion`;
 const ACCORDION_TITLE_CLASS = `${UI_PREFIX}__accordion__title`;
@@ -13,20 +17,20 @@ const ACCORDION_CONTENT_CLASS = `${UI_PREFIX}__accordion__content`;
 const ACCORDION_CONTENT_OPEN_CLASS = `${UI_PREFIX}__accordion__content--open`;
 const ACCORDION_CONTENT_CLOSED_CLASS = `${UI_PREFIX}__accordion__content--closed`;
 
-export const AccordionContext = createContext([null, null]);
+export const AccordionContext = createContext<AccordionContextType>([null, null]);
 
-export function AccordionGroup({ initialOpenTitle, children }) {
-    const contextValue = useState({ open: initialOpenTitle });
-    return <AccordionContext.Provider value={contextValue}>{children}</AccordionContext.Provider>;
+export function AccordionGroup({ initialOpenTitle, children }: AccordionGroupProps): JSX.Element {
+    const [contextValue, setContextValue] = useState<IAccordionGroupState>({
+        open: initialOpenTitle,
+    });
+    return (
+        <AccordionContext.Provider value={[contextValue, setContextValue]}>
+            {children}
+        </AccordionContext.Provider>
+    );
 }
 
-AccordionGroup.propTypes = {
-    /** Title of the accordion to be initially open. */
-    initialOpenTitle: PropTypes.string,
-    children: propTypesChildren,
-};
-
-export function Accordion({
+export const Accordion = ({
     title,
     children,
     className = '',
@@ -35,41 +39,50 @@ export function Accordion({
     initialOpen = false,
     maxHeight,
     ...rest
-}) {
+}: AccordionProps): JSX.Element => {
     const context = useContext(AccordionContext);
     const [isOpen, setIsOpen] = useState(initialOpen);
 
     const usingContext = context[0] !== null;
 
-    const accordionIsOpen = usingContext ? context[0].open === title : isOpen;
+    const accordionIsOpen = usingContext
+        ? // @ts-ignore
+          context[0].open === title
+        : isOpen;
 
     const accordionClassName = `${ACCORDION_CLASS} ${className}`;
 
-    const { className: titlePropsClassName = '', onClick: titleOnClick, ...restTitleProps } =
-        titleProps || {};
+    const {
+        className: titlePropsClassName = '',
+        onClick: titleOnClick,
+        ...restTitleProps
+    }: { [k: string]: any } = titleProps || {};
     const titleStatusClass = accordionIsOpen
         ? ACCORDION_TITLE_OPEN_CLASS
         : ACCORDION_TITLE_CLOSED_CLASS;
-    const titleClassName = `${ACCORDION_TITLE_CLASS} ${titlePropsClassName} ${titleStatusClass}`.trim();
+    const titleClassName =
+        `${ACCORDION_TITLE_CLASS} ${titlePropsClassName} ${titleStatusClass}`.trim();
 
     const {
         className: contentPropsClassName = '',
         style: contentPropsStyle = {},
         ...restContentProps
-    } = contentProps || {};
+    }: { [k: string]: any } = contentProps || {};
     const contentStatusClass = accordionIsOpen
         ? ACCORDION_CONTENT_OPEN_CLASS
         : ACCORDION_CONTENT_CLOSED_CLASS;
-    const contentClassName = `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`.trim();
+    const contentClassName =
+        `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`.trim();
     const contentStyle = {
         ...contentPropsStyle,
-        ...(maxHeight && { maxHeight: accordionIsOpen ? maxHeight : undefined }),
+        ...(maxHeight ? { maxHeight: accordionIsOpen ? maxHeight : undefined } : {}),
     };
 
     const onTitleClick = () => {
         titleOnClick && titleOnClick();
         if (!usingContext) setIsOpen(!isOpen);
         if (usingContext)
+            //@ts-ignore
             context[1]({ ...context[0], open: context[0].open === title ? null : title });
     };
 
@@ -87,19 +100,4 @@ export function Accordion({
             </div>
         </div>
     );
-}
-
-Accordion.propTypes = {
-    children: propTypesChildren,
-    className: PropTypes.string,
-    /** Title of the accordion */
-    title: propTypesChildren.isRequired,
-    /** Props passed to the title  */
-    titleProps: PropTypes.object,
-    /** Props passed to the content container */
-    contentProps: PropTypes.object,
-    /** Set the initial open status of the accordion */
-    initialOpen: PropTypes.bool,
-    /** Specify the `maxHeight`. By default CSS adds `600px`. */
-    maxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

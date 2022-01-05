@@ -47,7 +47,7 @@ describe('Icon', () => {
 
         const iconKeyDown = screen.getByTestId('icon-keydown');
 
-        await fireEvent.keyDown(iconKeyDown, { keyCode: 32, code: 'Space' });
+        await fireEvent.keyDown(iconKeyDown, { key: ' ', code: 'Space' });
 
         expect(onKeyDown).toHaveBeenCalledTimes(1);
         expect(onClick).toHaveBeenCalledTimes(0);
@@ -60,7 +60,7 @@ describe('Icon', () => {
 
         const iconKeyDown = screen.getByTestId('icon-keydown');
 
-        await fireEvent.keyDown(iconKeyDown, { keyCode: 32, code: 'Space' });
+        await fireEvent.keyDown(iconKeyDown, { key: ' ', code: 'Space' });
 
         expect(onClick).toHaveBeenCalledTimes(1);
 
@@ -70,7 +70,7 @@ describe('Icon', () => {
 
         const iconKeyDown2 = screen.getByTestId('icon-keydown2');
 
-        await fireEvent.keyDown(iconKeyDown2, { keyCode: 13, code: 'Enter' });
+        await fireEvent.keyDown(iconKeyDown2, { key: '13', code: 'Enter' });
 
         expect(onClick2).toHaveBeenCalledTimes(0);
     });

@@ -1,12 +1,11 @@
 import cleaner from 'rollup-plugin-cleaner';
-import { babel } from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import { terser } from 'rollup-plugin-terser';
+import dts from 'rollup-plugin-dts';
 
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-
-// TODO: add typescript support
-// import typescript from "rollup-plugin-typescript2";
 
 // To visualize the bundle
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -35,7 +34,7 @@ const externals = [
 ];
 
 const configuration = {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
         {
             file: packageJson.main,
@@ -57,18 +56,20 @@ const configuration = {
         commonjs({
             exclude: 'src/**',
         }),
-        // Babel is used until TS is supported
-        babel({
-            extensions: ['.jsx', '.js', '.tsx'],
-            exclude: '**/node_modules/**',
-            babelHelpers: 'runtime',
-            plugins: ['@babel/plugin-transform-runtime'],
-        }),
+        typescript({ tsconfig: './tsconfig.json' }),
         visualizer({ filename: './build_stats/bundle.html' }),
+        terser(),
     ],
     // @babel/runtime has a long id, doing as
     // suggested in docs.
     external: (id) => id.includes('@babel/runtime') || externals.includes(id),
 };
 
-export default configuration;
+const typesConfiguration = {
+    input: 'dist/esm/types/index.d.ts',
+    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    external: [/\.css$/, /\.scss$/],
+    plugins: [dts()],
+};
+
+export default [configuration, typesConfiguration];
