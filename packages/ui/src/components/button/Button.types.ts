@@ -4,21 +4,28 @@ import { SIZES } from '../../config';
 
 import { IconProps } from '../icon/Icon.types';
 
-const MEANS_REGULAR = [
+const MEANS = [
     'primary',
+    'primary-reverse',
     'secondary',
+    'secondary-reverse',
     'positive',
+    'positive-reverse',
     'negative',
+    'negative-reverse',
     'warning',
+    'warning-reverse',
     'accent',
+    'accent-reverse',
     'neutral',
+    'neutral-reverse',
     'neutral-dark',
+    'neutral-dark-reverse',
     'neutral-light',
-];
-const MEANS_REVERSE = MEANS_REGULAR.map((m) => `${m}-reverse`);
-export const MEANS = [...MEANS_REGULAR, ...MEANS_REVERSE] as const;
+    'neutral-light-reverse',
+] as const;
 
-export type ButtonMeans = typeof MEANS[number];
+type ButtonMeans = typeof MEANS[number];
 
 export const BUTTON_MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES] as const;
 
@@ -31,7 +38,7 @@ export interface ButtonProps extends ComponentPropsWithoutRef<ElementType> {
     /** Defines the mean of the button. */
     mean?: ButtonMeans;
     /** Controls the size of the button. */
-    size?: 'smaller' | 'small' | 'normal' | 'big' | 'bigger' | 'huge';
+    size?: typeof SIZES[number];
     /** Removes the shadow to make the button looks flat. */
     flat?: boolean;
     /** Adds a margin. */

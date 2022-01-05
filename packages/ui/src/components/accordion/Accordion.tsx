@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, HTMLProps } from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
@@ -46,7 +46,7 @@ export const Accordion = ({
     const usingContext = context[0] !== null;
 
     const accordionIsOpen = usingContext
-        ? // @ts-ignore
+        ? // @ts-ignore , context is not null
           context[0].open === title
         : isOpen;
 
@@ -56,7 +56,7 @@ export const Accordion = ({
         className: titlePropsClassName = '',
         onClick: titleOnClick,
         ...restTitleProps
-    }: { [k: string]: any } = titleProps || {};
+    }: HTMLProps<HTMLDivElement> = titleProps || {};
     const titleStatusClass = accordionIsOpen
         ? ACCORDION_TITLE_OPEN_CLASS
         : ACCORDION_TITLE_CLOSED_CLASS;
@@ -67,7 +67,7 @@ export const Accordion = ({
         className: contentPropsClassName = '',
         style: contentPropsStyle = {},
         ...restContentProps
-    }: { [k: string]: any } = contentProps || {};
+    }: HTMLProps<HTMLDivElement> = contentProps || {};
     const contentStatusClass = accordionIsOpen
         ? ACCORDION_CONTENT_OPEN_CLASS
         : ACCORDION_CONTENT_CLOSED_CLASS;
@@ -78,11 +78,11 @@ export const Accordion = ({
         ...(maxHeight ? { maxHeight: accordionIsOpen ? maxHeight : undefined } : {}),
     };
 
-    const onTitleClick = () => {
-        titleOnClick && titleOnClick();
+    const onTitleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        titleOnClick && titleOnClick(e);
         if (!usingContext) setIsOpen(!isOpen);
         if (usingContext)
-            //@ts-ignore
+            //@ts-ignore , context is not null
             context[1]({ ...context[0], open: context[0].open === title ? null : title });
     };
 
