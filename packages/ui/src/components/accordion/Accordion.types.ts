@@ -1,13 +1,20 @@
-import { ReactNode, HTMLProps, ComponentPropsWithoutRef, ElementType } from 'react';
-
-export type AccordionContextType = [
-    IAccordionGroupState | null,
-    React.Dispatch<React.SetStateAction<IAccordionGroupState>> | null
-];
+import {
+    ReactNode,
+    HTMLProps,
+    ComponentPropsWithoutRef,
+    ElementType,
+    Dispatch,
+    SetStateAction,
+} from 'react';
 
 export interface IAccordionGroupState {
     open: ReactNode;
 }
+
+export type AccordionContextType = [
+    IAccordionGroupState | null,
+    Dispatch<SetStateAction<IAccordionGroupState>> | null
+];
 
 export interface AccordionGroupProps {
     children: ReactNode;
