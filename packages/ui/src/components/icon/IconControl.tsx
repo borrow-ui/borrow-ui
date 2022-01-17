@@ -1,5 +1,4 @@
 import React, { ChangeEvent, KeyboardEvent } from 'react';
-import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { KEY_CODES } from '../../utils/constants';
@@ -42,9 +41,3 @@ export function IconControl({
         />
     );
 }
-
-IconControl.propTypes = {
-    className: PropTypes.string,
-    onKeyDown: PropTypes.func,
-    onClick: PropTypes.func,
-};

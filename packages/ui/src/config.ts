@@ -1,10 +1,15 @@
+import { FunctionComponent, ElementType } from 'react';
+
 export const UI_PREFIX: string = 'borrow-ui';
 
 export const SIZES = ['smaller', 'small', 'normal', 'big', 'bigger', 'huge'] as const;
 
+type GenericFunctionType = () => any;
+type FunctionReactTagType = () => FunctionComponent | ElementType;
+
 interface IConfig {
-    getLocation: Function;
-    getLinkComponent: Function;
+    getLocation: GenericFunctionType;
+    getLinkComponent: FunctionReactTagType;
     smallScreenMaxWidth: number;
 }
 
@@ -15,15 +20,15 @@ export const config: IConfig = {
 };
 
 export type configSettingType = keyof IConfig;
-export type configSettingValueInput = number & Function;
-export type configSettingValue = number | Function;
+export type configSettingValue = number | GenericFunctionType | FunctionReactTagType;
 
-export const setConfig = (setting: configSettingType, value: configSettingValueInput): boolean => {
-    if (Object.keys(config).includes(setting)) {
-        config[setting] = value;
-        return true;
+export const setConfig = <K extends configSettingType>(setting: K, value: IConfig[K]): boolean => {
+    if (!config.hasOwnProperty(setting)) {
+        console.error('Invalid setting:', setting);
+        return false;
     }
-    return false;
+    config[setting] = value;
+    return true;
 };
 
 export const getConfig = (setting: configSettingType): configSettingValue => config[setting];

@@ -26,7 +26,6 @@ const externals = [
     'react-day-picker',
     'react-dom',
     'react-dropzone',
-    'react-is',
     'react-media',
     'react-popper',
     'react-select',

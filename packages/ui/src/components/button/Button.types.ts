@@ -1,37 +1,26 @@
-import { ReactNode, ComponentType, ComponentPropsWithoutRef, ElementType } from 'react';
-
 import { SIZES } from '../../config';
+import { TagType } from '../../utils/sharedTypes';
 
 import { IconProps } from '../icon/Icon.types';
 
-const MEANS = [
-    'primary',
-    'primary-reverse',
-    'secondary',
-    'secondary-reverse',
-    'positive',
-    'positive-reverse',
-    'negative',
-    'negative-reverse',
-    'warning',
-    'warning-reverse',
-    'accent',
-    'accent-reverse',
-    'neutral',
-    'neutral-reverse',
-    'neutral-dark',
-    'neutral-dark-reverse',
-    'neutral-light',
-    'neutral-light-reverse',
-] as const;
+type MEANS_NORMAL =
+    | 'primary'
+    | 'secondary'
+    | 'positive'
+    | 'negative'
+    | 'warning'
+    | 'accent'
+    | 'neutral'
+    | 'neutral-dark';
+type MEANS_REVERSE = `${MEANS_NORMAL}-reverse`;
 
-type ButtonMeans = typeof MEANS[number];
+type ButtonMeans = MEANS_NORMAL | MEANS_REVERSE;
 
 export const BUTTON_MODIFIERS = ['shadowed', 'separated', 'icon', ...SIZES] as const;
 
 export type ButtonModifiers = typeof BUTTON_MODIFIERS[number];
 
-export interface ButtonProps extends ComponentPropsWithoutRef<ElementType> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<React.ElementType> {
     className?: string;
     /** Disable the button. */
     disabled?: boolean;
@@ -50,6 +39,6 @@ export interface ButtonProps extends ComponentPropsWithoutRef<ElementType> {
     /** Props for the icon Component. */
     iconProps?: IconProps;
     /** Use a different tag from `button`. */
-    tag?: keyof JSX.IntrinsicElements | ComponentType;
-    children?: ReactNode;
+    tag?: TagType;
+    children?: React.ReactNode;
 }

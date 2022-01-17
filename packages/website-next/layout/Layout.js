@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { SidebarContext, Responsive } from '@borrow-ui/ui';
+import { SidebarContext, getSidebarContextDefaultState, Responsive } from '@borrow-ui/ui';
 
 import { Header } from './Header';
 import { MainSidebar } from './MainSidebar';
@@ -13,7 +13,7 @@ const SIDEBAR_MEDIA_QUERIES = {
 };
 
 export function Layout({ Component, pageProps }) {
-    const sidebarState = useState(SidebarContext.getDefaultState({ autoCloseLink: true }));
+    const sidebarState = useState(getSidebarContextDefaultState({ autoCloseLink: true }));
 
     return (
         <div className="borrow-ui borrow-ui-website">

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { UI_PREFIX } from '../../config';
 import { BadgeProps } from './Badge.types';

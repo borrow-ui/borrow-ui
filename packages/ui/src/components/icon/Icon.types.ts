@@ -1,10 +1,3 @@
-import {
-    MouseEventHandler,
-    KeyboardEventHandler,
-    ComponentPropsWithoutRef,
-    ElementType,
-} from 'react';
-
 import { SIZES } from '../../config';
 
 export const ICON_SIZES = [...SIZES] as const;
@@ -15,15 +8,17 @@ export const ICON_MODIFIERS = ['clickable', 'spin', '90deg', '180deg', '270deg']
 
 export type IconModifiers = typeof ICON_MODIFIERS[number];
 
-export interface IconProps extends ComponentPropsWithoutRef<ElementType> {
+export type IconFamilyType = 'material-icons' | 'fa' | 'fas' | 'fab';
+
+export interface IconProps extends React.ComponentPropsWithoutRef<React.ElementType> {
     name?: string;
     /** Adds a class with the family name */
-    family?: 'material-icons' | 'fa' | 'fas' | 'fab';
+    family?: IconFamilyType;
     /** Available modifiers: `clickable`, `spin`, `90deg`, `180deg`, `270deg` */
     modifiers?: IconModifiers | IconModifiers[];
     className?: string;
     /** Size of the icon: `smaller`, `small`, `normal`, `big`, `bigger`, `huge` */
     size?: IconSizes;
-    onClick?: MouseEventHandler;
-    onKeyDown?: KeyboardEventHandler;
+    onClick?: React.MouseEventHandler;
+    onKeyDown?: React.KeyboardEventHandler;
 }

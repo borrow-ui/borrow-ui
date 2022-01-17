@@ -2,7 +2,7 @@
     "name": "@borrow-ui/ui",
     "repository": "git@github.com:borrow-ui/borrow-ui.git",
     "author": "borrow-ui <info@borrow-ui.dev>",
-    "version": "0.3.1",
+    "version": "1.0.0",
     "description": "Components of @borrow-ui",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
@@ -46,7 +46,7 @@
         "react-dropzone": ">=11.1.0",
         "react-media": ">=1.10.0",
         "react-popper": ">=2.2.3",
-        "react-select": ">=3.1.0"
+        "react-select": "^5.2.2"
     },
     "devDependencies": {
         "@babel/core": "^7.11.6",
@@ -64,7 +64,9 @@
         "@testing-library/react": "^11.2.6",
         "@testing-library/user-event": "^13.1.8",
         "@types/jest": "^27.4.0",
+        "@types/prismjs": "^1.16.6",
         "@types/react": "^17.0.38",
+        "@types/react-dom": "^17.0.11",
         "coveralls": "^3.1.0",
         "dayjs": ">=1.8.x",
         "jest": "^27.1.2",
@@ -77,7 +79,6 @@
         "prop-types": "^15.7.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "react-is": "^17.0.0",
         "react-popper": ">=2.2.3",
         "react-test-renderer": "^17.0.0",
         "rollup": "^2.45.2",

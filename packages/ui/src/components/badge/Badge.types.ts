@@ -1,12 +1,4 @@
-import {
-    ReactNode,
-    ComponentType,
-    MouseEventHandler,
-    ComponentPropsWithoutRef,
-    ElementType,
-} from 'react';
-
-export interface BadgeProps extends ComponentPropsWithoutRef<ElementType> {
+export interface BadgeProps extends React.ComponentPropsWithoutRef<React.ElementType> {
     /** Adds a color with `color-on-<COLOR>` class */
     color?: string;
     /** Adds a background color with `color-<COLOR>-bg` class */
@@ -14,8 +6,8 @@ export interface BadgeProps extends ComponentPropsWithoutRef<ElementType> {
     /** Change the badge type */
     type?: 'rounded' | 'circular' | 'squared';
     /** Specify which tag has to be used for the badge */
-    tag?: keyof JSX.IntrinsicElements | ComponentType;
-    onClick?: MouseEventHandler;
-    children: ReactNode;
+    tag?: keyof JSX.IntrinsicElements | React.ComponentType;
+    onClick?: React.MouseEventHandler;
+    children: React.ReactNode;
     className?: string;
 }

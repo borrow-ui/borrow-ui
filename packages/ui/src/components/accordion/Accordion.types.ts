@@ -1,35 +1,26 @@
-import {
-    ReactNode,
-    HTMLProps,
-    ComponentPropsWithoutRef,
-    ElementType,
-    Dispatch,
-    SetStateAction,
-} from 'react';
-
 export interface IAccordionGroupState {
-    open: ReactNode;
+    open: React.ReactNode;
 }
 
 export type AccordionContextType = [
     IAccordionGroupState | null,
-    Dispatch<SetStateAction<IAccordionGroupState>> | null
+    React.Dispatch<React.SetStateAction<IAccordionGroupState>> | null
 ];
 
 export interface AccordionGroupProps {
-    children: ReactNode;
-    initialOpenTitle: ReactNode;
+    children: React.ReactNode;
+    initialOpenTitle: React.ReactNode;
 }
 
-export interface AccordionProps extends ComponentPropsWithoutRef<ElementType> {
-    children: ReactNode;
+export interface AccordionProps extends React.ComponentPropsWithoutRef<React.ElementType> {
+    children: React.ReactNode;
     className?: string;
     /** Title of the accordion */
-    title: ReactNode;
+    title: React.ReactNode;
     /** Props passed to the title element */
-    titleProps?: HTMLProps<HTMLDivElement>;
+    titleProps?: React.HTMLProps<HTMLDivElement>;
     /** Props passed to the content container element */
-    contentProps?: HTMLProps<HTMLDivElement>;
+    contentProps?: React.HTMLProps<HTMLDivElement>;
     /** Set the initial open status of the accordion */
     initialOpen?: boolean;
     /** Specify the `maxHeight`. By default CSS adds `600px`. */

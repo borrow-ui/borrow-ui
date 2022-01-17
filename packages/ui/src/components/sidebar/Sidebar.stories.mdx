@@ -99,8 +99,7 @@ will toggle the content to be shown/hidden.
 ### Global Sidebar with external trigger
 
 If you need to put the status trigger outside of the Sidebar, you need to use the same context of the sidebar.
-`SidebarContext` not only has the Provider, but also an helper `getDefaultState` function to help you to setup
-the context value.
+You can set the default state with the helper function `getSidebarContextDefaultState`.
 `SidebarTrigger` component then can be used to render the trigger. If you want to use a different trigger, you
 can use `SidebarCustomTrigger`, which accepts a function as children and it's called with three props:
 
@@ -148,7 +147,7 @@ import { SidebarContext } from '@borrow-ui/ui';
 import { MainSidebar } from './MainSidebar';
 
 export function Layout({ Component, pageProps }) {
-    const sidebarState = useState(SidebarContext.getDefaultState());
+    const sidebarState = useState(getSidebarContextDefaultState());
 
     return (
         <div className="borrow-ui">
