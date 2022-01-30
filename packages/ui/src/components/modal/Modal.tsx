@@ -113,7 +113,7 @@ export const ModalWindow = ({
         let closeOnEscapeCallback: null | EventListener = null;
         if (closeOnEscape) {
             closeOnEscapeCallback = (e: any) => {
-                if (e.keyCode === KEY_CODES.ESCAPE) {
+                if (e.key === KEY_CODES.ESCAPE || e.key === KEY_CODES.ESCAPE_LEGACY) {
                     e.preventDefault();
                     e.stopPropagation();
                     closeModalWindow();

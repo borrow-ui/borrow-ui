@@ -229,7 +229,7 @@ describe('Modal', () => {
             expect(screen.queryByTestId('wrapper')).toBeInTheDocument();
         });
 
-        await fireEvent.keyDown(window, { keyCode: 27, code: 'Escape' });
+        await fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
 
         expect(screen.queryByTestId('wrapper')).not.toBeInTheDocument();
     });
