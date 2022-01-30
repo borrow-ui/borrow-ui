@@ -4,10 +4,10 @@ language: node_js
 node_js:
   - "14.16.1"
 
-cache:
-  # Yarn > 1 caches to the local .yarn directory, not the Travis default `$HOME/.yarn`
-  directories:
-    - ./.yarn/cache
+# cache:
+#   # Yarn > 1 caches to the local .yarn directory, not the Travis default `$HOME/.yarn`
+#   directories:
+#     - ./.yarn/cache
 
 git:
   lfs_skip_smudge: true
@@ -33,5 +33,4 @@ before_install:
 install: yarn
 
 script:
-  - yarn
   - yarn workspace @borrow-ui/ui coveralls
