@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
-export function useHover() {
+import { UseHoverType } from './useHover.types';
+
+export function useHover(): UseHoverType {
     const [value, setValue] = useState(false);
 
-    const ref = useRef<HTMLElement>(null);
+    const ref: React.RefObject<HTMLElement> | null = useRef<HTMLElement>(null);
 
     const handleMouseOver = () => setValue(true);
     const handleMouseOut = () => setValue(false);

@@ -19,9 +19,12 @@ describe('config', () => {
         expect(config.getLocation().path).toBe('/');
 
         // set a config that is not listed should return false
+        const err = console.error;
+        console.error = jest.fn();
         // @ts-ignore
         const wrongConfigSet = setConfig('setWhatever', 1);
         expect(wrongConfigSet).toBe(false);
+        console.error = err;
 
         // set back
         setConfig('getLocation', original);
