@@ -33,4 +33,5 @@ before_install:
 install: yarn
 
 script:
+  - yarn
   - yarn workspace @borrow-ui/ui coveralls
