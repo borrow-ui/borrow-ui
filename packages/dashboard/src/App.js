@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Link, useLocation } from 'react-router-dom';
 
-import { SidebarContext, setConfig } from '@borrow-ui/ui';
+import { SidebarContext, getSidebarContextDefaultState, setConfig } from '@borrow-ui/ui';
 
 import { Header } from './components/layout/Header';
 import { MainSidebar } from './components/layout/MainSidebar';
@@ -58,7 +58,7 @@ function DashboardApp() {
      * This will set a provider for the main sidebar and will allow
      * the trigger on the Header to open/collapse the main sidebar.
      */
-    const sidebarState = useState(SidebarContext.getDefaultState());
+    const sidebarState = useState(getSidebarContextDefaultState());
 
     /**
      * A router provider can also be set here.

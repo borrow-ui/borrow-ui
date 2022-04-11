@@ -4,9 +4,6 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { Button } from '../button/Button';
 
-import { SearchBar } from '../search-bar/SearchBar';
-import { SearchBarStoryWrapper } from '../search-bar/SearchBarStory';
-
 import { Table } from './Table';
 import { GroupLines } from './TableStory';
 
@@ -219,70 +216,6 @@ The following example uses `cellContentProps` to align horizontally the numbers 
                     },
                 ]}
             />
-        </div>
-    </Story>
-</Canvas>
-
-## Search items with SearchBar
-
-`SearchBar` component can be combined with table to offer real time filtering.
-
-In the following example, the list of entries is defined before and passed to `SearchBar`, which will return a filtered list.
-The filtered list is then passed to `Table` component.
-The filtered list should be defined before both components, in the standard way with `useState`.
-
-NOTE: to see how filter the `group` JSX attribute, see [this `SearchBar` story](/docs/components-searchbar--default-story#jsx-content).
-
-<Canvas>
-    <Story name="SearchBar and Table">
-        <div className="p-b-20">
-            <SearchBarStoryWrapper
-                entries={[
-                    {
-                        id: 1,
-                        name: 'first',
-                        group: <GroupLines n={1} />,
-                    },
-                    {
-                        id: 2,
-                        name: 'second',
-                        group: <GroupLines n={2} />,
-                    },
-                    {
-                        id: 3,
-                        name: 'third',
-                        group: <GroupLines n={3} />,
-                    },
-                ]}
-                hideStoryOutput={true}
-            >
-                {({ entries, filteredEntries, setFilteredEntries }) => {
-                    return (
-                        <div>
-                            <p>Filter the entries by text</p>
-                            <SearchBar
-                                entries={entries.map((e) => ({
-                                    ...e,
-                                    groupString: ReactDOMServer.renderToStaticMarkup(
-                                        e.group
-                                    ).replace('<br/>', ' '),
-                                }))}
-                                setFilteredEntries={setFilteredEntries}
-                                className="m-b-20"
-                                inputProps={{ placeholder: 'Filter elements...' }}
-                            />
-                            <Table
-                                columns={[
-                                    { prop: 'id', title: 'ID', width: '100px' },
-                                    { prop: 'name', title: 'Name' },
-                                    { prop: 'group', title: 'Group' },
-                                ]}
-                                entries={filteredEntries}
-                            />
-                        </div>
-                    );
-                }}
-            </SearchBarStoryWrapper>
         </div>
     </Story>
 </Canvas>

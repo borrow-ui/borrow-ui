@@ -1,0 +1,43 @@
+import React, { ChangeEvent, KeyboardEvent } from 'react';
+
+import { UI_PREFIX } from '../../config';
+import { KEY_CODES } from '../../utils/constants';
+
+import { Icon } from './Icon';
+import { IconControlProps } from './IconControl.types';
+import { MouseEvent, MouseEventHandler } from 'markdown-to-jsx/node_modules/@types/react';
+
+const ICON_CONTROL_CLASS = `${UI_PREFIX}__icon-control`;
+
+export function IconControl({
+    className = '',
+    onKeyDown,
+    onClick,
+    ...rest
+}: IconControlProps): JSX.Element {
+    const iconControlClassName = `${ICON_CONTROL_CLASS} ${className}`.trim();
+
+    const propOnKeyDown = onKeyDown
+        ? onKeyDown
+        : onClick
+        ? (
+              e: ChangeEvent<HTMLInputElement> & KeyboardEvent & MouseEvent<MouseEventHandler>
+          ): void => {
+              if (e.key === KEY_CODES.SPACEBAR || e.key === KEY_CODES.SPACEBAR_LEGACY) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onClick(e);
+              }
+          }
+        : undefined;
+
+    return (
+        <Icon
+            size="smaller"
+            className={iconControlClassName}
+            onKeyDown={propOnKeyDown}
+            onClick={onClick}
+            {...rest}
+        />
+    );
+}
