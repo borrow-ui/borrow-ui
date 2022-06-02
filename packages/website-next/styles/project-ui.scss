@@ -1,3 +1,9 @@
+@use '@fontsource/poppins/scss/mixins' as Poppins;
+
+@include Poppins.fontFace($weight: 300, $display: auto, $fontDir: '~@fontsource/poppins/files');
+@include Poppins.fontFace($weight: 400, $display: auto, $fontDir: '~@fontsource/poppins/files');
+@include Poppins.fontFace($weight: 700, $display: auto, $fontDir: '~@fontsource/poppins/files');
+
 @import './vars';
 
 // include this if this is a third-party project
