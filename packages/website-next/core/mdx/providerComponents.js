@@ -1,4 +1,6 @@
-import { Title, SyntaxHighlight, Monospace } from '@borrow-ui/ui';
+import NextLink from 'next/link';
+
+import { Title, SyntaxHighlight, Monospace, Link } from '@borrow-ui/ui';
 
 let languageRe = /(?<=language-).*$/gm;
 
@@ -17,6 +19,15 @@ const titles = {
     },
     h5: function H5(props) {
         return <Title tag="h5" {...props} />;
+    },
+    a: function A({ href, ...props }) {
+        if (href && href.substr(0, 4) !== 'http')
+            return (
+                <NextLink href={href}>
+                    <Link tag="a" {...props} />
+                </NextLink>
+            );
+        return <Link tag="a" href={href} {...props} />;
     },
 };
 

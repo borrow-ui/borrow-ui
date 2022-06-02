@@ -1,11 +1,11 @@
 .#{$ui-prefix}__navbar__link {
-    color: $ui-color-neutral-dark;
+    color: var(--text-color-secondary);
     text-decoration: none;
     display: flex;
     align-items: center;
     height: 100%;
 
     &:hover {
-        color: $ui-color-neutral-light;
+        color: var(--text-color-light);
     }
 }

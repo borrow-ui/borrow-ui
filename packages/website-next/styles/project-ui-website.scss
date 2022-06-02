@@ -29,7 +29,7 @@ li {
 
 .main-header {
     .borrow-ui__navbar__header {
-        background-color: white;
+        background-color: var(--background-color);
         border-bottom: none;
     }
     .borrow-ui__navbar__group--right {

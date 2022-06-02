@@ -14,11 +14,7 @@ export function Home() {
                 <main className="website__text__columns">
                     <Title className={styles['home__main-title']}>
                         Welcome to{' '}
-                        <Link
-                            tag="a"
-                            href="https://borrow-ui.dev"
-                            className={styles['home__main-link']}
-                        >
+                        <Link href="https://borrow-ui.dev" className={styles['home__main-link']}>
                             borrow-ui
                         </Link>{' '}
                         demo!
@@ -47,9 +43,9 @@ export function Home() {
             <div className={styles['home__guide__container']}>
                 <div className="website__text__columns">
                     Read the quick guide in the{' '}
-                    <Link tag={NextLink} href="/blog">
-                        Blog section
-                    </Link>
+                    <NextLink href="/blog">
+                        <Link>Blog section</Link>
+                    </NextLink>
                 </div>
             </div>
         </Page>

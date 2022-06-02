@@ -6,6 +6,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'react-day-picker/lib/style.css';
 
+import 'prismjs';
 import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-bash.min';
 import 'prismjs/components/prism-json.min';

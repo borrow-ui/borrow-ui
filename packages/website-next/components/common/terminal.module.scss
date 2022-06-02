@@ -3,7 +3,7 @@
 $terminal-padding: 15px;
 
 .terminal {
-    border: 1px solid $ui-color-grey-light;
+    border: 1px solid var(--terminal-frame-border-color);
 }
 
 .terminal__head,
@@ -15,11 +15,11 @@ $terminal-padding: 15px;
 }
 
 .terminal__head {
-    border-bottom: 1px solid $ui-color-grey-light;
+    border-bottom: 1px solid var(--terminal-frame-border-color);
 }
 
 .terminal__head__title {
-    color: $ui-color-neutral-light;
+    color: var(--terminal-title-color);
     padding: 0 $terminal-padding;
 }
 

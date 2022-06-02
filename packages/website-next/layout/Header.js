@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 import { Icon, Navbar, NavbarLink, SidebarTrigger } from '@borrow-ui/ui';
 
 import logoColor from '../public/logo-color-192.png';
 import packageJson from '../package.json';
+
+import { ThemeTrigger } from './theme';
 
 export function Header({ isSmallScreen }) {
     // Required for Hydration, initial render should be the same as
@@ -33,36 +35,37 @@ export function Header({ isSmallScreen }) {
             left={[
                 {
                     headerLabel: (
-                        <Link href="/">
+                        <NextLink href="/">
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
                                 <div className="flex-center-center">
                                     {logo}
                                     <span className="header__title">Home</span>
                                 </div>
                             </a>
-                        </Link>
+                        </NextLink>
                     ),
                 },
                 showLinks && {
                     headerLabel: (
-                        <Link href="/blog" prefetch={false}>
+                        <NextLink href="/blog" prefetch={false}>
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
                                 <span>Blog</span>
                             </a>
-                        </Link>
+                        </NextLink>
                     ),
                 },
                 showLinks && {
                     headerLabel: (
-                        <Link href="/project" prefetch={false}>
+                        <NextLink href="/project" prefetch={false}>
                             <a className="borrow-ui__navbar__group borrow-ui__navbar__link">
                                 <span>Project</span>
                             </a>
-                        </Link>
+                        </NextLink>
                     ),
                 },
             ].filter((v) => !!v)}
             right={[
+                <ThemeTrigger key="theme-trigger" />,
                 <NavbarLink
                     tag="a"
                     href="https://github.com/borrow-ui/borrow-ui/tree/master/packages/website-next"

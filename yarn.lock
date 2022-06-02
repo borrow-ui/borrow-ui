@@ -2260,6 +2260,7 @@ __metadata:
     eslint: 7.30.0
     eslint-config-next: 11.0.1
     gray-matter: ^4.0.3
+    material-design-icons-iconfont: ">=6.6.0"
     next: 11.0.1
     next-mdx-remote: ^3.0.4
     prismjs: 1.24.1
@@ -15354,6 +15355,13 @@ fsevents@^1.2.7:
   version: 6.1.0
   resolution: "material-design-icons-iconfont@npm:6.1.0"
   checksum: efb5d80eb461e5ba0589e6bfbd9bdab4c5fc3934029eca1358391c251b93caf850ccb1f2d822b341d0789844c61af6a5189281cd2285fd3dd91849d357d574a3
+  languageName: node
+  linkType: hard
+
+"material-design-icons-iconfont@npm:>=6.6.0":
+  version: 6.6.0
+  resolution: "material-design-icons-iconfont@npm:6.6.0"
+  checksum: 0506e5814a392ea6e69192e4ec4d636b651f2e8e0908d9123876ca7e5f2537584654d72aa17e39873e0437d04c9d059e5c636ec1e2fb51549169d27d061dbdb1
   languageName: node
   linkType: hard
 
