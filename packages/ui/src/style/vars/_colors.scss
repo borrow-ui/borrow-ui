@@ -40,6 +40,11 @@ $ui-color-neutral-white-dark: #f7f7fa !default;
 $ui-color-neutral-white-dark-over: #ececef !default;
 $ui-color-on-neutral-white-dark: $ui-color-neutral !default;
 
+$ui-color-dark: #1e2226;
+$ui-color-dark-over: lighten($ui-color-dark, 12);
+$ui-color-dark-disabled: lighten($ui-color-dark, 22);
+$ui-color-on-dark: $ui-color-neutral-white;
+
 $ui-color-grey-light: #ececef !default;
 $ui-color-grey-light-over: darken($ui-color-grey-light, 12) !default;
 $ui-color-on-grey-light: $ui-color-neutral !default;

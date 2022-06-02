@@ -1,0 +1,23 @@
+:root {
+    --terminal-title-color: #{$ui-color-neutral-light};
+    --terminal-frame-border-color: #{$ui-color-grey-light};
+}
+
+[data-theme='dark'] {
+    --text-color: #{$ui-color-neutral-white};
+    --text-color-secondary: #{darken($ui-color-neutral-white, 12)};
+    --text-color-light: #bbbfc5;
+    --text-color-light-over: #{darken($ui-color-neutral-light, 3)};
+    --background-color: #{$ui-color-dark};
+    --background-color-light: #{$ui-color-gray-d2};
+    --background-color-light-over: #{darken($ui-color-gray-d2, 2)};
+    --primary-color: #a259f0;
+    --primary-color-light: #{$ui-color-primary-light};
+    --primary-color-disabled: #{$ui-color-primary-disabled};
+    --primary-color-over: #{$ui-color-primary-over};
+    --secondary-color: #{$ui-color-secondary};
+    --secondary-color-disabled: #{$ui-color-secondary-disabled};
+    --secondary-color-over: #{$ui-color-secondary-over};
+    --terminal-title-color: #{$ui-color-neutral-white};
+    --terminal-frame-border-color: #{$ui-color-neutral};
+}

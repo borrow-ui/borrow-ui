@@ -12,6 +12,8 @@ import * as borrowUi from '@borrow-ui/ui';
 import { providerComponents } from '../../core/mdx/providerComponents';
 import { getSingleContent, getAllSources } from '../../core/mdx/mdx';
 
+import style from './blog.module.scss';
+
 export const SOURCE_PATH = path.join(process.cwd(), 'content/blog');
 
 const { Title, Card, Link, Icon } = borrowUi;
@@ -47,7 +49,7 @@ export default function Content({ code, metadata = {}, posts }) {
                     {publishedPosts.map((post) => (
                         <Card
                             key={post.metadata.title}
-                            className="w-400 m-r-20 m-b-20 m-t-20"
+                            className={`w-400 m-r-20 m-b-20 m-t-20 ${style['blog-card']}`}
                             icon={
                                 <Icon
                                     name={post.metadata.iconName || 'article'}
@@ -55,24 +57,30 @@ export default function Content({ code, metadata = {}, posts }) {
                                     className="color-teal-l2"
                                 />
                             }
-                            sideProps={{ className: 'color-grey-light-bg' }}
-                            title={post.metadata.title}
+                            mainProps={{ className: style['blog-card__main'] }}
+                            sideProps={{ className: style['blog-card__side'] }}
+                            title={
+                                <NextLink href={`/blog/${post.slug}`}>
+                                    <Link tag="a">{post.metadata.title}</Link>
+                                </NextLink>
+                            }
                             description={post.metadata.description}
+                            descriptionProps={{ className: style['blog-card__description'] }}
                             controls={
                                 <>
                                     <span className="color-neutral-light">
                                         {dayjs(post.metadata.postDate).format('ddd, D MMM YYYY')}
                                     </span>
-                                    <Link href={`/blog/${post.slug}`} tag={NextLink}>
-                                        Read post
-                                    </Link>
+                                    <NextLink href={`/blog/${post.slug}`}>
+                                        <Link tag="a">Read post</Link>
+                                    </NextLink>
                                 </>
                             }
                         />
                     ))}
                 </div>
             </div>
-            <div className="flex-center-center m-t-20 m-b-20 p-20 h-100 color-gray-light-l2-bg">
+            <div className={style['blog__order-container']}>
                 The blog posts are sorted by date, so you shuold start reading from the second!
             </div>
             <div className="website__text" style={{ marginTop: 50, marginBottom: 50 }}>

@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    color: $ui-font-color;
+    color: var(--text-color);
     border-bottom: 1px solid $ui-form-input-border-color;
 
     &:hover {

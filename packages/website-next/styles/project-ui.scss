@@ -6,6 +6,11 @@
 // include this if this is part of a monorepo
 @import '../../ui/src/style/ui.full.scss';
 
+@import './themes.scss';
+
+@import './project-ui-website.scss';
+@import './components-common.scss';
+
 // overrides
 .borrow-ui__syntax-highlight {
     pre {

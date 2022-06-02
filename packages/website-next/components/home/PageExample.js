@@ -19,13 +19,9 @@ export function PageExample() {
                         Create website pages by writing MDX code instead of verbose HTML/JSX.
                     </Text>
                     <Text>
-                        With{' '}
-                        <Link tag="a" href="https://mdxjs.com/">
-                            MDX
-                        </Link>{' '}
-                        you can write Markdown files and use JSX components: every compoment you add
-                        to your library will be usable directly in the <Monospace>.mdx</Monospace>{' '}
-                        files.
+                        With <Link href="https://mdxjs.com/">MDX</Link> you can write Markdown files
+                        and use JSX components: every compoment you add to your library will be
+                        usable directly in the <Monospace>.mdx</Monospace> files.
                     </Text>
                     <Text>
                         If you need additional components for a specific section of the website, you

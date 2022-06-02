@@ -1,14 +1,14 @@
 .color-primary {
-    color: $ui-color-primary;
+    color: var(--primary-color);
 }
 .color-primary-bg {
-    background-color: $ui-color-primary;
+    background-color: var(--primary-color);
 }
 .color-on-primary {
-    color: $ui-color-on-primary;
+    color: var(--on-primary-color);
 }
 .color-on-primary-bg {
-    background-color: $ui-color-on-primary;
+    background-color: var(--on-primary-color);
 }
 
 .color-primary-light {
@@ -174,7 +174,10 @@
     background-color: white;
 }
 .color-on-white {
-    color: $ui-font-color;
+    color: $ui-color-dark;
+}
+.color-on-white-bg {
+    background-color: $ui-color-dark;
 }
 
 .color-cyan-d2 {

@@ -33,10 +33,7 @@ export function GetStarted() {
                     <Text>
                         The build can then be hosted by yourself or using one of the many available
                         services. For example, this website is hosted using{' '}
-                        <Link tag="a" href="https://www.netlify.com/">
-                            Netlify
-                        </Link>
-                        .
+                        <Link href="https://www.netlify.com/">Netlify</Link>.
                     </Text>
                 </Col>
                 <Col colClassName="col-xs-12 col-sm-12 col-md-6">

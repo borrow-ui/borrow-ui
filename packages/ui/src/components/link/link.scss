@@ -1,7 +1,7 @@
 /* VARIABLES */
-$ui-link-color: #0e5df0 !default;
-$ui-link-color-over: lighten($ui-link-color, 12) !default;
-$ui-link-color-underline: $ui-link-color-over !default;
+$ui-link-color: var(--link-color) !default;
+$ui-link-color-over: var(--link-color-over) !default;
+$ui-link-color-underline: var(--link-color-over) !default;
 
 /* CLASSES */
 .#{$ui-prefix}__link {
@@ -17,7 +17,7 @@ $ui-link-color-underline: $ui-link-color-over !default;
     -webkit-text-underline-position: under;
     -ms-text-underline-position: below;
     text-underline-position: under;
-    text-decoration-color: lighten($ui-link-color-underline, 15);
+    text-decoration-color: $ui-link-color-underline;
 }
 .#{$ui-prefix}__link--underline:hover {
     text-decoration-color: $ui-link-color-underline;

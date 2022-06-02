@@ -31,12 +31,12 @@ export function Footer() {
                         <h3 className="footer__title">Project</h3>
                         <ul>
                             <li>
-                                <Link tag="a" href="https://github.com/borrow-ui/borrow-ui">
+                                <Link href="https://github.com/borrow-ui/borrow-ui">
                                     View on GitHub
                                 </Link>
                             </li>
                             <li>
-                                <Link tag="a" href="https://github.com/borrow-ui/borrow-ui/issues">
+                                <Link href="https://github.com/borrow-ui/borrow-ui/issues">
                                     Issues and Enhancements
                                 </Link>
                             </li>
@@ -47,11 +47,7 @@ export function Footer() {
                     <div className="m-r-10">Copyright © 2021 borrow-ui.</div>
                     <div className="m-r-10">
                         Created by
-                        <Link
-                            tag="a"
-                            href="https://github.com/vittoriozamboni"
-                            className="m-r-5 m-l-5"
-                        >
+                        <Link href="https://github.com/vittoriozamboni" className="m-r-5 m-l-5">
                             Vittorio Zamboni
                         </Link>
                         as open source project.
