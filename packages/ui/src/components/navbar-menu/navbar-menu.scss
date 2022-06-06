@@ -1,33 +1,31 @@
-$ui-navbar-menu-item-description-color: $ui-color-neutral !default;
-
 .#{$ui-prefix}__navbar-menu {
 }
 
 .#{$ui-prefix}__navbar-menu__title {
     margin: 0 0 10px 0;
-    color: $ui-color-neutral-dark;
+    color: var(--text-color-dark);
     text-decoration: none;
 }
 
 .#{$ui-prefix}__navbar-menu__item {
-    color: $ui-color-neutral-dark;
+    color: var(--text-color-dark);
     text-decoration: none;
     display: block;
     padding: 7px;
 
     &:hover {
-        background-color: $ui-color-neutral-white-dark;
+        background-color: var(--background-color-light);
     }
 }
 
 .#{$ui-prefix}__navbar-menu__item__label {
-    color: $ui-color-neutral-dark;
+    color: var(--text-color-dark);
     text-decoration: none;
     display: block;
 }
 
 .#{$ui-prefix}__navbar-menu__item__description {
-    color: $ui-navbar-menu-item-description-color;
+    color: var(--text-color-light);
     font-size: 0.9em;
     margin-top: 3px;
     text-decoration: none;

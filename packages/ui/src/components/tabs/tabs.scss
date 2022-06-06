@@ -11,15 +11,15 @@
 }
 
 .#{$ui-prefix}__tabs__header__label--selected {
-    border-bottom: 2px solid $ui-color-accent;
-    color: $ui-color-accent;
+    border-bottom: 2px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 .#{$ui-prefix}__tabs__header__label:not(.#{$ui-prefix}__tabs__header__label--selected) {
-    color: $ui-color-neutral-light;
+    color: var(--text-color-light);
 
     &:hover {
-        color: $ui-color-primary-light;
+        color: var(--text-color-light-over);
     }
 }
 

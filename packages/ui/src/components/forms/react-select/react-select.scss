@@ -2,6 +2,10 @@
     .#{$ui-prefix}__form__field__react-select {
         width: 100%;
     }
+    .#{$ui-prefix}__form__field__react-select__menu {
+        background-color: var(--background-color);
+        box-shadow: var(--box-shadow-overlay);
+    }
 
     .#{$ui-prefix}__form__field__react-select__single-value {
         padding: 0 0.3rem;
@@ -9,14 +13,19 @@
 
     .#{$ui-prefix}__form__field__react-select--is-disabled {
         background-color: $ui-form-input-disabled-color;
+        cursor: not-allowed;
     }
 
     .#{$ui-prefix}__form__field__react-select--invalid {
         border: 1px solid $ui-color-negative;
     }
 
+    .#{$ui-prefix}__form__field__react-select__option--is-focused {
+        background-color: var(--background-color-accent);
+    }
+
     .#{$ui-prefix}__form__field__react-select__placeholder {
-        color: $ui-color-neutral-light;
+        color: var(--text-color-light);
         font-family: $ui-font;
         font-size: 0.8rem;
         padding: 0.1rem;

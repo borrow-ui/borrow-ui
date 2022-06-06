@@ -13,12 +13,12 @@ $ui-navbar-header-item-over: var(--text-color-light-over) !default;
 $ui-navbar-header-item-bg-over: var(--background-color-light-over) !default;
 
 /* Body */
-$ui-navbar-body-header-bg-color: #ececec !default;
-$ui-navbar-body-border-color: #fcfcfc !default;
-$ui-navbar-body-bg-color: #fcfcfc !default;
+$ui-navbar-body-header-bg-color: var(--background-color-accent) !default;
+$ui-navbar-body-border-color: var(--background-color-accent) !default;
+$ui-navbar-body-bg-color: var(--background-color) !default;
 $ui-navbar-body-query-bg-color: $ui-navbar-body-header-bg-color !default;
-$ui-navbar-body-query-color: #898989 !default;
-$ui-navbar-body-query-focus-border-color: $ui-color-accent !default;
+$ui-navbar-body-query-color: var(--neutral-color) !default;
+$ui-navbar-body-query-focus-border-color: var(--accent-color) !default;
 
 /* Utils */
 @mixin optional-at-root($sel) {
@@ -183,7 +183,7 @@ This is the element that contains the entire menu, both header and body
     }
 
     @include placeholder {
-        color: lighten($ui-navbar-body-query-color, 25%);
+        color: var(--text-color-light);
         font-weight: 100;
     }
 }

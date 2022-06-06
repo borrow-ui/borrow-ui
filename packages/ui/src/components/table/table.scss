@@ -1,4 +1,4 @@
-$ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
+$ui-table-border-color: var(--background-color-accent) !default;
 
 @import './table-pagination';
 
@@ -44,8 +44,8 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .#{$ui-prefix}__table__head__row {
-    background-color: $ui-color-grey-light;
-    color: $ui-color-neutral;
+    background-color: var(--background-color-accent);
+    color: var(--neutral-color);
 }
 
 .#{$ui-prefix}__table__head__cell {
@@ -54,11 +54,11 @@ $ui-table-border-color: darken($ui-color-neutral-white, 6) !default;
 }
 
 .#{$ui-prefix}__table__body__row:hover {
-    background-color: $ui-color-neutral-white-over;
+    background-color: var(--background-color-light-over);
 }
 
 .#{$ui-prefix}__table__body__row--odd {
-    background-color: $ui-color-neutral-white-dark;
+    background-color: var(--background-color-light);
 }
 
 .#{$ui-prefix}__table__body__cell {

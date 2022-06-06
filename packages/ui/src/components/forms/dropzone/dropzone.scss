@@ -14,14 +14,14 @@
     cursor: pointer;
 
     &:hover {
-        border: 1px solid $ui-color-accent;
-        color: $ui-color-accent;
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
     }
 }
 
 .#{$ui-prefix}__form__dropzone__message--active {
-    border: 1px solid $ui-color-accent;
-    color: $ui-color-accent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
 }
 .#{$ui-prefix}__form__dropzone__message--inactive {
     border: 1px solid $ui-form-input-border-color;
@@ -42,12 +42,12 @@
     border-bottom: 1px solid $ui-form-input-border-color;
 
     &:hover {
-        background-color: $ui-color-neutral-white-over;
+        background-color: var(--background-color-light);
     }
 }
 
 .#{$ui-prefix}__form__dropzone__files__file__name {
-    color: $ui-color-neutral;
+    color: var(--neutral-color);
 }
 
 .#{$ui-prefix}__form__dropzone__files__file__remove {
@@ -57,10 +57,10 @@
     border: 1px solid transparent;
 
     &:hover {
-        border: 1px solid $ui-color-accent;
+        border: 1px solid var(--accent-color);
     }
 }
 
 .#{$ui-prefix}__form__dropzone__files__file__remove--disabled {
-    color: $ui-color-neutral;
+    color: var(--neutral-color);
 }

@@ -4,6 +4,7 @@
     min-height: 150px;
     border: none;
     border: 1px solid $ui-form-input-border-color;
+    color: var(--text-color);
     background-color: inherit;
     padding: $ui-form-input-padding;
 
@@ -19,6 +20,7 @@
 
 .#{$ui-prefix}__form__field__textarea--disabled {
     background-color: $ui-form-input-disabled-color;
+    cursor: not-allowed;
 }
 
 .#{$ui-prefix}__form__field__textarea--invalid {
