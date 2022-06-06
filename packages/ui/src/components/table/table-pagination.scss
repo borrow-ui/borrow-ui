@@ -26,12 +26,12 @@
 }
 
 .#{$ui-prefix}__table__pagination__page:hover {
-    background-color: $ui-color-primary;
-    color: $ui-color-on-primary;
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
 }
 
 .#{$ui-prefix}__table__pagination__page--active {
-    border-color: $ui-color-accent;
-    background-color: $ui-color-on-accent;
-    color: $ui-color-accent;
+    border-color: var(--accent-color);
+    background-color: var(--on-accent-color);
+    color: var(--accent-color);
 }

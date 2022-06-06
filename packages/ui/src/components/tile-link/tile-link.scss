@@ -11,7 +11,7 @@
 
     &:hover {
         .#{$ui-prefix}__block {
-            color: $ui-color-accent;
+            color: var(--accent-color);
         }
     }
 }
@@ -32,12 +32,12 @@
 .#{$ui-prefix}__tile-link__entry__icon-container {
     display: inline-flex;
     align-items: center;
-    background-color: #f2f2f2;
+    background-color: var(--background-color-accent);
     margin-bottom: 5px;
 }
 
 .#{$ui-prefix}__tile-link__entry__description {
     margin: 5px 0;
-    color: $ui-color-neutral-light;
+    color: var(--text-color-light);
     font-size: 0.9em;
 }

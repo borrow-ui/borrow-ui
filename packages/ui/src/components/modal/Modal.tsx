@@ -99,7 +99,8 @@ export const ModalWindow = ({
         if (modalRoot !== undefined && modalContainer !== null)
             modalRoot.appendChild(modalContainer);
 
-        const bodyOverflow = typeof document !== undefined && document.body.style.overflow;
+        const bodyOverflow =
+            typeof document !== undefined ? document.body.style.overflow : 'visible';
 
         const openPromise = new Promise((resolve, reject) => {
             if (hooks.onOpen) return hooks.onOpen({ resolve, reject });
@@ -126,14 +127,13 @@ export const ModalWindow = ({
         }
 
         return function cleanup() {
+            document.body.style.overflow = bodyOverflow;
             if (modalRoot !== undefined && modalContainer !== null)
                 modalRoot.removeChild(modalContainer);
             if (typeof document === undefined || typeof window === undefined) return;
 
             if (closeOnEscapeCallback !== null)
                 closeOnEscape && window.removeEventListener('keydown', closeOnEscapeCallback);
-
-            if (bodyOverflow) document.body.style.overflow = bodyOverflow;
         };
     }, []); // eslint-disable-line
 

@@ -5,7 +5,7 @@
     padding: 9px;
 }
 .#{$ui-prefix}__menu__entry:hover {
-    background-color: $ui-color-neutral-white;
+    background-color: var(--background-color-light);
 }
 
 .#{$ui-prefix}__menu__entry--clickable {
@@ -17,5 +17,5 @@
 }
 
 .#{$ui-prefix}__menu__divider {
-    border-bottom: 1px solid $ui-color-neutral-white;
+    border-bottom: 1px solid var(--background-color-light);
 }

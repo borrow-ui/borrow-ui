@@ -3,11 +3,16 @@
     --text-color-secondary: #{$ui-color-neutral-dark};
     --text-color-light: #{$ui-color-neutral-light};
     --text-color-light-over: #{darken($ui-color-neutral-light, 3)};
+    --text-color-dark: #{$ui-color-neutral-dark};
+    --text-color-dark-over: #{darken($ui-color-neutral-dark, 3)};
     --background-color: white;
     --background-color-light: #{$ui-color-gray-light-l2};
-    --background-color-light-over: #{darken($ui-color-gray-light-l2, 2)};
+    --background-color-light-over: #{darken($ui-color-gray-light-l2, 3)};
+    --background-color-accent: #f2f2f2;
+    --background-color-accent-over: #{darken(#f2f2f2, 3)};
     --link-color: #{$ui-color-blue};
     --link-color-over: #{lighten($ui-color-blue, 12)};
+    --border-color-light: #{$ui-color-grey-light};
     --primary-color: #{$ui-color-primary};
     --primary-color-light: #{$ui-color-primary-light};
     --primary-color-disabled: #{$ui-color-primary-disabled};
@@ -16,4 +21,9 @@
     --secondary-color: #{$ui-color-secondary};
     --secondary-color-disabled: #{$ui-color-secondary-disabled};
     --secondary-color-over: #{$ui-color-secondary-over};
+    --accent-color: #{$ui-color-accent};
+    --on-accent-color: #{$ui-color-on-accent};
+    --neutral-color: #{$ui-color-neutral};
+    --box-shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-overlay: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 11px rgba(0, 0, 0, 0.1);
 }

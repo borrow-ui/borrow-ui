@@ -1,4 +1,5 @@
 @import "~material-design-icons-iconfont/dist/material-design-icons.css";
+@import "~react-day-picker/lib/style.css";
 @import "../../ui/src/style/ui.full.scss";
 
 *:focus:not(:focus-visible) {
@@ -8,6 +9,17 @@
 .storybook-container {
   font-size: 14px;
 }
+
+#docs-root div.sbdocs,
+.sbdocs > .sbdocs {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.docs-story {
+  border: 1px solid var(--text-color);
+}
+
 #docs-root div.sbdocs.sbdocs-div .borrow-ui form {
   .borrow-ui__form__label,
   .borrow-ui__form__field__checkbox__label {

@@ -10,7 +10,7 @@
     padding: 5px;
     padding-left: 0;
     text-transform: uppercase;
-    color: $ui-color-primary;
+    color: var(--primary-color);
     font-weight: 800;
     font-size: 12px;
     text-decoration: none;
@@ -21,7 +21,7 @@
 
     &:hover {
         text-decoration: underline;
-        color: $ui-color-accent;
+        color: var(--accent-color);
     }
 }
 
@@ -29,14 +29,14 @@
     padding: 7px;
     display: block;
     text-decoration: none;
-    color: $ui-color-on-neutral-white;
+    color: var(--neutral-color);
     font-size: 14px;
 }
 .#{$ui-prefix}__sidebar-menu__entry:hover {
-    background-color: $ui-color-neutral-white-over;
+    background-color: var(--background-color-light);
 }
 .#{$ui-prefix}__sidebar-menu__entry--active {
-    color: $ui-color-accent;
+    color: var(--accent-color);
     font-weight: bold;
 }
 .#{$ui-prefix}__sidebar-menu__entry--clickable {
@@ -44,7 +44,7 @@
 
     &:hover {
         text-decoration: underline;
-        color: $ui-color-accent;
+        color: var(--accent-color);
     }
 }
 

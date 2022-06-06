@@ -7,11 +7,11 @@
     cursor: pointer;
 }
 .#{$ui-prefix}__accordion__title--open {
-    color: $ui-color-on-accent;
-    background-color: $ui-color-accent;
+    color: var(--on-accent-color);
+    background-color: var(--accent-color);
 }
 .#{$ui-prefix}__accordion__title--closed {
-    color: $ui-color-neutral-dark;
+    color: var(--text-color-dark);
 }
 .#{$ui-prefix}__accordion__content {
     transition: 0.6s;

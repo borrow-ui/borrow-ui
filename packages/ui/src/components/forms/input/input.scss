@@ -3,6 +3,7 @@
     background-color: transparent;
     padding: $ui-form-input-padding;
     width: 100%;
+    color: var(--text-color);
 
     &:not(:disabled):hover {
         border-color: $ui-form-input-border-color-over;
@@ -16,6 +17,7 @@
 
 .#{$ui-prefix}__form__field__input--disabled {
     background-color: $ui-form-input-disabled-color;
+    cursor: not-allowed;
 }
 
 .#{$ui-prefix}__form__field__input--invalid {
