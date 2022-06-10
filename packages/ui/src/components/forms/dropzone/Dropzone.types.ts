@@ -1,6 +1,6 @@
 import { TagType } from '../../../utils/sharedTypes';
 
-type FileType = { name: string };
+export type FileType = { name: string };
 type OnRemoveType = (fileIndex: number) => void;
 
 export interface IDropzoneState {

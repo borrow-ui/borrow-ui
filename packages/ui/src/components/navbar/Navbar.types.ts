@@ -1,6 +1,6 @@
 export type NavbarElementObject = {
     headerLabel?: React.ReactNode;
-    bodyItem: () => JSX.Element;
+    bodyItem: (...args: any[]) => JSX.Element;
     showQueryInput?: boolean;
     floatingControls?: boolean;
     hideControls?: boolean;
@@ -13,9 +13,9 @@ export type SingleElementType =
     | NavbarElementObject;
 
 export type NavbarItemType = {
-    showQueryInput: boolean;
-    floatingControls: boolean;
-    hideControls: boolean;
+    showQueryInput?: boolean;
+    floatingControls?: boolean;
+    hideControls?: boolean;
 };
 
 export interface NavbarProps extends React.ComponentPropsWithoutRef<React.ElementType> {

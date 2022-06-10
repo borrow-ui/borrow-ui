@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import { UI_PREFIX } from '../../../config';
 
 import { DropzoneFiles } from './DropzoneFiles';
-import { DropzoneProps, IDropzoneState } from './Dropzone.types';
+import { DropzoneProps, IDropzoneState, FileType } from './Dropzone.types';
 
 const FORM_DROPZONE_CLASS = `${UI_PREFIX}__form__dropzone`;
 const FORM_DROPZONE_DROP_AREA_CLASS = `${UI_PREFIX}__form__dropzone__drop-area`;
@@ -35,7 +35,7 @@ export const Dropzone = ({
     });
 
     const onDropCallback = useCallback(
-        (acceptedFiles) => {
+        (acceptedFiles: Array<FileType>) => {
             const newState = {
                 ...dropzoneState,
                 lastChangeReason: 'add',
@@ -48,7 +48,7 @@ export const Dropzone = ({
     );
 
     const onRemoveCallback = useCallback(
-        (removeIndex) => {
+        (removeIndex: number) => {
             const removedFile = dropzoneState.files[removeIndex];
             const newState = {
                 ...dropzoneState,
