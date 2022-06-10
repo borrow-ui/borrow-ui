@@ -11,14 +11,15 @@ describe('DatePicker', () => {
     test('renders and can be changed', async () => {
         const Form = () => {
             const [date, setDate] = useState<Date | null | string>(null);
-
             return (
                 <>
                     <DatePicker
                         onDayChange={(d) => setDate(d)}
                         inputProps={{ 'data-testid': 'date-input' } as TestableInput}
                     />
-                    <div data-testid="selected-date">{date}</div>
+                    <div data-testid="selected-date">
+                        {typeof date === 'object' ? date?.toISOString() : date}
+                    </div>
                 </>
             );
         };

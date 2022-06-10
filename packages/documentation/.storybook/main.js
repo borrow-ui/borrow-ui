@@ -5,6 +5,9 @@ module.exports = {
     "../stories/**/*.stories.@(js|mdx)",
     "../../ui/src/**/*.stories.@(js|mdx)",
   ],
+  core: {
+    builder: "webpack5",
+  },
   addons: [
     "@storybook/addon-actions",
     "@storybook/addon-links",
