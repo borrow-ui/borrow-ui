@@ -47,7 +47,7 @@ describe('Table', () => {
         );
     });
 
-    test('renders a table with pagination', () => {
+    test('renders a table with pagination', async () => {
         render(
             <Table
                 pagination={{ pageSize: 2 }}
@@ -69,8 +69,8 @@ describe('Table', () => {
         expect(screen.queryByText('Caio Mario')).toBeInTheDocument();
         expect(screen.queryByText('Caio Giulio Cesare')).not.toBeInTheDocument();
 
-        // Change page and elements shuold change visibility
-        userEvent.click(screen.getByRole('button', { name: '2' }));
+        // Change page and elements should change visibility
+        await userEvent.click(screen.getByRole('button', { name: '2' }));
         expect(screen.queryByText('Caio Mario')).not.toBeInTheDocument();
         expect(screen.queryByText('Caio Giulio Cesare')).toBeInTheDocument();
     });

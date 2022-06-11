@@ -3,7 +3,7 @@
     "version": "1.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
+        "dev": "next dev -p 3670",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
@@ -16,15 +16,15 @@
         "dayjs": ">=1.8.x",
         "gray-matter": "^4.0.3",
         "material-design-icons-iconfont": ">=6.6.0",
-        "next": "11.0.1",
+        "next": "12.1.6",
         "next-mdx-remote": "^3.0.4",
         "prismjs": "1.24.1",
         "prop-types": "^15.7.2",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0"
     },
     "devDependencies": {
-        "eslint": "7.30.0",
-        "eslint-config-next": "11.0.1"
+        "eslint": "8.17.0",
+        "eslint-config-next": "12.1.6"
     }
 }

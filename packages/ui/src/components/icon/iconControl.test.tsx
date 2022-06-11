@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent, { specialChars } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { UI_PREFIX } from '../../config';
 
@@ -27,7 +27,7 @@ describe('Icon', () => {
 
         expect(onClick).toHaveBeenCalledTimes(1);
 
-        await userEvent.type(icon, `${specialChars.space}`);
+        await userEvent.type(icon, `{space}`);
 
         expect(onClick).toHaveBeenCalledTimes(2);
     });

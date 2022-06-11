@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { UI_PREFIX } from '../../../config';
@@ -104,7 +104,7 @@ describe('ReactSelect', () => {
 
         // Remove Third
         await userEvent.type(screen.getByRole('combobox'), 'Th');
-        await userEvent.click(screen.getByText('Third'));
+        await userEvent.click(screen.getByRole('button', { name: 'Remove Third' }));
         // Add Fourth
         await userEvent.clear(screen.getByRole('combobox'));
         await userEvent.type(screen.getByRole('combobox'), 'Fou');
