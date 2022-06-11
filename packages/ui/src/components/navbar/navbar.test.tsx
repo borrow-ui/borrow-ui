@@ -144,7 +144,10 @@ describe('Navbar', () => {
         expect(screen.queryByText(/No one waves/)).toBeInTheDocument();
         expect(screen.queryByText(/Hi there/)).not.toBeInTheDocument();
         // Delete and type "hello"
-        await userEvent.type(screen.getByRole('textbox'), '{selectall}{backspace}');
+        await userEvent.type(screen.getByRole('textbox'), '{backspace}', {
+            initialSelectionStart: 0,
+            initialSelectionEnd: 2,
+        });
         await userEvent.type(screen.getByRole('textbox'), 'hello');
         expect(screen.queryByText(/No one waves/)).not.toBeInTheDocument();
         expect(screen.queryByText(/Hi there/)).toBeInTheDocument();

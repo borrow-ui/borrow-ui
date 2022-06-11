@@ -57,7 +57,7 @@ describe('Dropzone', () => {
 
         // remove the first file
         const delete1 = screen.getAllByText('×')[0];
-        userEvent.click(delete1);
+        await userEvent.click(delete1);
 
         expect(await screen.queryByText('test.txt')).not.toBeInTheDocument();
 
@@ -150,7 +150,7 @@ describe('Dropzone', () => {
 
         // remove the first file
         const delete1 = screen.getAllByText('×')[0];
-        userEvent.click(delete1);
+        await userEvent.click(delete1);
 
         // input now in the DOM
         expect(screen.queryByTestId('dropzone-input')).toBeInTheDocument();
