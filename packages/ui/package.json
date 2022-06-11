@@ -42,7 +42,7 @@
         "lodash.debounce": ">=4.0.x",
         "material-design-icons-iconfont": ">=5.0.1",
         "prismjs": "^1.24.1",
-        "react-day-picker": ">=7.4.0",
+        "react-day-picker": "<8.0.0",
         "react-dropzone": ">=11.1.0",
         "react-media": ">=1.10.0",
         "react-popper": ">=2.2.3",
@@ -77,9 +77,9 @@
         "prettier-eslint": "^11.0.0",
         "prismjs": "^1.24.1",
         "prop-types": "^15.7.2",
-        "react": "^18.0.0",
-        "react-day-picker": ">=7.4.0",
-        "react-dom": "^18.0.0",
+        "react": "^18.1.0",
+        "react-day-picker": "<8.0.0",
+        "react-dom": "^18.1.0",
         "react-dropzone": ">=11.1.0",
         "react-media": ">=1.10.0",
         "react-popper": ">=2.2.3",
@@ -101,6 +101,8 @@
         "access": "public"
     },
     "resolutions": {
-        "jest-environment-jsdom": "^27.0.6"
+        "jest-environment-jsdom": "^27.0.6",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0"
     }
 }
