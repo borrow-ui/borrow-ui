@@ -1,11 +1,10 @@
-import React, { ChangeEvent, KeyboardEvent } from 'react';
+import React, { ChangeEvent, KeyboardEvent, MouseEvent, MouseEventHandler } from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { KEY_CODES } from '../../utils/constants';
 
 import { Icon } from './Icon';
 import { IconControlProps } from './IconControl.types';
-import { MouseEvent, MouseEventHandler } from 'markdown-to-jsx/node_modules/@types/react';
 
 const ICON_CONTROL_CLASS = `${UI_PREFIX}__icon-control`;
 
