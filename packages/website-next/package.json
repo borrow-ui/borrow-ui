@@ -13,7 +13,7 @@
         "@fontsource/poppins": "latest",
         "@mdx-js/loader": "next",
         "critters": "^0.0.10",
-        "dayjs": ">=1.8.x",
+        "date-fns": "^2.28.0",
         "gray-matter": "^4.0.3",
         "material-design-icons-iconfont": ">=6.6.0",
         "next": "12.1.6",

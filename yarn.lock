@@ -1640,6 +1640,7 @@ __metadata:
     "@testing-library/react": ^11.1.0
     "@testing-library/user-event": ^12.1.10
     babel-loader: 8.1.0
+    date-fns: ^2.28.0
     react: ^18.1.0
     react-dom: ^18.1.0
     react-hook-form: ^7.15.0
@@ -1669,10 +1670,10 @@ __metadata:
     "@storybook/theming": ^6.5.8
     babel-loader: 8.2.2
     css-loader: ^5.2.4
-    dayjs: ^1.8.35
+    date-fns: ^2.28.0
     material-design-icons-iconfont: ^5.0.1
     react: ^18.1.0
-    react-day-picker: ^7.4.0
+    react-day-picker: ^8.0.6
     react-dom: ^18.1.0
     react-media: ^1.10.0
     react-router-dom: ^5.2.0
@@ -1706,7 +1707,7 @@ __metadata:
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
     coveralls: ^3.1.0
-    dayjs: ">=1.8.x"
+    date-fns: ^2.28.0
     flexboxgrid2: ^7.2.1
     jest: ^27.1.2
     jest-environment-jsdom: ^27.0.6
@@ -1717,7 +1718,7 @@ __metadata:
     prismjs: ^1.24.1
     prop-types: ^15.7.2
     react: ^18.1.0
-    react-day-picker: <8.0.0
+    react-day-picker: ^8.0.6
     react-dom: ^18.1.0
     react-dropzone: ">=11.1.0"
     react-media: ">=1.10.0"
@@ -1744,7 +1745,7 @@ __metadata:
       optional: true
     "@popperjs/core":
       optional: true
-    dayjs:
+    date-fns:
       optional: true
     lodash.debounce:
       optional: true
@@ -1773,7 +1774,7 @@ __metadata:
     "@fontsource/poppins": latest
     "@mdx-js/loader": next
     critters: ^0.0.10
-    dayjs: ">=1.8.x"
+    date-fns: ^2.28.0
     eslint: 8.17.0
     eslint-config-next: 12.1.6
     gray-matter: ^4.0.3
@@ -2903,6 +2904,32 @@ __metadata:
   version: 2.11.5
   resolution: "@popperjs/core@npm:2.11.5"
   checksum: fd7f9dca3fb716d7426332b6ee283f88d2724c0ab342fb678865a640bad403dfb9eeebd8204a406986162f7e2b33394f104320008b74d0e9066d7322f70ea35d
+  languageName: node
+  linkType: hard
+
+"@reach/auto-id@npm:0.16.0":
+  version: 0.16.0
+  resolution: "@reach/auto-id@npm:0.16.0"
+  dependencies:
+    "@reach/utils": 0.16.0
+    tslib: ^2.3.0
+  peerDependencies:
+    react: ^16.8.0 || 17.x
+    react-dom: ^16.8.0 || 17.x
+  checksum: 80211f7db1c0e3b107e2c1d3fe8055e7e41d7399b51ff0da5f0c9df43d90b77aa4a31a896545c699f9629b3fbc3c762ee0518de70faf8112098886c6759d3f15
+  languageName: node
+  linkType: hard
+
+"@reach/utils@npm:0.16.0":
+  version: 0.16.0
+  resolution: "@reach/utils@npm:0.16.0"
+  dependencies:
+    tiny-warning: ^1.0.3
+    tslib: ^2.3.0
+  peerDependencies:
+    react: ^16.8.0 || 17.x
+    react-dom: ^16.8.0 || 17.x
+  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
   languageName: node
   linkType: hard
 
@@ -8803,10 +8830,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:>=1.8.x, dayjs@npm:^1.8.35":
-  version: 1.11.3
-  resolution: "dayjs@npm:1.11.3"
-  checksum: c87e06b562a51ae6568cc5b840c7579d82a0f8af7163128c858fe512d3d71d07bd8e8e464b8cc41b8698a9e26b80ab2c082d14a1cd4c33df5692d77ccdfc5a43
+"date-fns@npm:^2.28.0":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -18126,14 +18153,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-day-picker@npm:<8.0.0, react-day-picker@npm:^7.4.0":
-  version: 7.4.10
-  resolution: "react-day-picker@npm:7.4.10"
+"react-day-picker@npm:^8.0.6":
+  version: 8.0.6
+  resolution: "react-day-picker@npm:8.0.6"
   dependencies:
-    prop-types: ^15.6.2
+    "@reach/auto-id": 0.16.0
   peerDependencies:
-    react: ~0.13.x || ~0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 33a4614bb4d457a3e72462d092fa131d3d7ec1ba858ac7e70d65b59e464606ffc039afdd226db37ead1326e248ca9a103007ee0bb829b277cd7297e5f5807ad1
+    date-fns: ^2.28.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 362ce28f7dcca35a0747e13773295b8bf57f30db3511ff49808b32968ca8f5cbec2f82587d6d617d203a7c29b4ad0df202bf554cf646347605749abd7ad4207a
   languageName: node
   linkType: hard
 
@@ -21334,7 +21362,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.4.0":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.3.0, tslib@npm:^2.4.0":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113

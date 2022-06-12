@@ -9,6 +9,12 @@ $ui-form-checkbox-indicator-height: 16px !default;
 $ui-form-checkbox-indicator-width: 16px !default;
 $ui-form-placeholder-color: var(--text-color-light) !default;
 
+:root {
+    --rdp-accent-color: var(--primary-color);
+    --rdp-outline: var(--primary-color);
+    --rdp-background-color: var(--background-color-light);
+}
+
 @import './checkbox/checkbox';
 @import './date-picker/date-picker';
 @import './dropzone/dropzone';

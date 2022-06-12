@@ -11,23 +11,30 @@ Sizes: `${UI_PREFIX}__icon--smaller`
 Modifiers: `${UI_PREFIX}__icon--${modifier}` (see IconProps for modifiers)
 */
 
-export function Icon({
-    name,
-    family = ICON_DEFAULT_FAMILY,
-    size = 'normal',
-    modifiers = [],
-    className = '',
-    onClick,
-    ...rest
-}: IconProps): JSX.Element {
-    const sizeClass = `${ICON_CLASS}--${size}`;
+export const Icon = React.forwardRef<HTMLElement, IconProps>(
+    (
+        {
+            name,
+            family = ICON_DEFAULT_FAMILY,
+            size = 'normal',
+            modifiers = [],
+            className = '',
+            onClick,
+            ...rest
+        },
+        ref
+    ): JSX.Element => {
+        const sizeClass = `${ICON_CLASS}--${size}`;
 
-    const modifiersList = Array.isArray(modifiers) ? modifiers : [modifiers];
-    if (onClick && !modifiersList.includes('clickable')) modifiersList.push('clickable');
+        const modifiersList = Array.isArray(modifiers) ? modifiers : [modifiers];
+        if (onClick && !modifiersList.includes('clickable')) modifiersList.push('clickable');
 
-    const modifiersClasses = modifiersList.map((m) => `${ICON_CLASS}--${m}`).join(' ');
+        const modifiersClasses = modifiersList.map((m) => `${ICON_CLASS}--${m}`).join(' ');
 
-    const iconClassName = `${ICON_CLASS} ${family} ${name} ${modifiersClasses} ${sizeClass} ${className}`;
+        const iconClassName = `${ICON_CLASS} ${family} ${name} ${modifiersClasses} ${sizeClass} ${className}`;
 
-    return <i className={iconClassName} onClick={onClick} {...rest} />;
-}
+        return <i className={iconClassName} onClick={onClick} ref={ref} {...rest} />;
+    }
+);
+
+Icon.displayName = 'Icon';
