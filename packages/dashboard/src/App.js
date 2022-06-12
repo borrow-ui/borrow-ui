@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Link, useLocation } from 'react-router-dom';
 
 import { SidebarContext, getSidebarContextDefaultState, setConfig } from '@borrow-ui/ui';
 
@@ -7,7 +7,7 @@ import { Header } from './components/layout/Header';
 import { MainSidebar } from './components/layout/MainSidebar';
 
 import { storeContext, StoreProvider, initializeStore } from './store';
-import { Routes } from './Routes';
+import { MainRoutes } from './Routes';
 
 /**
  * Set react-router-dom default hook and component as default
@@ -69,15 +69,15 @@ function DashboardApp() {
      */
 
     return (
-        <Router>
+        <BrowserRouter>
             <SidebarContext.Provider value={sidebarState}>
                 <Header />
                 <div className="flex w-100pc">
                     <MainSidebar />
-                    <Routes />
+                    <MainRoutes />
                 </div>
             </SidebarContext.Provider>
-        </Router>
+        </BrowserRouter>
     );
 }
 

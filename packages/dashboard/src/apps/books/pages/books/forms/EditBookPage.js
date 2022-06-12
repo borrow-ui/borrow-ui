@@ -6,7 +6,7 @@
  * are passed down to BookForm.
  */
 import { useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { Page } from '@borrow-ui/ui';
 
@@ -17,7 +17,7 @@ import { booksModel } from 'apps/books/models/book';
 import { BookForm } from 'apps/books/components/books/BookForm';
 
 export function EditBookPage() {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { store, setStore } = useContext(storeContext);
 
     const params = useParams();
@@ -27,11 +27,11 @@ export function EditBookPage() {
 
     const onSubmit = (changedBook) => {
         return booksModel.save(setStore, changedBook).then(() => {
-            history.push(`${BOOKS_BOOK_BASE_URL}/${changedBook.isbn13}`);
+            navigate(`${BOOKS_BOOK_BASE_URL}/${changedBook.isbn13}`);
         });
     };
 
-    const onCancel = () => history.push(`${BOOKS_BOOK_BASE_URL}/${isbn13}`);
+    const onCancel = () => navigate(`${BOOKS_BOOK_BASE_URL}/${isbn13}`);
 
     return (
         <Page title="Edit book">
