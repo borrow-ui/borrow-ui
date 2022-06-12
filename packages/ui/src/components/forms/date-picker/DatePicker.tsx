@@ -1,167 +1,166 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React, { ChangeEventHandler, useRef, useState, useEffect, useCallback } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { format as formatDatefns, isValid, parse } from 'date-fns';
+import { usePopper } from 'react-popper';
 
 import { UI_PREFIX } from '../../../config';
 import { FORM_INPUT_CLASS, FORM_INPUT_INVALID_CLASS, Input } from '../input/Input';
 
-import {
-    DatePickerDayPickerInputType,
-    DatePickerModifiersType,
-    DatePickerOverlayProps,
-    DatePickerProps,
-    IDatePickerState,
-} from './DatePicker.types';
+import { DatePickerOverlayProps, DatePickerProps } from './DatePicker.types';
+import { Icon } from '../../icon/Icon';
 
-dayjs.extend(customParseFormat);
+const DATEPICKER = `${UI_PREFIX}__form__datepicker`;
+const DATEPICKER_ICON = `${UI_PREFIX}__form__datepicker__icon`;
+const DATEPICKER_ICON_DISABLED = `${UI_PREFIX}__form__datepicker__icon--disabled`;
+const DATEPICKER_INPUT = `${UI_PREFIX}__form__datepicker__input`;
+const DATEPICKER_OVERLAY = `${UI_PREFIX}__form__datepicker__overlay`;
 
-const DATEPICKER_OVERLAY_RIGHT_ALIGN = `${UI_PREFIX}__form__datepikcer__overlay--right-align`;
+export function DatePicker({
+    onDayChange,
+    onDayChangeFormat = 'string',
+    returnPartial = true,
+    initialValue,
+    format = 'yyyy-MM-dd',
+    inputProps = {},
+    iconProps = {},
+    overlayWrapperProps = {},
+    usePopperProps = {},
+    disabled,
+    invalid,
+}: DatePickerProps) {
+    const [selected, setSelected] = useState<Date>();
+    const [inputValue, setInputValue] = useState<string>(initialValue || '');
+    const [isPopperOpen, setIsPopperOpen] = useState(false);
 
-export const DatePicker = React.forwardRef<DayPickerInput, DatePickerProps>(
-    (
-        {
-            inputProps = {},
-            onDayChange,
-            onDayChangeFormat = 'string',
-            format = 'YYYY-MM-DD',
-            placeholder,
-            initialValue,
-            returnPartial = true,
-            disabled,
-            invalid = false,
-            overlayWrapperProps,
-            overlayProps,
-            overlayRightAlign = false,
-            ...rest
+    const popperRef = useRef<HTMLDivElement>(null);
+    const iconRef = useRef<HTMLButtonElement>(null);
+    const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
+
+    const { placement = 'bottom-start', ...restUsePopperProps } = usePopperProps;
+
+    const popper = usePopper(popperRef.current, popperElement, {
+        placement,
+        ...restUsePopperProps,
+    });
+
+    useEffect(() => {
+        const initialValueStr = initialValue || '';
+        if (inputValue !== initialValueStr) {
+            setInputValue(initialValueStr);
+        }
+    }, [initialValue]);
+
+    const closePopper = () => {
+        setIsPopperOpen(false);
+        iconRef?.current?.focus();
+    };
+
+    const dateChange = useCallback(
+        (inputValue: string) => {
+            const newDate = parseDate(inputValue, format);
+            setInputValue(inputValue);
+            setSelected(newDate);
+            if (!onDayChange) return;
+
+            if ((inputValue && newDate) || (!inputValue && !newDate)) {
+                if (onDayChangeFormat === 'date') {
+                    onDayChange(newDate, inputValue);
+                } else {
+                    onDayChange(newDate ? formatDate(newDate, format) : undefined, inputValue);
+                }
+            } else if (returnPartial) {
+                onDayChange(inputValue, inputValue);
+            }
         },
-        ref
-    ): JSX.Element => {
-        const initialValueDate = useMemo(
-            () => (initialValue ? parseDate(initialValue, format) : undefined),
-            [initialValue, format]
-        );
-        const [currentDate, setCurrentDate] = useState<IDatePickerState>({
-            string: '',
-            date: undefined,
-        });
+        [format]
+    );
 
-        useEffect(() => {
-            setCurrentDate({
-                string: initialValue,
-                date: initialValueDate,
-            });
-        }, [initialValue, initialValueDate]);
+    const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        const inputValue = e.currentTarget.value;
+        dateChange(inputValue);
+    };
 
-        const { className: inputClassName = '', inputStyle = {}, ...restInputProps } = inputProps;
-        const inputInvalidClass = invalid ? FORM_INPUT_INVALID_CLASS : '';
-        const inputClass = `${FORM_INPUT_CLASS} ${inputInvalidClass} ${inputClassName}`.trim();
+    const handleIconClick = () => {
+        setIsPopperOpen((open) => !open);
+    };
 
-        if (disabled) {
-            inputStyle.width = inputStyle.width || 209;
+    const handleDaySelect = (date: Date | undefined) => {
+        dateChange(formatDate(date, format) || '');
+        if (date) {
+            closePopper();
+        }
+    };
 
-            return (
+    const { className: inputClassName = '', ...restInputProps } = inputProps;
+    const inputClass = `${DATEPICKER_INPUT} ${inputClassName}`.trim();
+
+    const { className: iconClassName = '', ...restIconProps } = iconProps;
+    const iconDisabledClass = disabled ? DATEPICKER_ICON_DISABLED : '';
+    const iconClass = `${DATEPICKER_ICON} ${iconDisabledClass} ${iconClassName}`.trim();
+    return (
+        <>
+            <div ref={popperRef} className={DATEPICKER}>
                 <Input
-                    value={initialValue}
+                    invalid={invalid}
                     disabled={disabled}
-                    className={`${inputClassName}`}
-                    style={inputStyle}
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    className={inputClass}
                     {...restInputProps}
                 />
-            );
-        }
+                <Icon
+                    ref={iconRef}
+                    onClick={!disabled ? handleIconClick : undefined}
+                    name="calendar_today"
+                    size="small"
+                    className={iconClass}
+                />
+            </div>
+            {isPopperOpen && (
+                <div
+                    tabIndex={-1}
+                    style={{
+                        ...popper.styles.popper,
+                        zIndex: 1,
+                    }}
+                    {...popper.attributes.popper}
+                    ref={setPopperElement}
+                    role="dialog"
+                >
+                    <OverlayWrapper {...overlayWrapperProps}>
+                        <DayPicker
+                            initialFocus={isPopperOpen}
+                            mode="single"
+                            defaultMonth={selected}
+                            selected={selected}
+                            onSelect={handleDaySelect}
+                        />
+                    </OverlayWrapper>
+                </div>
+            )}
+        </>
+    );
+}
 
-        return (
-            <DayPickerInput
-                overlayComponent={(props: DatePickerOverlayProps) =>
-                    OverlayComponent({
-                        ...props,
-                        overlayProps,
-                        rightAlign: overlayRightAlign,
-                        ...overlayWrapperProps,
-                    })
-                }
-                inputProps={{
-                    className: inputClass,
-                    disabled: disabled,
-                    style: inputStyle,
-                    role: 'textbox',
-                    ...restInputProps,
-                }}
-                format={format}
-                placeholder={placeholder || format}
-                dayPickerProps={{
-                    todayButton: 'Go to Today',
-                    selectedDays: currentDate.date,
-                }}
-                parseDate={parseDate}
-                formatDate={formatDate}
-                onDayChange={(
-                    date: Date,
-                    modifiers: DatePickerModifiersType,
-                    dayPickerInput: DatePickerDayPickerInputType
-                ) => {
-                    // Save the input value and the dateto the internal state
-                    const input = dayPickerInput.getInput();
-                    setCurrentDate({
-                        date,
-                        string: input.value,
-                    });
-
-                    if (!onDayChange) return;
-
-                    // if onDayChange is set, pass the value accordingly to `onDayChangeFormat`
-                    if (onDayChangeFormat === 'date') {
-                        if (date) date.setHours(12);
-                        onDayChange(date, modifiers, dayPickerInput);
-                    } else {
-                        const parsed = dayjs(input.value, format, true);
-                        // Check if `returnPartial` is true, otherwise do not set
-                        if (returnPartial || parsed.isValid())
-                            onDayChange(input.value, modifiers, dayPickerInput);
-                    }
-                }}
-                value={currentDate.string}
-                ref={ref}
-                {...rest}
-            />
-        );
-    }
-);
-
-DatePicker.displayName = 'DatePicker';
-
-function OverlayComponent({
-    children,
-    classNames,
-    selectedDay,
-    overlayProps = {},
-    rightAlign = false,
-    className,
-    ...props
-}: DatePickerOverlayProps): JSX.Element {
-    const { className: overlayPropsClass = '', ...restOverlayProps } = overlayProps;
-    const rightAlignClass = rightAlign ? DATEPICKER_OVERLAY_RIGHT_ALIGN : '';
-    const overlayClass = `${classNames.overlay} ${overlayPropsClass} ${rightAlignClass}`;
+function OverlayWrapper({ children, className, ...props }: DatePickerOverlayProps): JSX.Element {
+    const overlayClass = `${DATEPICKER_OVERLAY} ${className}`.trim();
 
     return (
-        <div className={`${classNames.overlayWrapper} ${className}`.trim()} {...props}>
-            <div className={`${classNames.overlay} ${overlayClass}`.trim()} {...restOverlayProps}>
-                {children}
-            </div>
+        <div className={overlayClass} {...props}>
+            {children}
         </div>
     );
 }
 
 export function parseDate(str: string, format: string) {
-    const parsed = dayjs(str, format, true);
-
-    if (parsed.isValid()) {
-        return parsed.toDate();
+    const parsed = parse(str, format, new Date());
+    if (isValid(parsed)) {
+        return parsed;
     }
     return undefined;
 }
 
-export function formatDate(date: Date, format: string) {
-    return dayjs(date).format(format);
+export function formatDate(date: Date | undefined, format: string) {
+    if (!date) return;
+    return formatDatefns(date, format);
 }

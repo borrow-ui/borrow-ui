@@ -5,7 +5,7 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXProvider } from '@mdx-js/react';
-import dayjs from 'dayjs';
+import { parse, format } from 'date-fns';
 
 import * as borrowUi from '@borrow-ui/ui';
 
@@ -46,38 +46,41 @@ export default function Content({ code, metadata = {}, posts }) {
             <div className="website__text" style={{ marginBottom: 30 }}>
                 <Title>Posts</Title>
                 <div className="flex flex--wrap">
-                    {publishedPosts.map((post) => (
-                        <Card
-                            key={post.metadata.title}
-                            className={`w-400 m-r-20 m-b-20 m-t-20 ${style['blog-card']}`}
-                            icon={
-                                <Icon
-                                    name={post.metadata.iconName || 'article'}
-                                    size="huge"
-                                    className="color-teal-l2"
-                                />
-                            }
-                            mainProps={{ className: style['blog-card__main'] }}
-                            sideProps={{ className: style['blog-card__side'] }}
-                            title={
-                                <NextLink href={`/blog/${post.slug}`}>
-                                    <Link tag="a">{post.metadata.title}</Link>
-                                </NextLink>
-                            }
-                            description={post.metadata.description}
-                            descriptionProps={{ className: style['blog-card__description'] }}
-                            controls={
-                                <>
-                                    <span className="color-neutral-light">
-                                        {dayjs(post.metadata.postDate).format('ddd, D MMM YYYY')}
-                                    </span>
+                    {publishedPosts.map((post) => {
+                        const postDate = parse(post.metadata.postDate, 'yyyy-MM-dd', new Date());
+                        const displayDate = format(postDate, 'eee, d MMMM yyyy');
+
+                        return (
+                            <Card
+                                key={post.metadata.title}
+                                className={`w-400 m-r-20 m-b-20 m-t-20 ${style['blog-card']}`}
+                                icon={
+                                    <Icon
+                                        name={post.metadata.iconName || 'article'}
+                                        size="huge"
+                                        className="color-teal-l2"
+                                    />
+                                }
+                                mainProps={{ className: style['blog-card__main'] }}
+                                sideProps={{ className: style['blog-card__side'] }}
+                                title={
                                     <NextLink href={`/blog/${post.slug}`}>
-                                        <Link tag="a">Read post</Link>
+                                        <Link tag="a">{post.metadata.title}</Link>
                                     </NextLink>
-                                </>
-                            }
-                        />
-                    ))}
+                                }
+                                description={post.metadata.description}
+                                descriptionProps={{ className: style['blog-card__description'] }}
+                                controls={
+                                    <>
+                                        <span className="color-neutral-light">{displayDate}</span>
+                                        <NextLink href={`/blog/${post.slug}`}>
+                                            <Link tag="a">Read post</Link>
+                                        </NextLink>
+                                    </>
+                                }
+                            />
+                        );
+                    })}
                 </div>
             </div>
             <div className={style['blog__order-container']}>
