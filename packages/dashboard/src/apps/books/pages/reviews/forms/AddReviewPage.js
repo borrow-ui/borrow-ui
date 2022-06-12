@@ -3,7 +3,7 @@
  */
 
 import { useContext, useMemo } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Page } from '@borrow-ui/ui';
 
@@ -14,7 +14,7 @@ import { reviewsModel } from 'apps/books/models/review';
 import { ReviewForm } from 'apps/books/components/reviews/ReviewForm';
 
 export function AddReviewPage() {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { setStore } = useContext(storeContext);
 
     const params = useParams();
@@ -24,11 +24,11 @@ export function AddReviewPage() {
 
     const onSubmit = (newReview) => {
         return reviewsModel.add(setStore, newReview).then(() => {
-            history.push(`${BOOKS_BOOK_BASE_URL}/${isbn13}`);
+            navigate(`${BOOKS_BOOK_BASE_URL}/${isbn13}`);
         });
     };
 
-    const onCancel = () => history.push(`${BOOKS_BOOK_BASE_URL}/${isbn13}`);
+    const onCancel = () => navigate(`${BOOKS_BOOK_BASE_URL}/${isbn13}`);
 
     return (
         <Page title="Add new review">
