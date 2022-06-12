@@ -25,7 +25,7 @@ import { EditBookPage } from './pages/books/forms/EditBookPage';
 import { AddReviewPage } from './pages/reviews/forms/AddReviewPage';
 import { EditReviewPage } from './pages/reviews/forms/EditReviewPage';
 
-import { BOOKS_BASE_URL, BOOKS_BOOK_BASE_URL, BOOKS_REVIEW_BASE_URL } from './constants';
+import { BOOKS_BASE_URL } from './constants';
 
 export { BOOKS_BASE_URL };
 
