@@ -1,5 +1,5 @@
-import { PopperProps } from 'react-popper';
 import { IconProps } from '../../icon/Icon.types';
+import { InputProps } from '../input/Input.types';
 
 export interface IDatePickerState {
     date?: Date;
@@ -26,9 +26,7 @@ export interface DatePickerProps {
     disabled?: boolean;
     invalid?: boolean;
     /** Props passed to input field */
-    inputProps?: React.HTMLAttributes<HTMLInputElement> & {
-        inputStyle?: React.CSSProperties;
-    };
+    inputProps?: InputProps;
     /** Props passed to the Icon component */
     iconProps?: IconProps;
     /** Props passed to the overlay wrapper see
