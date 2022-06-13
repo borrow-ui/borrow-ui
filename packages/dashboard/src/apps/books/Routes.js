@@ -12,7 +12,7 @@
  */
 
 import { useContext } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { Loader } from '@borrow-ui/ui';
 
@@ -25,7 +25,7 @@ import { EditBookPage } from './pages/books/forms/EditBookPage';
 import { AddReviewPage } from './pages/reviews/forms/AddReviewPage';
 import { EditReviewPage } from './pages/reviews/forms/EditReviewPage';
 
-import { BOOKS_BASE_URL, BOOKS_BOOK_BASE_URL, BOOKS_REVIEW_BASE_URL } from './constants';
+import { BOOKS_BASE_URL } from './constants';
 
 export { BOOKS_BASE_URL };
 
@@ -42,13 +42,13 @@ export function BooksRoutes() {
         );
 
     return (
-        <Switch>
-            <Route exact path={BOOKS_BASE_URL} component={BooksHomePage} />
-            <Route exact path={`${BOOKS_BOOK_BASE_URL}/add`} component={AddBookPage} />
-            <Route exact path={`${BOOKS_BOOK_BASE_URL}/:isbn13/edit`} component={EditBookPage} />
-            <Route exact path={`${BOOKS_BOOK_BASE_URL}/:isbn13`} component={BookDetailPage} />
-            <Route exact path={`${BOOKS_REVIEW_BASE_URL}/add/:isbn13`} component={AddReviewPage} />
-            <Route exact path={`${BOOKS_REVIEW_BASE_URL}/:id/edit`} component={EditReviewPage} />
-        </Switch>
+        <Routes>
+            <Route index element={<BooksHomePage />} />
+            <Route exact path={`book/add`} element={<AddBookPage />} />
+            <Route exact path={`book/:isbn13/edit`} element={<EditBookPage />} />
+            <Route exact path={`book/:isbn13`} element={<BookDetailPage />} />
+            <Route exact path={`review/add/:isbn13`} element={<AddReviewPage />} />
+            <Route exact path={`review/:id/edit`} element={<EditReviewPage />} />
+        </Routes>
     );
 }

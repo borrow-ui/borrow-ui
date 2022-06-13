@@ -28,7 +28,7 @@ describe('DropzoneFiles', () => {
 
         // remove the first file
         const delete1 = screen.getAllByText('×')[0];
-        userEvent.click(delete1);
+        await userEvent.click(delete1);
 
         // onFileRemove should have been called once with right arguments
         expect(onRemove).toHaveBeenCalledWith(0);

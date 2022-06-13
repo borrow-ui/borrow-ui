@@ -28,16 +28,20 @@ describe('Tile', () => {
         const { container } = render(
             // @ts-ignore
             <TileLink
+                className="my-tile-class"
                 description="My homepage"
                 href="/go/there/"
                 icon="home"
                 size="big"
                 data-testid="tile-link"
+                iconProps={{ className: 'my-class' }}
             >
                 Home
             </TileLink>
         );
+        expect(screen.getByTestId('tile-link')).toHaveClass(`my-tile-class`);
         expect(container.querySelector('i.home')).toHaveClass(`${UI_PREFIX}__icon--huge`);
+        expect(container.querySelector('i.home')).toHaveClass('my-class');
         expect(container.querySelector(`a.${UI_PREFIX}__tile-link__link`)).toBeInTheDocument();
     });
 });

@@ -16,8 +16,7 @@ import packageJson from './package.json';
 // These are installed with optionalDependencies.
 const externals = [
     '@popperjs/core/lib',
-    'dayjs',
-    'dayjs/plugin/customParseFormat',
+    'date-fns',
     'lodash.debounce',
     'prismjs',
     'prop-types',

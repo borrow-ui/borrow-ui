@@ -7,11 +7,12 @@ import { Loader } from './Loader';
 
 describe('Loader', () => {
     test('renders triangle laoder', () => {
-        render(<Loader data-testid="loader-container" />);
+        render(<Loader data-testid="loader-container" className="test-class" />);
 
         const loader = screen.getByTestId('loader-container');
         expect(loader).toHaveClass(`${UI_PREFIX}__loader-container`);
         expect(loader).toHaveClass(`${UI_PREFIX}__loader-container--triangle`);
+        expect(loader).toHaveClass(`test-class`);
     });
 
     test('renders line laoder', () => {

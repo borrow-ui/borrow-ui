@@ -1,7 +1,7 @@
 // import in your application in JS:
-// import 'react-day-picker/lib/style.css';
+// import 'react-day-picker/dist/style.css';
 // OR import in your application in SASS:
-// @import '~react-day-picker/lib/style.css';
+// @import '~react-day-picker/dist/style.css';
 
 .DayPicker-Day:not(.DayPicker-Day--today) {
     color: $ui-color-neutral-dark;
@@ -11,7 +11,33 @@
     min-width: 42px;
 }
 
-.#{$ui-prefix}__form__datepikcer__overlay--right-align {
+.#{$ui-prefix}__form__datepicker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.#{$ui-prefix}__form__datepicker__icon {
+    color: var(--text-color-light);
+}
+.#{$ui-prefix}__form__datepicker__icon:hover,
+.#{$ui-prefix}__form__datepicker__icon:focus {
+    color: var(--primary-color);
+}
+.#{$ui-prefix}__form__datepicker__icon--disabled,
+.#{$ui-prefix}__form__datepicker__icon--disabled:hover,
+.#{$ui-prefix}__form__datepicker__icon--disabled:focus {
+    color: var(--text-color-light);
+    cursor: not-allowed;
+}
+
+.#{$ui-prefix}__form__datepicker__overlay {
+    background-color: var(--background-color-light);
+    padding: 3px;
+}
+
+.#{$ui-prefix}__form__datepicker__overlay--right-align {
     right: 0;
     left: initial;
 }

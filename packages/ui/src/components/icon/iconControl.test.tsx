@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent, { specialChars } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 
 import { UI_PREFIX } from '../../config';
 
@@ -8,12 +8,13 @@ import { IconControl } from './IconControl';
 
 describe('Icon', () => {
     test('renders one icon', () => {
-        render(<IconControl name="home" data-testid="icon" />);
+        render(<IconControl name="home" data-testid="icon" className="test-class" />);
 
         const icon = screen.getByTestId('icon');
         expect(icon).toHaveClass(`${UI_PREFIX}__icon-control`);
         expect(icon).toHaveClass(`${UI_PREFIX}__icon`);
         expect(icon).toHaveClass(`${UI_PREFIX}__icon--smaller`);
+        expect(icon).toHaveClass(`test-class`);
     });
 
     test('is clickable', async () => {
@@ -27,7 +28,7 @@ describe('Icon', () => {
 
         expect(onClick).toHaveBeenCalledTimes(1);
 
-        await userEvent.type(icon, `${specialChars.space}`);
+        await userEvent.type(icon, `{space}`);
 
         expect(onClick).toHaveBeenCalledTimes(2);
     });

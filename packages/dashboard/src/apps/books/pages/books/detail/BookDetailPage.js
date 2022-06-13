@@ -14,7 +14,7 @@
  */
 
 import { useContext, useMemo } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import { Breadcrumbs, Page, Button, Title, Block } from '@borrow-ui/ui';
 
@@ -36,7 +36,7 @@ import './bookDetailPage.scss';
 
 export function BookDetailPage() {
     const { store, setStore } = useContext(storeContext);
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const params = useParams();
     const isbn13 = params.isbn13;
@@ -69,7 +69,7 @@ export function BookDetailPage() {
                         <DeleteBookButton
                             book={book || {}}
                             deleteBook={(isbn13) => booksModel.delete(setStore, isbn13)}
-                            onDelete={() => history.push(BOOKS_BASE_URL)}
+                            onDelete={() => navigate(BOOKS_BASE_URL)}
                         />
                     </>
                 ),

@@ -7,7 +7,7 @@
  */
 
 import { useContext } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Page } from '@borrow-ui/ui';
 
@@ -18,7 +18,7 @@ import { reviewsModel } from 'apps/books/models/review';
 import { ReviewForm } from 'apps/books/components/reviews/ReviewForm';
 
 export function EditReviewPage() {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { setStore, store } = useContext(storeContext);
 
     const params = useParams();
@@ -28,11 +28,11 @@ export function EditReviewPage() {
 
     const onSubmit = (changedReview) => {
         return reviewsModel.save(setStore, changedReview).then(() => {
-            history.push(`${BOOKS_BOOK_BASE_URL}/${changedReview.isbn13}`);
+            navigate(`${BOOKS_BOOK_BASE_URL}/${changedReview.isbn13}`);
         });
     };
 
-    const onCancel = () => history.push(`${BOOKS_BOOK_BASE_URL}/${review.isbn13}`);
+    const onCancel = () => navigate(`${BOOKS_BOOK_BASE_URL}/${review.isbn13}`);
 
     return (
         <Page title="Add new review">

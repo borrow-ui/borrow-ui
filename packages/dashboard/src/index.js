@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // Loads third-party requirements
 import './thirdParty';
@@ -9,9 +9,11 @@ import './styles/dashboard.scss';
 
 import App from './App';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
     <React.StrictMode>
         <App />
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );
