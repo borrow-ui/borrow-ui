@@ -76,7 +76,7 @@ import Head from 'next/head';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXProvider } from '@mdx-js/react';
 
-import * as borrowUi from '@borrow-ui/ui';
+import * as uiLibrary from '@borrow-ui/ui';
 import { Terminal } from '../../components/common/Terminal';
 
 import {
@@ -88,8 +88,8 @@ import { providerComponents } from '../../core/mdx/providerComponents';
 const SOURCE_PATH = path.join(process.cwd(), 'content/blog');
 
 // Extends components available in the mdx
-const mdxComponents = { ...borrowUi, Terminal };
-const { Title } = borrowUi; // use components here as well
+const mdxComponents = { ...uiLibrary, Terminal };
+const { Title } = uiLibrary; // use components here as well
 
 const Content = ({ code, metadata }) => {
     return <>

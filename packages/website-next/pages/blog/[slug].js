@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXProvider } from '@mdx-js/react';
 
-import * as borrowUi from '@borrow-ui/ui';
+import * as uiLibrary from '@borrow-ui/ui';
 
 import { Terminal } from '../../components/common/Terminal';
 
@@ -15,10 +15,10 @@ import { providerComponents } from '../../core/mdx/providerComponents';
 import style from './blog.module.scss';
 
 const SOURCE_PATH = path.join(process.cwd(), 'content/blog');
-const { Title } = borrowUi;
+const { Title } = uiLibrary;
 
 const mdxComponents = {
-    ...borrowUi,
+    ...uiLibrary,
     Terminal,
 };
 

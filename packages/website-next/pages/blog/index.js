@@ -7,7 +7,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { MDXProvider } from '@mdx-js/react';
 import { parse, format } from 'date-fns';
 
-import * as borrowUi from '@borrow-ui/ui';
+import * as uiLibrary from '@borrow-ui/ui';
 
 import { providerComponents } from '../../core/mdx/providerComponents';
 import { getSingleContent, getAllSources } from '../../core/mdx/mdx';
@@ -16,10 +16,10 @@ import style from './blog.module.scss';
 
 export const SOURCE_PATH = path.join(process.cwd(), 'content/blog');
 
-const { Title, Card, Link, Icon } = borrowUi;
+const { Title, Card, Link, Icon } = uiLibrary;
 
 const mdxComponents = {
-    ...borrowUi,
+    ...uiLibrary,
 };
 
 export default function Content({ code, metadata = {}, posts }) {

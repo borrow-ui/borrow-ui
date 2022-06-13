@@ -5,14 +5,14 @@ import Head from 'next/head';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXProvider } from '@mdx-js/react';
 
-import * as borrowUi from '@borrow-ui/ui';
+import * as uiLibrary from '@borrow-ui/ui';
 
 import { generateGetStaticPaths, generateGetStaticProps } from '../../core/mdx/mdx';
 import { providerComponents } from '../../core/mdx/providerComponents';
 
 const SOURCE_PATH = path.join(process.cwd(), 'content/project');
 
-const { Title } = borrowUi;
+const { Title } = uiLibrary;
 
 const Content = ({ code, metadata }) => {
     const title = `Project`;
