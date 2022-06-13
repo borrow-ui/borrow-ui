@@ -30,4 +30,14 @@ describe('Tile', () => {
         expect(screen.getByTestId('tile')).toHaveClass(`${UI_PREFIX}__tile--with-background`);
         expect(screen.getByTestId('tile')).toHaveClass('extra-class');
     });
+
+    test('renders with a custom tag', () => {
+        const { container } = render(
+            <Tile description="This is the description" data-testid="tile" tag="a">
+                Content
+            </Tile>
+        );
+
+        expect(container.querySelector('a')).toHaveClass(`${UI_PREFIX}__tile`);
+    });
 });

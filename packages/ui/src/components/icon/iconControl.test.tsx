@@ -8,12 +8,13 @@ import { IconControl } from './IconControl';
 
 describe('Icon', () => {
     test('renders one icon', () => {
-        render(<IconControl name="home" data-testid="icon" />);
+        render(<IconControl name="home" data-testid="icon" className="test-class" />);
 
         const icon = screen.getByTestId('icon');
         expect(icon).toHaveClass(`${UI_PREFIX}__icon-control`);
         expect(icon).toHaveClass(`${UI_PREFIX}__icon`);
         expect(icon).toHaveClass(`${UI_PREFIX}__icon--smaller`);
+        expect(icon).toHaveClass(`test-class`);
     });
 
     test('is clickable', async () => {

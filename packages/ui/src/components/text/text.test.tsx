@@ -72,6 +72,13 @@ describe('text components', () => {
         // Anchor
         render(<Title anchor="here">Anchor</Title>);
         expect(screen.getByText('Anchor')).toHaveClass(`${UI_PREFIX}__title__anchor`);
+        // Custom Anchor class
+        render(
+            <Title anchor="here" anchorClassName="my-class">
+                Anchor Class
+            </Title>
+        );
+        expect(screen.getByText('Anchor Class')).toHaveClass(`my-class`);
         // Active Anchor
         const hash = window.location.hash;
         window.location.hash = 'mocked?param=1&a=b#something';

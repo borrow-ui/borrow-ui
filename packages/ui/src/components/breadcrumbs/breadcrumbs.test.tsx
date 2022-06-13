@@ -14,7 +14,12 @@ describe('Breadcrumbs', () => {
             { link: '/app', label: 'App' },
             { label: 'List' },
         ];
-        render(<Breadcrumbs breadcrumbs={breadcrumbs} />);
+        render(
+            <Breadcrumbs breadcrumbs={breadcrumbs} className="my-class" data-testid="container" />
+        );
+
+        const container = screen.getByTestId('container');
+        expect(container).toHaveClass('my-class');
 
         const home = screen.getByText('Home');
         expect(home).toHaveClass(`${UI_PREFIX}__breadcrumbs__breadcrumb`);

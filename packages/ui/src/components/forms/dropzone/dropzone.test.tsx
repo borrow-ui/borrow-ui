@@ -30,7 +30,9 @@ describe('Dropzone', () => {
             writable: true,
         });
         fireEvent.drop(inputEl);
-        expect(await screen.findByText('test.txt')).toBeInTheDocument();
+        await waitFor(async () => {
+            expect(await screen.findByText('test.txt')).toBeInTheDocument();
+        });
 
         // onDrop is called with right arguments
         expect(onDrop.mock.calls[0][0][0]).toBe(file1);
@@ -71,6 +73,7 @@ describe('Dropzone', () => {
         await waitFor(() => expect(onFilesChanges).toBeCalledTimes(3));
         expect(onFilesChanges.mock.calls[2][0].lastChangeReason).toBe('remove');
     });
+
     test('renders with appropriate classes', () => {
         render(
             <Dropzone

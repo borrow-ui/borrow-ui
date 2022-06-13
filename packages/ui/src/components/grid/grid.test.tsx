@@ -10,6 +10,17 @@ describe('Grid = Row and Col ', () => {
 
         expect(content).toHaveClass(`row`);
     });
+    test('renders Row with a custom class', () => {
+        render(
+            <Row className="my-class" data-testid="row">
+                Content
+            </Row>
+        );
+        const content = screen.getByTestId('row');
+
+        expect(content).toHaveClass(`row`);
+        expect(content).toHaveClass(`my-class`);
+    });
     test('renders Col', () => {
         //  with default classes
         render(<Col>Content</Col>);

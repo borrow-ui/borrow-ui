@@ -32,7 +32,7 @@ describe('Tooltip', () => {
 
         // Hover
         await act(async () => {
-            await fireEvent.mouseEnter(hoverMe);
+            fireEvent.mouseEnter(hoverMe);
         });
         expect(screen.getByTestId('tooltip-overlay')).toHaveClass(
             `${UI_PREFIX}__reference-overlay--visible`
@@ -44,6 +44,7 @@ describe('Tooltip', () => {
             <Tooltip
                 tooltip="this will appear"
                 tooltipProps={{ 'data-testid': 'tooltip-overlay' } as TestableDiv}
+                tooltipArrowProps={{ 'data-testid': 'tooltip-arrow' } as TestableDiv}
                 placement="bottom"
                 triggerMode="click"
                 minWidth={false}
@@ -66,6 +67,9 @@ describe('Tooltip', () => {
         });
         expect(screen.getByTestId('tooltip-overlay')).toHaveClass(
             `${UI_PREFIX}__reference-overlay--visible`
+        );
+        expect(screen.getByTestId('tooltip-arrow')).toHaveClass(
+            `${UI_PREFIX}__reference-overlay__arrow`
         );
     });
 });

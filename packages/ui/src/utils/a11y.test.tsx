@@ -56,4 +56,14 @@ describe('a11yClickableElement', () => {
         expect(testOnClick).toHaveBeenCalledTimes(1);
         expect(testOnKeyDown).toHaveBeenCalledTimes(1);
     });
+
+    test('can specify tabIndex', async () => {
+        const Test = () => {
+            return <div {...a11yClickableElement({ onClick: () => {}, tabIndex: 2 })}>test</div>;
+        };
+        render(<Test />);
+
+        const div = screen.getByRole('button');
+        expect(div.tabIndex).toBe(2);
+    });
 });
