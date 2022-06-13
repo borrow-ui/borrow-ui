@@ -1,13 +1,22 @@
-import React, { ChangeEventHandler, useRef, useState, useEffect, useCallback } from 'react';
+import React, {
+    ChangeEventHandler,
+    useRef,
+    useState,
+    useEffect,
+    useCallback,
+    useMemo,
+} from 'react';
 import { DayPicker } from 'react-day-picker';
 import { format as formatDatefns, isValid, parse } from 'date-fns';
 import { usePopper } from 'react-popper';
 
 import { UI_PREFIX } from '../../../config';
-import { FORM_INPUT_CLASS, FORM_INPUT_INVALID_CLASS, Input } from '../input/Input';
+import { a11yClickableElement } from '../../../utils/a11y';
+import { Icon } from '../../icon/Icon';
+
+import { Input } from '../input/Input';
 
 import { DatePickerOverlayProps, DatePickerProps } from './DatePicker.types';
-import { Icon } from '../../icon/Icon';
 
 const DATEPICKER = `${UI_PREFIX}__form__datepicker`;
 const DATEPICKER_ICON = `${UI_PREFIX}__form__datepicker__icon`;
@@ -43,27 +52,13 @@ export function DatePicker({
         ...restUsePopperProps,
     });
 
-    useEffect(() => {
-        const initialValueStr = initialValue || '';
-        if (inputValue !== initialValueStr) {
-            setInputValue(initialValueStr);
-        }
-    }, [initialValue]);
-
-    const closePopper = () => {
-        setIsPopperOpen(false);
-        iconRef?.current?.focus();
-    };
-
-    const dateChange = useCallback(
-        (inputValue: string) => {
-            const newDate = parseDate(inputValue, format);
-            setInputValue(inputValue);
-            setSelected(newDate);
+    const onDayChangeCallback = useCallback(
+        (inputValue: string, newDate: Date | undefined) => {
             if (!onDayChange) return;
 
             if ((inputValue && newDate) || (!inputValue && !newDate)) {
                 if (onDayChangeFormat === 'date') {
+                    newDate && newDate.setHours(12);
                     onDayChange(newDate, inputValue);
                 } else {
                     onDayChange(newDate ? formatDate(newDate, format) : undefined, inputValue);
@@ -72,16 +67,47 @@ export function DatePicker({
                 onDayChange(inputValue, inputValue);
             }
         },
+        [onDayChange]
+    );
+
+    useEffect(() => {
+        let changed = false;
+
+        const initialValueStr = initialValue || '';
+        if (inputValue !== initialValueStr) {
+            setInputValue(initialValueStr);
+            changed = true;
+        }
+
+        const newDate = parseDate(initialValue, format);
+        if (newDate && newDate !== selected) {
+            setSelected(newDate);
+            changed = true;
+        }
+        if (changed) {
+            onDayChangeCallback(initialValueStr, newDate);
+        }
+    }, [initialValue, format]);
+
+    const closePopper = () => {
+        setIsPopperOpen(false);
+        /* istanbul ignore next */
+        iconRef?.current?.focus();
+    };
+
+    const dateChange = useCallback(
+        (inputValue: string) => {
+            const newDate = parseDate(inputValue, format);
+            setInputValue(inputValue);
+            setSelected(newDate);
+            onDayChangeCallback(inputValue, newDate);
+        },
         [format]
     );
 
     const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         const inputValue = e.currentTarget.value;
         dateChange(inputValue);
-    };
-
-    const handleIconClick = () => {
-        setIsPopperOpen((open) => !open);
     };
 
     const handleDaySelect = (date: Date | undefined) => {
@@ -97,6 +123,16 @@ export function DatePicker({
     const { className: iconClassName = '', ...restIconProps } = iconProps;
     const iconDisabledClass = disabled ? DATEPICKER_ICON_DISABLED : '';
     const iconClass = `${DATEPICKER_ICON} ${iconDisabledClass} ${iconClassName}`.trim();
+
+    const iconClick = useMemo(() => {
+        if (disabled) return {};
+
+        const handleIconClick = () => {
+            setIsPopperOpen((open) => !open);
+        };
+        return a11yClickableElement({ onClick: handleIconClick, role: 'button' });
+    }, [disabled, selected]);
+
     return (
         <>
             <div ref={popperRef} className={DATEPICKER}>
@@ -110,10 +146,12 @@ export function DatePicker({
                 />
                 <Icon
                     ref={iconRef}
-                    onClick={!disabled ? handleIconClick : undefined}
+                    {...iconClick}
                     name="calendar_today"
                     size="small"
+                    aria-label="Open date picker"
                     className={iconClass}
+                    {...restIconProps}
                 />
             </div>
             {isPopperOpen && (
@@ -142,7 +180,11 @@ export function DatePicker({
     );
 }
 
-function OverlayWrapper({ children, className, ...props }: DatePickerOverlayProps): JSX.Element {
+function OverlayWrapper({
+    children,
+    className = '',
+    ...props
+}: DatePickerOverlayProps): JSX.Element {
     const overlayClass = `${DATEPICKER_OVERLAY} ${className}`.trim();
 
     return (
@@ -152,15 +194,19 @@ function OverlayWrapper({ children, className, ...props }: DatePickerOverlayProp
     );
 }
 
-export function parseDate(str: string, format: string) {
+export function parseDate(str: string | undefined, format: string) {
+    if (!str) return;
+    if (str.length !== format.length) return;
+
     const parsed = parse(str, format, new Date());
     if (isValid(parsed)) {
         return parsed;
     }
-    return undefined;
+    return;
 }
 
 export function formatDate(date: Date | undefined, format: string) {
     if (!date) return;
+
     return formatDatefns(date, format);
 }
