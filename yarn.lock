@@ -1634,7 +1634,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@borrow-ui/dashboard@workspace:packages/dashboard"
   dependencies:
-    "@borrow-ui/ui": 1.1.0
+    "@borrow-ui/ui": 2.0.0
     "@fontsource/poppins": latest
     "@testing-library/jest-dom": ^5.11.4
     "@testing-library/react": ^11.1.0
@@ -1684,7 +1684,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@borrow-ui/ui@1.1.0, @borrow-ui/ui@^1.1.0, @borrow-ui/ui@workspace:packages/ui":
+"@borrow-ui/ui@2.0.0, @borrow-ui/ui@^2.0.0, @borrow-ui/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@borrow-ui/ui@workspace:packages/ui"
   dependencies:
@@ -1770,7 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@borrow-ui/website-next@workspace:packages/website-next"
   dependencies:
-    "@borrow-ui/ui": ^1.1.0
+    "@borrow-ui/ui": ^2.0.0
     "@fontsource/poppins": latest
     "@mdx-js/loader": next
     critters: ^0.0.10

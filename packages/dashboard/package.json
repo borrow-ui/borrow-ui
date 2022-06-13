@@ -1,9 +1,9 @@
 {
     "name": "@borrow-ui/dashboard",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "private": true,
     "dependencies": {
-        "@borrow-ui/ui": "1.1.0",
+        "@borrow-ui/ui": "2.0.0",
         "@fontsource/poppins": "latest",
         "date-fns": "^2.28.0",
         "react": "^18.1.0",
