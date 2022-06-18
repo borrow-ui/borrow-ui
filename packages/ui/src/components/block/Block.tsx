@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { BlockProps } from './Block.types';
 
 const BLOCK_CLASS = `${UI_PREFIX}__block`;
@@ -29,18 +30,18 @@ export const Block = forwardRef<HTMLDivElement, BlockProps>(
         },
         ref
     ): JSX.Element => {
-        const separatedClass = separated ? BLOCK_SEPARATED_CLASS : '';
-        const paddedClass = padded ? BLOCK_PADDED_CLASS : '';
-        const roundedClass = rounded ? BLOCK_ROUNDED_CLASS : '';
-        const outstandingClass = outstanding ? BLOCK_OUTSTANDING_CLASS : '';
-        const outstandingHoverClass = outstandingHover ? BLOCK_OUTSTANDING_HOVER_CLASS : '';
-        const contentCenteredClass = contentCentered ? BLOCK_CONTENT_CENTERED_CLASS : '';
-        const propertiesClass =
-            `${separatedClass} ${paddedClass} ${roundedClass} ${outstandingClass} ${outstandingHoverClass} ${contentCenteredClass}`.trim();
-        const blockClassName = `${BLOCK_CLASS} ${className} ${propertiesClass}`.trim();
+        const blockClassName = cx(BLOCK_CLASS, className, {
+            [BLOCK_SEPARATED_CLASS]: separated,
+            [BLOCK_PADDED_CLASS]: padded,
+            [BLOCK_ROUNDED_CLASS]: rounded,
+            [BLOCK_OUTSTANDING_CLASS]: outstanding,
+            [BLOCK_OUTSTANDING_HOVER_CLASS]: outstandingHover,
+            [BLOCK_CONTENT_CENTERED_CLASS]: contentCentered,
+        });
 
         const { className: titleClassName = '', ...restTitleProps } = titleProps;
-        const titleClass = `${BLOCK_TITLE_CLASS} ${titleClassName}`.trim();
+        const titleClass = cx(BLOCK_TITLE_CLASS, titleClassName);
+
         return (
             <div className={blockClassName} ref={ref} {...rest}>
                 {title && typeof title === 'string' && (

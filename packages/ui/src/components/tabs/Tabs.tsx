@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { TabHeader } from './TabHeader';
 import { TabBody } from './TabBody';
 import { TabsProps } from './Tabs.types';
@@ -26,7 +26,7 @@ export const Tabs = ({
 
     const [selected, setSelected] = useState(firstOpen);
 
-    const tabsClassName = `${TABS_CLASS} ${className}`;
+    const tabsClassName = cx(TABS_CLASS, className);
 
     return (
         <div className={tabsClassName} {...rest}>

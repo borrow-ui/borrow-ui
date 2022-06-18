@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { PageBodyProps } from './Page.types';
 
 const PAGE_BODY_CLASS = `${UI_PREFIX}__page__body`;
@@ -15,13 +16,12 @@ export const PageBody = ({
     pageBodyRef,
     ...rest
 }: PageBodyProps): JSX.Element => {
-    const withPageHeaderClass = withPageHeader ? PAGE_BODY_WITH_HEADER_CLASS : '';
-    const readableContentClass = readableContent ? PAGE_BODY_READABLE_CONTENT_CLASS : '';
-    const propsClasses = `${withPageHeaderClass} ${readableContentClass}`.trim();
-    const bodyClass = `${PAGE_BODY_CLASS} ${propsClasses} ${className}`.trim();
-
+    const bodyClassName = cx(PAGE_BODY_CLASS, className, {
+        [PAGE_BODY_WITH_HEADER_CLASS]: withPageHeader,
+        [PAGE_BODY_READABLE_CONTENT_CLASS]: readableContent,
+    });
     return (
-        <div className={bodyClass} ref={pageBodyRef} {...rest}>
+        <div className={bodyClassName} ref={pageBodyRef} {...rest}>
             {children}
         </div>
     );

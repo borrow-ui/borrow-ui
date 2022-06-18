@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
-
+import { cx } from '../../utils/classNames';
 import { Icon } from '../icon/Icon';
 import { Link } from '../link/Link';
 
@@ -53,22 +53,26 @@ export const SidebarEntry = ({
     const isLink = !!(to || href);
     const Tag = tag ? tag : isLink ? Link : 'div';
 
-    const activeClass = isActive ? SIDEBAR_ENTRY_ACTIVE_CLASS : '';
-    const entryClass = `${SIDEBAR_ENTRY_CLASS} ${activeClass} ${className}`.trim();
-    const clickableClass =
-        onClick || (entryClickToggleContent && content) || isLink
-            ? SIDEBAR_ENTRY_GROUP_CLICKABLE_CLASS
-            : '';
-    const entryGroupClass = `${SIDEBAR_ENTRY_GROUP_CLASS} ${clickableClass}`.trim();
-
-    const entryLabelActiveClass = isActive ? SIDEBAR_ENTRY_LABEL_ACTIVE_CLASS : '';
-    const entryLabelClass = `${SIDEBAR_ENTRY_LABEL_CLASS} ${entryLabelActiveClass}`;
+    const entryClassName = cx(SIDEBAR_ENTRY_CLASS, className, {
+        [SIDEBAR_ENTRY_ACTIVE_CLASS]: isActive,
+    });
+    const entryGroupClassName = cx(SIDEBAR_ENTRY_GROUP_CLASS, {
+        [SIDEBAR_ENTRY_GROUP_CLICKABLE_CLASS]:
+            onClick || (entryClickToggleContent && content) || isLink,
+    });
+    const entryLabelClassName = cx(SIDEBAR_ENTRY_LABEL_CLASS, {
+        [SIDEBAR_ENTRY_LABEL_ACTIVE_CLASS]: isActive,
+    });
     const entryContentStatusClass = `${SIDEBAR_ENTRY_CONTENT_CLASS}--${
         sidebarState!.opened ? 'opened' : 'closed'
     }`;
     const entryContentVisibleClass =
         id && !!sidebarState!.openedEntrySubContent[id] ? SIDEBAR_ENTRY_CONTENT_VISIBLE_CLASS : '';
-    const entryContentClass = `${SIDEBAR_ENTRY_CONTENT_CLASS} ${entryContentStatusClass} ${entryContentVisibleClass}`;
+    const entryContentClassName = cx(
+        SIDEBAR_ENTRY_CONTENT_CLASS,
+        entryContentStatusClass,
+        entryContentVisibleClass
+    );
 
     const entryContentToggleOnClick = (e: React.MouseEvent) => {
         id &&
@@ -116,9 +120,9 @@ export const SidebarEntry = ({
 
     return (
         <>
-            <Tag className={entryClass} to={to} href={href} id={id} {...otherProps}>
+            <Tag className={entryClassName} to={to} href={href} id={id} {...otherProps}>
                 <div
-                    className={entryGroupClass}
+                    className={entryGroupClassName}
                     onClick={() =>
                         autoCloseLink &&
                         isLink &&
@@ -137,7 +141,7 @@ export const SidebarEntry = ({
                     {!iconName && shortcut !== undefined && (
                         <SidebarEntryLabelShortcut label={shortcut} />
                     )}
-                    <div className={entryLabelClass}>{children}</div>
+                    <div className={entryLabelClassName}>{children}</div>
                     {content && (
                         <div className={SIDEBAR_ENTRY_CONTENT_TOGGLE_CLASS}>
                             <Icon name={toggleIcon} size="small" {...clickableToggle} />
@@ -146,7 +150,7 @@ export const SidebarEntry = ({
                 </div>
             </Tag>
             {content && (
-                <div className={entryContentClass} id={`${id}__content`}>
+                <div className={entryContentClassName} id={`${id}__content`}>
                     {content}
                 </div>
             )}

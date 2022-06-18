@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Prism from 'prismjs';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { SyntaxHighlightProps } from './SyntaxHighlight.types';
 
 const SYNTAX_HIGHLIGHT_CLASS = `${UI_PREFIX}__syntax-highlight`;
@@ -27,7 +28,7 @@ export const SyntaxHighlight = ({
         Prism.highlightElement(codeRef.current);
     }, [codeClass, code]);
 
-    const syntaxHighlightClass = `${SYNTAX_HIGHLIGHT_CLASS} ${className}`.trim();
+    const syntaxHighlightClass = cx(SYNTAX_HIGHLIGHT_CLASS, className);
 
     return (
         <div className={syntaxHighlightClass} {...rest}>

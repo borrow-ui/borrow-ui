@@ -2,6 +2,7 @@ import React, { useState, createContext, useContext, HTMLProps } from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
+import { cx } from '../../utils/classNames';
 import {
     AccordionGroupProps,
     AccordionProps,
@@ -60,8 +61,7 @@ export const Accordion = ({
     const titleStatusClass = accordionIsOpen
         ? ACCORDION_TITLE_OPEN_CLASS
         : ACCORDION_TITLE_CLOSED_CLASS;
-    const titleClassName =
-        `${ACCORDION_TITLE_CLASS} ${titlePropsClassName} ${titleStatusClass}`.trim();
+    const titleClassName = cx(ACCORDION_TITLE_CLASS, titlePropsClassName, titleStatusClass);
 
     const {
         className: contentPropsClassName = '',
@@ -71,8 +71,7 @@ export const Accordion = ({
     const contentStatusClass = accordionIsOpen
         ? ACCORDION_CONTENT_OPEN_CLASS
         : ACCORDION_CONTENT_CLOSED_CLASS;
-    const contentClassName =
-        `${ACCORDION_CONTENT_CLASS} ${contentPropsClassName} ${contentStatusClass}`.trim();
+    const contentClassName = cx(ACCORDION_CONTENT_CLASS, contentPropsClassName, contentStatusClass);
     const contentStyle = {
         ...contentPropsStyle,
         ...(maxHeight ? { maxHeight: accordionIsOpen ? maxHeight : undefined } : {}),

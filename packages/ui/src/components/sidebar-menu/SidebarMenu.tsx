@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import {
     SidebarMenuEntryProps,
     SidebarMenuProps,
@@ -24,11 +24,12 @@ export const SidebarMenu = ({
     padded = true,
     ...rest
 }: SidebarMenuProps): JSX.Element => {
-    const paddedClass = padded ? SIDEBAR_MENU_PADDED_CLASS : '';
-    const sidebarMenuClass = `${SIDEBAR_MENU_CLASS} ${paddedClass} ${className}`.trim();
+    const sidebarMenuClassName = cx(SIDEBAR_MENU_CLASS, className, {
+        [SIDEBAR_MENU_PADDED_CLASS]: padded,
+    });
 
     return (
-        <div className={sidebarMenuClass} {...rest}>
+        <div className={sidebarMenuClassName} {...rest}>
             {children}
         </div>
     );
@@ -42,13 +43,14 @@ export const SidebarMenuTitle = ({
     href,
     ...rest
 }: SidebarMenuTitleProps): JSX.Element => {
-    const clickableClass = onClick || href || rest.to ? SIDEBAR_MENU_TITLE_CLICKABLE_CLASS : '';
-    const titleClass = `${SIDEBAR_MENU_TITLE_CLASS} ${clickableClass} ${className}`;
+    const titleClassName = cx(SIDEBAR_MENU_TITLE_CLASS, className, {
+        [SIDEBAR_MENU_TITLE_CLICKABLE_CLASS]: onClick || href || rest.to,
+    });
 
     const Tag = tag ? tag : href ? 'a' : 'div';
 
     return (
-        <Tag className={titleClass} onClick={onClick} href={href} {...rest}>
+        <Tag className={titleClassName} onClick={onClick} href={href} {...rest}>
             {children}
         </Tag>
     );
@@ -63,14 +65,15 @@ export const SidebarMenuEntry = ({
     href,
     ...rest
 }: SidebarMenuEntryProps): JSX.Element => {
-    const activeClass = isActive ? SIDEBAR_MENU_ENTRY_ACTIVE_CLASS : '';
-    const clickableClass = onClick || href || rest.to ? SIDEBAR_MENU_ENTRY_CLICKABLE_CLASS : '';
-    const entryClass = `${SIDEBAR_MENU_ENTRY_CLASS} ${activeClass} ${clickableClass} ${className}`;
+    const entryClassName = cx(SIDEBAR_MENU_ENTRY_CLASS, className, {
+        [SIDEBAR_MENU_ENTRY_ACTIVE_CLASS]: isActive,
+        [SIDEBAR_MENU_ENTRY_CLICKABLE_CLASS]: onClick || href || rest.to,
+    });
 
     const Tag = tag ? tag : href ? 'a' : 'div';
 
     return (
-        <Tag className={entryClass} onClick={onClick} href={href} {...rest}>
+        <Tag className={entryClassName} onClick={onClick} href={href} {...rest}>
             {children}
         </Tag>
     );
@@ -80,7 +83,7 @@ export const SidebarMenuSeparator = ({
     className = '',
     ...rest
 }: SidebarMenuSeparatorProps): JSX.Element => {
-    const separatorClass = `${SIDEBAR_MENU_SEPARATOR_CLASS} ${className}`.trim();
+    const separatorClass = cx(SIDEBAR_MENU_SEPARATOR_CLASS, className);
     return <div className={separatorClass} {...rest}></div>;
 };
 

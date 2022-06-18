@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../../config';
+import { cx } from '../../../utils/classNames';
 import { KEY_CODES } from '../../../utils/constants';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -23,21 +24,19 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         { checked, onClick, onChange, label, disabled, labelProps = {}, className = '', ...rest },
         ref
     ): JSX.Element => {
-        const checkboxContainerClass = `${FORM_CHECKBOX_CONTAINER_CLASS} ${className}`.trim();
-        const checkedCheckboxClass = checked ? FORM_CHECKBOX_CHECKED_CLASS : '';
-        const disabledCheckboxClass = disabled ? FORM_CHECKBOX_DISABLED_CLASS : '';
-        const checkboxClass =
-            `${FORM_CHECKBOX_CLASS} ${checkedCheckboxClass} ${disabledCheckboxClass}`.trim();
-        const checkedCheckboxIndicatorClass = checked ? FORM_CHECKBOX_INDICATOR_CHECKED_CLASS : '';
-        const disabledCheckboxIndicatorClass = disabled
-            ? FORM_CHECKBOX_INDICATOR_DISABLED_CLASS
-            : '';
-        const indicatorClass =
-            `${FORM_CHECKBOX_INDICATOR_CLASS} ${checkedCheckboxIndicatorClass} ${disabledCheckboxIndicatorClass}`.trim();
-        const { className: labelClassName = '', ...restLabelProps } = labelProps;
-        const labelDisabledClass = disabled ? FORM_CHECKBOX_LABEL_DISABLED_CLASS : '';
-        const labelClass =
-            `${FORM_CHECKBOX_LABEL_CLASS} ${labelDisabledClass} ${labelClassName}`.trim();
+        const checkboxContainerClassName = cx(FORM_CHECKBOX_CONTAINER_CLASS, className);
+        const checkboxClassName = cx(FORM_CHECKBOX_CLASS, {
+            [FORM_CHECKBOX_CHECKED_CLASS]: checked,
+            [FORM_CHECKBOX_DISABLED_CLASS]: disabled,
+        });
+        const indicatorClassName = cx(FORM_CHECKBOX_INDICATOR_CLASS, {
+            [FORM_CHECKBOX_INDICATOR_CHECKED_CLASS]: checked,
+            [FORM_CHECKBOX_INDICATOR_DISABLED_CLASS]: disabled,
+        });
+        const { className: labelPropsClassName = '', ...restLabelProps } = labelProps;
+        const labelClassName = cx(FORM_CHECKBOX_LABEL_CLASS, labelPropsClassName, {
+            [FORM_CHECKBOX_LABEL_DISABLED_CLASS]: disabled,
+        });
 
         const onClickFn = onChange || onClick;
         if (!onClickFn) throw new Error(NO_ONCLICK_ONCHANGE_ERROR_MESSAGE);
@@ -53,14 +52,14 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
         return (
             <div
-                className={checkboxContainerClass}
+                className={checkboxContainerClassName}
                 onClick={onCheckboxClick}
                 onKeyDown={onKeyDown}
                 tabIndex={0}
                 role="checkbox"
                 aria-checked={checked}
             >
-                <div className={checkboxClass}>
+                <div className={checkboxClassName}>
                     <input
                         type="checkbox"
                         className={FORM_CHECKBOX_CHECKBOX_CLASS}
@@ -71,10 +70,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
                         ref={ref}
                         {...rest}
                     />
-                    <div className={indicatorClass} />
+                    <div className={indicatorClassName} />
                 </div>
                 {label && (
-                    <div className={labelClass} {...restLabelProps}>
+                    <div className={labelClassName} {...restLabelProps}>
                         {label}
                     </div>
                 )}

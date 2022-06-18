@@ -2,7 +2,7 @@ import React, { useState, Fragment, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { IconControl } from '../icon/IconControl';
 import { Loader } from '../loader/Loader';
 import { PanelContentProps, PanelProps } from './Panel.types';
@@ -121,13 +121,13 @@ export const PanelContent = ({
         style: containerStyle,
         ...restContainerProps
     } = containerProps;
-    const containerClassName = `${PANEL_CONTAINER_CLASS} ${containerClass}`.trim();
+    const containerClassName = cx(PANEL_CONTAINER_CLASS, containerClass);
 
     const { className: contentClass = '', ...restContentProps } = contentProps;
-    const contentClassName = `${PANEL_CONTENT_CLASS} ${contentClass}`.trim();
+    const contentClassName = cx(PANEL_CONTENT_CLASS, contentClass);
 
     const { className: footerClass = '', ...restFooterProps } = footerProps;
-    const footerClassName = `${PANEL_FOOTER_CLASS} ${footerClass}`.trim();
+    const footerClassName = cx(PANEL_FOOTER_CLASS, footerClass);
 
     return createPortal(
         <div

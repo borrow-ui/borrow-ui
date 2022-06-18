@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { cx } from '../../utils/classNames';
 import { ColProps, RowProps } from './Grid.types';
 
 export const Row = ({ children, className = '', ...rest }: RowProps): JSX.Element => {
@@ -20,7 +21,7 @@ export const Col = ({
     ...rest
 }: ColProps): JSX.Element => {
     const colSizeClassName = `col-xs-12 col-sm-${size}`;
-    const colClassName = `${className} ${overrideColClassName || colSizeClassName}`;
+    const colClassName = cx(className, `${overrideColClassName || colSizeClassName}`);
 
     return (
         <div className={colClassName} {...rest}>

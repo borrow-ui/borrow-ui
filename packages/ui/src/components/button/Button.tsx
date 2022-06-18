@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { UI_PREFIX, SIZES } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { Icon } from '../icon/Icon';
-
 import { ButtonProps } from './Button.types';
 
 const BUTTON_CLASS = `${UI_PREFIX}__button`;
@@ -49,7 +48,7 @@ export function Button({
         icon && 'icon',
     ].filter((m) => m);
     const modifiersClass = mods.map((m) => `${BUTTON_CLASS}--${m}`).join(' ');
-    const buttonClassName: string = `${BUTTON_CLASS} ${modifiersClass} ${className}`.trim();
+    const buttonClassName = cx(BUTTON_CLASS, modifiersClass, className);
 
     const iconSize = (icon && SIZES[Math.max(SIZES.indexOf(size) - 1, 0)]) || undefined;
     const { className: iconClassName = '', ...restIconProps } = iconProps;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { TableWrapper } from './TableWrapper';
 import { TablePagination } from './TablePagination';
 import { TableStatusBar } from './TableStatusBar';
@@ -53,7 +53,7 @@ export const Table = ({
 
     const { className: containerClassName = '', ...containerProps } =
         elementsProps.containerProps || {};
-    const tableContainerClassName = `${TABLE_CONTAINER_CLASS} ${containerClassName || ''}`;
+    const tableContainerClassName = cx(TABLE_CONTAINER_CLASS, containerClassName);
 
     const startEntry = (tableState.page - 1) * tableState.pageSize;
     const paginatedEntries = !tablePagination.pageSize

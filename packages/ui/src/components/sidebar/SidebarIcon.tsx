@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { Icon } from '../icon/Icon';
 import { SidebarIconProps } from './SidebarIcon.types';
 
@@ -14,8 +15,7 @@ export const SidebarIcon = ({
     className = '',
     ...rest
 }: SidebarIconProps): JSX.Element => {
-    const iconActiveOpenClass = isActive && isOpen ? SIDEBAR_ICON_ACTIVE_OPEN_CLASS : '';
-    const iconClass = `${iconActiveOpenClass} ${className}`;
+    const iconClass = cx({ [SIDEBAR_ICON_ACTIVE_OPEN_CLASS]: isActive && isOpen }, className);
 
     return (
         <div className={SIDEBAR_ICON_CLASS} {...rest}>

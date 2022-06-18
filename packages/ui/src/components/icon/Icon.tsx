@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { IconProps } from './Icon.types';
 
 export const ICON_DEFAULT_FAMILY = 'material-icons';
@@ -31,7 +32,7 @@ export const Icon = React.forwardRef<HTMLElement, IconProps>(
 
         const modifiersClasses = modifiersList.map((m) => `${ICON_CLASS}--${m}`).join(' ');
 
-        const iconClassName = `${ICON_CLASS} ${family} ${name} ${modifiersClasses} ${sizeClass} ${className}`;
+        const iconClassName = cx(ICON_CLASS, family, name, modifiersClasses, sizeClass, className);
 
         return <i className={iconClassName} onClick={onClick} ref={ref} {...rest} />;
     }

@@ -3,6 +3,7 @@ import React from 'react';
 import { UI_PREFIX } from '../../../config';
 
 import { KEY_CODES } from '../../../utils/constants';
+import { cx } from '../../../utils/classNames';
 import { ToggleProps } from './Toggle.types';
 
 const FORM_TOGGLE_CLASS = `${UI_PREFIX}__form__field__toggle`;
@@ -18,13 +19,14 @@ export const NO_ONCLICK_ONCHANGE_ERROR_MESSAGE =
 
 export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
     ({ checked, onClick, onChange, disabled, className = '', ...rest }, ref): JSX.Element => {
-        const checkedToggleClass = checked ? FORM_TOGGLE_CHECKED_CLASS : '';
-        const disabledToggleClass = disabled ? FORM_TOGGLE_DISABLED_CLASS : '';
-        const toggleClass =
-            `${FORM_TOGGLE_CLASS} ${checkedToggleClass} ${disabledToggleClass} ${className}`.trim();
-        const checkedSwitchClass = checked ? FORM_TOGGLE_SWITCH_CHECKED_CLASS : '';
-        const disabledSwitchClass = disabled ? FORM_TOGGLE_SWITCH_DISABLED_CLASS : '';
-        const switchClass = `${FORM_TOGGLE_SWITCH_CLASS} ${checkedSwitchClass} ${disabledSwitchClass}`;
+        const toggleClassName = cx(FORM_TOGGLE_CLASS, className, {
+            [FORM_TOGGLE_CHECKED_CLASS]: checked,
+            [FORM_TOGGLE_DISABLED_CLASS]: disabled,
+        });
+        const switchClassName = cx(FORM_TOGGLE_SWITCH_CLASS, {
+            [FORM_TOGGLE_SWITCH_CHECKED_CLASS]: checked,
+            [FORM_TOGGLE_SWITCH_DISABLED_CLASS]: disabled,
+        });
 
         const onClickFn = onChange || onClick;
         if (!onClickFn) throw new Error(NO_ONCLICK_ONCHANGE_ERROR_MESSAGE);
@@ -39,7 +41,7 @@ export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
         };
         return (
             <div
-                className={toggleClass}
+                className={toggleClassName}
                 onClick={onToggleClick}
                 onKeyDown={onKeyDown}
                 tabIndex={0}
@@ -56,7 +58,7 @@ export const Toggle = React.forwardRef<HTMLInputElement, ToggleProps>(
                     ref={ref}
                     {...rest}
                 />
-                <div className={switchClass} />
+                <div className={switchClassName} />
             </div>
         );
     }

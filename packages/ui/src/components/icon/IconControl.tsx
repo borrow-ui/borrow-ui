@@ -2,7 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, MouseEvent, MouseEventHandler } from
 
 import { UI_PREFIX } from '../../config';
 import { KEY_CODES } from '../../utils/constants';
-
+import { cx } from '../../utils/classNames';
 import { Icon } from './Icon';
 import { IconControlProps } from './IconControl.types';
 
@@ -14,7 +14,7 @@ export function IconControl({
     onClick,
     ...rest
 }: IconControlProps): JSX.Element {
-    const iconControlClassName = `${ICON_CONTROL_CLASS} ${className}`.trim();
+    const iconControlClassName = cx(ICON_CONTROL_CLASS, className);
 
     const propOnKeyDown = onKeyDown
         ? onKeyDown

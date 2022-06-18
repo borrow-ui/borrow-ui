@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
+import { cx } from '../../utils/classNames';
 import { Icon } from '../icon/Icon';
 
 import { SidebarContext } from './SidebarContext';
@@ -20,7 +21,7 @@ export const SidebarTrigger = ({ className = '', ...rest }: SidebarTriggerProps)
         }));
     };
 
-    const triggerClassName = `${SIDEBAR_TRIGGER_CLASS} ${className}`.trim();
+    const triggerClassName = cx(SIDEBAR_TRIGGER_CLASS, className);
 
     return (
         <div

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { UI_PREFIX } from '../../../config';
 import { a11yClickableElement } from '../../../utils/a11y';
+import { cx } from '../../../utils/classNames';
 import { DropzoneFileProps, DropzoneFilesProps } from './Dropzone.types';
 
 const DROPZONE_FILES_CLASS = `${UI_PREFIX}__form__dropzone__files`;
@@ -45,8 +46,9 @@ export const DropzoneFile = ({
     onRemove,
     disabled,
 }: DropzoneFileProps): JSX.Element => {
-    const disabledClass = disabled ? DROPZONE_FILES_FILE_REMOVE_DISABLED_CLASS : '';
-    const filesFileRemoveClassName = `${DROPZONE_FILES_FILE_REMOVE_CLASS} ${disabledClass}`;
+    const filesFileRemoveClassName = cx(DROPZONE_FILES_FILE_REMOVE_CLASS, {
+        [DROPZONE_FILES_FILE_REMOVE_DISABLED_CLASS]: disabled,
+    });
 
     return (
         <div className={DROPZONE_FILES_FILE_CLASS}>

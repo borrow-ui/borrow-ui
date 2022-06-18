@@ -2,6 +2,7 @@ import React from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
+import { cx } from '../../utils/classNames';
 import { TabHeaderProps } from './Tabs.types';
 
 const TABS_HEADER_CLASS = `${UI_PREFIX}__tabs__header`;
@@ -17,7 +18,7 @@ export const TabHeader = ({
     extraHeader,
     ...rest
 }: TabHeaderProps): JSX.Element => {
-    const tabHeaderClassName = `${TABS_HEADER_CLASS} ${className}`;
+    const tabHeaderClassName = cx(TABS_HEADER_CLASS, className);
     return (
         <div className={tabHeaderClassName} {...rest}>
             {tabs.map(
@@ -38,6 +39,7 @@ export const TabHeader = ({
                             key={`ui-tabs-header-label-${index}`}
                             className={labelClassName}
                             {...a11yClickableElement({ onClick, role: 'navigation' })}
+                            {...restTab}
                         >
                             {label}
                         </div>

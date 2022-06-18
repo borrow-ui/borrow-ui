@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { BadgeProps } from './Badge.types';
 
 const BADGE_CLASS = `${UI_PREFIX}__badge`;
@@ -17,14 +18,14 @@ export const Badge = ({
     children,
     ...rest
 }: BadgeProps): JSX.Element => {
-    const colorClass = color ? `color-${color}-bg color-on-${color}` : '';
-    const typeClass = type && type !== 'squared' ? `${BADGE_CLASS}--${type}` : '';
-    const clickableClass = onClick ? BADGE_CLICKABLE_CLASS : '';
-    const propsClasses = [colorClass, typeClass, clickableClass].join(' ').trim();
-    const badgeClass = [BADGE_CLASS, propsClasses, className].join(' ').trim();
+    const badgeClassName = cx(BADGE_CLASS, className, {
+        [`${BADGE_CLASS}--${type}`]: type && type !== 'squared',
+        [BADGE_CLICKABLE_CLASS]: !!onClick,
+        [`color-${color}-bg color-on-${color}`]: !!color,
+    });
 
     return (
-        <Tag className={badgeClass} onClick={onClick} {...rest}>
+        <Tag className={badgeClassName} onClick={onClick} {...rest}>
             {children}
         </Tag>
     );

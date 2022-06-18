@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { ReferenceOverlay } from '../reference-overlay/ReferenceOverlay';
 import { TooltipProps } from './Tooltip.types';
 
@@ -26,12 +26,11 @@ export const Tooltip = ({
     const { className: tooltipPropsClass = '', ...restTooltipProps } = tooltipProps;
     const { className: tooltipArrowPropsClass = '', ...restTooltipArrowProps } = tooltipArrowProps;
 
-    const minWidthClass = minWidth ? TOOLTIP_MIN_WIDTH_CLASS : '';
-    const maxWidthClass = maxWidth ? TOOLTIP_MAX_WIDTH_CLASS : '';
-    const widthClasses = `${minWidthClass} ${maxWidthClass}`.trim();
-    const tooltipClass = `${TOOLTIP_CLASS} ${widthClasses} ${tooltipPropsClass}`.trim();
-
-    const tooltipArrowClass = `${TOOLTIP_ARROW_CLASS} ${tooltipArrowPropsClass}`.trim();
+    const tooltipClassName = cx(TOOLTIP_CLASS, tooltipPropsClass, {
+        [TOOLTIP_MIN_WIDTH_CLASS]: minWidth,
+        [TOOLTIP_MAX_WIDTH_CLASS]: maxWidth,
+    });
+    const tooltipArrowClassName = cx(TOOLTIP_ARROW_CLASS, tooltipArrowPropsClass);
 
     return (
         <ReferenceOverlay
@@ -40,11 +39,11 @@ export const Tooltip = ({
             triggerProps={rest}
             triggerMode={triggerMode}
             overlayProps={{
-                className: tooltipClass,
+                className: tooltipClassName,
                 ...restTooltipProps,
             }}
             overlayArrowProps={{
-                className: tooltipArrowClass,
+                className: tooltipArrowClassName,
                 ...restTooltipArrowProps,
             }}
             placement={placement}

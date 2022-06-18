@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 
 import { UI_PREFIX } from '../../config';
 import { KEY_CODES } from '../../utils/constants';
+import { cx } from '../../utils/classNames';
 import { IconControl } from '../icon/IconControl';
 import { IconControlProps } from '../icon/IconControl.types';
 import { Loader } from '../loader/Loader';
@@ -203,23 +204,21 @@ function ModalWindowPortal({
         onClick: onWrapperClick,
         ...restWrapperProps
     } = wrapperProps || {};
-    const wrapperClassName = `${MODAL_WRAPPER_CLASS} ${wrapperClass}`.trim();
+    const wrapperClassName = cx(MODAL_WRAPPER_CLASS, wrapperClass);
 
     const {
         className: containerClass = '',
         style: containerStyleProp,
         ...restContainerProps
     } = containerProps;
-    const containerClassName =
-        `${MODAL_CONTAINER_CLASS} ${modalContainerStatusClass} ${containerClass}`.trim();
+    const containerClassName = cx(MODAL_CONTAINER_CLASS, modalContainerStatusClass, containerClass);
     const containerStyle = { ...modalState.modalContainerStyle, ...containerStyleProp };
 
     const { className: contentClass = '', ...restContentProps } = contentProps;
-    const contentClassName =
-        `${MODAL_CONTENT_CLASS} ${modalContentSizeClass} ${contentClass}`.trim();
+    const contentClassName = cx(MODAL_CONTENT_CLASS, modalContentSizeClass, contentClass);
 
     const { className: footerClass = '', ...restFooterProps } = footerProps;
-    const footerClassName = `${MODAL_FOOTER_CLASS} ${footerClass}`.trim();
+    const footerClassName = cx(MODAL_FOOTER_CLASS, footerClass);
 
     const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
         // This cannot be tested with react-testing-library,

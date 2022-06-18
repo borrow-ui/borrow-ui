@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { UI_PREFIX, config } from '../../config';
+import { cx } from '../../utils/classNames';
 import { BreadcrumbProps, BreadcrumbsProps } from './Breadcrumbs.types';
 
 const BREADCRUMBS_CLASS = `${UI_PREFIX}__breadcrumbs`;
@@ -16,7 +17,7 @@ export const Breadcrumbs = ({
     ...rest
 }: BreadcrumbsProps): JSX.Element => {
     const generatedBreadcrumbs = breadcrumbs ? generateBreadcrumbs(breadcrumbs) : null;
-    const breadcrumbsClass = `${BREADCRUMBS_CLASS} ${className}`.trim();
+    const breadcrumbsClass = cx(BREADCRUMBS_CLASS, className);
 
     return (
         <div className={breadcrumbsClass} {...rest}>
@@ -36,14 +37,14 @@ const Breadcrumb = ({
     ...rest
 }: BreadcrumbProps): JSX.Element => {
     const Tag = tag ? tag : link ? config.getLinkComponent() : 'div';
-    const clickableClass = link || onClick ? BREADCRUMBS_BREADCRUMB_CLICKABLE_CLASS : '';
-    const lastClass = isLast ? BREADCRUMBS_BREADCRUMB_LAST_CLASS : '';
-    const breadcrumbClass =
-        `${BREADCRUMBS_BREADCRUMB_CLASS} ${clickableClass} ${lastClass} ${className}`.trim();
+    const breadcrumbClassName = cx(BREADCRUMBS_BREADCRUMB_CLASS, className, {
+        [BREADCRUMBS_BREADCRUMB_CLICKABLE_CLASS]: link || onClick,
+        [BREADCRUMBS_BREADCRUMB_LAST_CLASS]: isLast,
+    });
 
     return (
         <Tag
-            className={breadcrumbClass}
+            className={breadcrumbClassName}
             onClick={onClick}
             to={link}
             href={link}

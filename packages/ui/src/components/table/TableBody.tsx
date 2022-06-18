@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { TableBodyProps } from './Table.types';
 import { TableCell } from './TableCell';
 
@@ -17,7 +17,7 @@ export const TableBody = ({
     elementsProps,
     entries,
 }: TableBodyProps): JSX.Element => {
-    const tbodyClassName = `${TABLE_BODY_CLASS} ${className}`;
+    const tbodyClassName = cx(TABLE_BODY_CLASS, className);
 
     const columns = tableState.columns;
 

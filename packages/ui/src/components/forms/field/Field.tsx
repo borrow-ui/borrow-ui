@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../../config';
+import { cx } from '../../../utils/classNames';
 import { Label } from '../label/Label';
 import { LAYOUTS, VALIGNMENTS } from '../constants';
 import { FieldProps, HFieldProps, VFieldProps } from './Field.types';
@@ -34,30 +35,37 @@ export const Field = ({
     ...rest
 }: FieldProps): JSX.Element => {
     const layoutClass = layout === LAYOUTS.VERTICAL ? FIELD_VERTICAL_CLASS : FIELD_HORIZONTAL_CLASS;
-    const vAlignmentClass = `${FIELD_CLASS}--valignment-${vAlignment}`;
-    const fieldClass = `${FIELD_CLASS} ${layoutClass} ${vAlignmentClass} ${className}`.trim();
+    const fieldClassName = cx(
+        FIELD_CLASS,
+        layoutClass,
+        `${FIELD_CLASS}--valignment-${vAlignment}`,
+        className
+    );
 
     const fieldControllerLayoutClass =
         layout === LAYOUTS.VERTICAL
             ? FIELD_CONTROLLER_VERTICAL_CLASS
             : FIELD_CONTROLLER_HORIZONTAL_CLASS;
-    const { className: controllerClassName = '', ...cProps } = controllerProps;
-    const fieldControllerClass =
-        `${FIELD_CONTROLLER_CLASS} ${fieldControllerLayoutClass} ${controllerClassName}`.trim();
+    const { className: controllerPropsClassName = '', ...cProps } = controllerProps;
+    const fieldControllerClassName = cx(
+        FIELD_CONTROLLER_CLASS,
+        fieldControllerLayoutClass,
+        controllerPropsClassName
+    );
 
-    const { className: descriptionClassName = '', ...dProps } = descriptionProps;
-    const fieldDescriptionClass = `${FIELD_DESCRIPTION_CLASS} ${descriptionClassName}`.trim();
+    const { className: descriptionPropsClassName = '', ...dProps } = descriptionProps;
+    const fieldDescriptionClassName = cx(FIELD_DESCRIPTION_CLASS, descriptionPropsClassName);
 
     const descriptionContent = description && (
         <div className={FIELD_DESCRIPTION_CONTAINER_CLASS}>
-            <div className={fieldDescriptionClass} {...dProps}>
+            <div className={fieldDescriptionClassName} {...dProps}>
                 {description}
             </div>
         </div>
     );
 
     return (
-        <div className={fieldClass} {...rest}>
+        <div className={fieldClassName} {...rest}>
             {label && (
                 <Label
                     label={label}
@@ -71,7 +79,7 @@ export const Field = ({
                 />
             )}
             {((children && compact) || !compact) && (
-                <div className={fieldControllerClass} {...cProps}>
+                <div className={fieldControllerClassName} {...cProps}>
                     {children}
                     {description && layout === LAYOUTS.HORIZONTAL && descriptionContent}
                 </div>

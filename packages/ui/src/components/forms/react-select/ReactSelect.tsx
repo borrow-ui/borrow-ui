@@ -3,6 +3,7 @@ import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 
 import { UI_PREFIX } from '../../../config';
+import { cx } from '../../../utils/classNames';
 import { MappedOptionsType, ReactSelectProps } from './ReactSelect.types';
 
 const FORM_SELECT_CLASS = `${UI_PREFIX}__form__field__react-select`;
@@ -24,8 +25,9 @@ export const ReactSelect = React.forwardRef<any, ReactSelectProps>(
         ref
     ) => {
         const Tag = creatable ? CreatableSelect : Select;
-        const invalidClass = invalid ? FORM_SELECT_INVALID_CLASS : '';
-        const selectClassName = `${FORM_SELECT_CLASS} ${invalidClass} ${className}`.trim();
+        const selectClassName = cx(FORM_SELECT_CLASS, className, {
+            [FORM_SELECT_INVALID_CLASS]: invalid,
+        });
 
         const mappedOptions = useMemo(
             () =>

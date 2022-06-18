@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { LoaderProps } from './Loader.types';
 
 const LOADER_CONTAINER_CLASS = `${UI_PREFIX}__loader-container`;
@@ -16,10 +17,14 @@ export const Loader = ({
     className = '',
     ...rest
 }: LoaderProps): JSX.Element => {
-    const loaderContainerClassName =
-        `${LOADER_CONTAINER_CLASS} ${LOADER_CONTAINER_CLASS}--${loaderType} ${className}`.trim();
-    const loaderClassName = `${LOADER_CLASS} ${LOADER_CLASS}--${loaderType}`;
-    const loaderCircleClassName = `${LOADER_CIRCLE_CLASS} ${LOADER_CIRCLE_CLASS}--${loaderType}`;
+    const loaderContainerClassName = cx(
+        LOADER_CONTAINER_CLASS,
+        `${LOADER_CONTAINER_CLASS}--${loaderType}`,
+        className
+    );
+
+    const loaderClassName = cx(LOADER_CLASS, `${LOADER_CLASS}--${loaderType}`);
+    const loaderCircleClassName = cx(LOADER_CIRCLE_CLASS, `${LOADER_CIRCLE_CLASS}--${loaderType}`);
 
     return (
         <div className={loaderContainerClassName} {...rest}>
