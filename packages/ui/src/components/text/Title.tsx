@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { useLocationHash } from '../../hooks/useLocationHash';
-
+import { cx } from '../../utils/classNames';
 import { TitleProps } from './Title.types';
 
 const TITLE_CLASS = `${UI_PREFIX}__title`;
@@ -18,10 +18,11 @@ export const Title = ({
     ...rest
 }: TitleProps): JSX.Element => {
     const locationHash = useLocationHash();
-    const titleClassName = `${TITLE_CLASS} ${className}`;
+    const titleClassName = cx(TITLE_CLASS, className);
 
-    const anchorActiveClass = anchor === locationHash && anchor ? TITLE_ANCHOR_ACTIVE_CLASS : '';
-    const anchorClass = `${TITLE_ANCHOR_CLASS} ${anchorClassName} ${anchorActiveClass}`;
+    const anchorClass = cx(TITLE_ANCHOR_CLASS, anchorClassName, {
+        [TITLE_ANCHOR_ACTIVE_CLASS]: anchor && anchor === locationHash,
+    });
     const content = anchor ? (
         <a className={anchorClass} id={anchor} href={`#${anchor}`}>
             {children}

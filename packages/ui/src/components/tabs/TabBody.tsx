@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { TabBodyProps } from './Tabs.types';
 
 const TABS_BODY_CLASS = `${UI_PREFIX}__tabs__body`;
@@ -17,12 +18,13 @@ export const TabBody = ({
     className = '',
     ...rest
 }: TabBodyProps): JSX.Element => {
-    const paddedClassName = padded ? TABS_BODY_PADDED_CLASS : '';
-    const paddedTopClassName = paddedTop ? TABS_BODY_PADDED_TOP_CLASS : '';
-    const contentCommonClassName = `${TABS_BODY_CLASS} ${paddedClassName} ${paddedTopClassName}`;
-    const containerClass = `${TABS_BODY_CONTAINER_CLASS} ${className}`;
+    const contentCommonClassName = cx(TABS_BODY_CLASS, {
+        [TABS_BODY_PADDED_CLASS]: padded,
+        [TABS_BODY_PADDED_TOP_CLASS]: paddedTop,
+    });
+    const containerClassName = cx(TABS_BODY_CONTAINER_CLASS, className);
     return (
-        <div className={containerClass} {...rest}>
+        <div className={containerClassName} {...rest}>
             {tabs.map(({ content, className: tabClassName = '', ...restTab }, index) => {
                 const selectedClassName = index + 1 === selectedTab ? TABS_BODY_SELECTED_CLASS : '';
                 const contentClassName =

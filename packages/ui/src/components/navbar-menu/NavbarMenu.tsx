@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { NavbarMenuProps } from './NavbarMenu.types';
-
 import { NavbarMenuItem } from './NavbarMenuItem';
 import { NavbarMenuTitle } from './NavbarMenuTitle';
 
@@ -15,7 +15,7 @@ export const NavbarMenu = ({
     titleProps = {},
     ...rest
 }: NavbarMenuProps): JSX.Element => {
-    const navbarMenuClassName = `${NAVBAR_MENU_CLASS} ${className}`.trim();
+    const navbarMenuClassName = cx(NAVBAR_MENU_CLASS, className);
 
     return (
         <div className={navbarMenuClassName} {...rest}>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../../config';
+import { cx } from '../../../utils/classNames';
 import { LAYOUTS, ALIGNMENTS, VALIGNMENTS } from '../constants';
 import { LabelProps } from './Label.types';
 
@@ -36,11 +37,10 @@ export const Label = ({
     const alignmentClass = `${UI_PREFIX}__form__label--alignment-${alignment}`;
     const vAlignmentClass = `${UI_PREFIX}__form__label--valignment-${vAlignment}`;
 
-    const labelClass =
-        `${LABEL_CLASS} ${layoutClass} ${alignmentClass} ${vAlignmentClass} ${className}`.trim();
+    const labelClassName = cx(LABEL_CLASS, layoutClass, alignmentClass, vAlignmentClass, className);
     const labelStyle = { ...labelWidthStyle, ...style };
     return (
-        <Tag className={labelClass} style={labelStyle} htmlFor={htmlFor} {...rest}>
+        <Tag className={labelClassName} style={labelStyle} htmlFor={htmlFor} {...rest}>
             {label} {required && <span className={LABEL_REQUIRED_CLASS}>*</span>}
         </Tag>
     );

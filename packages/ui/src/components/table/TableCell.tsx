@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import {
     TableCellContainerNameType,
     TableCellContainerPropsType,
@@ -13,7 +14,9 @@ import {
 } from './Table.types';
 
 const TABLE_CELL_CLASS = `${UI_PREFIX}__table__cell`;
+const TABLE_CELL_VALIGN_PREFIX = `${UI_PREFIX}__table__cell--vertical-align-`;
 const TABLE_CELL_CONTENT_CLASS = `${UI_PREFIX}__table__cell__content`;
+const TABLE_CELL_CONTENT_ALIGN_PREFIX = `${UI_PREFIX}__table__cell__content--align-`;
 // verticalAlignClassName is computed by using column.verticalAlign or tableConfig.verticalAlign:
 //  `${UI_PREFIX}__table__cell--vertical-align-${tableConfig.verticalAlign}`;
 // borderClassName is computed by using tableConfig.borderType:
@@ -41,12 +44,9 @@ export const TableCell = ({
         ...cellOtherProps
     } = cellElementProps;
     const alignV = verticalAlign || tableConfig.verticalAlign || '';
-    const verticalAlignClassName = alignV
-        ? `${UI_PREFIX}__table__cell--vertical-align-${alignV}`
-        : '';
-
-    const cellClassName =
-        `${TABLE_CELL_CLASS} ${borderClassName} ${verticalAlignClassName} ${className} ${cellPropsClassName}`.trim();
+    const cellClassName = cx(TABLE_CELL_CLASS, borderClassName, className, cellPropsClassName, {
+        [`${TABLE_CELL_VALIGN_PREFIX}${alignV}`]: alignV,
+    });
 
     const cellContentElementProps = getContainerProps(
         elementsProps,
@@ -62,10 +62,9 @@ export const TableCell = ({
     } = cellContentElementProps;
     // align applies only to content
     const alignH = entry !== undefined ? align || tableConfig.align || '' : '';
-    const alignClassName = alignH ? `${UI_PREFIX}__table__cell__content--align-${alignH}` : '';
-
-    const cellContentClassName =
-        `${TABLE_CELL_CONTENT_CLASS} ${alignClassName} ${cellContentPropsClassName}`.trim();
+    const cellContentClassName = cx(TABLE_CELL_CONTENT_CLASS, cellContentPropsClassName, {
+        [`${TABLE_CELL_CONTENT_ALIGN_PREFIX}${alignH}`]: alignH,
+    });
 
     return (
         <Tag

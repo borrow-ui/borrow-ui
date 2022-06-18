@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 import { UI_PREFIX } from '../../../config';
-
+import { cx } from '../../../utils/classNames';
 import { DropzoneFiles } from './DropzoneFiles';
 import { DropzoneProps, IDropzoneState, FileType } from './Dropzone.types';
 
@@ -71,29 +71,31 @@ export const Dropzone = ({
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: onDropCallback });
 
     const dragActive = (
-        <div className={`${FORM_DROPZONE_MESSAGE_CLASS} ${FORM_DROPZONE_MESSAGE_ACTIVE_CLASS}`}>
+        <div className={cx(FORM_DROPZONE_MESSAGE_CLASS, FORM_DROPZONE_MESSAGE_ACTIVE_CLASS)}>
             {dragActiveMessage ? dragActiveMessage : dragMessage}
         </div>
     );
     const dragInactive = (
-        <div className={`${FORM_DROPZONE_MESSAGE_CLASS} ${FORM_DROPZONE_MESSAGE_INACTIVE_CLASS}`}>
+        <div className={cx(FORM_DROPZONE_MESSAGE_CLASS, FORM_DROPZONE_MESSAGE_INACTIVE_CLASS)}>
             {dragInactiveMessage ? dragInactiveMessage : dragMessage}
         </div>
     );
 
-    const dropzoneClass = `${FORM_DROPZONE_CLASS} ${className}`.trim();
+    const dropzoneClassName = cx(FORM_DROPZONE_CLASS, className);
 
     const { className: rootPropsClassName = '', ...rootProps } = getRootProps();
-    const { className: dropAreaClassName = '', ...restDropAreaProps } = dropAreaProps;
-
-    const dropAreaClass =
-        `${FORM_DROPZONE_DROP_AREA_CLASS} ${dropAreaClassName} ${rootPropsClassName}`.trim();
+    const { className: dropAreaPropsClassName = '', ...restDropAreaProps } = dropAreaProps;
+    const dropAreaClassName = cx(
+        FORM_DROPZONE_DROP_AREA_CLASS,
+        dropAreaPropsClassName,
+        rootPropsClassName
+    );
 
     const dropzoneInputProps = getInputProps();
 
     return (
-        <div className={dropzoneClass} {...rest}>
-            <div {...rootProps} className={dropAreaClass} {...restDropAreaProps}>
+        <div className={dropzoneClassName} {...rest}>
+            <div {...rootProps} className={dropAreaClassName} {...restDropAreaProps}>
                 {disabled && disabledMessage}
                 {(!maxFiles || dropzoneState.files.length < maxFiles) && !disabled && (
                     <>

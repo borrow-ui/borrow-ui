@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { config, UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { Responsive } from '../responsive/Responsive';
 import { ReferenceOverlay } from '../reference-overlay/ReferenceOverlay';
 import { IconControl } from '../icon/IconControl';
@@ -54,22 +54,21 @@ export const PageHeader = ({
         }
     }, [scrollRef, headerVisibleFollowRef, headerVisibleFollowOffset, trackerIsVisible]);
 
-    const shadowClass = showShadow ? PAGE_HEADER_CONTAINER_WITH_SHADOW_CLASS : '';
     const trackerClass = !headerVisibleFollowRef
         ? ''
         : trackerIsVisible
         ? PAGE_HEADER_CONTAINER_TRACKER_IS_VISIBLE
         : PAGE_HEADER_CONTAINER_TRACKER_IS_NOT_VISIBLE;
-    const readableContentClass = readableContent ? PAGE_HEADER_READABLE_CONTENT_CLASS : '';
-    const headerClass = `${PAGE_HEADER_CONTAINER_CLASS} ${trackerClass} ${readableContentClass} ${shadowClass} ${className}`;
-
-    const pageHeaderHeaderContainerClass = `${PAGE_HEADER_HEADER_CONTAINER_CLASS}`;
+    const headerClassName = cx(PAGE_HEADER_CONTAINER_CLASS, trackerClass, className, {
+        [PAGE_HEADER_READABLE_CONTENT_CLASS]: readableContent,
+        [PAGE_HEADER_CONTAINER_WITH_SHADOW_CLASS]: showShadow,
+    });
 
     const TitleTag = titleTag || 'h2';
 
     return (
-        <div className={headerClass} {...rest}>
-            <div className={pageHeaderHeaderContainerClass}>
+        <div className={headerClassName} {...rest}>
+            <div className={PAGE_HEADER_HEADER_CONTAINER_CLASS}>
                 <TitleTag className={PAGE_HEADER_TITLE_CLASS}>{children}</TitleTag>
             </div>
             {controls && (

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { TileProps } from './Tile.types';
 
 const TILE_CLASS = `${UI_PREFIX}__tile`;
@@ -16,8 +17,7 @@ export function Tile({
     children,
     ...rest
 }: TileProps) {
-    const withBackgroundClass = withBackground ? TILE_WITH_BACKGROUND_CLASS : '';
-    const tileClass = `${TILE_CLASS} ${withBackgroundClass} ${className}`;
+    const tileClass = cx(TILE_CLASS, className, { [TILE_WITH_BACKGROUND_CLASS]: withBackground });
 
     return (
         <Tag className={tileClass} {...rest}>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX, getConfig } from '../../config';
+import { cx } from '../../utils/classNames';
 import { LinkProps } from './Link.types';
 
 const LINK_CLASS = `${UI_PREFIX}__link`;
@@ -15,7 +16,7 @@ export const Link = ({
     ...rest
 }: LinkProps): JSX.Element => {
     const underlineClass = underline ? LINK_UNDERLINE_CLASS : LINK_NO_UNDERLINE_CLASS;
-    const linkClassName = `${LINK_CLASS} ${underlineClass} ${className}`.trim();
+    const linkClassName = cx(LINK_CLASS, underlineClass, className);
 
     // @ts-ignore , only getLinkComponent will be used here
     const Tag = tag || getConfig('getLinkComponent')();

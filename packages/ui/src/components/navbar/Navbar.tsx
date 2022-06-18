@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { NavbarGroup } from './NavbarGroup';
 import { NavbarBody } from './NavbarBody';
 import { NavbarProps, NavbarStateType, SingleElementType } from './Navbar.types';
@@ -60,9 +61,10 @@ export const Navbar = ({
             ? selectedItem.bodyItem
             : undefined;
 
-    const stickyClass = sticky ? NAVBAR_STICKY_CLASS : '';
-    const fixedClass = fixed ? NAVBAR_FIXED_CLASS : '';
-    const navbarClass = `${NAVBAR_CLASS} ${stickyClass} ${fixedClass} ${className}`.trim();
+    const navbarClass = cx(NAVBAR_CLASS, className, {
+        [NAVBAR_STICKY_CLASS]: sticky,
+        [NAVBAR_FIXED_CLASS]: fixed,
+    });
 
     return (
         <header className={navbarClass} {...rest}>

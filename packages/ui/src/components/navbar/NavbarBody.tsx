@@ -16,12 +16,10 @@ export const NavbarBody = ({
     setState,
     resetState,
 }: NavbarBodyProps): JSX.Element => {
-    const navbarBodyClassName = `${NAVBAR_BODY_CLASS}`;
-
     const selectedItemProps = getSelectedItemProps(selectedItem);
 
     return (
-        <div className={navbarBodyClassName}>
+        <div className={NAVBAR_BODY_CLASS}>
             <NavbarBodyHeader
                 query={query}
                 handleChangeQuery={(queryValue: string) => {

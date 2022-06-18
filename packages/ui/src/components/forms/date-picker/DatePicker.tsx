@@ -12,6 +12,7 @@ import { usePopper } from 'react-popper';
 
 import { UI_PREFIX } from '../../../config';
 import { a11yClickableElement } from '../../../utils/a11y';
+import { cx } from '../../../utils/classNames';
 import { Icon } from '../../icon/Icon';
 
 import { Input } from '../input/Input';
@@ -117,12 +118,13 @@ export function DatePicker({
         }
     };
 
-    const { className: inputClassName = '', ...restInputProps } = inputProps;
-    const inputClass = `${DATEPICKER_INPUT} ${inputClassName}`.trim();
+    const { className: inputPropsClassName = '', ...restInputProps } = inputProps;
+    const inputClassName = cx(DATEPICKER_INPUT, inputPropsClassName);
 
-    const { className: iconClassName = '', ...restIconProps } = iconProps;
-    const iconDisabledClass = disabled ? DATEPICKER_ICON_DISABLED : '';
-    const iconClass = `${DATEPICKER_ICON} ${iconDisabledClass} ${iconClassName}`.trim();
+    const { className: iconPropsClassName = '', ...restIconProps } = iconProps;
+    const iconClassName = cx(DATEPICKER_ICON, iconPropsClassName, {
+        [DATEPICKER_ICON_DISABLED]: disabled,
+    });
 
     const iconClick = useMemo(() => {
         if (disabled) return {};
@@ -141,7 +143,7 @@ export function DatePicker({
                     disabled={disabled}
                     value={inputValue}
                     onChange={handleInputChange}
-                    className={inputClass}
+                    className={inputClassName}
                     {...restInputProps}
                 />
                 <Icon
@@ -150,7 +152,7 @@ export function DatePicker({
                     name="calendar_today"
                     size="small"
                     aria-label="Open date picker"
-                    className={iconClass}
+                    className={iconClassName}
                     {...restIconProps}
                 />
             </div>

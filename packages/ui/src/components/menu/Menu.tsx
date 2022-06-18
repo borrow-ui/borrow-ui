@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { MenuEntry } from './MenuEntry';
 import { MenuDivider } from './MenuDivider';
 import { MenuProps, EntryMenuType } from './Menu.types';
@@ -14,7 +14,7 @@ export const Menu = ({
     entries = [],
     ...rest
 }: MenuProps): JSX.Element => {
-    const menuClassName = `${MENU_CLASS} ${className}`.trim();
+    const menuClassName = cx(MENU_CLASS, className);
 
     const menuEntries: Array<JSX.Element> | null =
         entries.length > 0 ? buildMenuEntries(entries) : null;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { TableHeadProps } from './Table.types';
 import { TableCell } from './TableCell';
 
@@ -15,8 +15,8 @@ export const TableHead = ({
     tableState,
     elementsProps,
 }: TableHeadProps): JSX.Element => {
-    const theadClassName = `${TABLE_HEAD_CLASS} ${className}`;
-    const theadRowClassName = `${TABLE_HEAD_ROW_CLASS} ${className}`;
+    const theadClassName = cx(TABLE_HEAD_CLASS, className);
+    const theadRowClassName = cx(TABLE_HEAD_ROW_CLASS, className);
 
     const columns = tableState.columns;
 

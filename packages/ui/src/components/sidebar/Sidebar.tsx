@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { SidebarBodyProps, SidebarProps } from './Sidebar.types';
 
 import { SidebarContext, getSidebarContextDefaultState } from './SidebarContext';
@@ -40,25 +41,22 @@ export const SidebarBody = ({
     const state = useContext(SidebarContext)[0];
 
     const statusClass = `${SIDEBAR_CONTAINER_CLASS}--${state!.opened ? 'open' : 'closed'}`;
-    const stickyClass = stickyTop !== undefined ? `${SIDEBAR_CONTAINER_STICKY_CLASS}` : '';
-    const openShadowClass =
-        shadowWhenOpen && state!.opened ? `${SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS}` : '';
-    const sidebarContainerClass =
-        `${SIDEBAR_CONTAINER_CLASS} ${statusClass} ${stickyClass} ${openShadowClass} ${className}`.trim();
-    const elementsContainerTriggerClass = !hideTrigger
-        ? SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS
-        : '';
-    const elementsContainerClass =
-        `${SIDEBAR_ELEMENTS_CONTAINER_CLASS} ${elementsContainerTriggerClass}`.trim();
+    const sidebarContainerClassName = cx(SIDEBAR_CONTAINER_CLASS, statusClass, className, {
+        [SIDEBAR_CONTAINER_STICKY_CLASS]: stickyTop,
+        [SIDEBAR_CONTAINER_OPEN_SHADOW_CLASS]: shadowWhenOpen && state!.opened,
+    });
+    const elementsContainerClassName = cx(SIDEBAR_ELEMENTS_CONTAINER_CLASS, {
+        [SIDEBAR_ELEMENTS_CONTAINER_WITH_TRIGGER_CLASS]: !hideTrigger,
+    });
 
     const width = closedWidth !== undefined && !state!.opened ? closedWidth : undefined;
     const sidebarContainerStyle = { height, top: stickyTop, width, ...style };
 
     return (
-        <aside className={sidebarContainerClass} style={sidebarContainerStyle} {...rest}>
+        <aside className={sidebarContainerClassName} style={sidebarContainerStyle} {...rest}>
             <div className={SIDEBAR_CLASS}>
                 {!hideTrigger && <SidebarTrigger />}
-                <div className={elementsContainerClass}>{children}</div>
+                <div className={elementsContainerClassName}>{children}</div>
             </div>
         </aside>
     );

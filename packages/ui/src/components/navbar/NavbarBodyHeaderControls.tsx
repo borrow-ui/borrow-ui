@@ -2,6 +2,7 @@ import React from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
+import { cx } from '../../utils/classNames';
 import { NavbarBodyHeaderControlsProps } from './Navbar.types';
 
 const NAVBAR_CONTROLS_CLASS = `${UI_PREFIX}__navbar__controls`;
@@ -11,8 +12,9 @@ export const NavbarBodyHeaderControls = ({
     toggleBodyOpen,
     floating,
 }: NavbarBodyHeaderControlsProps): JSX.Element => {
-    const floatingClass = floating ? NAVBAR_CONTROLS_FLOATING_CLASS : '';
-    const controlsClassName = `${NAVBAR_CONTROLS_CLASS} ${floatingClass}`.trim();
+    const controlsClassName = cx(NAVBAR_CONTROLS_CLASS, {
+        [NAVBAR_CONTROLS_FLOATING_CLASS]: floating,
+    });
 
     return (
         <div className={controlsClassName} data-testid="navbar-controls">

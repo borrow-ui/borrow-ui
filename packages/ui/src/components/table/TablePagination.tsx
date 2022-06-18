@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UI_PREFIX } from '../../config';
 import { a11yClickableElement } from '../../utils/a11y';
-
+import { cx } from '../../utils/classNames';
 import { Icon } from '../icon/Icon';
 import { TablePaginationPageProps, TablePaginationProps } from './Table.types';
 
@@ -48,9 +48,9 @@ TablePagination.propTypes = {};
 
 function PaginationPage({ label, pageNumber, page, setPage }: TablePaginationPageProps) {
     const pageLabel = label || `${pageNumber}`;
-    const activePageClassName =
-        page === pageNumber && !label ? TABLE_PAGINATION_PAGE_ACTIVE_CLASS : '';
-    const paginationControlClassName = `${TABLE_PAGINATION_PAGE_CLASS} ${activePageClassName}`;
+    const paginationControlClassName = cx(TABLE_PAGINATION_PAGE_CLASS, {
+        [TABLE_PAGINATION_PAGE_ACTIVE_CLASS]: page === pageNumber && !label,
+    });
     return (
         <div
             className={paginationControlClassName}

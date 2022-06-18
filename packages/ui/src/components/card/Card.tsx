@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
+
 import { CardProps } from './Card.types';
 
 const CARD_CLASS = `${UI_PREFIX}__card`;
@@ -41,45 +43,49 @@ export const Card = ({
     controlsProps = {},
     ...rest
 }: CardProps): JSX.Element => {
-    const shadowedClass = shadowed ? CARD_SHADOWED_CLASS : '';
-    const marginBetweenClass = marginBetween ? CARD_MARGIN_BETWEEN_CLASS : '';
-    const standingHoverClass = standingHover ? CARD_STANDING_HOVER_CLASS : '';
-    const propsClasses = `${shadowedClass} ${marginBetweenClass} ${standingHoverClass}`;
-    const cardClass = `${CARD_CLASS} ${propsClasses} ${className}`;
+    const cardClassName = cx(CARD_CLASS, className, {
+        [CARD_SHADOWED_CLASS]: shadowed,
+        [CARD_MARGIN_BETWEEN_CLASS]: marginBetween,
+        [CARD_STANDING_HOVER_CLASS]: standingHover,
+    });
 
     const { className: sidePropsClassName = '', ...restSideProps } = sideProps;
-    const sideContentClass = sideContent ? CARD_SIDE_WITH_SIDE_CONTENT_CLASS : '';
-    const sideClassName = `${CARD_SIDE_CLASS} ${sideContentClass} ${sidePropsClassName}`;
+    const sideClassName = cx(
+        CARD_SIDE_CLASS,
+        { [CARD_SIDE_WITH_SIDE_CONTENT_CLASS]: !!sideContent },
+        sidePropsClassName
+    );
 
     const { className: iconContainerPropsClassName = '', ...restIconContainerProps } =
         iconContainerProps;
-    const iconContainerClassName = `${CARD_SIDE_ICON_CONTAINER_CLASS} ${iconContainerPropsClassName}`;
+    const iconContainerClassName = cx(CARD_SIDE_ICON_CONTAINER_CLASS, iconContainerPropsClassName);
 
     const { className: mainPropsClassName = '', ...restMainProps } = mainProps;
     const cardMainSideClassName =
         icon || sideContent ? CARD_MAIN_WITH_SIDE_CLASS : CARD_MAIN_WITHOUT_SIDE_CLASS;
-    const mainClassName =
-        `${CARD_MAIN_CLASS} ${cardMainSideClassName} ${mainPropsClassName}`.trim();
+    const mainClassName = cx(CARD_MAIN_CLASS, cardMainSideClassName, mainPropsClassName);
 
     const { className: bodyPropsClassName = '', ...restBodyProps } = bodyProps;
-    const bodyClassName = `${CARD_BODY_CLASS} ${bodyPropsClassName}`.trim();
+    const bodyClassName = cx(CARD_BODY_CLASS, bodyPropsClassName);
 
     const { className: titlePropsClassName = '', ...restTitleProps } = titleProps;
-    const titleClassName = `${CARD_TITLE_CLASS} ${titlePropsClassName}`.trim();
+    const titleClassName = cx(CARD_TITLE_CLASS, titlePropsClassName);
 
     const { className: subtitlePropsClassName = '', ...restSubtitleProps } = subtitleProps;
-    const subtitleClassName = `${CARD_SUBTITLE_CLASS} ${subtitlePropsClassName}`.trim();
+    const subtitleClassName = cx(CARD_SUBTITLE_CLASS, subtitlePropsClassName);
 
     const { className: descriptionPropsClassName = '', ...restDescriptionProps } = descriptionProps;
-    const descriptionWithControlsClassName = controls ? CARD_DESCRIPTION_WITH_CONTROLS_CLASS : '';
-    const descriptionClassName =
-        `${CARD_DESCRIPTION_CLASS} ${descriptionWithControlsClassName} ${descriptionPropsClassName}`.trim();
+    const descriptionClassName = cx(
+        CARD_DESCRIPTION_CLASS,
+        { [CARD_DESCRIPTION_WITH_CONTROLS_CLASS]: !!controls },
+        descriptionPropsClassName
+    );
 
     const { className: controlsPropsClassName = '', ...restControlsProps } = controlsProps;
-    const controlsClassName = `${CARD_CONTROLS_CLASS} ${controlsPropsClassName}`.trim();
+    const controlsClassName = cx(CARD_CONTROLS_CLASS, controlsPropsClassName);
 
     return (
-        <div className={cardClass} {...rest}>
+        <div className={cardClassName} {...rest}>
             {(icon || sideContent) && (
                 <div className={sideClassName} {...restSideProps}>
                     {icon && (

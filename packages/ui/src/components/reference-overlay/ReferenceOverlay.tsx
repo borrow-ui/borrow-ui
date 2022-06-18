@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { usePopper } from 'react-popper';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import {
     ReferenceOverlayContentProps,
     ReferenceOverlayProps,
@@ -54,7 +55,7 @@ export const ReferenceOverlay = ({
 
     const { onClick: propsTriggerOnClick, ...restTriggerProps } = triggerProps;
 
-    const referenceOverlayTriggerClass = `${REFERENCE_OVERLAY_TRIGGER_CLASS} ${className}`.trim();
+    const referenceOverlayTriggerClass = cx(REFERENCE_OVERLAY_TRIGGER_CLASS, className);
 
     const triggerOnClick = (e: React.MouseEvent<HTMLDivElement>) => {
         update && update();
@@ -114,15 +115,12 @@ function ReferenceOverlayContent({
         ...restOverlayArrowProps
     } = overlayArrowProps;
 
-    const referenceOverlayVisibleClass = isVisible ? REFERENCE_OVERLAY_VISIBLE_CLASS : '';
-    const referenceOverlayClass =
-        `${REFERENCE_OVERLAY_CLASS} ${referenceOverlayVisibleClass} ${propsOverlayClass}`.trim();
-
-    const referenceOverlayArrowVisibleClass = isVisible
-        ? REFERENCE_OVERLAY_ARROW_VISIBLE_CLASS
-        : '';
-    const referenceOverlayArrowClass =
-        `${REFERENCE_OVERLAY_ARROW_CLASS} ${referenceOverlayArrowVisibleClass} ${propsOverlayArrowClass}`.trim();
+    const referenceOverlayClass = cx(REFERENCE_OVERLAY_CLASS, propsOverlayClass, {
+        [REFERENCE_OVERLAY_VISIBLE_CLASS]: isVisible,
+    });
+    const referenceOverlayArrowClass = cx(REFERENCE_OVERLAY_ARROW_CLASS, propsOverlayArrowClass, {
+        [REFERENCE_OVERLAY_ARROW_VISIBLE_CLASS]: isVisible,
+    });
 
     const overlayArrowStyle = { ...styles.arrow, ...propsOverlayArrowStyle };
 

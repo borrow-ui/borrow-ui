@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 import { UI_PREFIX } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { PageHeader } from './PageHeader';
 import { PageBody } from './PageBody';
 import { PageHeaderProps } from './Page.types';
@@ -23,8 +23,9 @@ export const Page = ({
     ...rest
 }: PageHeaderProps): JSX.Element => {
     const bodyRef = useRef(null);
-    const continuousScrollClass = continuousScroll ? PAGE_CONTINUOUS_SCROLL_CLASS : '';
-    const pageClass = `${PAGE_CLASS} ${continuousScrollClass} ${className}`;
+    const pageClassName = cx(PAGE_CLASS, className, {
+        [PAGE_CONTINUOUS_SCROLL_CLASS]: continuousScroll,
+    });
 
     const bodyProps = {
         withPageHeader: Boolean(pageHeaderProps !== undefined || title),
@@ -33,7 +34,7 @@ export const Page = ({
     };
 
     return (
-        <div className={pageClass} {...rest}>
+        <div className={pageClassName} {...rest}>
             {title && (
                 <PageHeader
                     scrollRef={bodyRef}

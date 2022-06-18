@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX, config } from '../../config';
-
+import { cx } from '../../utils/classNames';
 import { Block } from '../block/Block';
 import { Icon } from '../icon/Icon';
 import { Text } from '../text/Text';
@@ -30,9 +30,8 @@ export const TileLink = ({
 }: TileLinkProps): JSX.Element => {
     const LinkComponent = href ? 'a' : config.getLinkComponent();
 
-    const tileLinkClassName = `${TILE_LINK_CLASS} ${className}`.trim();
-    const entrySizeClassName = `${TILE_LINK_ENTRY_CLASS}--${size}`;
-    const entryClassName = `${TILE_LINK_ENTRY_CLASS} ${entrySizeClassName}`;
+    const tileLinkClassName = cx(TILE_LINK_CLASS, className);
+    const entryClassName = cx(TILE_LINK_ENTRY_CLASS, `${TILE_LINK_ENTRY_CLASS}--${size}`);
 
     // re-scale the icon size based on tile size
     const iconSize = size === 'small' ? 'big' : 'huge';

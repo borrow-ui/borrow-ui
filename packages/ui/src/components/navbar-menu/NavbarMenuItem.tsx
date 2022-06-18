@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { UI_PREFIX } from '../../config';
+import { cx } from '../../utils/classNames';
 import { NavbarMenuItemProps } from './NavbarMenu.types';
 
 const NAVBAR_MENU_ITEM_CLASS = `${UI_PREFIX}__navbar-menu__item`;
@@ -19,11 +20,10 @@ export const NavbarMenuItem = ({
     const navbarMenuItemClass = `${NAVBAR_MENU_ITEM_CLASS} ${className}`.trim();
 
     const { className: labelPropsClassName = '', ...restLabelPros } = labelProps;
-    const labelClassName = `${NAVBAR_MENU_ITEM_LABEL_CLASS} ${labelPropsClassName}`.trim();
+    const labelClassName = cx(NAVBAR_MENU_ITEM_LABEL_CLASS, labelPropsClassName);
 
     const { className: descriptionPropsClassName = '', ...restDescriptionPros } = descriptionProps;
-    const descriptionClassName =
-        `${NAVBAR_MENU_ITEM_DESCRIPTION_CLASS} ${descriptionPropsClassName}`.trim();
+    const descriptionClassName = cx(NAVBAR_MENU_ITEM_DESCRIPTION_CLASS, descriptionPropsClassName);
 
     return (
         <Tag className={navbarMenuItemClass} {...rest}>
